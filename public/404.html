@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>DEXAM — Design Exam Academy</title>
+    <script>
+      // GitHub Pages has no server-side rewrites, so any direct link or
+      // refresh on a client-side route (e.g. /papers/nid) hits this 404
+      // page. Re-encode the path into a query string and redirect to the
+      // app root; index.html's inline script below decodes it back before
+      // React Router mounts. See https://github.com/rafgraph/spa-github-pages
+      var l = window.location
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        '/?/' +
+        l.pathname.slice(1).replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      )
+    </script>
+  </head>
+  <body></body>
+</html>

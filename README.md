@@ -37,6 +37,24 @@ npm run build    # production build in dist/
 
 Missing images render as labelled placeholder boxes.
 
+## Deploy
+
+Pushing to `main` builds and deploys the site automatically via
+`.github/workflows/deploy.yml` (GitHub Actions → GitHub Pages). One-time setup
+in the GitHub repo: **Settings → Pages → Build and deployment → Source →
+GitHub Actions**.
+
+Custom domain: `public/CNAME` sets it to `designexam.com`. Point the domain's
+DNS at GitHub Pages — either an apex `A` record set to GitHub's four Pages IPs
+(`185.199.108.153`, `.109.153`, `.110.153`, `.111.153`) or a `CNAME` record for
+a `www` subdomain pointing at `jehar-tau.github.io`. To use the default
+`jehar-tau.github.io/Website-Dexam/` URL instead, delete `public/CNAME`.
+
+`public/404.html` + the inline script in `index.html` make client-side routing
+(React Router) work on GitHub Pages, which has no server-side rewrites —
+direct links and refreshes on nested routes (e.g. `/papers/nid`) redirect
+through `404.html` and land back on the right page.
+
 ## Lead capture & paper downloads
 
 The papers pages lock downloads behind a one-time lead form (configurable in
