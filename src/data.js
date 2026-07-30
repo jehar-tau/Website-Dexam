@@ -73,13 +73,13 @@ export const paperYears = [2025, 2024, 2023, 2022, 2021]
 export const heroExamNames = ['NID', 'UCEED', 'NIFT', 'NATA', 'CEED']
 
 // Rotating hero discipline illustrations (public/assets/hero/).
-// Each source image has its own circular composition with a soft margin;
-// zoom crops that margin so the artwork fills the hero disc edge to edge.
+// Each file is pre-cropped square with no residual vignette margin, so no
+// CSS zoom is needed — object-fit: cover fills the hero disc edge to edge.
 export const heroDisciplines = [
   { src: '/assets/hero/interior-design.jpg', label: 'Interior Design', zoom: 1.0 },
-  { src: '/assets/hero/fashion-design.jpg', label: 'Fashion Design', zoom: 1.04 },
+  { src: '/assets/hero/fashion-design.jpg', label: 'Fashion Design', zoom: 1.0 },
   { src: '/assets/hero/communication-design.jpg', label: 'Communication Design', zoom: 1.0 },
-  { src: '/assets/hero/industrial-design.jpg', label: 'Industrial Design', zoom: 1.06 },
+  { src: '/assets/hero/industrial-design.jpg', label: 'Industrial Design', zoom: 1.0 },
   { src: '/assets/hero/graphic-design.jpg', label: 'Graphic Design', zoom: 1.0 },
 ]
 
