@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
+import { config } from './config.js'
 
 const SETTINGS_KEY = 'dexam-cms-v1'
 const DB_NAME = 'dexam-cms-assets'
@@ -117,7 +118,11 @@ export function readCmsPaperLink(id) {
 }
 
 export async function submitToGoogleSheet(type, fields) {
-  const url = readSettings().googleSheetsUrl
+  // config.googleSheetsUrl is baked into the build and works for every
+  // visitor; the /admin CMS field only lives in the admin's own browser
+  // localStorage, so it's a local-testing override at best, never the
+  // real path for actual site visitors.
+  const url = config.googleSheetsUrl || readSettings().googleSheetsUrl
   if (!url) return { configured: false }
   await fetch(url, {
     method: 'POST',
