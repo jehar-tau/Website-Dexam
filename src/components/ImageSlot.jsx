@@ -10,7 +10,7 @@ export default function ImageSlot({ slotId, src, alt = '', placeholder, radius =
   useEffect(() => setFailed(false), [finalSrc])
   const style = { borderRadius: radius, overflow: 'hidden', height: height || '100%' }
   return (
-    <div className="img-slot" style={style}>
+    <div className={'img-slot' + (finalSrc && !failed ? ' img-slot--filled' : '')} style={style}>
       {finalSrc && !failed
         ? <img src={finalSrc} alt={alt} style={imgStyle} onError={() => setFailed(true)} />
         : <span>{placeholder}</span>}
