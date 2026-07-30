@@ -3,7 +3,7 @@ import { waLink } from '../config.js'
 import { submitToGoogleSheet } from '../cms.jsx'
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', phone: '', msg: '' })
+  const [form, setForm] = useState({ name: '', phone: '', location: '' })
   const [errors, setErrors] = useState({})
   const [done, setDone] = useState(false)
 
@@ -16,6 +16,7 @@ export default function Contact() {
     const errs = {
       name: form.name.trim().length < 2,
       phone: !/^[0-9]{10}$/.test(form.phone.replace(/[\s-]/g, '')),
+      location: form.location.trim().length < 2,
     }
     if (Object.values(errs).some(Boolean)) {
       setErrors(errs)
@@ -85,14 +86,13 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="field-label">What do you want to talk about?</label>
-                  <textarea
-                    className="field-input"
-                    style={{ padding: 12, resize: 'vertical' }}
-                    rows={3}
-                    value={form.msg}
-                    onChange={set('msg')}
-                    placeholder="e.g. My daughter is in 11th and interested in NID…"
+                  <label className="field-label">Location *</label>
+                  <input
+                    className={'field-input' + (errors.location ? ' field-input--error' : '')}
+                    style={{ padding: 12 }}
+                    value={form.location}
+                    onChange={set('location')}
+                    placeholder="e.g. Hadapsar, Pune"
                   />
                 </div>
                 <button className="btn btn--orange" onClick={submit}>Request a call back</button>

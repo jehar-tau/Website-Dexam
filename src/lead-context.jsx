@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { config } from './config.js'
-import { examData } from './data.js'
 import { readCmsPaperLink, submitToGoogleSheet } from './cms.jsx'
 
 // Lead-capture flow: papers are locked until the visitor fills the form once
@@ -33,7 +32,7 @@ export function getAdminLink(examId, year) {
   }
 }
 
-const emptyFields = { name: '', parent: '', phone: '', email: '', cls: '', exam: '', city: '' }
+const emptyFields = { name: '', phone: '', location: '' }
 
 export function LeadProvider({ children }) {
   const stored = loadStored()
@@ -58,12 +57,10 @@ export function LeadProvider({ children }) {
   }
 
   const openUnlock = (examId, year) => {
-    const exam = examData.find((e) => e.id === examId)
     setModalPaper({ examId, year })
     setFormDone(false)
     setDownloaded(false)
     setErrors({})
-    setFields((f) => ({ ...f, exam: f.exam || (exam ? exam.name.split(' ')[0] : '') }))
   }
 
   const openDownload = (examId, year) => {
@@ -83,18 +80,11 @@ export function LeadProvider({ children }) {
 
   const closeModal = () => setModalPaper(null)
 
-  const validate = () => {
-    const detailed = config.formVariant === 'detailed'
-    return {
-      name: fields.name.trim().length < 2,
-      phone: !/^[0-9]{10}$/.test(fields.phone.replace(/[\s-]/g, '')),
-      email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email),
-      cls: !fields.cls,
-      exam: !fields.exam,
-      parent: detailed && fields.parent.trim().length < 2,
-      city: detailed && fields.city.trim().length < 2,
-    }
-  }
+  const validate = () => ({
+    name: fields.name.trim().length < 2,
+    phone: !/^[0-9]{10}$/.test(fields.phone.replace(/[\s-]/g, '')),
+    location: fields.location.trim().length < 2,
+  })
 
   const submitForm = async () => {
     const errs = validate()

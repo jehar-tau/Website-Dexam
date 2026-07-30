@@ -1,5 +1,5 @@
 import { useLead } from '../lead-context.jsx'
-import { config, waLink } from '../config.js'
+import { waLink } from '../config.js'
 import { examData } from '../data.js'
 
 function Field({ label, error, errorMsg, children }) {
@@ -17,7 +17,6 @@ export default function LeadModal() {
   const { modalPaper, formDone, downloaded, fields, errors } = lead
   if (!modalPaper) return null
 
-  const detailed = config.formVariant === 'detailed'
   const exam = examData.find((e) => e.id === modalPaper.examId)
   const paperLabel = modalPaper.year
     ? `${exam ? exam.name : ''} · ${modalPaper.year} — fill this once to unlock your downloads.`
@@ -53,55 +52,15 @@ export default function LeadModal() {
             </div>
             <p style={{ margin: '0 0 16px', fontSize: 13, color: 'var(--muted)' }}>{paperLabel}</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              <Field label="Student name *" error={errors.name} errorMsg="Please enter the student's name">
+              <Field label="Student / parent name *" error={errors.name} errorMsg="Please enter a name">
                 {input('name', { placeholder: 'Full name' })}
               </Field>
-              {detailed && (
-                <Field label="Parent name *" error={errors.parent} errorMsg="Please enter a parent's name">
-                  {input('parent', { placeholder: 'Parent / guardian name' })}
-                </Field>
-              )}
               <Field label="Phone number *" error={errors.phone} errorMsg="Enter a valid 10-digit phone number">
                 {input('phone', { placeholder: '10-digit mobile number' })}
               </Field>
-              <Field label="Email *" error={errors.email} errorMsg="Enter a valid email address">
-                {input('email', { placeholder: 'you@example.com', type: 'email' })}
+              <Field label="Location *" error={errors.location} errorMsg="Please enter your city or area">
+                {input('location', { placeholder: 'e.g. Hadapsar, Pune' })}
               </Field>
-              <div style={{ display: 'flex', gap: 10 }}>
-                <div style={{ flex: 1 }}>
-                  <Field label="Student class *" error={errors.cls} errorMsg="Select a class">
-                    <select
-                      className={'field-input' + (errors.cls ? ' field-input--error' : '')}
-                      style={{ fontSize: 13.5, padding: '11px 10px' }}
-                      value={fields.cls}
-                      onChange={(e) => lead.setField('cls', e.target.value)}
-                    >
-                      <option value="">Select…</option>
-                      <option>9th</option><option>10th</option><option>11th</option><option>12th</option>
-                      <option>Drop year</option><option>Graduate</option><option>Other</option>
-                    </select>
-                  </Field>
-                </div>
-                <div style={{ flex: 1 }}>
-                  <Field label="Target exam *" error={errors.exam} errorMsg="Select an exam">
-                    <select
-                      className={'field-input' + (errors.exam ? ' field-input--error' : '')}
-                      style={{ fontSize: 13.5, padding: '11px 10px' }}
-                      value={fields.exam}
-                      onChange={(e) => lead.setField('exam', e.target.value)}
-                    >
-                      <option value="">Select…</option>
-                      <option>NID</option><option>UCEED</option><option>NIFT</option><option>NATA</option>
-                      <option>CEED</option><option>UID / Private design exams</option><option>Not sure yet</option>
-                    </select>
-                  </Field>
-                </div>
-              </div>
-              {detailed && (
-                <Field label="City / area *" error={errors.city} errorMsg="Please enter your city or area">
-                  {input('city', { placeholder: 'e.g. Hadapsar, Pune' })}
-                </Field>
-              )}
               <button className="btn btn--orange" style={{ marginTop: 2 }} onClick={lead.submitForm}>
                 Unlock previous year papers
               </button>

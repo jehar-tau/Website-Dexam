@@ -10,11 +10,11 @@ function doPost(e) {
   var sheet = spreadsheet.getSheetByName(sheetName) || spreadsheet.insertSheet(sheetName);
 
   var headers = isPaper
-    ? ['Submitted At', 'Name', 'Parent', 'Phone', 'Email', 'Class', 'Exam', 'City', 'Exam ID', 'Paper Year', 'Page']
-    : ['Submitted At', 'Name', 'Phone', 'Message', 'Page'];
+    ? ['Submitted At', 'Name', 'Phone', 'Location', 'Exam ID', 'Paper Year', 'Page']
+    : ['Submitted At', 'Name', 'Phone', 'Location', 'Page'];
   var row = isPaper
-    ? [data.submittedAt, data.name, data.parent, data.phone, data.email, data.cls, data.exam, data.city, data.examId, data.paperYear, data.page]
-    : [data.submittedAt, data.name, data.phone, data.msg, data.page];
+    ? [data.submittedAt, data.name, data.phone, data.location, data.examId, data.paperYear, data.page]
+    : [data.submittedAt, data.name, data.phone, data.location, data.page];
 
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(headers);
