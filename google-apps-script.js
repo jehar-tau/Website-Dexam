@@ -1,10 +1,14 @@
-// Paste this into Extensions > Apps Script in the Google Sheet that should
-// receive DEXAM enquiries. Deploy as Web app, executing as you, with access
-// set to Anyone. Then paste the /exec URL into DEXAM CMS > Google Sheets.
+// Standalone Apps Script project (script.google.com > New project) that
+// writes DEXAM form submissions into the sheet below, targeted by ID so it
+// works regardless of how the project was created. Deploy as Web app,
+// executing as you, with access set to Anyone. Then paste the /exec URL
+// into DEXAM CMS > Google Sheets.
+
+var SPREADSHEET_ID = '1GKvuLIp3prV2pWZxt8VPM7rJhJ_MdnYtCLk0MqD4Ypg';
 
 function doPost(e) {
   var data = JSON.parse(e.postData.contents || '{}');
-  var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  var spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
   var isPaper = data.type === 'paper_download';
   var sheetName = isPaper ? 'Paper Downloads' : 'Counselling';
   var sheet = spreadsheet.getSheetByName(sheetName) || spreadsheet.insertSheet(sheetName);
