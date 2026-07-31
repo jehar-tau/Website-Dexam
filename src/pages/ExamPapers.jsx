@@ -1,6 +1,6 @@
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { waLink } from '../config.js'
-import { examData, paperYears, howToUse } from '../data.js'
+import { examData, examPapers, driveDownloadUrl, howToUse } from '../data.js'
 import { useLead } from '../lead-context.jsx'
 
 export default function ExamPapers() {
@@ -30,26 +30,38 @@ export default function ExamPapers() {
 
           <h2 style={{ margin: '0 0 14px', fontSize: 22 }}>Year-wise papers</h2>
           <div className="card" style={{ overflow: 'hidden', marginBottom: 10 }}>
-            {paperYears.map((year) => {
-              const unlocked = lead.isUnlocked(exam.id, year)
+            {(examPapers[exam.id] || []).map((paper) => {
+              const unlocked = lead.isUnlocked(paper.id)
               return (
-                <div key={year} style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '15px 18px', borderBottom: '1px solid var(--line-soft)' }}>
-                  <span style={{ fontFamily: "'Zilla Slab',serif", fontWeight: 700, fontSize: 17, width: 48 }}>{year}</span>
+                <div key={paper.id} style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '15px 18px', borderBottom: '1px solid var(--line-soft)' }}>
+                  <span style={{ fontFamily: "'Zilla Slab',serif", fontWeight: 700, fontSize: 15 }}>{paper.label}</span>
                   <span style={{ flex: 1, fontSize: 13, color: 'var(--muted)' }}>{exam.paperType}</span>
                   {unlocked ? (
-                    <button
-                      className="btn btn--green"
-                      style={{ fontSize: 13, padding: '9px 14px', borderRadius: 7, whiteSpace: 'nowrap' }}
-                      onClick={() => lead.openDownload(exam.id, year)}
-                    >
-                      ↓ Download
-                    </button>
+                    <div style={{ display: 'flex', gap: 8 }}>
+                      {paper.keyFileId && (
+                        <a
+                          href={driveDownloadUrl(paper.keyFileId)}
+                          target="_blank"
+                          rel="noreferrer"
+                          style={{ fontSize: 12.5, fontWeight: 700, color: 'var(--muted)', border: '1.5px solid var(--line)', padding: '9px 12px', borderRadius: 7, whiteSpace: 'nowrap' }}
+                        >
+                          Answer key
+                        </a>
+                      )}
+                      <button
+                        className="btn btn--green"
+                        style={{ fontSize: 13, padding: '9px 14px', borderRadius: 7, whiteSpace: 'nowrap' }}
+                        onClick={() => lead.openDownload(exam.id, paper)}
+                      >
+                        ↓ Download
+                      </button>
+                    </div>
                   ) : (
                     <button
                       style={{ fontSize: 13, fontWeight: 700, color: 'var(--orange)', background: 'transparent', border: '1.5px solid var(--orange)', padding: '8px 14px', borderRadius: 7, cursor: 'pointer', whiteSpace: 'nowrap', fontFamily: 'inherit' }}
                       onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--orange)'; e.currentTarget.style.color = '#fff' }}
                       onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--orange)' }}
-                      onClick={() => lead.openUnlock(exam.id, year)}
+                      onClick={() => lead.openUnlock(exam.id, paper)}
                     >
                       🔒 Unlock
                     </button>

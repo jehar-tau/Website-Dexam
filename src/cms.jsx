@@ -21,8 +21,8 @@ export const baseLinks = [
 ]
 
 function readSettings() {
-  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY)) || { links: {}, paperLinks: {} } }
-  catch { return { links: {}, paperLinks: {} } }
+  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY)) || { links: {} } }
+  catch { return { links: {} } }
 }
 
 function openDb() {
@@ -108,14 +108,10 @@ export function CmsProvider({ children }) {
   }
   const link = (id, fallback = '#') => settings.links?.[id] || fallback
 
-  return <CmsContext.Provider value={{ images, settings, saveImage, removeImage, saveLinks: (v) => saveSection('links', v), savePaperLinks: (v) => saveSection('paperLinks', v), saveGoogleSheetsUrl: (v) => saveSection('googleSheetsUrl', v), link }}>{children}</CmsContext.Provider>
+  return <CmsContext.Provider value={{ images, settings, saveImage, removeImage, saveLinks: (v) => saveSection('links', v), saveGoogleSheetsUrl: (v) => saveSection('googleSheetsUrl', v), link }}>{children}</CmsContext.Provider>
 }
 
 export const useCms = () => useContext(CmsContext)
-
-export function readCmsPaperLink(id) {
-  return readSettings().paperLinks?.[id] || null
-}
 
 export async function submitToGoogleSheet(type, fields) {
   // config.googleSheetsUrl is baked into the build and works for every

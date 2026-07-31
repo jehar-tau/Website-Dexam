@@ -1,11 +1,13 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { config } from './config.js'
-import { readCmsPaperLink, submitToGoogleSheet } from './cms.jsx'
+import { driveDownloadUrl } from './data.js'
+import { submitToGoogleSheet } from './cms.jsx'
 
 // Lead-capture flow: papers are locked until the visitor fills the form once
 // (config.unlockAll) or per paper. Unlock state persists in localStorage.
-// Paper download links are read from the DEXAM Admin app's localStorage
-// ('dexam-admin-v1' → paperLinks['<examId>-<year>']).
+// Paper download links come from each paper's fileId (data.js's examPapers),
+// baked into the build so they work for every visitor — not from the
+// browser-local CMS.
 
 const LeadContext = createContext(null)
 export const useLead = () => useContext(LeadContext)
@@ -20,25 +22,13 @@ function loadStored() {
   }
 }
 
-export function getAdminLink(examId, year) {
-  const cmsLink = readCmsPaperLink(examId + '-' + year)
-  if (cmsLink) return cmsLink
-  try {
-    const raw = localStorage.getItem('dexam-admin-v1')
-    if (!raw) return null
-    return (JSON.parse(raw).paperLinks || {})[examId + '-' + year] || null
-  } catch {
-    return null
-  }
-}
-
 const emptyFields = { name: '', phone: '', location: '' }
 
 export function LeadProvider({ children }) {
   const stored = loadStored()
   const [leadCaptured, setLeadCaptured] = useState(!!stored.leadCaptured)
   const [unlockedKeys, setUnlockedKeys] = useState(stored.unlockedKeys || {})
-  const [modalPaper, setModalPaper] = useState(null) // { examId, year } | null
+  const [modalPaper, setModalPaper] = useState(null) // { examId, paper } | null; paper is null for the bare "get papers" form
   const [formDone, setFormDone] = useState(false)
   const [downloaded, setDownloaded] = useState(false)
   const [fields, setFields] = useState(emptyFields)
@@ -48,31 +38,30 @@ export function LeadProvider({ children }) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ leadCaptured, unlockedKeys }))
   }, [leadCaptured, unlockedKeys])
 
-  const isUnlocked = (examId, year) =>
-    !!unlockedKeys[examId + '-' + year] || (config.unlockAll && leadCaptured)
+  const isUnlocked = (paperId) =>
+    !!unlockedKeys[paperId] || (config.unlockAll && leadCaptured)
 
   const setField = (key, value) => {
     setFields((f) => ({ ...f, [key]: value }))
     setErrors((e) => ({ ...e, [key]: false }))
   }
 
-  const openUnlock = (examId, year) => {
-    setModalPaper({ examId, year })
+  const openUnlock = (examId, paper) => {
+    setModalPaper({ examId, paper })
     setFormDone(false)
     setDownloaded(false)
     setErrors({})
   }
 
-  const openDownload = (examId, year) => {
-    const link = getAdminLink(examId, year)
-    if (link) window.open(link, '_blank')
-    setModalPaper({ examId, year })
+  const openDownload = (examId, paper) => {
+    window.open(driveDownloadUrl(paper.fileId), '_blank')
+    setModalPaper({ examId, paper })
     setFormDone(true)
     setDownloaded(false)
   }
 
   const openLeadForm = () => {
-    setModalPaper({ examId: null, year: null })
+    setModalPaper({ examId: null, paper: null })
     setFormDone(false)
     setDownloaded(false)
     setErrors({})
@@ -98,21 +87,20 @@ export function LeadProvider({ children }) {
     submitToGoogleSheet('paper_download', {
       ...fields,
       examId: modalPaper?.examId || '',
-      paperYear: modalPaper?.year || '',
+      paperLabel: modalPaper?.paper?.label || '',
     }).catch(() => {})
-    if (modalPaper && modalPaper.year) {
-      setUnlockedKeys((k) => ({ ...k, [modalPaper.examId + '-' + modalPaper.year]: true }))
+    if (modalPaper && modalPaper.paper) {
+      setUnlockedKeys((k) => ({ ...k, [modalPaper.paper.id]: true }))
     }
   }
 
   const downloadNow = () => {
-    if (modalPaper && !modalPaper.year) {
+    if (modalPaper && !modalPaper.paper) {
       setModalPaper(null)
       return
     }
     if (modalPaper) {
-      const link = getAdminLink(modalPaper.examId, modalPaper.year)
-      if (link) window.open(link, '_blank')
+      window.open(driveDownloadUrl(modalPaper.paper.fileId), '_blank')
     }
     setDownloaded(true)
   }

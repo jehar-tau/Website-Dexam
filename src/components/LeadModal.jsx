@@ -18,14 +18,14 @@ export default function LeadModal() {
   if (!modalPaper) return null
 
   const exam = examData.find((e) => e.id === modalPaper.examId)
-  const paperLabel = modalPaper.year
-    ? `${exam ? exam.name : ''} · ${modalPaper.year} — fill this once to unlock your downloads.`
+  const introLabel = modalPaper.paper
+    ? `${exam ? exam.name : ''} · ${modalPaper.paper.label} — fill this once to unlock your downloads.`
     : 'Fill this once to unlock all paper downloads.'
-  const downloadLabel = !modalPaper.year
+  const downloadLabel = !modalPaper.paper
     ? 'Browse unlocked papers'
     : downloaded
       ? '✓ Downloading PDF…'
-      : `Download ${exam ? exam.name : ''} ${modalPaper.year} paper`
+      : `Download ${exam ? exam.name : ''} ${modalPaper.paper.label} paper`
 
   const input = (key, props = {}) => (
     <input
@@ -50,7 +50,7 @@ export default function LeadModal() {
                 ✕
               </span>
             </div>
-            <p style={{ margin: '0 0 16px', fontSize: 13, color: 'var(--muted)' }}>{paperLabel}</p>
+            <p style={{ margin: '0 0 16px', fontSize: 13, color: 'var(--muted)' }}>{introLabel}</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               <Field label="Student / parent name *" error={errors.name} errorMsg="Please enter a name">
                 {input('name', { placeholder: 'Full name' })}

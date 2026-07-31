@@ -68,7 +68,90 @@ export const examData = [
   },
 ]
 
-export const paperYears = [2025, 2024, 2023, 2022, 2021]
+// Real previous-year papers, sourced from the DEXAM Google Drive folder
+// (https://drive.google.com/drive/folders/1nnANiltXcPo3nlOaPRBgXZBpIKnbjrCW).
+// fileId/keyFileId are Google Drive file IDs; driveDownloadUrl() below turns
+// them into direct-download links. Baked into the build so every visitor
+// gets working links -- not stored in the browser-local CMS.
+export function driveDownloadUrl(fileId) {
+  return 'https://drive.google.com/uc?export=download&id=' + fileId
+}
+
+export const examPapers = {
+  nid: [
+    { id: 'nid-2020', label: '2020', fileId: '1UnA-QZkQMlTgY8olIhTC2VIeBiKndbnn' },
+    { id: 'nid-2019', label: '2019', fileId: '1ghmUBxb5fMoNVAl6uRgMx5ysDL5NR_YO' },
+    { id: 'nid-2018', label: '2018', fileId: '1p9w5Vk5xbVVOn-pEmdr4c3_tMET7jQDG' },
+    { id: 'nid-2017', label: '2017', fileId: '1hJNyLMrmJcJJtYAwf62ALORzByzQMiis' },
+    { id: 'nid-2016', label: '2016', fileId: '1VjxohsuFjnxshoS8cLTowWUWOCkiMoR8' },
+    { id: 'nid-sample-bdes', label: 'DAT Prelims — B.Des sample paper', fileId: '109NPZmjrzkpKkhEkaghZ7K42lwNSo6vZ' },
+    { id: 'nid-sample-mdes', label: 'DAT Prelims — M.Des sample paper', fileId: '1asCkmetPzUNSSTRQs8KSI5h5ALYJDHaY' },
+  ],
+  uceed: [
+    { id: 'uceed-2026', label: '2026', fileId: '1rMdaP3Yoo4hnM5X4_xIfO1Q4pIgdeZo3', keyFileId: '1GF_jQqTMEpBjHFPEgwCJ32UMxdmWGVh6' },
+    { id: 'uceed-2025', label: '2025', fileId: '1pSy2frhxiBvGTlbwF4QYEocQG1CA_x6f' },
+    { id: 'uceed-2024', label: '2024', fileId: '1kjtkhM7WbDr0UQQxK2Ic3nFr2UkGDhER' },
+    { id: 'uceed-2023', label: '2023', fileId: '1wKr1CBum29-EchbH5IG9XH6PQOGLOZA7' },
+    { id: 'uceed-2022', label: '2022', fileId: '1lqbX6nkN16gK_uAPS3d0h4UjWUxb76sF' },
+    { id: 'uceed-2021', label: '2021', fileId: '1zKz3kCSLvNWxO76hVYgDbrQF1xuuglbl' },
+    { id: 'uceed-2020', label: '2020', fileId: '1CzgVCR3bqR4sfHv7MBw5tbHKuET8poxQ' },
+    { id: 'uceed-2019', label: '2019', fileId: '1VDMieXxr85QdtdKFWnZmS_XeaZwDqUwB' },
+    { id: 'uceed-2018', label: '2018', fileId: '1_P1Ik_iCoaEZccpqSS6s5DDar0rB5cCU' },
+    { id: 'uceed-2017', label: '2017', fileId: '1iX3hpikGkaqNYuNlYy00SRDzVtunWOhh' },
+    { id: 'uceed-2016', label: '2016', fileId: '1URzbTLkZQ0Vn5LxoT7fHDoCO5gR1D_kb' },
+    { id: 'uceed-2015', label: '2015', fileId: '1tVTZmwBRf2lGvXH5n75tBllHrmLhm9t-' },
+  ],
+  nift: [
+    { id: 'nift-2014', label: '2014', fileId: '1ceh_Vbvsy4r5cpHCj8hAEY9HY-pza8LK' },
+    { id: 'nift-2013', label: '2013', fileId: '1fCA0Ue3C9-U6pJjtidHDnSC5Hx3RmW3z' },
+    { id: 'nift-2012', label: '2012', fileId: '1g5H6ERvQmL1uFOcYllNSug41r797naNe' },
+    { id: 'nift-bdes', label: 'B.Des sample paper', fileId: '1ju-ZYXhABdRncrSynvWYVMh2SQ5kARlB' },
+    { id: 'nift-bdes-cat', label: 'B.Des CAT sample paper', fileId: '1D7Wx7wgSSyyPzjLOzWRvnBZ9OEJmMK6F' },
+    { id: 'nift-bft', label: 'B.F.T sample paper', fileId: '1f-Z8CNT1gti7BqtmNfXGLpO5lc3mDAnG' },
+    { id: 'nift-mdes', label: 'M.Des sample paper', fileId: '13Zjd_cKlEYc_RrKcQGrsGmAJ1d6xO3dS' },
+    { id: 'nift-mdes-cat', label: 'M.Des CAT sample paper', fileId: '1WTx_Qx_Hbu_-Y9-jBo34D9AZaQcuCAOp' },
+    { id: 'nift-mfm', label: 'M.F.M sample paper', fileId: '1Rl4rnWDI4A8AyintMckXppgghjdMRbUr' },
+  ],
+  nata: [
+    { id: 'nata-2025', label: '2025', fileId: '1vuc_VyY1ZhQIVpn696yOSqF_Ulbolx1L' },
+    { id: 'nata-2024', label: '2024', fileId: '1Re0GoLqicxoiosWasrkAU5toQHDpFt2K' },
+    { id: 'nata-2023-2nd-shift2', label: '2023 — 2nd Attempt, Shift 2', fileId: '19R03zPKjJz-zbIN164EPeEI6zv4WuCcs' },
+    { id: 'nata-2023-2nd-shift1', label: '2023 — 2nd Attempt, Shift 1', fileId: '1E2wA9BxeurXBxTokT2Sr7kuxefahDPxo' },
+    { id: 'nata-2023-1st-shift2', label: '2023 — 1st Attempt, Shift 2', fileId: '1CIlcQkK-uNeBe0DiYtjuSmL5B2z454ke' },
+    { id: 'nata-2023-1st-shift1', label: '2023 — 1st Attempt, Shift 1', fileId: '1311rT_415dDM98-x-oolV-9EtBySBEkT' },
+    { id: 'nata-2022-2nd-shift1', label: '2022 — 2nd Attempt, Shift 1', fileId: '1VXjzruYEwQIpm_PZdGhCTih9ctcYDJWj' },
+    { id: 'nata-2022-3rd-test', label: '2022 — 3rd Test', fileId: '1MmzxutddBEXgrO0TcSsuwN1LOMC3PbVZ' },
+    { id: 'nata-2022-2nd-shift2', label: '2022 — 2nd Attempt, Shift 2', fileId: '13oIEyQq5MsNOZ3PCm1gCWKYOjlAaId6m' },
+    { id: 'nata-2022-1st-shift1', label: '2022 — 1st Test (June), Shift 1', fileId: '1LOJgSZG8Xa3kpqaPcG_DBCLBNKE59Lbv' },
+    { id: 'nata-2021-jul', label: '2021 — July', fileId: '1EDx1KH3J6nM_YMkIlsEaM5muhJp_S4ea' },
+    { id: 'nata-2021-sep', label: '2021 — September', fileId: '1vqYOlw4FIF9YwWXB7BSJilQbprCohXcX' },
+    { id: 'nata-2021-apr', label: '2021 — April', fileId: '1F2Toao0h88f17mauuFh9UR0FxkbCimB_' },
+    { id: 'nata-2020-aug', label: '2020 — August', fileId: '1aQ0xKGmI9rKsgZ6TOqPxSdDb5pw64fAU' },
+    { id: 'nata-2019-apr', label: '2019 — April', fileId: '1yhDs1G4EHYD0OFMx91j8UW3LqMCYWKEh' },
+    { id: 'nata-2019-jul', label: '2019 — July', fileId: '15jubmGtuMSQL5vTa75UeubAtEpYjvOis' },
+    { id: 'nata-2018', label: '2018', fileId: '1slMyHK6mMEdxeTfrZgQSrPhfs08JKSao' },
+  ],
+  ceed: [
+    { id: 'ceed-2026', label: '2026', fileId: '121MW-oZj9qBNLR7OSc39yg8f_8tYa069' },
+    { id: 'ceed-2025', label: '2025', fileId: '1TyzqPPAw27eBtPuLsnMyDGjDiCerGZap', keyFileId: '1_Zif4VxXDc7-PNFULGT6k6O2vN829nf6' },
+    { id: 'ceed-2024', label: '2024', fileId: '1r6Ys0bZZxBY9CjFbnJ3Zqb_rAFwkBom2', keyFileId: '1LTYNwkDH_96I3YzeUxV0Di8s-m2QCS3S' },
+    { id: 'ceed-2023', label: '2023', fileId: '1d_P6qxpLAQ2LfLDaZHVAoSpkzd6RZ8Df', keyFileId: '1AdMNfzv_RusjC6si4yLGsNevTGm1c7Ev' },
+    { id: 'ceed-2022', label: '2022', fileId: '1pz4hlmKwxAlMqrufAkmF-bJ-qgX30Tnc', keyFileId: '1BR52ZhYQ5UIUzlid12pyWQw86oGlrgFz' },
+    { id: 'ceed-2021', label: '2021', fileId: '1g_pLcTUKLNp9Whj1W8dtXkR3R1iFlWkn', keyFileId: '1Y3VtGkDrZ2C_Nc6YQmTBjGg3esFxwYS4' },
+    { id: 'ceed-2020', label: '2020', fileId: '1n9oZ8r8nO1jhcjJgoCk23ISR-NVRrQEx', keyFileId: '1hI1O3RV7X-V_Lhfq_4uweOPx5N7LhKXS' },
+    { id: 'ceed-2019', label: '2019', fileId: '16EVaoO8P1yeoSoOKyX0cp-UyK4pU7dls' },
+    { id: 'ceed-2018', label: '2018', fileId: '1P7MP1UJZvjtMjDk737o39QVANBD1kdQq' },
+    { id: 'ceed-2017', label: '2017', fileId: '1af3PLpXjjXLb2Ovx9Wjp5EnaSPNygUh9' },
+    { id: 'ceed-2016-set1', label: '2016 — Set 1', fileId: '1yDYbXkGchlXCGUJii3dxs5GslytndsxC' },
+    { id: 'ceed-2016-set2', label: '2016 — Set 2', fileId: '1rsvjXd7WkGet4vT4vlzbFXO18LcuRFgM' },
+    { id: 'ceed-2015', label: '2015', fileId: '1W5J5uMKg0epNZtFhoIr-XDhv3fAgaXsN' },
+    { id: 'ceed-2014', label: '2014', fileId: '1rMQ7XAPrFfKOvtH5hkAXyljaxLJkwFDe' },
+    { id: 'ceed-2013', label: '2013', fileId: '1qqIzg3i_t0m1rPU-ooaJWyRF2Gl3b3is' },
+    { id: 'ceed-2012', label: '2012', fileId: '1sUIu6HDNCALDIe1fmbX8nb6gpvGqFAqV' },
+    { id: 'ceed-2011', label: '2011', fileId: '11Bw4iNG9HymBT7y16Ir3AQDvzBFAPYoP' },
+    { id: 'ceed-2010', label: '2010', fileId: '1X5VDou_XSar8putc_NY2huSQL26iG-5B' },
+  ],
+}
 
 export const heroExamNames = ['NID', 'UCEED', 'NIFT', 'NATA', 'CEED']
 

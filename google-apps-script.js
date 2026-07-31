@@ -14,10 +14,10 @@ function doPost(e) {
   var sheet = spreadsheet.getSheetByName(sheetName) || spreadsheet.insertSheet(sheetName);
 
   var headers = isPaper
-    ? ['Submitted At', 'Name', 'Phone', 'Location', 'Exam ID', 'Paper Year', 'Page']
+    ? ['Submitted At', 'Name', 'Phone', 'Location', 'Exam ID', 'Paper', 'Page']
     : ['Submitted At', 'Name', 'Phone', 'Location', 'Page'];
   var row = isPaper
-    ? [data.submittedAt, data.name, data.phone, data.location, data.examId, data.paperYear, data.page]
+    ? [data.submittedAt, data.name, data.phone, data.location, data.examId, data.paperLabel, data.page]
     : [data.submittedAt, data.name, data.phone, data.location, data.page];
 
   if (sheet.getLastRow() === 0) {

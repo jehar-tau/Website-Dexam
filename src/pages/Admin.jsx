@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Cropper from 'react-easy-crop'
-import { examData, paperYears } from '../data.js'
+import { examData, examPapers } from '../data.js'
 import { baseLinks, imageSlots, useCms } from '../cms.jsx'
 
 function cropImage(src, crop, size) {
@@ -45,33 +45,29 @@ export default function Admin() {
   const [tab, setTab] = useState('images')
   const [editing, setEditing] = useState(null)
   const [linkDrafts, setLinkDrafts] = useState({})
-  const [paperDrafts, setPaperDrafts] = useState({})
   const [saved, setSaved] = useState('')
   const [sheetsUrl, setSheetsUrl] = useState('')
   useEffect(() => {
     setLinkDrafts(Object.fromEntries(baseLinks.map((item) => [item.id, cms.settings.links?.[item.id] ?? item.value])))
-    setPaperDrafts(cms.settings.paperLinks || {})
     setSheetsUrl(cms.settings.googleSheetsUrl || '')
   }, [cms.settings])
   const confirmSave = (section) => {
     if (section === 'links') cms.saveLinks(linkDrafts)
-    if (section === 'downloads') cms.savePaperLinks(paperDrafts)
     if (section === 'images') { const c = new BroadcastChannel('dexam-cms'); c.postMessage('images'); c.close() }
     if (section === 'sheets') cms.saveGoogleSheetsUrl(sheetsUrl)
     setSaved(section)
     setTimeout(() => setSaved(''), 2200)
   }
-  const paperRows = useMemo(() => examData.flatMap((e) => paperYears.map((year) => ({ id: `${e.id}-${year}`, label: `${e.name} — ${year}` }))), [])
   return <div className="cms-page">
     <div className="cms-hero"><div><span>DEXAM CMS</span><h1>Website content manager</h1><p>Manage every website image and destination from one place.</p></div><a className="btn btn--white" href="/" target="_blank">View website ↗</a></div>
     <div className="cms-shell">
-      <div className="cms-tabs"><button className={tab === 'images' ? 'active' : ''} onClick={() => setTab('images')}>Images</button><button className={tab === 'links' ? 'active' : ''} onClick={() => setTab('links')}>Website links</button><button className={tab === 'downloads' ? 'active' : ''} onClick={() => setTab('downloads')}>Paper downloads</button><button className={tab === 'sheets' ? 'active' : ''} onClick={() => setTab('sheets')}>Google Sheets</button></div>
+      <div className="cms-tabs"><button className={tab === 'images' ? 'active' : ''} onClick={() => setTab('images')}>Images</button><button className={tab === 'links' ? 'active' : ''} onClick={() => setTab('links')}>Website links</button><button className={tab === 'papers' ? 'active' : ''} onClick={() => setTab('papers')}>Papers</button><button className={tab === 'sheets' ? 'active' : ''} onClick={() => setTab('sheets')}>Google Sheets</button></div>
       {tab === 'images' && <><div className="cms-grid">{imageSlots.map((slot) => <div className="cms-image-card" key={slot.id}>
         <div className="cms-thumb">{cms.images[slot.id] ? <img src={cms.images[slot.id]} alt="" /> : <span>No custom image</span>}</div>
         <small>{slot.group}</small><b>{slot.label}</b><div><button onClick={() => setEditing(slot)}>{cms.images[slot.id] ? 'Edit / recrop' : 'Upload image'}</button>{cms.images[slot.id] && <button className="danger" onClick={() => cms.removeImage(slot.id)}>Remove</button>}</div>
       </div>)}</div><div className="cms-savebar"><span>{saved === 'images' ? 'Images saved and synced to the website.' : 'Finished editing images?'}</span><button className="btn btn--orange" onClick={() => confirmSave('images')}>Save image page</button></div></>}
       {tab === 'links' && <div className="cms-form-list"><div className="cms-note">Paste a full website URL, WhatsApp link, email link, or any other destination. Changes apply to matching buttons across the website.</div>{baseLinks.map((item) => <label key={item.id}><span>{item.label}</span><input value={linkDrafts[item.id] || ''} onChange={(e) => setLinkDrafts((old) => ({ ...old, [item.id]: e.target.value }))} /></label>)}<div className="cms-savebar"><span>{saved === 'links' ? 'Website links saved and synced.' : 'Changes remain drafts until you save.'}</span><button className="btn btn--orange" onClick={() => confirmSave('links')}>Save website links</button></div></div>}
-      {tab === 'downloads' && <div className="cms-form-list"><div className="cms-note">Add a direct file or cloud-storage link for every paper. Visitors receive this link after unlocking the download.</div>{paperRows.map((item) => <label key={item.id}><span>{item.label}</span><input placeholder="https://…" value={paperDrafts[item.id] || ''} onChange={(e) => setPaperDrafts((old) => ({ ...old, [item.id]: e.target.value }))} /></label>)}<div className="cms-savebar"><span>{saved === 'downloads' ? 'PDF download links saved and synced.' : 'Changes remain drafts until you save.'}</span><button className="btn btn--orange" onClick={() => confirmSave('downloads')}>Save PDF downloads</button></div></div>}
+      {tab === 'papers' && <div className="cms-form-list"><div className="cms-note"><b>Papers are baked into the code</b><br />Every paper's Google Drive file ID lives in <code>src/data.js</code>'s <code>examPapers</code>, sourced from the DEXAM papers Drive folder. This works for every visitor without needing a database. To add, remove, or replace a paper, edit <code>examPapers</code> in <code>src/data.js</code> and redeploy — there's nothing to configure here.</div>{examData.map((ex) => <div key={ex.id} className="cms-image-card" style={{ display: 'block' }}><b>{ex.name}</b><div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 8 }}>{(examPapers[ex.id] || []).map((p) => <span key={p.id} className="pill-tag" style={{ padding: '4px 9px' }}>{p.label}{p.keyFileId ? ' + key' : ''}</span>)}</div></div>)}</div>}
       {tab === 'sheets' && <div className="cms-form-list"><div className="cms-note"><b>Google Sheets connection is live</b><br />The site is already wired to a Google Sheet via the Apps Script URL baked into <code>src/config.js</code> — that's what every visitor's form submissions actually use. The field below is a local override for testing a different URL in just this browser; it does not change what real visitors' submissions do. To change the sheet for everyone, update <code>config.googleSheetsUrl</code> in the code and redeploy.</div><label><span>Local test override (optional)</span><input placeholder="https://script.google.com/macros/s/…/exec" value={sheetsUrl} onChange={(e) => setSheetsUrl(e.target.value)} /></label><div className="cms-savebar"><span>{saved === 'sheets' ? 'Local override saved (this browser only).' : 'Changes remain drafts until you save.'}</span><button className="btn btn--orange" onClick={() => confirmSave('sheets')}>Save local override</button></div></div>}
     </div>
     {editing && <ImageEditor slot={editing} onClose={() => setEditing(null)} />}
