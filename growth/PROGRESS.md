@@ -44,3 +44,16 @@
 **Owner action required:** None for the completed restoration. Review will be requested before merging the next source-code PR.
 
 **Follow-up:** Add automated smoke checks and crawlable route/sitemap/robots handling on a feature branch; verify mobile rendering and conversion journeys without submitting real leads.
+
+### 2026-10-30 — T01/T09: Direct routes and discovery-file repair prepared
+**Observed before:** The restored homepage returned HTTP 200, but direct requests to important SPA routes, `robots.txt` and `sitemap.xml` returned HTTP 404. The public Courses page contained five provisional offers with no prices, while the owner confirmed a simpler two-programme offer. The Results page publicly displayed placeholder testimonials and missing-image boxes.
+
+**Action:** Added build-time direct-entry HTML for 15 routes, a 14-URL sitemap, robots policy, and a repeatable public smoke-check script. Replaced the provisional course grid with the confirmed one-year and two-year programmes and their prices, clearly marking unresolved tax/checkout terms. Removed fabricated placeholder testimonials and missing student-work boxes; the page now states the evidence-and-consent gate.
+
+**Verification:** `npm run build` passed; 64 modules transformed and 15 direct-entry route files generated. Local HTTP checks returned 200 for `/`, `/about/`, `/courses/`, `/papers/`, `/papers/nid/`, `/robots.txt` and `/sitemap.xml`. The sitemap contains 14 URLs. Desktop visual inspection of `/courses/` passed. Production dependency audit retains two moderate React Router advisories whose available fix requires a reviewed React Router 7 migration; no forced breaking upgrade was applied.
+
+**Result:** The repair is prepared locally and not yet deployed. It removes a crawlability blocker, makes the flagship offer concrete, and removes misleading placeholder proof.
+
+**Owner action required:** None before PR review. Tax treatment, instalment policy, refunds, batch dates/capacity and secondary-product prices remain future business gates before checkout can go live.
+
+**Follow-up:** Run final diff/security review, push the feature branch, open the PR, verify CI, merge only when checks are clean, then run live smoke checks.
