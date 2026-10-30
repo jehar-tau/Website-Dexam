@@ -2,7 +2,13 @@
 
 Audited: 2026-10-30, approximately 16:39 IST, from the owner's current network.
 
-## P0 — Website is not being served by GitHub Pages
+## Restoration update — 2026-10-30 16:50 IST
+
+With owner approval, GitHub Actions was restored as the Pages publishing source and workflow run `41047160910` deployed commit `54597ec` successfully. `designexam.com` is attached as the custom domain with HTTPS enforcement. The apex homepage now returns HTTP 200; `www` redirects to the apex.
+
+The original site-wide outage is resolved. Direct nested routes and discovery files still return HTTP 404 and remain active P0/P1 remediation work.
+
+## Resolved P0 — Website was not being served by GitHub Pages
 
 **Evidence**
 
@@ -13,7 +19,7 @@ Audited: 2026-10-30, approximately 16:39 IST, from the owner's current network.
 
 **Impact:** prospective students and crawlers cannot access the site. This blocks every website conversion and organic-discovery task.
 
-**Smallest likely repair:** inspect Settings → Pages, restore GitHub Actions as the publishing source, confirm the `designexam.com` custom domain and HTTPS enforcement, then run/approve the existing deployment. This is an external production change and requires an owner-approved release gate.
+**Repair completed:** GitHub Actions publishing restored, current `main` deployed, custom domain attached and live smoke-tested.
 
 ## P0 — DNS is pointed at GitHub Pages, but no active Pages site claims the domain
 
@@ -27,17 +33,17 @@ Audited: 2026-10-30, approximately 16:39 IST, from the owner's current network.
 
 **Remediation:** do not change DNS first. Verify the repository Pages configuration and custom-domain claim before considering DNS edits.
 
-## P0 — All discovery endpoints currently fail
+## P0 — Direct nested routes and discovery endpoints fail
 
 **Evidence**
 
 - `/robots.txt` returns the GitHub Pages 404 page.
 - `/sitemap.xml` returns the GitHub Pages 404 page.
-- The homepage contains only GitHub's error HTML, not DEXAM content.
+- The homepage is restored, but direct requests to `/about`, `/courses` and `/papers` return HTTP 404. The browser-side GitHub Pages SPA shim can recover navigation for users, but the HTTP status remains unsuitable for dependable crawling.
 
-**Impact:** there is no crawlable DEXAM content at the canonical domain. The missing robots and sitemap are secondary to the site-wide 404.
+**Impact:** the homepage is crawlable again, but important routes and discovery files are served with 404 status on direct request.
 
-**Remediation:** restore the site first. After that, add a validated sitemap/robots workflow on a separate reviewed change.
+**Remediation:** add a validated sitemap/robots workflow and a deployment approach that returns HTTP 200 with useful route-level HTML for canonical content pages.
 
 ## P1 — SPA content and metadata need route-level validation after restoration
 

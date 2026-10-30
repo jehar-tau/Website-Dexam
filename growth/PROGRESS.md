@@ -31,3 +31,16 @@
 1. Complete T00 local build verification and checkpoint documentation.
 2. Prepare the T01 Pages restoration change/release for owner approval without deploying it.
 3. Start T02's private baseline folder and missing-data register; import owner-provided Search Console, GA4, GBP, Instagram and ads exports without altering originals.
+
+### 2026-10-30 — T00/T01: GitHub Pages restoration
+**Observed before:** Settings → Pages showed `Deploy from a branch`, branch `None`, and “GitHub Pages is currently disabled.” The custom domain field was empty. The public apex and `www` hosts returned GitHub Pages' site-not-found 404.
+
+**Action:** With owner approval, changed the publishing source to GitHub Actions, manually dispatched the existing deployment workflow from `main`, and attached `designexam.com` as the custom domain. HTTPS enforcement remained enabled.
+
+**Verification:** Workflow run `41047160910` completed successfully for commit `54597ecca32d5743969a0c623e2724eae8d257f9`. A cache-bypassed request to `https://designexam.com/` returned HTTP 200 with the DEXAM title. `https://www.designexam.com/` returned HTTP 301 to the apex and then HTTP 200.
+
+**Result:** The homepage is live again at the approved canonical domain. Direct nested routes such as `/about`, `/courses` and `/papers` still return HTTP 404 before the SPA fallback runs. `robots.txt` and `sitemap.xml` also return 404. These are the next evidenced crawlability defects.
+
+**Owner action required:** None for the completed restoration. Review will be requested before merging the next source-code PR.
+
+**Follow-up:** Add automated smoke checks and crawlable route/sitemap/robots handling on a feature branch; verify mobile rendering and conversion journeys without submitting real leads.
