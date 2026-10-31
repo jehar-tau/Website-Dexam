@@ -1,4 +1,7 @@
 node_modules
+/.build-ssr/
 dist
 .DS_Store
 *.local
+test-results
+playwright-report

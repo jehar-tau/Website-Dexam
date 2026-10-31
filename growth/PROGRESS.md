@@ -68,3 +68,11 @@
 **Verification:** `npm run build` passed with 64 modules and 15 direct-entry routes. `git diff --check` and the changed-file credential-pattern scan passed. The production dependency audit retains the same two moderate React Router advisories; the available automated fix is a breaking React Router 7 upgrade and remains deferred for a dedicated migration.
 
 **Follow-up:** Complete build and diff checks, deploy through a reviewed PR, then verify the non-submitting public form states in production.
+
+### 2026-11-01 — Approved Discovery website release prepared
+
+**Action:** Integrated the owner-approved website design, 30 visual assessment exercises, campus illustrations, design contract and expanded public information architecture with the latest main-branch SEO and enquiry fixes. Added real pre-rendered page content, trailing-slash canonicals, shared accessible text colors and PR validation in the existing Pages workflow. Unconnected paid-report checkout is disabled and labelled coming soon.
+
+**Verification:** A clean `npm ci`, production build, static check (31 routes and 1,044 links), eight assessment tests and 69 browser release tests pass. Browser coverage includes desktop/mobile direct entry, hydration, canonical URLs, overflow, core WCAG A/AA scans, campus assets/links and mocked enquiry delivery states. No real lead was submitted. Existing React Router production advisories remain deferred to a dedicated major-version migration; this release does not introduce them.
+
+**Release:** Owner authorization received on 1 November 2026. Publish from `codex/discovery-site-redesign` through a checked PR and the existing GitHub Pages deployment. Previous main `4a6d348` is retained as the rollback point. Record CI and live verification in the release PR.

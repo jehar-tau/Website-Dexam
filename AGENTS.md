@@ -1,0 +1,3 @@
+# Design Exam Academy website
+
+Read `DESIGN_SYSTEM.md` before changing any user interface. DEXAM Discovery 1.0 is the owner-approved visual authority for this website, the Design Instinct assessment, and the DexAM application. Preserve its paper/forest/orange palette, Figtree and Zilla Slab typography, original geometric SVG artwork, concise copy, and accessible interactions. Reuse `src/site` and `src/assessment` patterns before adding another visual system. Visual-direction changes require owner approval and a versioned contract update in both repositories. Preserve existing work and run the build, site checks, and assessment tests for relevant changes. Do not fabricate credentials, testimonials, exam claims, or product availability.
