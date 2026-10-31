@@ -14,7 +14,7 @@ function Field({ label, error, errorMsg, children }) {
 
 export default function LeadModal() {
   const lead = useLead()
-  const { modalPaper, formDone, downloaded, fields, errors } = lead
+  const { modalPaper, formDone, downloaded, fields, errors, submitting, submissionError } = lead
   if (!modalPaper) return null
 
   const exam = examData.find((e) => e.id === modalPaper.examId)
@@ -61,9 +61,10 @@ export default function LeadModal() {
               <Field label="Location *" error={errors.location} errorMsg="Please enter your city or area">
                 {input('location', { placeholder: 'e.g. Hadapsar, Pune' })}
               </Field>
-              <button className="btn btn--orange" style={{ marginTop: 2 }} onClick={lead.submitForm}>
-                Unlock previous year papers
+              <button className="btn btn--orange" style={{ marginTop: 2 }} onClick={lead.submitForm} disabled={submitting}>
+                {submitting ? 'Sending…' : 'Unlock previous year papers'}
               </button>
+              {submissionError && <p role="alert" className="field-error" style={{ margin: 0, textAlign: 'center' }}>{submissionError}</p>}
               <p style={{ margin: 0, fontSize: 11, lineHeight: 1.5, color: 'var(--gray)', textAlign: 'center' }}>
                 By submitting this form, you agree to receive exam updates and preparation guidance from DEXAM.
               </p>

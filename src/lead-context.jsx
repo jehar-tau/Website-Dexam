@@ -33,6 +33,8 @@ export function LeadProvider({ children }) {
   const [downloaded, setDownloaded] = useState(false)
   const [fields, setFields] = useState(emptyFields)
   const [errors, setErrors] = useState({})
+  const [submitting, setSubmitting] = useState(false)
+  const [submissionError, setSubmissionError] = useState('')
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ leadCaptured, unlockedKeys }))
@@ -44,6 +46,7 @@ export function LeadProvider({ children }) {
   const setField = (key, value) => {
     setFields((f) => ({ ...f, [key]: value }))
     setErrors((e) => ({ ...e, [key]: false }))
+    setSubmissionError('')
   }
 
   const openUnlock = (examId, paper) => {
@@ -51,6 +54,7 @@ export function LeadProvider({ children }) {
     setFormDone(false)
     setDownloaded(false)
     setErrors({})
+    setSubmissionError('')
   }
 
   const openDownload = (examId, paper) => {
@@ -65,6 +69,7 @@ export function LeadProvider({ children }) {
     setFormDone(false)
     setDownloaded(false)
     setErrors({})
+    setSubmissionError('')
   }
 
   const closeModal = () => setModalPaper(null)
@@ -76,21 +81,31 @@ export function LeadProvider({ children }) {
   })
 
   const submitForm = async () => {
+    if (submitting) return
     const errs = validate()
     if (Object.values(errs).some(Boolean)) {
       setErrors(errs)
       return
     }
     setErrors({})
-    setFormDone(true)
-    setLeadCaptured(true)
-    submitToGoogleSheet('paper_download', {
-      ...fields,
-      examId: modalPaper?.examId || '',
-      paperLabel: modalPaper?.paper?.label || '',
-    }).catch(() => {})
-    if (modalPaper && modalPaper.paper) {
-      setUnlockedKeys((k) => ({ ...k, [modalPaper.paper.id]: true }))
+    setSubmissionError('')
+    setSubmitting(true)
+    try {
+      const result = await submitToGoogleSheet('paper_download', {
+        ...fields,
+        examId: modalPaper?.examId || '',
+        paperLabel: modalPaper?.paper?.label || '',
+      })
+      if (!result.configured) throw new Error('Lead capture is not configured.')
+      setFormDone(true)
+      setLeadCaptured(true)
+      if (modalPaper && modalPaper.paper) {
+        setUnlockedKeys((k) => ({ ...k, [modalPaper.paper.id]: true }))
+      }
+    } catch {
+      setSubmissionError('We could not send your request. Please check your connection and try again, or contact us on WhatsApp.')
+    } finally {
+      setSubmitting(false)
     }
   }
 
@@ -109,7 +124,7 @@ export function LeadProvider({ children }) {
     <LeadContext.Provider
       value={{
         leadCaptured, isUnlocked, modalPaper, formDone, downloaded,
-        fields, errors, setField,
+        fields, errors, submitting, submissionError, setField,
         openUnlock, openDownload, openLeadForm, closeModal, submitForm, downloadNow,
       }}
     >
