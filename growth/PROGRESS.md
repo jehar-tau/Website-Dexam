@@ -57,3 +57,14 @@
 **Owner action required:** None before PR review. Tax treatment, instalment policy, refunds, batch dates/capacity and secondary-product prices remain future business gates before checkout can go live.
 
 **Follow-up:** Run final diff/security review, push the feature branch, open the PR, verify CI, merge only when checks are clean, then run live smoke checks.
+
+### 2026-10-31 — T07: Honest lead-form delivery states prepared
+**Observed before:** Both the paper-unlock modal and counselling form displayed success even when the Google Apps Script request failed. The paper flow also persisted the lead and unlocked downloads before waiting for the request, which could silently lose an enquiry while telling the visitor it had been received.
+
+**Action:** Both flows now wait for the submission request before showing success. Submit controls are disabled and labelled while sending, duplicate clicks are prevented, and a network/configuration failure leaves the form intact with a retryable error and WhatsApp fallback. Paper access is persisted only after the request has been sent successfully.
+
+**Privacy/security:** No new fields, trackers, destinations or data stores were added. The existing Apps Script endpoint remains unchanged. No real lead was submitted during verification.
+
+**Verification:** `npm run build` passed with 64 modules and 15 direct-entry routes. `git diff --check` and the changed-file credential-pattern scan passed. The production dependency audit retains the same two moderate React Router advisories; the available automated fix is a breaking React Router 7 upgrade and remains deferred for a dedicated migration.
+
+**Follow-up:** Complete build and diff checks, deploy through a reviewed PR, then verify the non-submitting public form states in production.
