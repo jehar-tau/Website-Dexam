@@ -1,7 +1,7 @@
-import { createContext, useContext, useEffect, useState } from 'react'
-import { config } from './config.js'
-import { driveDownloadUrl } from './data.js'
-import { submitToGoogleSheet } from './cms.jsx'
+import { createContext, useContext, useEffect, useState } from "react";
+import { config } from "./config.js";
+import { driveDownloadUrl } from "./data.js";
+import { submitToGoogleSheet } from "./cms.jsx";
 
 // Lead-capture flow: papers are locked until the visitor fills the form once
 // (config.unlockAll) or per paper. Unlock state persists in localStorage.
@@ -9,111 +9,142 @@ import { submitToGoogleSheet } from './cms.jsx'
 // baked into the build so they work for every visitor — not from the
 // browser-local CMS.
 
-const LeadContext = createContext(null)
-export const useLead = () => useContext(LeadContext)
+const LeadContext = createContext(null);
+export const useLead = () => useContext(LeadContext);
 
-const STORAGE_KEY = 'dexam-lead-v1'
+const STORAGE_KEY = "dexam-lead-v1";
 
 function loadStored() {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
   } catch {
-    return {}
+    return {};
   }
 }
 
-const emptyFields = { name: '', phone: '', location: '' }
+const emptyFields = { name: "", phone: "", location: "" };
 
 export function LeadProvider({ children }) {
-  const stored = loadStored()
-  const [leadCaptured, setLeadCaptured] = useState(!!stored.leadCaptured)
-  const [unlockedKeys, setUnlockedKeys] = useState(stored.unlockedKeys || {})
-  const [modalPaper, setModalPaper] = useState(null) // { examId, paper } | null; paper is null for the bare "get papers" form
-  const [formDone, setFormDone] = useState(false)
-  const [downloaded, setDownloaded] = useState(false)
-  const [fields, setFields] = useState(emptyFields)
-  const [errors, setErrors] = useState({})
+  const stored = loadStored();
+  const [leadCaptured, setLeadCaptured] = useState(!!stored.leadCaptured);
+  const [unlockedKeys, setUnlockedKeys] = useState(stored.unlockedKeys || {});
+  const [modalPaper, setModalPaper] = useState(null); // { examId, paper } | null; paper is null for the bare "get papers" form
+  const [formDone, setFormDone] = useState(false);
+  const [downloaded, setDownloaded] = useState(false);
+  const [fields, setFields] = useState(emptyFields);
+  const [errors, setErrors] = useState({});
+  const [submitting, setSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ leadCaptured, unlockedKeys }))
-  }, [leadCaptured, unlockedKeys])
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({ leadCaptured, unlockedKeys }),
+    );
+  }, [leadCaptured, unlockedKeys]);
 
   const isUnlocked = (paperId) =>
-    !!unlockedKeys[paperId] || (config.unlockAll && leadCaptured)
+    !!unlockedKeys[paperId] || (config.unlockAll && leadCaptured);
 
   const setField = (key, value) => {
-    setFields((f) => ({ ...f, [key]: value }))
-    setErrors((e) => ({ ...e, [key]: false }))
-  }
+    setFields((f) => ({ ...f, [key]: value }));
+    setErrors((e) => ({ ...e, [key]: false }));
+    setSubmissionError("");
+  };
 
   const openUnlock = (examId, paper) => {
-    setModalPaper({ examId, paper })
-    setFormDone(false)
-    setDownloaded(false)
-    setErrors({})
-  }
+    setModalPaper({ examId, paper });
+    setFormDone(false);
+    setDownloaded(false);
+    setErrors({});
+    setSubmissionError("");
+  };
 
   const openDownload = (examId, paper) => {
-    window.open(driveDownloadUrl(paper.fileId), '_blank')
-    setModalPaper({ examId, paper })
-    setFormDone(true)
-    setDownloaded(false)
-  }
+    window.open(driveDownloadUrl(paper.fileId), "_blank");
+    setModalPaper({ examId, paper });
+    setFormDone(true);
+    setDownloaded(false);
+  };
 
   const openLeadForm = () => {
-    setModalPaper({ examId: null, paper: null })
-    setFormDone(false)
-    setDownloaded(false)
-    setErrors({})
-  }
+    setModalPaper({ examId: null, paper: null });
+    setFormDone(false);
+    setDownloaded(false);
+    setErrors({});
+  };
 
-  const closeModal = () => setModalPaper(null)
+  const closeModal = () => setModalPaper(null);
 
   const validate = () => ({
     name: fields.name.trim().length < 2,
-    phone: !/^[0-9]{10}$/.test(fields.phone.replace(/[\s-]/g, '')),
+    phone: !/^[0-9]{10}$/.test(fields.phone.replace(/[\s-]/g, "")),
     location: fields.location.trim().length < 2,
-  })
+  });
 
   const submitForm = async () => {
-    const errs = validate()
+    if (submitting) return;
+    const errs = validate();
     if (Object.values(errs).some(Boolean)) {
-      setErrors(errs)
-      return
+      setErrors(errs);
+      return;
     }
-    setErrors({})
-    setFormDone(true)
-    setLeadCaptured(true)
-    submitToGoogleSheet('paper_download', {
-      ...fields,
-      examId: modalPaper?.examId || '',
-      paperLabel: modalPaper?.paper?.label || '',
-    }).catch(() => {})
-    if (modalPaper && modalPaper.paper) {
-      setUnlockedKeys((k) => ({ ...k, [modalPaper.paper.id]: true }))
+    setErrors({});
+    setSubmitting(true);
+    setSubmissionError("");
+    try {
+      const result = await submitToGoogleSheet("paper_download", {
+        ...fields,
+        examId: modalPaper?.examId || "",
+        paperLabel: modalPaper?.paper?.label || "",
+      });
+      if (!result.configured) throw new Error("Not configured");
+      setFormDone(true);
+      setLeadCaptured(true);
+      if (modalPaper?.paper)
+        setUnlockedKeys((k) => ({ ...k, [modalPaper.paper.id]: true }));
+    } catch {
+      setSubmissionError(
+        "We couldn’t send your request. Please retry, or contact us on WhatsApp. Your details are still here.",
+      );
+    } finally {
+      setSubmitting(false);
     }
-  }
+  };
 
   const downloadNow = () => {
     if (modalPaper && !modalPaper.paper) {
-      setModalPaper(null)
-      return
+      setModalPaper(null);
+      return;
     }
     if (modalPaper) {
-      window.open(driveDownloadUrl(modalPaper.paper.fileId), '_blank')
+      window.open(driveDownloadUrl(modalPaper.paper.fileId), "_blank");
     }
-    setDownloaded(true)
-  }
+    setDownloaded(true);
+  };
 
   return (
     <LeadContext.Provider
       value={{
-        leadCaptured, isUnlocked, modalPaper, formDone, downloaded,
-        fields, errors, setField,
-        openUnlock, openDownload, openLeadForm, closeModal, submitForm, downloadNow,
+        leadCaptured,
+        isUnlocked,
+        modalPaper,
+        formDone,
+        downloaded,
+        fields,
+        errors,
+        submitting,
+        submissionError,
+        setField,
+        openUnlock,
+        openDownload,
+        openLeadForm,
+        closeModal,
+        submitForm,
+        downloadNow,
       }}
     >
       {children}
     </LeadContext.Provider>
-  )
+  );
 }

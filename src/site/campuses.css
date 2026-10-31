@@ -1,0 +1,106 @@
+.dea-campus-pathways {
+  padding-bottom: 0;
+}
+.dea-campus-pathways .dea-section-title {
+  margin-bottom: 18px;
+}
+.dea-campus-intro {
+  max-width: 520px;
+  margin: 0 0 32px;
+  color: var(--slate);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.dea-campus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.dea-campus-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fffdf7;
+}
+.dea-campus-scene {
+  position: relative;
+  padding-top: 33px;
+  background: var(--cream);
+}
+.dea-campus-number {
+  position: absolute;
+  z-index: 1;
+  left: 21px;
+  top: 16px;
+  color: var(--green);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 1.3px;
+}
+.dea-campus-scene img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+}
+.dea-campus-copy {
+  padding: 23px 24px 25px;
+  border-top: 1px solid var(--line-soft);
+}
+.dea-campus-copy h3 {
+  margin: 0;
+  font-size: 35px;
+  line-height: 1;
+  letter-spacing: -1.1px;
+}
+.dea-campus-copy p {
+  min-height: 3.4em;
+  max-width: 30ch;
+  margin: 10px 0 17px;
+  color: var(--slate);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.dea-campus-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+.dea-campus-links .dea-text-link {
+  min-height: 34px;
+  font-size: 11px;
+}
+.dea-campus-links .dea-text-link:hover {
+  color: var(--green);
+}
+@media (max-width: 900px) {
+  .dea-campus-grid {
+    gap: 15px;
+  }
+  .dea-campus-copy {
+    padding: 20px;
+  }
+}
+@media (max-width: 650px) {
+  .dea-campus-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+  .dea-campus-intro {
+    max-width: 36ch;
+    margin-bottom: 25px;
+    font-size: 13px;
+  }
+  .dea-campus-copy {
+    padding: 23px;
+  }
+  .dea-campus-copy p {
+    min-height: 0;
+  }
+  .dea-campus-links .dea-text-link {
+    min-height: 44px;
+    font-size: 12px;
+  }
+}
