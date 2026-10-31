@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Art, Icon } from "./Art.jsx";
 import { site } from "./content.js";
+import { canonicalFor } from "./routes.js";
 
 export function ArrowLink({ to, children, className = "" }) {
   return (
@@ -229,7 +230,7 @@ export function PageMeta({ title, description, path = "/", noindex = false }) {
     meta('meta[name="description"]', "name", description);
     meta('meta[property="og:title"]', "property", `${title} | DEXAM`);
     meta('meta[property="og:description"]', "property", description);
-    meta('meta[property="og:url"]', "property", site.origin + path);
+    meta('meta[property="og:url"]', "property", canonicalFor(path));
     meta(
       'meta[name="robots"]',
       "name",
@@ -241,7 +242,7 @@ export function PageMeta({ title, description, path = "/", noindex = false }) {
       link.rel = "canonical";
       document.head.appendChild(link);
     }
-    link.href = site.origin + path;
+    link.href = canonicalFor(path);
   }, [title, description, path, noindex]);
   return null;
 }

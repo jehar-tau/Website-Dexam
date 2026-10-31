@@ -61,4 +61,4 @@ Subject: the IDC design-school entrance in Image 1, representing IIT design prep
 
 Passed on 2026-11-01: production build; `npm run check:site` (31 direct routes, 1,044 internal links, all three valid WebP files below the 250 KB per-image budget); all eight assessment tests; and diff whitespace checks. Browser review verified the new section at 1440px and 390px, all three images loaded at their expected 1200 × 800 intrinsic size, no horizontal page overflow, visible keyboard focus, and the NID, NIFT, UCEED and CEED destinations. Captures are saved as `review/academy-campus-desktop.png` and `review/academy-campus-mobile.png` in the task workspace. The temporary viewport was reset after testing.
 
-This is available in the local landing-page preview at `http://127.0.0.1:5173/#campus-pathways`. No website push or deployment was performed.
+The section is at `/#campus-pathways`, with a development preview at `http://127.0.0.1:5173/#campus-pathways`. Publication follows the reviewed website PR and GitHub Pages workflow; release evidence is recorded with that PR.

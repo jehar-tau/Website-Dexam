@@ -2,7 +2,7 @@
 
 Review branch: `codex/discovery-site-redesign`
 
-2026-11-01: the owner supplied three campus photographs and requested matching illustrations on the landing page. The new NID/NIFT/IIT preparation section uses a coordinated generated-art set and links to NID DAT, NIFT, UCEED and CEED guides. See `CAMPUS_ART.md` for the source/prompt record and saved exports. It is part of the local redesign preview; no website publication has occurred.
+2026-11-01: the owner supplied three campus photographs and requested matching illustrations on the landing page. The new NID/NIFT/IIT preparation section uses a coordinated generated-art set and links to NID DAT, NIFT, UCEED and CEED guides. See `CAMPUS_ART.md` for the source/prompt record and saved exports. The owner subsequently approved repository publication and deployment to designexam.com. Release evidence is recorded with the website PR and GitHub Pages workflow.
 
 The owner approved this visual language for the academy and the entire DexAM app on 2026-10-31. `DESIGN_SYSTEM.md` is the ongoing visual authority, `design-system.tokens.json` is its versioned primitive contract, and `AGENTS.md` requires future UI work to follow it. `check:site` checks the approved academy palette and typefaces as well as the existing route checks.
 
@@ -55,10 +55,10 @@ Existing public routes remain available, including `/guide`, `/results`, `/paper
 
 ## Verification
 
-The production build, generated-site checks and eight assessment scoring tests pass. All 31 production routes were opened in-browser with one H1 each and no new application errors. At 390px all 31 routes have no horizontal page overflow. Mobile navigation, resource-category/search filtering, course-specific enquiry handoff and empty-form validation were checked. No real enquiry was submitted. The paper modal supports keyboard focus containment and Escape to close.
+The clean install, production build, generated-site checks and eight assessment scoring tests pass. The 69-test browser release suite checks all 31 routes at 1440px and 390px, canonical URLs, hydration, horizontal overflow, core-page WCAG A/AA scans, campus images/links, and mocked pending/failed enquiry delivery. Mobile navigation, resource-category/search filtering, course-specific enquiry handoff and empty-form validation were also checked. No real enquiry was submitted. The paper modal supports keyboard focus containment and Escape to close.
 
 ## Release boundary
 
-This is a local review build. No production domain, ads, analytics account or student platform was changed. The substantial new editorial content and inherited faculty/legal information should receive owner/faculty review before the GitHub Pages release. The student-access page uses the academy contact route until the confirmed public production portal URL is supplied; it does not guess a login destination. Existing Razorpay/report limitations are documented in `src/assessment/README.md`.
+The owner approved publication to designexam.com on 1 November 2026. Publish through the existing repository and GitHub Pages configuration, preserving the upstream SEO and honest enquiry-delivery fixes. This website release does not release the separate DexAM student application or change ads, DNS or analytics accounts. The student-access page uses the academy contact route until the confirmed public production portal URL is supplied. Detailed paid reports are labelled coming soon, with no purchase control or provisional price; secure Razorpay/report requirements are documented in `src/assessment/README.md`.
 
-Release through the existing GitHub Pages workflow after review. Preserve the previous deployed commit for rollback; verify direct routes, enquiry non-submission states and the sitemap after deployment.
+PR builds run the production, static-content, assessment and browser checks before deployment. The existing GitHub Pages workflow deploys main after merge. The prior main commit `4a6d348` is the rollback point. Verify direct routes, enquiry non-submission states, campus images and the sitemap after deployment.

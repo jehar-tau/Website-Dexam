@@ -38,7 +38,7 @@ Before use in student selection, evaluate expert agreement, acceptable alternati
 
 ## Payment boundary
 
-The ₹199 paywall is a visual integration preview. It does not invoke Razorpay or unlock/download a PDF. Production requires a server-created order, server-side signature verification, a payment webhook, stored report entitlement and authenticated download delivery. Price should be configured on that server, not trusted from browser state.
+The detailed-report card is marked coming soon, with no public price or active purchase control. The free score and skill feedback work; no Razorpay payment or PDF entitlement is offered yet. Launching paid reports requires an approved price, a server-created order, server-side signature verification, a payment webhook, stored report entitlement and authenticated download delivery. Price must be configured on that server, not trusted from browser state.
 
 ## Review status
 

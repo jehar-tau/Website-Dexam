@@ -1,0 +1,9 @@
+id,phase,title,priority,owner,status,depends_on,due_date,started_at,completed_at,evidence,blocker,next_action
+T00,A,"Repositories, access and backup",P0,Codex,done,,2026-10-31,2026-10-30,2026-10-30,"growth/SITE_INVENTORY.md; npm build passed; branch codex/t00-baseline-audit; checkpoint 0c03470",,"Proceed with live crawlability remediation"
+T01,A,"Live crawlability and GitHub Pages diagnostics",P0,Codex,done,T00,2026-11-03,2026-10-30,2026-10-30,"growth/SEO_AUDIT_SUMMARY.md; PR #1; Actions run 41048663581; live smoke checks passed for routes, robots and sitemap",,"Continue route-specific metadata and conversion reliability work"
+T02,A,"Connect/verify baseline measurement accounts",P0,Owner,todo,T00,2026-11-05,,,,"Search Console/GA4/GBP/Instagram/Google Ads/Meta Ads exports not yet supplied","Owner supplies approved exports; Codex imports into private local baseline folder"
+T03,A,"Keyword and intent map",P0,Codex,todo,T02,2026-11-07,,,,"Needs GSC query export and live-site restoration","Start from observed queries after T02"
+T04,A,"Admissions funnel and event measurement design",P0,Codex,todo,T00,2026-11-07,,,,"Qualified-enquiry definition and follow-up owner are unknown","Owner defines qualified enquiry and follow-up process"
+T05,A,"Competitive baseline and AI-search prompts",P1,Codex,todo,T01,2026-11-07,,,,"Live site currently unavailable","Run dated samples after restoration"
+T06,A,"Baseline decision gate",P0,Owner,todo,"T00;T01;T02;T03;T04;T05",2026-11-07,,,,"Depends on T00-T05","Approve ranked defects and first sprint"
+T07,A,"Lead-form delivery states and retry",P0,Codex,in_progress,T01,2026-11-01,2026-10-31,,,"Current UI reports success and unlocks papers before the submission request completes","Await the request, disable duplicate submission, and show a retryable failure state"

@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "vite build && node scripts/prerender.mjs",
     "check:site": "node scripts/check-redesign.mjs",
+    "check:live": "node scripts/check-site.mjs",
+    "test:browser": "playwright test",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,6 +19,8 @@
     "react-router-dom": "^6.26.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.63.0",
     "@vitejs/plugin-react": "^4.3.1",
     "vite": "^5.4.0"
   }

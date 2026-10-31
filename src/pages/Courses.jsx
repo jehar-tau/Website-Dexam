@@ -9,7 +9,7 @@ export default function Courses() {
       <div className="eyebrow">Courses</div>
       <h1 className="h-page">Pick the track that matches your timeline.</h1>
       <p className="lede lede--lg" style={{ maxWidth: 620, marginBottom: 32 }}>
-        Start small and step up when you're confident. Every track covers drawing, observation, visual aptitude and exam direction for NID, UCEED, NIFT, NATA and CEED. Fee details are shared personally during counselling.
+        Two clear preparation programmes, with the right timeline chosen after a counselling and aptitude discussion. Both cover drawing, observation, visual aptitude and exam direction for NID, UCEED, NIFT, NATA and CEED.
       </p>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(250px,1fr))', gap: 18 }}>
         {courses.map((c) => (
@@ -20,6 +20,10 @@ export default function Courses() {
             </div>
             <div style={{ padding: '20px 22px 22px', display: 'flex', flexDirection: 'column', gap: 10, flex: 1 }}>
               <p style={{ margin: '0 0 4px', fontSize: 13.5, lineHeight: 1.55, color: 'var(--muted)' }}>{c.desc}</p>
+              <div style={{ margin: '3px 0 5px' }}>
+                <div style={{ fontFamily: "'Zilla Slab',serif", fontWeight: 700, fontSize: 30, color: 'var(--ink)' }}>{c.price}</div>
+                <div style={{ fontSize: 11.5, lineHeight: 1.45, color: 'var(--gray)' }}>{c.priceNote}</div>
+              </div>
               {c.points.map((p) => (
                 <div key={p} className="check-row" style={{ fontSize: 13.5, gap: 9, lineHeight: 1.45 }}>
                   <span className="tick">✓</span><span>{p}</span>
@@ -32,6 +36,14 @@ export default function Courses() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="card card--soft" style={{ marginTop: 24, padding: 24 }}>
+        <div className="eyebrow" style={{ marginBottom: 8 }}>Additional products in preparation</div>
+        <h2 style={{ margin: '0 0 10px', fontSize: 22 }}>Test series and portfolio guidance</h2>
+        <p style={{ margin: 0, maxWidth: 760, color: 'var(--muted)', lineHeight: 1.65 }}>
+          DEXAM is preparing a separate mock-test and All-India test-series experience, plus a portfolio and studio-test package. These products will use secure Google sign-in and will appear here only after their content, access period, pricing, payment and refund terms are approved.
+        </p>
       </div>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 18, marginTop: 36 }}>
@@ -59,7 +71,7 @@ export default function Courses() {
         </div>
       </div>
       <p style={{ margin: '22px 0 0', fontSize: 13, lineHeight: 1.6, color: 'var(--gray)', maxWidth: 640 }}>
-        Parent note: our pricing is designed to make the first step easy — a small evaluation session first, a low-risk trial next, and the full plan only after the student and parent are confident about the exam path.
+        Parent note: counselling is used to confirm the student’s timeline and exam path before enrolment. Online payment is not active yet; no payment should be made through an unverified link.
       </p>
     </div>
   )

@@ -247,7 +247,8 @@ export default function LeadModal() {
               >
                 Get guidance on WhatsApp
               </a>
-              <span
+              <button
+                type="button"
                 onClick={lead.closeModal}
                 style={{
                   fontSize: 13,
@@ -255,10 +256,12 @@ export default function LeadModal() {
                   color: "var(--gray)",
                   cursor: "pointer",
                   padding: 6,
+                  background: "none",
+                  border: 0,
                 }}
               >
                 Back to papers
-              </span>
+              </button>
             </div>
           </div>
         )}

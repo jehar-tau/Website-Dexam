@@ -1,7 +1,7 @@
 import { build } from "vite";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import { publicPaths, metadataFor, organization } from "../src/site/routes.js";
+import { publicPaths, metadataFor, organization, canonicalFor } from "../src/site/routes.js";
 import { site } from "../src/site/content.js";
 
 const root = new URL("../", import.meta.url);
@@ -37,7 +37,7 @@ for (const path of publicPaths) {
             "Explore how you see through 30 hands-on design challenges. A free design aptitude assessment from DEXAM.",
         }
       : metadataFor(path);
-  const canonical = site.origin + (path === "/" ? "/" : path);
+  const canonical = canonicalFor(path);
   let html = template
     .replace(
       /<title>.*?<\/title>/s,
@@ -87,7 +87,7 @@ for (const path of publicPaths) {
 }
 await writeFile(
   new URL("../dist/sitemap.xml", import.meta.url),
-  `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${publicPaths.map((path) => `<url><loc>${site.origin}${path}</loc></url>`).join("")}</urlset>`,
+  `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${publicPaths.map((path) => `<url><loc>${canonicalFor(path)}</loc></url>`).join("")}</urlset>`,
 );
 await writeFile(
   new URL("../dist/robots.txt", import.meta.url),

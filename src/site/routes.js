@@ -94,6 +94,10 @@ export const routeMetadata = Object.fromEntries(
   ].map(([path, title, description]) => [path, { path, title, description }]),
 );
 export const publicPaths = [...Object.keys(routeMetadata), "/quiz"];
+export function canonicalFor(path = "/") {
+  const normalized = path.replace(/\/+$/, "") || "/";
+  return site.origin + (normalized === "/" ? "/" : normalized + "/");
+}
 export function metadataFor(path) {
   return (
     routeMetadata[path.replace(/\/$/, "") || "/"] || {

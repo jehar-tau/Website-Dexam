@@ -413,8 +413,7 @@ function Landing({ answers, onStart, onLibrary }) {
 }
 
 function Report({ answers, onReturn, onRestart }) {
-  const report = useMemo(() => buildReport(answers), [answers]),
-    [checkout, setCheckout] = useState(false);
+  const report = useMemo(() => buildReport(answers), [answers]);
   const strongest = report.ranked[0],
     weakest = report.ranked.at(-1),
     full = report.count === 30;
@@ -500,7 +499,7 @@ function Report({ answers, onReturn, onRestart }) {
           </button>
         </section>
         <aside className="lab-report-paid">
-          <span className="lab-eyebrow">GO A LITTLE DEEPER</span>
+          <span className="lab-eyebrow">A LITTLE MORE, COMING SOON</span>
           <div className="lab-document-art">
             <Icon name="download" size={30} />
             <span>
@@ -522,52 +521,18 @@ function Report({ answers, onReturn, onRestart }) {
             <li>A 4-week practice plan</li>
             <li>Downloadable personal report</li>
           </ul>
-          <div className="lab-paid-price">
-            <b>₹199</b>
-            <span>one time</span>
-          </div>
           <button
             className="lab-button lab-button-orange"
-            onClick={() => setCheckout(true)}
-            disabled={!full}
+            disabled
           >
-            <Icon name="lock" size={17} /> Get my detailed report
+            <Icon name="lock" size={17} /> Detailed report coming soon
           </button>
           <small>
-            {full
-              ? "Payment integration preview"
-              : "Complete all 30 to unlock the full report"}
+            Your score and skill feedback are free. The downloadable report is
+            in preparation.
           </small>
         </aside>
       </div>
-      {checkout && (
-        <div className="lab-modal-backdrop" onClick={() => setCheckout(false)}>
-          <section
-            className="lab-checkout"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Report payment preview"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="lab-icon-button"
-              onClick={() => setCheckout(false)}
-              aria-label="Close payment"
-            >
-              <Icon name="close" />
-            </button>
-            <span className="lab-eyebrow">YOUR DETAILED DESIGN REPORT</span>
-            <h2>₹199</h2>
-            <p>
-              The report unlock screen is ready. Razorpay payment and secure
-              report delivery are the next integration step.
-            </p>
-            <button className="lab-button" onClick={() => setCheckout(false)}>
-              Back to my results <Icon name="arrow" />
-            </button>
-          </section>
-        </div>
-      )}
     </main>
   );
 }

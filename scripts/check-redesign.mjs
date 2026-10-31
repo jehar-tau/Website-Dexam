@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { publicPaths } from "../src/site/routes.js";
+import { publicPaths, canonicalFor } from "../src/site/routes.js";
 
 const designContract = JSON.parse(
   await readFile(
@@ -50,7 +50,7 @@ for (const route of publicPaths) {
   );
   descriptions.add(description);
   assert.ok(
-    html.includes(`rel="canonical" href="https://designexam.com${route}"`),
+    html.includes(`rel="canonical" href="${canonicalFor(route)}"`),
     `Canonical: ${route}`,
   );
   if (route !== "/quiz") {

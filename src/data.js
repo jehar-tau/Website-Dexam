@@ -226,34 +226,20 @@ export const aboutPoints = [
 
 export const courses = [
   {
-    name: 'Counselling + Evaluation', for: 'First step · one session',
-    headBg: '#FBF3EA', headText: '#0D1826', headTag: '#F65009',
-    desc: 'A short first discussion before any commitment — honest recommendation included.',
-    points: ['Student interest check', 'Short drawing / aptitude evaluation', 'Exam-path discussion with parents', 'Honest recommendation before joining'],
-  },
-  {
-    name: '4-Week Foundation Trial', for: 'Low-risk start',
-    headBg: '#FBF3EA', headText: '#0D1826', headTag: '#F65009',
-    desc: 'Best for unsure students who want to experience design preparation first.',
-    points: ['Drawing & sketching fundamentals', 'Observation practice', 'Visual aptitude exercises', 'Decide your track after 4 weeks'],
-  },
-  {
-    name: 'Monthly Mentorship Batch', for: 'Flexible · min. 3 months',
+    name: 'Two-Year Preparation', for: 'Early start · two academic years',
+    price: '₹1,13,557',
+    priceNote: 'Complete programme fee · tax treatment to be confirmed before online checkout',
     headBg: '#0D1826', headText: '#fff', headTag: '#F2B72A',
-    desc: 'Regular classes with gradual direction toward NATA, NID, UCEED or NIFT.',
-    points: ['Regular classes & homework review', 'Parent updates', 'Gradual exam direction', 'Upgrade to full-year anytime'],
+    desc: 'A gradual foundation followed by focused entrance preparation for students who want time to build strong creative habits.',
+    points: ['Drawing, observation and visual-thinking foundation', 'Progressive NID, UCEED, NIFT, NATA and CEED direction', 'Mock tests, portfolio habits and personal feedback', 'Parent progress conversations and exam planning'],
   },
   {
-    name: 'Full-Year Preparation', for: 'Recommended plan · Class 11–12',
+    name: 'One-Year Preparation', for: 'Focused preparation · one academic year',
+    price: '₹73,535',
+    priceNote: 'Complete programme fee · tax treatment to be confirmed before online checkout',
     headBg: '#F65009', headText: '#fff', headTag: '#0D1826',
-    desc: 'Complete foundation plus exam-specific preparation for the next entrance cycle.',
-    points: ['Complete foundation + exam-specific prep', 'Mock tests on real past papers', 'Portfolio guidance', 'Personal mentoring'],
-  },
-  {
-    name: '2-Year Early Starter', for: 'Class 9–11 · limited batch',
-    headBg: '#0D1826', headText: '#fff', headTag: '#F2B72A',
-    desc: 'For students who want more time for skills, hobbies, portfolio habits and gradual exam readiness.',
-    points: ['Gradual skill building alongside school', 'Portfolio habits from early on', 'Full exam preparation in year two', 'Best value for early starters'],
+    desc: 'A concentrated foundation and exam-specific programme for the student’s next design or architecture entrance cycle.',
+    points: ['Foundation plus exam-specific preparation', 'Timed mock tests and paper review', 'Portfolio and studio-test guidance where relevant', 'Personal mentoring and preparation planning'],
   },
 ]
 
@@ -268,9 +254,9 @@ export const courseIncluded = [
 export const admissionPath = [
   { num: '01', text: 'Free counselling + student discussion' },
   { num: '02', text: 'Short drawing / aptitude evaluation' },
-  { num: '03', text: 'Start with trial, monthly batch or full year' },
-  { num: '04', text: 'Confirm exam track after evaluation' },
-  { num: '05', text: 'Upgrade when parent and student are ready' },
+  { num: '03', text: 'Choose the one-year or two-year programme' },
+  { num: '04', text: 'Confirm the exam track and batch schedule' },
+  { num: '05', text: 'Complete enrolment; online checkout will be added after payment-policy review' },
 ]
 
 export const guideInterests = [

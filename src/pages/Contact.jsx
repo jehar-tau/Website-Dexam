@@ -6,13 +6,17 @@ export default function Contact() {
   const [form, setForm] = useState({ name: '', phone: '', location: '' })
   const [errors, setErrors] = useState({})
   const [done, setDone] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submissionError, setSubmissionError] = useState('')
 
   const set = (key) => (e) => {
     setForm((f) => ({ ...f, [key]: e.target.value }))
     setErrors((er) => ({ ...er, [key]: false }))
+    setSubmissionError('')
   }
 
   const submit = async () => {
+    if (submitting) return
     const errs = {
       name: form.name.trim().length < 2,
       phone: !/^[0-9]{10}$/.test(form.phone.replace(/[\s-]/g, '')),
@@ -22,8 +26,17 @@ export default function Contact() {
       setErrors(errs)
       return
     }
-    try { await submitToGoogleSheet('counselling', form) } catch {}
-    setDone(true)
+    setSubmissionError('')
+    setSubmitting(true)
+    try {
+      const result = await submitToGoogleSheet('counselling', form)
+      if (!result.configured) throw new Error('Lead capture is not configured.')
+      setDone(true)
+    } catch {
+      setSubmissionError('We could not send your request. Please check your connection and try again, or contact us on WhatsApp.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -95,7 +108,10 @@ export default function Contact() {
                     placeholder="e.g. Hadapsar, Pune"
                   />
                 </div>
-                <button className="btn btn--orange" onClick={submit}>Request a call back</button>
+                <button className="btn btn--orange" onClick={submit} disabled={submitting}>
+                  {submitting ? 'Sending…' : 'Request a call back'}
+                </button>
+                {submissionError && <p role="alert" className="field-error" style={{ margin: 0 }}>{submissionError}</p>}
               </div>
             </>
           ) : (
