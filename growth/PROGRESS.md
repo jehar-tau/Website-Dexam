@@ -108,3 +108,13 @@
 **Release evidence:** PR #6 merged as `f4d68f2` after the GitHub build gate passed. Pages workflow `41285646080` completed successfully. The live smoke check returned HTTP 200 for the canonical site, core routes, robots and sitemap, with `www` redirecting to the apex. Cache-bypassed production fetches parsed the homepage `WebSite`/`EducationalOrganization` graph and full breadcrumb trails on `/exams/nid/`, `/papers/uceed/` and `/resources/drawing-vs-design/`.
 
 **External validation limitation:** Google’s Rich Results Test was attempted against the live UCEED paper archive, but the tool reported that it could not connect to its reCAPTCHA service and asked for a retry later. This is recorded as an unavailable external check, not as a pass or a schema defect. Search Console URL Inspection remains gated on T02 account access.
+
+### 2026-11-01 — T05: Competitive and AI-search baseline prepared
+
+**Method:** Sampled fourteen fixed Google Search queries in Chrome using India country/language settings and `pws=0`, with the displayed Pune device-location context coarsened before recording. Sponsored results, private account oneboxes and AI output were excluded from ordinary web-result rows. Defined sixteen repeatable AI prompts and sampled five in Google AI Mode.
+
+**Observed:** DEXAM appeared in six of eight sampled local-intent map packs but in none of the sampled first-eight ordinary web results. Google AI Mode mentioned DEXAM only for the hyperlocal Amanora Park Town prompt, as a local entity with a direct website link; it did not mention DEXAM for the four sampled topical practice/guidance prompts. Dedicated exam resource pages and official sources dominate paper/mock intent.
+
+**Privacy/security:** The public baseline excludes the signed-in email address, exact device-derived locality, account and campaign identifiers, phone numbers, advertising audiences and private performance data. A read-only Google Ads status observation is retained only in the ignored private register. No ad, profile, account or campaign state changed.
+
+**Next:** Validate both CSV contracts, complete the release review, then use this baseline to prioritize one evidence-rich mock/practice page and repeat the same samples monthly. Search Console-driven keyword prioritisation remains gated on T02.
