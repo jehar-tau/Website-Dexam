@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/prerender.mjs",
-    "check:site": "node scripts/check-redesign.mjs && node --test src/site/routes.test.mjs",
+    "check:site": "node scripts/check-redesign.mjs && node --test src/site/routes.test.mjs && node scripts/check-growth-data.mjs",
+    "check:growth": "node scripts/check-growth-data.mjs",
     "check:live": "node scripts/check-site.mjs",
     "test:browser": "playwright test",
     "preview": "vite preview"
