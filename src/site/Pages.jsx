@@ -965,6 +965,33 @@ export function About() {
           thoughtful feedback.
         </p>
       </section>
+      <section className="dea-wrap dea-section dea-studio-proof">
+        <figure>
+          <img
+            src="/assets/studio/dexam-pune-studio.jpg"
+            width="1600"
+            height="1200"
+            loading="lazy"
+            decoding="async"
+            alt="DEXAM's Pune studio with drawing desks, chairs, a whiteboard and warm wood storage"
+          />
+          <figcaption>DEXAM studio · Amanora Park Town, Pune</figcaption>
+        </figure>
+        <div>
+          <Eyebrow>OUR PUNE STUDIO</Eyebrow>
+          <h2>
+            A room made
+            <br />
+            <em>for making.</em>
+          </h2>
+          <p>
+            Long drawing desks, a working board and space to review ideas
+            together. This is where classroom practice becomes visible,
+            discussable and easier to improve.
+          </p>
+          <ArrowLink to="/contact">Plan a studio visit</ArrowLink>
+        </div>
+      </section>
       <section className="dea-wrap dea-section">
         <SectionTitle
           eyebrow="THE PEOPLE IN YOUR CORNER"

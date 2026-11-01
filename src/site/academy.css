@@ -1839,6 +1839,42 @@
   max-width: 620px;
   margin: 25px auto 0;
 }
+.dea-studio-proof {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(250px, 0.75fr);
+  gap: 52px;
+  align-items: center;
+}
+.dea-studio-proof figure {
+  margin: 0;
+}
+.dea-studio-proof img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.dea-studio-proof figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 8px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+.dea-studio-proof h2 {
+  margin: 18px 0;
+  font-size: 46px;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+}
+.dea-studio-proof p {
+  margin: 0 0 24px;
+  font-size: 13px;
+  line-height: 1.85;
+}
 .dea-mentor-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3893,6 +3929,17 @@
     font-size: 7px;
   }
   .dea-about-manifesto p {
+    font-size: 12px;
+  }
+  .dea-studio-proof {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .dea-studio-proof h2 {
+    font-size: 36px;
+    letter-spacing: -1.2px;
+  }
+  .dea-studio-proof p {
     font-size: 12px;
   }
   .dea-mentor-grid {
