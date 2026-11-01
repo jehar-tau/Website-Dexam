@@ -86,7 +86,7 @@
   outline-offset: 4px;
 }
 .dea-discipline-tools {
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .dea-guide-filter {
   display: flex;
@@ -373,6 +373,16 @@
   display: block;
   font-size: 12px;
   line-height: 1.7;
+}
+.dea-discipline-card li > .dea-discipline-programme {
+  color: var(--ink);
+  font-weight: 600;
+}
+.dea-discipline-offer-note {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 7px 0;
+  color: var(--muted);
 }
 .dea-discipline-card li > span {
   color: var(--muted);

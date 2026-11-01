@@ -28,6 +28,7 @@ npm run build    # production build in dist/
 - Active public programmes, exam guides, resources and FAQs: `src/site/content.js`
 - Programme structure and public-fee policy: `src/site/PROGRAMMES.md`
 - Design disciplines, college directories and degree routes: `src/site/discipline-data.js`, `src/site/college-data.js`
+- Additional college programme names and qualifications: `src/site/discipline-programmes.js`
 - Admissions source editions and review rules: `src/site/ADMISSIONS_RESEARCH.md`, `src/site/admissions-sources.js`
 - Public pages and shared components: `src/site/Pages.jsx`, `src/site/components.jsx`
 - Paper archive and retained legacy content: `src/data.js`

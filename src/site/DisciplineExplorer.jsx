@@ -2,7 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Art } from "./Art.jsx";
 import { PageHero, Cta } from "./components.jsx";
-import { designDisciplines, disciplineFamilies } from "./discipline-data.js";
+import {
+  designDisciplines,
+  disciplineFamilies,
+  disciplineInstitutions,
+  matchingDisciplineOffers,
+} from "./discipline-data.js";
 import {
   OfficialSource,
   GuideReview,
@@ -21,20 +26,20 @@ export default function DisciplineExplorer() {
   const [search, setSearch] = useState(""),
     [family, setFamily] = useState("All"),
     [level, setLevel] = useState("All"),
-    [school, setSchool] = useState("All");
-  const visible = designDisciplines.filter(
-    (d) =>
-      (family === "All" || family === d.family) &&
-      d.offers.some((o) =>
-        (level === "All" || o.level === level) &&
-        (school === "All" || (school === "NID"
-            ? o.institution.startsWith("NID")
-            : o.institution.includes(school))),
-      ) &&
-      `${d.name} ${d.family} ${d.text} ${d.offers.map((o) => `${o.institution} ${o.campus} ${o.programme || ""}`).join(" ")}`
-        .toLowerCase()
-        .includes(search.toLowerCase()),
-  );
+    [school, setSchool] = useState("All"),
+    [institution, setInstitution] = useState("All");
+  const visible = designDisciplines
+    .map((d) => ({
+      ...d,
+      offers: matchingDisciplineOffers(d, {
+        search,
+        family,
+        level,
+        school,
+        institution,
+      }),
+    }))
+    .filter((d) => d.offers.length);
   return (
     <>
       <PageHero
@@ -69,39 +74,37 @@ export default function DisciplineExplorer() {
         <div className="dea-guide-callout">
           <Art kind="interface" />
           <div>
-            <h2>New directions. Clear entry points.</h2>
+            <h2>Different names. Shared directions.</h2>
             <p>
-              The NID handbooks list 15 integrated-pathway disciplines across
-              the three NID Ahmedabad campuses and 22 specialised M.Des
-              disciplines, with additional regional offerings. Emerging options
-              elsewhere include AI-enabled design, immersive media and creative
-              computation.
+              Explore NID, IITs, Symbiosis, Mumbai-region schools and specialist
+              institutes. Related fields sit together, with each college’s exact
+              programme name inside the card.
             </p>
             <p>
-              Integrated entry follows school; postgraduate entry requires an
-              eligible earlier qualification. Open a card to check its sources.
+              A broad degree, a specialisation and a pathway can offer different
+              experiences. Compare the qualification, campus and official
+              source.
             </p>
             <OfficialSource id="nidIntegrated" />
             <OfficialSource id="nidMasters" />
           </div>
         </div>
         <div className="dea-guide-filter" aria-label="Institution filter">
-          {[
-            "All",
-            "NID",
-            "NIFT",
-            "MIT Institute of Design",
-            "Srishti Manipal",
-          ].map((s) => (
-            <button
-              type="button"
-              key={s}
-              aria-pressed={school === s}
-              onClick={() => setSchool(s)}
-            >
-              {s === "All" ? "All examples" : s}
-            </button>
-          ))}
+          {["All", "NID", "NIFT", "IITs", "Symbiosis", "Mumbai region"].map(
+            (s) => (
+              <button
+                type="button"
+                key={s}
+                aria-pressed={school === s}
+                onClick={() => {
+                  setSchool(s);
+                  setInstitution("All");
+                }}
+              >
+                {s === "All" ? "All examples" : s}
+              </button>
+            ),
+          )}
         </div>
         <div className="dea-guide-tools dea-discipline-tools">
           <label>
@@ -114,8 +117,28 @@ export default function DisciplineExplorer() {
             />
           </label>
           <label>
+            College or institute
+            <select
+              aria-label="College or institute"
+              value={institution}
+              onChange={(e) => {
+                setInstitution(e.target.value);
+                setSchool("All");
+              }}
+            >
+              <option value="All">All institutions</option>
+              {disciplineInstitutions.map((name) => (
+                <option key={name}>{name}</option>
+              ))}
+            </select>
+          </label>
+          <label>
             Design family
-            <select aria-label="Design family" value={family} onChange={(e) => setFamily(e.target.value)}>
+            <select
+              aria-label="Design family"
+              value={family}
+              onChange={(e) => setFamily(e.target.value)}
+            >
               <option>All</option>
               {disciplineFamilies.map((f) => (
                 <option key={f}>{f}</option>
@@ -124,7 +147,11 @@ export default function DisciplineExplorer() {
           </label>
           <label>
             Study level
-            <select aria-label="Study level" value={level} onChange={(e) => setLevel(e.target.value)}>
+            <select
+              aria-label="Study level"
+              value={level}
+              onChange={(e) => setLevel(e.target.value)}
+            >
               <option>All</option>
               {["Undergraduate", "Integrated", "Postgraduate", "Diploma"].map(
                 (l) => (
@@ -137,7 +164,8 @@ export default function DisciplineExplorer() {
           </label>
         </div>
         <p className="dea-guide-count" role="status">
-          {visible.length} disciplines shown
+          {visible.length} {visible.length === 1 ? "discipline" : "disciplines"}{" "}
+          shown
         </p>
         <div className="dea-discipline-grid">
           {visible.map((d) => (
@@ -155,7 +183,8 @@ export default function DisciplineExplorer() {
               <p>{d.text}</p>
               <details>
                 <summary>
-                  Programmes & sources <span aria-hidden="true">+</span>
+                  Programmes & sources ({d.offers.length}){" "}
+                  <span aria-hidden="true">+</span>
                 </summary>
                 <ul>
                   {d.offers.map((o, i) => (
@@ -163,10 +192,15 @@ export default function DisciplineExplorer() {
                       <strong>
                         {o.institution} · {levelLabel(o.level)}
                       </strong>
-                      <span>
-                        {o.campus}
-                        {o.programme ? ` · ${o.programme}` : ""}
-                      </span>
+                      {o.programme && (
+                        <span className="dea-discipline-programme">
+                          {o.programme}
+                        </span>
+                      )}
+                      <span>{o.campus}</span>
+                      {o.note && (
+                        <p className="dea-discipline-offer-note">{o.note}</p>
+                      )}
                       <OfficialSource id={o.source}>
                         Official programme source
                       </OfficialSource>
@@ -188,6 +222,7 @@ export default function DisciplineExplorer() {
                 setFamily("All");
                 setLevel("All");
                 setSchool("All");
+                setInstitution("All");
               }}
             >
               Reset filters
@@ -195,10 +230,12 @@ export default function DisciplineExplorer() {
           </div>
         )}
         <p className="dea-guide-note">
-          Programme names can overlap, while their curriculum and entry
-          requirements differ. These are documented examples, rather than every
-          programme at every institution. Architecture has a separate
-          professional degree route.
+          Related names are grouped for exploration; curricula and entry rules
+          still differ. The IIT undergraduate examples are broad B.Des degrees;
+          their M.Des streams are listed separately. BITS offers pathways within
+          one B.Des (Hons.). FDDI’s retail examples are BBA/MBA degrees.
+          Architecture has a separate professional route. This is a selected,
+          source-backed catalogue, rather than every programme in India.
         </p>
       </section>
       <CollegeGuideLinks compact />
