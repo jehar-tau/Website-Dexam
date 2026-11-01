@@ -26,6 +26,14 @@ import { useLead } from "../lead-context.jsx";
 import { waLink } from "../config.js";
 import { submitToGoogleSheet } from "../cms.jsx";
 import { CampusPathways } from "./CampusPathways.jsx";
+import {
+  campaignAttribution,
+  emitEnquirySuccess,
+  enquiryMeasurement,
+  enquiryOptions,
+  initialEnquiry,
+  validateEnquiry,
+} from "./enquiry.js";
 
 export function Home() {
   return (
@@ -1415,40 +1423,69 @@ export function StudentAccess() {
   );
 }
 
+function SelectField({ name, label, value, onChange, options, error }) {
+  return (
+    <label htmlFor={`enquiry-${name}`}>
+      {label}
+      <select
+        id={`enquiry-${name}`}
+        value={value}
+        onChange={onChange}
+        aria-invalid={!!error}
+        aria-describedby={error ? `error-${name}` : undefined}
+        required
+      >
+        <option value="">Choose one</option>
+        {options.map(([optionValue, optionLabel]) => (
+          <option key={optionValue} value={optionValue}>
+            {optionLabel}
+          </option>
+        ))}
+      </select>
+      {error && (
+        <span className="dea-form-error" id={`error-${name}`}>
+          {error}
+        </span>
+      )}
+    </label>
+  );
+}
+
 export function Contact() {
-  const [form, setForm] = useState({ name: "", phone: "", location: "" }),
+  const [params] = useSearchParams(),
+    [form, setForm] = useState(() => initialEnquiry(params)),
     [errors, setErrors] = useState({}),
-    [status, setStatus] = useState("idle"),
-    [params] = useSearchParams();
-  const [programmeId, setProgrammeId] = useState("");
-  useEffect(() => setProgrammeId(params.get("programme") || ""), [params]);
-  const programme = programmes.find((p) => p.id === programmeId);
+    [status, setStatus] = useState("idle");
+  const programme = programmes.find((p) => p.id === form.programme);
   const submit = async (ev) => {
     ev.preventDefault();
     if (status === "sending") return;
-    const errs = {
-      name: form.name.trim().length < 2,
-      phone: !/^[0-9]{10}$/.test(form.phone.replace(/[\s-]/g, "")),
-      location: form.location.trim().length < 2,
-    };
+    const errs = validateEnquiry(form);
     setErrors(errs);
     if (Object.values(errs).some(Boolean)) return;
     setStatus("sending");
     try {
+      const attribution = campaignAttribution(params);
       const result = await submitToGoogleSheet("counselling", {
         ...form,
-        ...(programme ? { programme: programme.name } : {}),
+        formVersion: "qualified-counselling-v1",
+        programme: programme?.name || form.programme,
+        feeAcknowledged: form.feeAcknowledged ? "yes" : "no",
+        ...attribution,
         ...(params.get("interest") ? { interest: params.get("interest") } : {}),
       });
       if (!result.configured) throw new Error("Unconfigured");
+      emitEnquirySuccess(enquiryMeasurement(form, attribution));
       setStatus("sent");
     } catch {
       setStatus("error");
     }
   };
   const set = (key) => (ev) => {
-    setForm((f) => ({ ...f, [key]: ev.target.value }));
-    setErrors((e) => ({ ...e, [key]: false }));
+    const value =
+      ev.target.type === "checkbox" ? ev.target.checked : ev.target.value;
+    setForm((current) => ({ ...current, [key]: value }));
+    setErrors((current) => ({ ...current, [key]: undefined }));
     if (status === "error") setStatus("idle");
   };
   return (
@@ -1462,7 +1499,7 @@ export function Contact() {
             <em>possibilities.</em>
           </>
         }
-        description="A course question. A career question. A student who sees things differently. There’s a good conversation in all of them."
+        description="Review the programmes first, then tell us which exam, year and learning route you are considering. The extra detail helps us respond usefully."
       />
       <section className="dea-wrap dea-contact-layout">
         <div className="dea-contact-info">
@@ -1531,11 +1568,24 @@ export function Contact() {
             <>
               <Eyebrow>BOOK FREE COUNSELLING</Eyebrow>
               <h2>
-                Tell us a little
+                Start with
                 <br />
-                <em>about yourself.</em>
+                <em>a clear fit.</em>
               </h2>
-              <p>We’ll use these details to respond to your enquiry.</p>
+              <p>
+                This form is for students and parents actively exploring design
+                entrance preparation. It takes about two minutes.
+              </p>
+              <div className="dea-form-prices" aria-label="Programme fees">
+                <span>
+                  <b>One year</b>
+                  ₹73,535
+                </span>
+                <span>
+                  <b>Two years</b>
+                  ₹1,13,557
+                </span>
+              </div>
               {programme && (
                 <div className="dea-form-interest">
                   You’re exploring: <strong>{programme.name}</strong>
@@ -1570,15 +1620,116 @@ export function Contact() {
                     />
                     {errors[key] && (
                       <span className="dea-form-error" id={`error-${key}`}>
-                        {key === "phone"
-                          ? "Enter a valid 10-digit number."
-                          : key === "name"
-                            ? "Please enter your name."
-                            : "Please enter your city or area."}
+                        {errors[key]}
                       </span>
                     )}
                   </label>
                 ))}
+                <SelectField
+                  name="role"
+                  label="Who is completing this form?"
+                  value={form.role}
+                  onChange={set("role")}
+                  options={enquiryOptions.role}
+                  error={errors.role}
+                />
+                <SelectField
+                  name="education"
+                  label="Current education stage"
+                  value={form.education}
+                  onChange={set("education")}
+                  options={enquiryOptions.education}
+                  error={errors.education}
+                />
+                <SelectField
+                  name="exam"
+                  label="Primary exam interest"
+                  value={form.exam}
+                  onChange={set("exam")}
+                  options={enquiryOptions.exam}
+                  error={errors.exam}
+                />
+                <SelectField
+                  name="targetYear"
+                  label="Target exam year"
+                  value={form.targetYear}
+                  onChange={set("targetYear")}
+                  options={enquiryOptions.targetYear}
+                  error={errors.targetYear}
+                />
+                <SelectField
+                  name="mode"
+                  label="Learning route"
+                  value={form.mode}
+                  onChange={set("mode")}
+                  options={enquiryOptions.mode}
+                  error={errors.mode}
+                />
+                <SelectField
+                  name="programme"
+                  label="What are you considering?"
+                  value={form.programme}
+                  onChange={set("programme")}
+                  options={enquiryOptions.programme}
+                  error={errors.programme}
+                />
+                <label htmlFor="enquiry-guidance">
+                  What guidance do you need right now?
+                  <textarea
+                    id="enquiry-guidance"
+                    value={form.guidance}
+                    onChange={set("guidance")}
+                    aria-invalid={!!errors.guidance}
+                    aria-describedby={
+                      errors.guidance ? "error-guidance" : undefined
+                    }
+                    placeholder="For example: I am in Class 12 and need help planning NID DAT preparation."
+                    rows="4"
+                  />
+                  {errors.guidance && (
+                    <span className="dea-form-error" id="error-guidance">
+                      {errors.guidance}
+                    </span>
+                  )}
+                </label>
+                <SelectField
+                  name="preferredTime"
+                  label="Preferred time for a call"
+                  value={form.preferredTime}
+                  onChange={set("preferredTime")}
+                  options={enquiryOptions.preferredTime}
+                  error={errors.preferredTime}
+                />
+                <label
+                  className="dea-form-check"
+                  htmlFor="enquiry-fee-acknowledged"
+                >
+                  <input
+                    id="enquiry-fee-acknowledged"
+                    type="checkbox"
+                    checked={form.feeAcknowledged}
+                    onChange={set("feeAcknowledged")}
+                    aria-invalid={!!errors.feeAcknowledged}
+                    aria-describedby={
+                      errors.feeAcknowledged
+                        ? "error-feeAcknowledged"
+                        : undefined
+                    }
+                  />
+                  <span>
+                    I reviewed the published one-year and two-year fees above.
+                    I understand that test-series, portfolio and other terms are
+                    confirmed separately.
+                  </span>
+                </label>
+                {errors.feeAcknowledged && (
+                  <span
+                    className="dea-form-error"
+                    id="error-feeAcknowledged"
+                  >
+                    {errors.feeAcknowledged}
+                  </span>
+                )}
                 <button
                   type="submit"
                   className="dea-button dea-button-orange"
@@ -1597,6 +1748,8 @@ export function Contact() {
                 )}
                 <p className="dea-form-note">
                   By submitting, you ask DEXAM to contact you about this
+                  enquiry. We also record non-sensitive campaign labels when
+                  present so we can measure which source produced a useful
                   enquiry. If you’re under 18, please complete this with a
                   parent or guardian. <Link to="/privacy">Privacy policy</Link>
                 </p>
