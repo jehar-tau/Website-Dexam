@@ -2114,22 +2114,39 @@
   font-weight: 500;
   display: block;
 }
-.dea-enquiry-card input {
+.dea-enquiry-card input,
+.dea-enquiry-card select,
+.dea-enquiry-card textarea {
   display: block;
   width: 100%;
   background: #fafbf4;
   border: 1px solid #dce3cf;
   border-radius: 6px;
   padding: 13px 14px;
-  font-size: 11px;
+  font: inherit;
+  font-size: 14px;
   margin-top: 7px;
   color: var(--ink);
   outline: none;
 }
-.dea-enquiry-card input[aria-invalid="true"] {
+.dea-enquiry-card textarea {
+  min-height: 105px;
+  resize: vertical;
+  line-height: 1.5;
+}
+.dea-enquiry-card input:focus,
+.dea-enquiry-card select:focus,
+.dea-enquiry-card textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(56, 100, 81, 0.14);
+}
+.dea-enquiry-card input[aria-invalid="true"],
+.dea-enquiry-card select[aria-invalid="true"],
+.dea-enquiry-card textarea[aria-invalid="true"] {
   border-color: #d47759;
 }
-.dea-enquiry-card input::placeholder {
+.dea-enquiry-card input::placeholder,
+.dea-enquiry-card textarea::placeholder {
   color: var(--muted);
 }
 .dea-enquiry-card form > .dea-button {
@@ -2151,6 +2168,48 @@
 }
 .dea-form-note a {
   text-decoration: underline;
+}
+.dea-form-prices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 20px;
+}
+.dea-form-prices span {
+  background: #fafbf4;
+  border: 1px solid #dce3cf;
+  border-radius: 8px;
+  color: var(--green);
+  display: grid;
+  font-family: var(--font-display);
+  font-size: 18px;
+  gap: 4px;
+  padding: 13px;
+}
+.dea-form-prices b {
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.dea-enquiry-card .dea-form-check {
+  align-items: flex-start;
+  display: flex;
+  font-size: 12px;
+  gap: 10px;
+  line-height: 1.55;
+}
+.dea-enquiry-card .dea-form-check input {
+  flex: 0 0 auto;
+  height: 18px;
+  margin: 1px 0 0;
+  padding: 0;
+  width: 18px;
+}
+.dea-enquiry-card .dea-form-check span {
+  color: var(--muted);
 }
 .dea-form-interest {
   font-size: 10px;
@@ -3945,7 +4004,9 @@
   .dea-enquiry-card label {
     font-size: 11px;
   }
-  .dea-enquiry-card input {
+  .dea-enquiry-card input,
+  .dea-enquiry-card select,
+  .dea-enquiry-card textarea {
     font-size: 12px;
     padding: 13px;
   }
