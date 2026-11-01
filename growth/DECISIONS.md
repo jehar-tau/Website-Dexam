@@ -25,3 +25,7 @@ Lead forms must not display success, unlock gated material, or persist a capture
 ## 2026-11-01 — Publish the approved Discovery website
 
 The owner explicitly approved pushing the redesigned website to its existing repository and updating designexam.com. The release carries the approved Discovery design contract, the campus illustrations and the free interactive assessment into the public website. Preserve the previous SEO/form fixes and confirmed programme fees. Paid downloadable reports remain coming soon until secure payment verification and entitlement delivery are implemented. The separate DexAM app still follows its own Claude review gate and is not included in this website release.
+
+## 2026-11-01 — Keep structured data narrow and evidenced
+
+Use `WebSite` and the existing `EducationalOrganization` facts on the homepage, plus route-specific `BreadcrumbList` data on internal pages. Do not add Course, review, rating, result, availability or price schema until the corresponding public content and business/legal facts satisfy the relevant structured-data rules. Structured data may help search systems understand the site; it is not described as a ranking guarantee or a guaranteed rich result.

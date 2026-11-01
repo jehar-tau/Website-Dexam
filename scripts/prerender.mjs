@@ -1,7 +1,12 @@
 import { build } from "vite";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import { publicPaths, metadataFor, organization, canonicalFor } from "../src/site/routes.js";
+import {
+  publicPaths,
+  metadataFor,
+  structuredDataFor,
+  canonicalFor,
+} from "../src/site/routes.js";
 import { site } from "../src/site/content.js";
 
 const root = new URL("../", import.meta.url);
@@ -48,27 +53,7 @@ for (const path of publicPaths) {
       /<meta name="description" content="[^"]*"\s*\/?>/,
       `<meta name="description" content="${escape(meta.description)}" />`,
     );
-  const schema =
-    path === "/"
-      ? organization
-      : {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            {
-              "@type": "ListItem",
-              position: 1,
-              name: "DEXAM",
-              item: site.origin + "/",
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: meta.title,
-              item: canonical,
-            },
-          ],
-        };
+  const schema = structuredDataFor(path);
   html = html.replace(
     "</head>",
     `<link rel="canonical" href="${canonical}"/><meta name="robots" content="index,follow"/><meta property="og:type" content="website"/><meta property="og:title" content="${escape(meta.title)} | DEXAM"/><meta property="og:description" content="${escape(meta.description)}"/><meta property="og:url" content="${canonical}"/><meta property="og:site_name" content="DEXAM — Design Exam Academy"/><meta property="og:image" content="${socialImage}"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:alt" content="DEXAM — Design entrance preparation for curious minds"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="${escape(meta.title)} | DEXAM"/><meta name="twitter:description" content="${escape(meta.description)}"/><meta name="twitter:image" content="${socialImage}"/><meta name="theme-color" content="#faf9f3"/><script type="application/ld+json">${JSON.stringify(schema).replaceAll("<", "\\u003c")}</script></head>`,
