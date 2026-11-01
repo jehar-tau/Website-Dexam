@@ -9,7 +9,7 @@ const base = [
   [
     "/courses",
     "Design entrance preparation programmes",
-    "Explore the DEXAM one-year and two-year preparation programmes, confirmed programme fees, learning approach and counselling in Pune.",
+    "Explore end-to-end design entrance preparation, studio test and interview prep, or standalone test series. Meet DEXAM in Pune to choose your programme.",
   ],
   [
     "/about",
@@ -34,7 +34,37 @@ const base = [
   [
     "/design-careers",
     "Explore the world of design careers",
-    "Discover product, communication, interaction, fashion and spatial design through useful questions and small creative exercises.",
+    "Explore NID 2027 design disciplines and emerging fields at MIT ID, NIFT and Srishti. Compare study levels, campuses and official programme sources.",
+  ],
+  [
+    "/design-degrees",
+    "NID, NIFT, UCEED and NATA: degrees and course durations",
+    "Compare NID’s 5.5-year integrated pathway, M.Des, NIFT degrees, UCEED B.Des, CEED postgraduate study and five-year architecture programmes.",
+  ],
+  [
+    "/design-colleges",
+    "20 design colleges in India: public and private options",
+    "Explore an editorial shortlist of 20 design colleges and campuses in India, with locations, admission routes and official sources.",
+  ],
+  [
+    "/design-colleges/pune",
+    "Design colleges in Pune: government and private options",
+    "Compare ten design options in Pune, PCMC and Pune district, including RT-MSSU, MIT ID, SID, MIT-WPU and FLAME, with programme sources.",
+  ],
+  [
+    "/design-colleges/uceed-nid",
+    "Private colleges accepting UCEED and NID scores",
+    "Read verified UCEED and NID score policies, 2027 admission examples, extra selection stages and clearly labelled earlier result-sharing references.",
+  ],
+  [
+    "/architecture-colleges",
+    "Top 20 architecture colleges in India: NIRF 2025",
+    "Explore the official NIRF 2025 Architecture and Planning top 20, with cities and guidance on NATA, JEE and college admission routes.",
+  ],
+  [
+    "/architecture-colleges/pune",
+    "5 architecture colleges in Pune: B.Arch options",
+    "Research five Pune and PCMC architecture colleges, including BKPS, BNCA, Bharati Vidyapeeth, Sinhgad and D Y Patil Akurdi, with source notes.",
   ],
   [
     "/guide",
@@ -49,7 +79,7 @@ const base = [
   [
     "/mock-tests",
     "Mock tests and design practice",
-    "Explore free visual practice and previous year papers while DEXAM prepares its separate mock-test and All-India test-series offerings.",
+    "Explore DEXAM’s standalone test-series programme, free visual practice and previous year papers. Ask the team about exam options, schedules and access.",
   ],
   [
     "/results",

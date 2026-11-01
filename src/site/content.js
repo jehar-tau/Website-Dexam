@@ -10,40 +10,50 @@ export const site = {
 
 export const programmes = [
   {
-    id: "two-year",
-    name: "The two-year journey.",
-    label: "BUILD YOUR FOUNDATION",
-    duration: "2 years",
-    price: "₹1,13,557",
+    id: "end-to-end",
+    name: "End-to-end preparation.",
+    label: "01 / THE COMPLETE JOURNEY",
+    duration: "Learn. Practise. Prepare.",
     art: "build",
-    for: "For early starters who want space to explore.",
     description:
-      "Make creative thinking a habit. Build a broad foundation in the first year, then bring it into focused entrance preparation.",
+      "Prepare for NID, NIFT, NATA, UCEED or CEED, from the foundations to each relevant admission stage.",
+    formats: ["4-year", "2-year", "1-year", "30-day crash course"],
     points: [
-      "Drawing, observation & visual thinking",
-      "A gradual foundation alongside school",
-      "Exam practice, review & personal feedback",
-      "Portfolio habits and preparation planning",
+      "Drawing, perspective, composition & colour",
+      "Design thinking, visual reasoning & aptitude",
+      "Mock tests, review & personal mentoring",
+      "Portfolio, studio & interview guidance where relevant",
     ],
-    note: "Room to discover. Time to get good.",
   },
   {
-    id: "one-year",
-    name: "The one-year focus.",
-    label: "BRING IT ALL TOGETHER",
-    duration: "1 year",
-    price: "₹73,535",
-    art: "target",
-    for: "For students ready for a focused preparation year.",
+    id: "studio-interview",
+    name: "Studio test & interview prep.",
+    label: "02 / YOUR NEXT STAGE",
+    duration: "Make. Present. Discuss.",
+    art: "portfolio",
     description:
-      "Connect the fundamentals with your exam. Practise with purpose, review your decisions, and build a consistent preparation routine.",
+      "Focused preparation for practical tasks, your portfolio and conversations about your work. Join this programme on its own.",
     points: [
-      "Foundation and exam-specific preparation",
-      "Timed papers and structured review",
-      "Personal mentoring and study planning",
-      "Studio-test & portfolio guidance where relevant",
+      "Studio & situation-test practice",
+      "Material exploration, making & model building",
+      "Portfolio development & presentation",
+      "Interview practice & feedback",
     ],
-    note: "A clear direction. A deliberate routine.",
+  },
+  {
+    id: "test-series",
+    name: "Test series.",
+    label: "03 / FOCUSED PRACTICE",
+    duration: "Practise. Review. Repeat.",
+    art: "papers",
+    description:
+      "Just the test series, for students who want to practise independently. Full-course enrolment is not required.",
+    points: [
+      "Mock tests for your chosen exam",
+      "Timed practice & exam familiarity",
+      "Performance review to guide your next attempt",
+      "Standalone test-series access",
+    ],
   },
 ];
 
@@ -52,11 +62,11 @@ export const exams = [
     id: "nid",
     name: "NID DAT",
     subtitle: "Think beyond the obvious.",
-    degree: "B.Des / M.Des",
+    degree: "Integrated / postgraduate design",
     art: "product",
     color: "peach",
     intro:
-      "A design path built around observation, ideas, making and communicating. Explore the National Institute of Design admission process, then practise seeing everyday problems differently.",
+      "NID’s 2027–28 admission routes include a 5.5-year integrated M.Des pathway and a separate 2.5-year specialised M.Des. Explore the discipline, campus and entry level before planning your DAT preparation.",
     skills: [
       "Observation",
       "Idea generation",
@@ -66,7 +76,7 @@ export const exams = [
     practice:
       "Choose an everyday object. Draw three ways it could work better for a different user. Show the problem before you show the solution.",
     focus: "Open-ended design responses",
-    source: "https://admissions.nid.edu/",
+    source: "https://admissions.nid.edu/NIDA2027/",
     sourceName: "NID Admissions",
     steps: [
       "Observe ordinary objects and real situations.",
@@ -110,7 +120,7 @@ export const exams = [
     practice:
       "Choose a local festival. Build a six-colour palette and three small motifs inspired by its objects, movement and textures. Explain your choices visually.",
     focus: "Creative ability and aptitude",
-    source: "https://www.nift.ac.in/admission",
+    source: "https://nift.ac.in/admissions",
     sourceName: "NIFT Admissions",
     steps: [
       "Understand the route for the exact programme you want.",
@@ -376,7 +386,15 @@ export const faqs = [
     "Our listed studio is at 101, Pallazo Building, next to Wisdom World School, Amanora Park Town, Pune 411028. Contact us to arrange a visit and confirm current batch timings.",
   ],
   [
-    "Are mock tests and portfolio packages available separately?",
-    "Separate mock-test, All-India test-series and portfolio/studio-test offerings are in preparation. Enquire about availability; their schedules, access and fees will be confirmed separately.",
+    "Can I join just the studio preparation or test series?",
+    "Yes. Studio test and interview preparation, including portfolio guidance, and the test series are standalone programmes. You do not need to join the full end-to-end course. Meet the team to discuss the right programme, batch timings and fees.",
+  ],
+  [
+    "How long is the end-to-end course?",
+    "Choose a four-year, two-year or one-year programme, or a focused 30-day crash course. We will help you choose a timeline around your starting point, chosen exam and time available.",
+  ],
+  [
+    "How can we find out the fees?",
+    "Visit the academy and meet the team. We will explain the fees and enrolment details for the programme that suits you during your conversation.",
   ],
 ];

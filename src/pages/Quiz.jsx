@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import Challenge from "../assessment/Challenges.jsx";
 import { Artwork, Icon, C } from "../assessment/Graphics.jsx";
 import {
@@ -11,6 +11,9 @@ import {
 import "../assessment/lab.css";
 
 const STORAGE = `dexam-${VERSION}`;
+const DetailedReport = import.meta.env.DEV
+  ? lazy(() => import("../assessment/DetailedReport.jsx"))
+  : null;
 const chapterIcons = ["sun", "spark", "edit", "grid", "heart", "share"];
 const practices = {
   Balance:
@@ -412,7 +415,7 @@ function Landing({ answers, onStart, onLibrary }) {
   );
 }
 
-function Report({ answers, onReturn, onRestart }) {
+function Report({ answers, onReturn, onRestart, onDetailed }) {
   const report = useMemo(() => buildReport(answers), [answers]);
   const strongest = report.ranked[0],
     weakest = report.ranked.at(-1),
@@ -497,6 +500,16 @@ function Report({ answers, onReturn, onRestart }) {
           <button className="lab-text" onClick={onRestart}>
             Start a fresh attempt <Icon name="rotate" size={16} />
           </button>
+          {import.meta.env.DEV && (
+            <div style={{ marginTop: 24 }}>
+              <button className="lab-button" onClick={onDetailed} disabled={!full}>
+                Preview detailed report <Icon name="arrow" size={16} />
+              </button>
+              <p className="lab-evidence-note">
+                Local review preview. Paid report delivery is not enabled.
+              </p>
+            </div>
+          )}
         </section>
         <aside className="lab-report-paid">
           <span className="lab-eyebrow">A LITTLE MORE, COMING SOON</span>
@@ -516,9 +529,9 @@ function Report({ answers, onReturn, onRestart }) {
             <br />A personal way forward.
           </h2>
           <ul>
-            <li>Every challenge, explained</li>
-            <li>Your strengths &amp; blind spots</li>
-            <li>A 4-week practice plan</li>
+            <li>Your personal practice priorities</li>
+            <li>What to study &amp; notice every day</li>
+            <li>A 4-week making plan</li>
             <li>Downloadable personal report</li>
           </ul>
           <button
@@ -541,7 +554,12 @@ export default function Quiz() {
   const saved = useRef(readSaved()),
     [answers, setAnswers] = useState(saved.current?.answers || {}),
     [step, setStep] = useState(saved.current?.step || 0),
-    [view, setView] = useState("landing"),
+    [view, setView] = useState(() =>
+      import.meta.env.DEV && typeof window !== "undefined" &&
+      new URLSearchParams(window.location.search).get("report") === "detailed"
+        ? "detailed"
+        : "landing",
+    ),
     [library, setLibrary] = useState(false),
     [history, setHistory] = useState({}),
     [help, setHelp] = useState(false);
@@ -648,11 +666,19 @@ export default function Quiz() {
           onStart={(i) => choose(typeof i === "number" ? i : step)}
           onLibrary={() => setLibrary(true)}
         />
+      ) : view === "detailed" && import.meta.env.DEV ? (
+        <Suspense fallback={<main className="lab-report"><p>Preparing your report…</p></main>}>
+          <DetailedReport
+            answers={answers}
+            onBack={() => setView("report")}
+          />
+        </Suspense>
       ) : view === "report" ? (
         <Report
           answers={answers}
           onReturn={() => setView("test")}
           onRestart={restart}
+          onDetailed={() => setView("detailed")}
         />
       ) : (
         <>

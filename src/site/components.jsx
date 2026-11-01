@@ -153,16 +153,22 @@ export function ProgrammeCard({ programme: p, index = 0 }) {
     <article className={`dea-programme-card programme-${index}`}>
       <div className="dea-programme-art">
         <Art kind={p.art} />
-        <span>{p.duration.toUpperCase()} / A CREATIVE EDUCATION</span>
+        <span>{p.duration.toUpperCase()}</span>
       </div>
       <div className="dea-programme-copy">
         <span className="dea-small-label">{p.label}</span>
         <h3>{p.name}</h3>
-        <p>{p.for}</p>
-        <div className="dea-programme-price">
-          <b>{p.price}</b>
-          <span>programme fee</span>
-        </div>
+        <p>{p.description}</p>
+        {p.formats && (
+          <div className="dea-programme-formats">
+            <span>CHOOSE YOUR TIMELINE</span>
+            <ul aria-label="End-to-end course formats">
+              {p.formats.map((format) => (
+                <li key={format}>{format}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         <ul>
           {p.points.map((point) => (
             <li key={point}>

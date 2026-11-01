@@ -1,0 +1,460 @@
+.dea-guide-review {
+  padding: 20px 24px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f0f2e5;
+  margin-bottom: 28px;
+}
+.dea-guide-review > span {
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+  color: var(--green);
+}
+.dea-guide-review p {
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 8px 0 0;
+}
+.dea-guide-callout {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 30px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0 36px;
+  margin-bottom: 32px;
+}
+.dea-guide-callout > .dea-art {
+  width: 150px;
+  height: 150px;
+}
+.dea-guide-callout h2 {
+  font-size: 32px;
+  margin: 10px 0 14px;
+}
+.dea-guide-callout p {
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 0 12px;
+}
+.dea-guide-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--green) !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  margin: 6px 18px 0 0;
+  overflow-wrap: anywhere;
+}
+.dea-guide-tools {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 18px;
+  align-items: end;
+}
+.dea-guide-tools label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  min-width: 0;
+}
+.dea-guide-tools input,
+.dea-guide-tools select {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fffef9;
+  color: var(--ink);
+  padding: 12px 14px;
+  min-height: 46px;
+  width: 100%;
+  font:
+    400 14px Figtree,
+    sans-serif;
+}
+.dea-guide-tools select:focus-visible,
+.dea-guide-table-wrap:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+.dea-discipline-tools {
+  grid-template-columns: 1.5fr 1fr 1fr;
+}
+.dea-guide-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 26px;
+}
+.dea-guide-filter button,
+.dea-guide-empty button {
+  border: 1px solid var(--line);
+  background: #fffef9;
+  color: var(--ink);
+  border-radius: 6px;
+  min-height: 44px;
+  padding: 10px 15px;
+  font-size: 12px;
+}
+.dea-guide-filter button[aria-pressed="true"] {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+  color: var(--cream);
+  font-weight: 600;
+}
+.dea-guide-count {
+  font-size: 12px;
+  margin: 22px 0;
+}
+.dea-college-grid,
+.dea-discipline-grid,
+.dea-degree-grid,
+.dea-score-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+.dea-college-card,
+.dea-discipline-card,
+.dea-degree-card {
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #fffef9;
+  padding: 26px;
+  min-width: 0;
+}
+.dea-college-card h2,
+.dea-discipline-card h2 {
+  font-size: 27px;
+  line-height: 1.15;
+  margin: 16px 0 14px;
+  overflow-wrap: anywhere;
+}
+.dea-college-card > p,
+.dea-discipline-card > p,
+.dea-degree-card > p {
+  font-size: 14px;
+  line-height: 1.75;
+  margin: 0 0 18px;
+}
+.dea-guide-tag,
+.dea-guide-tags > span {
+  display: inline-block;
+  background: #f0f2e5;
+  color: var(--green-dark);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.dea-guide-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0;
+}
+.dea-college-card > .dea-college-location {
+  font-size: 12px;
+  margin: 14px 0 0;
+}
+.dea-college-card dl {
+  padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+  margin: 20px 0;
+}
+.dea-college-card dl > div + div {
+  margin-top: 14px;
+}
+.dea-college-card dt {
+  font-size: 9px;
+  color: var(--green);
+  letter-spacing: 0.7px;
+  font-weight: 600;
+}
+.dea-college-card dd {
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 5px 0 0;
+  color: var(--ink);
+}
+.dea-guide-empty {
+  border: 1px dashed var(--line);
+  padding: 32px;
+  border-radius: 10px;
+}
+.dea-guide-empty h2 {
+  font-size: 30px;
+  margin: 0 0 12px;
+}
+.dea-guide-note,
+.dea-guide-clarification p,
+.dea-guide-reference p {
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 900px;
+}
+.dea-guide-note {
+  margin: 28px 0;
+}
+.dea-guide-clarification {
+  border-left: 3px solid var(--green);
+  padding: 8px 0 10px 24px;
+  margin: 42px 0;
+}
+.dea-guide-clarification h2 {
+  font-size: 30px;
+  margin: 0 0 14px;
+}
+.dea-guide-reference {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 24px;
+}
+.dea-guide-reference summary {
+  cursor: pointer;
+  min-height: 44px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.dea-guide-reference ul {
+  font-size: 14px;
+  columns: 2;
+  padding-left: 20px;
+  line-height: 1.9;
+}
+.dea-degree-card h2 {
+  font-size: 44px;
+  margin: 18px 0;
+  color: var(--green);
+}
+.dea-degree-card h3 {
+  font-size: 24px;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+.dea-degree-card .dea-degree-entry {
+  font-size: 12px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
+}
+.dea-ranking-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-top: 44px;
+}
+.dea-ranking-heading h2 {
+  font-size: 32px;
+}
+.dea-guide-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.dea-guide-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 720px;
+  text-align: left;
+  background: #fffef9;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.dea-guide-table caption {
+  padding: 18px;
+  text-align: left;
+  color: var(--muted);
+  background: #f0f2e5;
+}
+.dea-guide-table th,
+.dea-guide-table td {
+  padding: 17px 20px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.dea-guide-table thead {
+  color: var(--green);
+  font-size: 11px;
+}
+.dea-guide-table tbody th {
+  font-weight: 600;
+}
+.dea-guide-link-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.dea-guide-link-grid > a {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 25px;
+  background: #f4f5e9;
+  text-decoration: none;
+}
+.dea-guide-link-grid .dea-art {
+  width: 110px;
+  height: 90px;
+}
+.dea-guide-link-grid h3 {
+  font-size: 27px;
+  margin: 18px 0 12px;
+}
+.dea-guide-link-grid p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.dea-guide-link-grid a > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--green);
+  margin-top: 14px;
+}
+.dea-discipline-card-top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 80px;
+}
+.dea-discipline-card-top > .dea-art {
+  width: 92px;
+  height: 80px;
+}
+.dea-discipline-card-top > span {
+  font-size: 9px;
+  line-height: 1.7;
+}
+.dea-discipline-card summary {
+  list-style: none;
+  min-height: 44px;
+  padding: 16px 0 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+}
+.dea-discipline-card summary::-webkit-details-marker {
+  display: none;
+}
+.dea-discipline-card summary > span {
+  font-size: 20px;
+  font-weight: 400;
+}
+.dea-discipline-card details[open] summary > span {
+  transform: rotate(45deg);
+}
+.dea-discipline-card details ul {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.dea-discipline-card li {
+  border-top: 1px solid var(--line-soft);
+  padding: 14px 0;
+}
+.dea-discipline-card li strong,
+.dea-discipline-card li > span {
+  display: block;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.dea-discipline-card li > span {
+  color: var(--muted);
+  margin: 5px 0;
+}
+.dea-exam-route-summary {
+  padding-top: 35px;
+}
+.dea-exam-route-summary > h2 {
+  font-size: 30px;
+  margin: 0 0 22px;
+}
+.dea-exam-route-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.dea-exam-route-grid article {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 24px;
+  background: #fffef9;
+}
+.dea-exam-route-grid h3 {
+  font-size: 25px;
+  margin: 10px 0;
+}
+.dea-exam-route-grid p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+@media (max-width: 1100px) {
+  .dea-college-grid,
+  .dea-discipline-grid,
+  .dea-degree-grid,
+  .dea-score-grid,
+  .dea-guide-link-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 650px) {
+  .dea-college-grid,
+  .dea-discipline-grid,
+  .dea-degree-grid,
+  .dea-score-grid,
+  .dea-guide-link-grid,
+  .dea-exam-route-grid,
+  .dea-guide-tools {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .dea-guide-callout {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding-top: 10px;
+  }
+  .dea-guide-callout > .dea-art {
+    width: 120px;
+    height: 100px;
+  }
+  .dea-guide-review {
+    padding: 20px;
+  }
+  .dea-guide-callout h2 {
+    font-size: 30px;
+  }
+  .dea-guide-filter {
+    gap: 7px;
+  }
+  .dea-guide-filter button {
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+  .dea-guide-reference ul {
+    columns: 1;
+  }
+  .dea-ranking-heading {
+    display: block;
+    margin-bottom: 22px;
+  }
+  .dea-guide-clarification {
+    padding-left: 18px;
+  }
+}

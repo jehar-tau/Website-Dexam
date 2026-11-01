@@ -696,106 +696,134 @@
   color: var(--muted);
   margin-top: 14px;
 }
+.dea-programme-intro {
+  max-width: 650px;
+  margin: 0 0 28px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+}
 .dea-programme-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
 }
 .dea-programme-card {
   border: 1px solid var(--line);
   border-radius: 11px;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 0.75fr 1.25fr;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
   background: #fffef9;
 }
 .dea-programme-art {
   overflow: hidden;
   background: #e8eddb;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  min-width: 0;
-  padding: 5px;
+  height: 180px;
+  flex: none;
 }
 .programme-1 .dea-programme-art {
   background: #f3e6d6;
 }
+.programme-2 .dea-programme-art {
+  background: #f2edd8;
+}
 .dea-programme-art > .dea-art {
-  width: 160%;
-  max-height: 260px;
+  width: 100%;
+  height: 200px;
+  margin-top: -14px;
 }
 .dea-programme-art > span {
-  font-size: 6px;
-  letter-spacing: 0.8px;
+  font-size: 8px;
+  letter-spacing: 1px;
   color: var(--muted);
   text-align: center;
   position: absolute;
-  bottom: 23px;
-  left: 8px;
-  right: 8px;
+  bottom: 15px;
+  left: 12px;
+  right: 12px;
 }
 .dea-programme-copy {
   padding: 26px 24px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .dea-programme-copy h3 {
-  font-size: 29px;
+  font-size: 31px;
   letter-spacing: -1px;
-  margin: 11px 0;
+  margin: 12px 0;
+  min-height: 74px;
 }
 .dea-programme-copy > p {
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.7;
   margin: 0;
-  max-width: 250px;
 }
-.dea-programme-price {
-  display: flex;
-  gap: 7px;
-  align-items: baseline;
-  margin-top: 23px;
-}
-.dea-programme-price > b {
-  font:
-    500 27px "Zilla Slab",
-    serif;
-  letter-spacing: -1px;
-}
-.dea-programme-price > span {
-  font-size: 7px;
-  color: var(--muted);
-}
-.dea-programme-copy ul {
-  padding: 17px 0 0;
+.dea-programme-copy > ul {
+  padding: 18px 0 0;
   border-top: 1px solid var(--line-soft);
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 9px;
-  margin: 16px 0 24px;
+  gap: 10px;
+  margin: 18px 0 26px;
+  width: 100%;
 }
-.dea-programme-copy li {
+.dea-programme-copy > ul > li {
   display: flex;
   align-items: flex-start;
-  gap: 7px;
-  font-size: 9px;
+  gap: 8px;
+  font-size: 12px;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 .dea-programme-copy li > svg {
-  margin-top: 2px;
+  margin-top: 3px;
   color: var(--green);
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
+  flex: none;
+}
+.dea-programme-formats {
+  margin-top: 18px;
+}
+.dea-programme-formats > span {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  color: var(--green);
+}
+.dea-programme-formats > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+.dea-programme-formats li {
+  font-size: 11px;
+  line-height: 1.5;
+  border: 1px solid var(--line);
+  background: var(--cream);
+  border-radius: 4px;
+  padding: 5px 8px;
+  color: var(--ink);
 }
 .dea-programme-copy > .dea-button {
-  font-size: 9px;
-  min-height: 40px;
-  padding: 10px 13px;
-  gap: 20px;
+  font-size: 11px;
+  min-height: 44px;
+  padding: 12px 14px;
+  gap: 12px;
   width: 100%;
+  margin-top: auto;
 }
 .dea-fee-note {
   font-size: 10px;
@@ -803,6 +831,148 @@
   color: var(--muted) !important;
   max-width: 850px;
   margin: 17px 0 0;
+}
+.dea-curriculum-link {
+  margin-top: 20px;
+}
+#curriculum {
+  scroll-margin-top: 100px;
+}
+.dea-curriculum-intro {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 660px;
+  margin: -8px 0 28px;
+}
+.dea-curriculum-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+.dea-curriculum-card {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #fffef9;
+  min-width: 0;
+}
+.dea-curriculum-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 90px;
+}
+.dea-curriculum-card-top .dea-art {
+  width: 110px;
+  height: 90px;
+  flex: none;
+}
+.dea-curriculum-card-top .dea-small-label {
+  line-height: 1.7;
+  letter-spacing: 0.7px;
+}
+.dea-curriculum-card h3 {
+  font-size: 28px;
+  letter-spacing: -0.7px;
+  line-height: 1.15;
+  min-height: 65px;
+  margin: 18px 0 12px;
+}
+.dea-curriculum-card > p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  min-height: 88px;
+  margin: 0 0 20px;
+}
+.dea-curriculum-card details {
+  border-top: 1px solid var(--line);
+}
+.dea-curriculum-card summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 64px;
+  padding: 14px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+}
+.dea-curriculum-card summary::-webkit-details-marker {
+  display: none;
+}
+.dea-curriculum-card summary small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.dea-curriculum-card summary > b {
+  font-size: 23px;
+  font-weight: 400;
+}
+.dea-curriculum-card details[open] summary > b {
+  transform: rotate(45deg);
+}
+.dea-curriculum-card details > ul {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+.dea-curriculum-card li {
+  padding: 13px 0;
+  border-top: 1px solid var(--line-soft);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.dea-curriculum-card li:last-child {
+  padding-bottom: 0;
+}
+.dea-curriculum-card li > p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 5px 0 0;
+}
+.dea-self-study {
+  display: inline-block;
+  background: #f0f2e5;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin: 4px 0 0 6px;
+  font-size: 10px;
+  color: var(--green);
+}
+.dea-curriculum-note {
+  max-width: 750px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 22px 0 18px;
+}
+@media (max-width: 1100px) {
+  .dea-curriculum-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 650px) {
+  .dea-curriculum-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .dea-curriculum-card h3,
+  .dea-curriculum-card > p {
+    min-height: 0;
+  }
 }
 .dea-disciplines-section {
   padding-top: 66px;
@@ -2496,28 +2666,11 @@
   .dea-fit-band > .dea-wrap {
     gap: 50px;
   }
-  .dea-programme-card {
-    grid-template-columns: 0.6fr 1.4fr;
-  }
   .dea-programme-copy {
     padding: 24px 19px;
   }
   .dea-programme-copy h3 {
     font-size: 27px;
-  }
-  .dea-programme-price {
-    flex-direction: column;
-    gap: 0;
-  }
-  .dea-programme-copy > .dea-button {
-    font-size: 8px;
-    gap: 10px;
-  }
-  .dea-programme-art > .dea-art {
-    width: 180%;
-  }
-  .dea-programme-art {
-    overflow: hidden;
   }
   .dea-discipline-strip > a {
     padding: 15px;
@@ -2750,45 +2903,29 @@
     gap: 18px;
   }
   .dea-programme-grid {
-    gap: 18px;
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
   .dea-programme-card {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 0.65fr 1.35fr;
   }
   .dea-programme-art {
-    height: 170px;
-    overflow: hidden;
-    display: block;
-    padding: 0;
+    height: auto;
+    min-height: 230px;
   }
   .dea-programme-art > .dea-art {
-    height: 200px;
-    width: 100%;
-    margin-top: -10px;
-  }
-  .dea-programme-art > span {
-    bottom: 10px;
-    font-size: 5px;
+    width: 160%;
+    height: 260px;
+    max-width: none;
+    flex: none;
   }
   .dea-programme-copy {
-    padding: 25px;
-  }
-  .dea-programme-price {
-    flex-direction: row;
-    gap: 8px;
+    padding: 28px;
   }
   .dea-programme-copy h3 {
-    font-size: 30px;
-  }
-  .dea-programme-copy > p {
-    font-size: 12px;
-  }
-  .dea-programme-copy li {
-    font-size: 10px;
-  }
-  .dea-programme-copy > .dea-button {
-    font-size: 10px;
+    min-height: 0;
+    font-size: 32px;
   }
   .dea-discipline-strip {
     grid-template-columns: 1fr 1fr;
@@ -3329,59 +3466,29 @@
     font-size: 9px;
   }
   .dea-programme-grid {
-    grid-template-columns: 1fr;
-    gap: 23px;
+    gap: 22px;
   }
   .dea-programme-card {
-    display: grid;
-    grid-template-columns: 0.6fr 1.4fr;
+    display: flex;
+    flex-direction: column;
   }
   .dea-programme-art {
-    height: auto;
-    display: flex;
-    padding: 0;
+    height: 170px;
+    min-height: 0;
   }
   .dea-programme-art > .dea-art {
-    height: 240px;
-    width: 200%;
-    margin: 0;
-    max-width: none;
-    flex: none;
-  }
-  .dea-programme-art > span {
-    font-size: 5px;
-    line-height: 1.8;
-    bottom: 19px;
+    width: 100%;
+    height: 200px;
   }
   .dea-programme-copy {
-    padding: 24px 19px;
+    padding: 25px;
   }
   .dea-programme-copy .dea-small-label {
-    font-size: 7px;
+    font-size: 9px;
     letter-spacing: 0.8px;
   }
   .dea-programme-copy h3 {
-    font-size: 28px;
-  }
-  .dea-programme-copy > p {
-    font-size: 11px;
-  }
-  .dea-programme-price > b {
-    font-size: 26px;
-  }
-  .dea-programme-price > span {
-    font-size: 6px;
-  }
-  .dea-programme-copy li {
-    font-size: 9px;
-  }
-  .dea-programme-copy > .dea-button {
-    font-size: 8px;
-    gap: 7px;
-    padding: 10px;
-  }
-  .dea-programme-copy > .dea-button > svg {
-    width: 15px;
+    font-size: 32px;
   }
   .dea-fee-note {
     font-size: 9px;
