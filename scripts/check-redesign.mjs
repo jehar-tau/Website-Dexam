@@ -30,6 +30,7 @@ for (const family of Object.values(designContract.fonts)) {
 const titles = new Set(),
   descriptions = new Set();
 let links = 0;
+const socialImage = "https://designexam.com/assets/social/dexam-discovery-card.png";
 for (const route of publicPaths) {
   const html = await readFile(
     new URL(
@@ -52,6 +53,12 @@ for (const route of publicPaths) {
   assert.ok(
     html.includes(`rel="canonical" href="${canonicalFor(route)}"`),
     `Canonical: ${route}`,
+  );
+  assert.ok(
+    html.includes(`property="og:image" content="${socialImage}"`) &&
+      html.includes('name="twitter:card" content="summary_large_image"') &&
+      html.includes(`name="twitter:image" content="${socialImage}"`),
+    `Social sharing metadata: ${route}`,
   );
   if (route !== "/quiz") {
     assert.ok(
@@ -121,6 +128,17 @@ assert.equal(
   "Every canonical public route in sitemap",
 );
 assert.ok(!sitemap.includes("/admin"), "Admin excluded from sitemap");
+const socialCard = await readFile(
+  new URL("../dist/assets/social/dexam-discovery-card.png", import.meta.url),
+);
+assert.equal(
+  socialCard.toString("hex", 0, 8),
+  "89504e470d0a1a0a",
+  "Social card is a valid PNG",
+);
+assert.equal(socialCard.readUInt32BE(16), 1200, "Social card width is 1200px");
+assert.equal(socialCard.readUInt32BE(20), 630, "Social card height is 630px");
+assert.ok(socialCard.length < 500_000, "Social card stays within the 500 KB budget");
 console.log(
   `PASS: ${publicPaths.length} direct routes, ${titles.size} unique titles/descriptions, ${links} internal links, server-rendered content, confirmed prices and sitemap.`,
 );
