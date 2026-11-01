@@ -94,3 +94,13 @@
 **Action:** Created the ignored `growth/private/` baseline workspace and a local missing-data register so future Search Console, GA4, Google Business Profile and advertising exports remain outside version control. Updated the task ledger with the exact access dependency instead of treating missing metrics as zero.
 
 **Decision gate:** The owner must identify an existing Google account with access, or approve creating/verifying new Search Console and GA4 properties. Search Console verification would grant persistent ownership to the selected account, so it will not be performed silently.
+
+### 2026-11-01 — T09: Structured site-name and breadcrumb data prepared
+
+**Observed before:** Every direct route emitted JSON-LD, but the homepage described only the academy and nested pages collapsed their full hierarchy into a two-item trail. For example, a paper archive did not identify its Resources and Previous year papers parents. The homepage also lacked the `WebSite` data Google currently recommends for a preferred site name.
+
+**Action:** Centralized structured-data generation in the route model. The homepage now identifies the `DEXAM` website and the existing educational organization; all other public routes emit a canonical breadcrumb trail that matches their real exam, resource, paper or article hierarchy. No review, rating, result, Course offer, availability, or other unsupported commercial claim was added.
+
+**Verification:** Production build and static site checks pass for 31 direct routes. Three route-model tests, eight assessment tests and 69 desktop/mobile/accessibility browser tests pass. The static release check parses every JSON-LD block, validates its context, ordered list items, absolute same-origin URLs and canonical destination.
+
+**Follow-up:** Complete diff/security checks, open a focused PR, deploy only after CI passes, then validate representative live pages. Search Console URL Inspection remains dependent on T02 access.

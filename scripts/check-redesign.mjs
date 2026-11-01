@@ -60,6 +60,36 @@ for (const route of publicPaths) {
       html.includes(`name="twitter:image" content="${socialImage}"`),
     `Social sharing metadata: ${route}`,
   );
+  const schemaText = html.match(
+    /<script type="application\/ld\+json">([\s\S]*?)<\/script>/,
+  )?.[1];
+  assert.ok(schemaText, `Structured data: ${route}`);
+  const schema = JSON.parse(schemaText);
+  assert.equal(schema["@context"], "https://schema.org", `Schema context: ${route}`);
+  if (route === "/") {
+    const types = schema["@graph"]?.map((node) => node["@type"]);
+    assert.deepEqual(
+      types,
+      ["WebSite", "EducationalOrganization"],
+      "Homepage site-name and organization data",
+    );
+  } else {
+    assert.equal(schema["@type"], "BreadcrumbList", `Breadcrumb type: ${route}`);
+    assert.ok(
+      schema.itemListElement.length >= 2,
+      `Useful breadcrumb trail: ${route}`,
+    );
+    schema.itemListElement.forEach((item, index) => {
+      assert.equal(item["@type"], "ListItem", `Breadcrumb item type: ${route}`);
+      assert.equal(item.position, index + 1, `Breadcrumb position: ${route}`);
+      assert.match(item.item, /^https:\/\/designexam\.com\//, `Breadcrumb URL: ${route}`);
+    });
+    assert.equal(
+      schema.itemListElement.at(-1).item,
+      canonicalFor(route),
+      `Breadcrumb ends at canonical: ${route}`,
+    );
+  }
   if (route !== "/quiz") {
     assert.ok(
       html.includes(`data-prerender-path="${route}"`),
@@ -96,10 +126,7 @@ assert.ok(
   homepage.includes("₹1,13,557") && homepage.includes("₹73,535"),
   "Both confirmed programme fees",
 );
-assert.ok(
-  homepage.includes("application/ld+json"),
-  "Structured organisation data",
-);
+assert.ok(homepage.includes("application/ld+json"), "Structured site data");
 assert.ok(
   homepage.includes('id="campus-pathways"'),
   "Campus section is server-rendered",

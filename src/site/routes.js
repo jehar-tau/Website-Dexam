@@ -109,8 +109,7 @@ export function metadataFor(path) {
     }
   );
 }
-export const organization = {
-  "@context": "https://schema.org",
+const organization = {
   "@type": "EducationalOrganization",
   "@id": `${site.origin}/#academy`,
   name: site.name,
@@ -126,3 +125,113 @@ export const organization = {
     addressCountry: "IN",
   },
 };
+
+const website = {
+  "@type": "WebSite",
+  "@id": `${site.origin}/#website`,
+  url: `${site.origin}/`,
+  name: "DEXAM",
+  alternateName: ["Design Exam Academy", "designexam.com"],
+};
+
+const pageLabels = {
+  "/courses": "Programmes",
+  "/about": "About",
+  "/exams": "Exams",
+  "/resources": "Resources",
+  "/papers": "Previous year papers",
+  "/design-careers": "Design careers",
+  "/guide": "Design career guide",
+  "/design-coaching-pune": "Design coaching Pune",
+  "/mock-tests": "Mock tests",
+  "/results": "Learning progress",
+  "/contact": "Contact",
+  "/student-access": "Student access",
+  "/privacy": "Privacy policy",
+  "/terms": "Terms and conditions",
+};
+
+export function breadcrumbsFor(path = "/") {
+  const normalized = path.replace(/\/+$/, "") || "/";
+  if (normalized === "/") return [];
+
+  const examGuide = normalized.match(/^\/exams\/([^/]+)$/)?.[1];
+  if (examGuide) {
+    const exam = exams.find(({ id }) => id === examGuide);
+    if (exam)
+      return [
+        ["DEXAM", "/"],
+        ["Exams", "/exams"],
+        [exam.name, normalized],
+      ];
+  }
+
+  const paperArchive = normalized.match(/^\/papers\/([^/]+)$/)?.[1];
+  if (paperArchive) {
+    const exam = exams.find(({ id }) => id === paperArchive);
+    if (exam)
+      return [
+        ["DEXAM", "/"],
+        ["Resources", "/resources"],
+        ["Previous year papers", "/papers"],
+        [exam.name, normalized],
+      ];
+  }
+
+  const articleSlug = normalized.match(/^\/resources\/([^/]+)$/)?.[1];
+  if (articleSlug) {
+    const article = articles.find(({ slug }) => slug === articleSlug);
+    if (article)
+      return [
+        ["DEXAM", "/"],
+        ["Resources", "/resources"],
+        [article.title, normalized],
+      ];
+  }
+
+  if (normalized === "/quiz")
+    return [
+      ["DEXAM", "/"],
+      ["Resources", "/resources"],
+      ["Design Instinct Test", normalized],
+    ];
+
+  if (normalized === "/papers")
+    return [
+      ["DEXAM", "/"],
+      ["Resources", "/resources"],
+      ["Previous year papers", normalized],
+    ];
+
+  return [
+    ["DEXAM", "/"],
+    [pageLabels[normalized] || metadataFor(normalized).title, normalized],
+  ];
+}
+
+function breadcrumbData(path) {
+  return {
+    "@type": "BreadcrumbList",
+    "@id": `${canonicalFor(path)}#breadcrumb`,
+    itemListElement: breadcrumbsFor(path).map(([name, item], index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name,
+      item: canonicalFor(item),
+    })),
+  };
+}
+
+export function structuredDataFor(path = "/") {
+  const normalized = path.replace(/\/+$/, "") || "/";
+  if (normalized === "/") {
+    return {
+      "@context": "https://schema.org",
+      "@graph": [website, organization],
+    };
+  }
+  return {
+    "@context": "https://schema.org",
+    ...breadcrumbData(normalized),
+  };
+}
