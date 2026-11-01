@@ -86,3 +86,11 @@
 **Privacy/security:** The asset contains no student image, testimonial, result, personal information, tracking request or third-party artwork. It is generated from a versioned code-native SVG and served from the existing site origin.
 
 **Follow-up:** Run the complete release gate, push a focused PR, verify CI, deploy and confirm production metadata and image delivery.
+
+### 2026-11-01 — T02: Measurement-account access checked
+
+**Observed:** A read-only check of the currently signed-in Google account found no accessible Search Console property for either `designexam.com` or `https://designexam.com/`. Google Analytics opened the new-account welcome screen rather than an existing account/property. No ownership, permission, analytics, tag or site setting was changed.
+
+**Action:** Created the ignored `growth/private/` baseline workspace and a local missing-data register so future Search Console, GA4, Google Business Profile and advertising exports remain outside version control. Updated the task ledger with the exact access dependency instead of treating missing metrics as zero.
+
+**Decision gate:** The owner must identify an existing Google account with access, or approve creating/verifying new Search Console and GA4 properties. Search Console verification would grant persistent ownership to the selected account, so it will not be performed silently.
