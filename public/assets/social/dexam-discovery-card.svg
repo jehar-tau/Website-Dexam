@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">DEXAM — Design Exam Academy</title>
+  <desc id="description">A warm paper-coloured DEXAM card with geometric design-study objects and the words Design entrance preparation for curious minds.</desc>
+  <rect width="1200" height="630" fill="#faf9f3"/>
+  <path d="M0 0h1200v14H0z" fill="#386451"/>
+  <circle cx="1038" cy="114" r="44" fill="#edc668"/>
+  <circle cx="1094" cy="170" r="16" fill="#ef633d"/>
+  <path d="M906 214h210v236H906z" fill="#f0f2e5" stroke="#162824" stroke-width="5"/>
+  <path d="M937 397V278h65v119M1002 326h68v71" fill="none" stroke="#386451" stroke-width="13" stroke-linejoin="round"/>
+  <path d="M960 278v-42h90v90" fill="none" stroke="#ef633d" stroke-width="13" stroke-linecap="round"/>
+  <path d="M861 476h305" stroke="#162824" stroke-width="5" stroke-linecap="round"/>
+  <path d="M830 492l52-169 68 169z" fill="#dceba1" stroke="#162824" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M850 430h64" stroke="#162824" stroke-width="5" stroke-linecap="round"/>
+  <g transform="translate(82 74)">
+    <text x="0" y="78" fill="#162824" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="700" letter-spacing="-3">DEXAM</text>
+    <text x="4" y="119" fill="#386451" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" letter-spacing="4">DESIGN EXAM ACADEMY</text>
+    <path d="M2 157h670" stroke="#dde0d4" stroke-width="4"/>
+    <text x="0" y="247" fill="#162824" font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="500" letter-spacing="-1.5">
+      <tspan x="0" dy="0">Design entrance preparation</tspan>
+      <tspan x="0" dy="66">for curious minds.</tspan>
+    </text>
+    <text x="2" y="402" fill="#386451" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600">NID · UCEED · NIFT · NATA · CEED</text>
+    <rect x="0" y="448" width="274" height="56" rx="8" fill="#244735"/>
+    <text x="28" y="484" fill="#faf9f3" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">designexam.com</text>
+  </g>
+</svg>

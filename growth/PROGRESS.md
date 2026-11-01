@@ -76,3 +76,13 @@
 **Verification:** A clean `npm ci`, production build, static check (31 routes and 1,044 links), eight assessment tests and 69 browser release tests pass. Browser coverage includes desktop/mobile direct entry, hydration, canonical URLs, overflow, core WCAG A/AA scans, campus assets/links and mocked enquiry delivery states. No real lead was submitted. Existing React Router production advisories remain deferred to a dedicated major-version migration; this release does not introduce them.
 
 **Release:** Owner authorization received on 1 November 2026. Publish from `codex/discovery-site-redesign` through a checked PR and the existing GitHub Pages deployment. Previous main `4a6d348` is retained as the rollback point. Record CI and live verification in the release PR.
+
+### 2026-11-01 — T08: Social sharing preview prepared
+
+**Observed before:** The pre-renderer produces unique titles, descriptions, canonical URLs and structured data for 31 routes, but shared links have no explicit Open Graph image or large-card Twitter metadata.
+
+**Action:** Added an original 1200×630 Discovery-brand social card using the approved paper, forest, orange, yellow and lime system. Every public route now receives absolute Open Graph and Twitter image metadata, explicit dimensions and useful alternative text. The static release check verifies the PNG signature, sharing tags on every route and a 500 KB image budget.
+
+**Privacy/security:** The asset contains no student image, testimonial, result, personal information, tracking request or third-party artwork. It is generated from a versioned code-native SVG and served from the existing site origin.
+
+**Follow-up:** Run the complete release gate, push a focused PR, verify CI, deploy and confirm production metadata and image delivery.

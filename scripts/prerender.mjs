@@ -38,6 +38,7 @@ for (const path of publicPaths) {
         }
       : metadataFor(path);
   const canonical = canonicalFor(path);
+  const socialImage = `${site.origin}/assets/social/dexam-discovery-card.png`;
   let html = template
     .replace(
       /<title>.*?<\/title>/s,
@@ -70,7 +71,7 @@ for (const path of publicPaths) {
         };
   html = html.replace(
     "</head>",
-    `<link rel="canonical" href="${canonical}"/><meta name="robots" content="index,follow"/><meta property="og:type" content="website"/><meta property="og:title" content="${escape(meta.title)} | DEXAM"/><meta property="og:description" content="${escape(meta.description)}"/><meta property="og:url" content="${canonical}"/><meta property="og:site_name" content="DEXAM — Design Exam Academy"/><meta name="theme-color" content="#faf9f3"/><script type="application/ld+json">${JSON.stringify(schema).replaceAll("<", "\\u003c")}</script></head>`,
+    `<link rel="canonical" href="${canonical}"/><meta name="robots" content="index,follow"/><meta property="og:type" content="website"/><meta property="og:title" content="${escape(meta.title)} | DEXAM"/><meta property="og:description" content="${escape(meta.description)}"/><meta property="og:url" content="${canonical}"/><meta property="og:site_name" content="DEXAM — Design Exam Academy"/><meta property="og:image" content="${socialImage}"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:alt" content="DEXAM — Design entrance preparation for curious minds"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="${escape(meta.title)} | DEXAM"/><meta name="twitter:description" content="${escape(meta.description)}"/><meta name="twitter:image" content="${socialImage}"/><meta name="theme-color" content="#faf9f3"/><script type="application/ld+json">${JSON.stringify(schema).replaceAll("<", "\\u003c")}</script></head>`,
   );
   // Keep the saved assessment fully client-side; its state belongs to the visitor's device.
   if (path !== "/quiz")
