@@ -118,3 +118,5 @@
 **Privacy/security:** The public baseline excludes the signed-in email address, exact device-derived locality, account and campaign identifiers, phone numbers, advertising audiences and private performance data. A read-only Google Ads status observation is retained only in the ignored private register. No ad, profile, account or campaign state changed.
 
 **Next:** Validate both CSV contracts, complete the release review, then use this baseline to prioritize one evidence-rich mock/practice page and repeat the same samples monthly. Search Console-driven keyword prioritisation remains gated on T02.
+
+**Release evidence:** PR #8 merged after its full GitHub build gate passed. Pages workflow `41286409932` completed successfully, including the growth-data contract, 31-route static validation, route-model and assessment tests, and 69 browser journeys. The post-deploy smoke check returned HTTP 200 for the apex, representative routes, robots and sitemap; `www` redirected to the canonical apex. T05 is complete as a dated baseline. Trend conclusions remain pending a like-for-like future sample.
