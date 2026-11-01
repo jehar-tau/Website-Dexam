@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { LeadProvider } from "./lead-context.jsx";
 import Layout from "./components/Layout.jsx";
 import {
@@ -23,22 +23,11 @@ import {
 import Quiz from "./pages/Quiz.jsx";
 import Privacy from "./pages/Privacy.jsx";
 import Terms from "./pages/Terms.jsx";
-import Admin from "./pages/Admin.jsx";
 import { CmsProvider } from "./cms.jsx";
 
 export default function App() {
   const { pathname } = useLocation();
   if (pathname.replace(/\/$/, "") === "/quiz") return <Quiz />;
-  if (pathname === "/admin" || pathname.startsWith("/admin/")) {
-    return (
-      <CmsProvider>
-        <Routes>
-          <Route path="/admin" element={<Admin />} />
-          <Route path="*" element={<Navigate to="/admin" replace />} />
-        </Routes>
-      </CmsProvider>
-    );
-  }
   return (
     <CmsProvider>
       <LeadProvider>

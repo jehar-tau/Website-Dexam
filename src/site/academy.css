@@ -1875,6 +1875,62 @@
   font-size: 13px;
   line-height: 1.85;
 }
+.dea-classroom-proof {
+  background: var(--green-dark);
+  color: var(--cream);
+  padding: 76px 0;
+}
+.dea-classroom-proof > .dea-wrap {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.7fr) minmax(0, 1.55fr);
+  gap: 58px;
+  align-items: center;
+}
+.dea-classroom-proof__intro .dea-eyebrow {
+  color: rgba(255, 255, 255, 0.58);
+}
+.dea-classroom-proof__intro h2 {
+  margin: 18px 0;
+  font-size: 46px;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
+}
+.dea-classroom-proof__intro h2 em {
+  color: var(--orange);
+}
+.dea-classroom-proof__intro p {
+  margin: 0;
+  max-width: 390px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  line-height: 1.85;
+}
+.dea-classroom-proof__gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(180px, 0.8fr);
+  gap: 16px;
+  align-items: end;
+}
+.dea-classroom-proof__gallery figure {
+  margin: 0;
+}
+.dea-classroom-proof__gallery img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.dea-classroom-proof__gallery figure:last-child img {
+  height: 500px;
+}
+.dea-classroom-proof__gallery figcaption {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 8px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
 .dea-mentor-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3941,6 +3997,30 @@
   }
   .dea-studio-proof p {
     font-size: 12px;
+  }
+  .dea-classroom-proof {
+    padding: 52px 0;
+  }
+  .dea-classroom-proof > .dea-wrap {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .dea-classroom-proof__intro h2 {
+    font-size: 36px;
+    letter-spacing: -1.2px;
+  }
+  .dea-classroom-proof__intro p {
+    font-size: 12px;
+  }
+  .dea-classroom-proof__gallery {
+    grid-template-columns: 1fr 0.72fr;
+    gap: 10px;
+  }
+  .dea-classroom-proof__gallery img {
+    height: 260px;
+  }
+  .dea-classroom-proof__gallery figure:last-child img {
+    height: 320px;
   }
   .dea-mentor-grid {
     grid-template-columns: 1fr;

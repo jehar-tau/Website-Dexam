@@ -992,6 +992,47 @@ export function About() {
           <ArrowLink to="/contact">Plan a studio visit</ArrowLink>
         </div>
       </section>
+      <section className="dea-classroom-proof">
+        <div className="dea-wrap">
+          <div className="dea-classroom-proof__intro">
+            <Eyebrow>THE STUDIO IN USE</Eyebrow>
+            <h2>
+              Practice you can
+              <br />
+              <em>see and discuss.</em>
+            </h2>
+            <p>
+              Perspective and composition become clearer through repeated
+              drawing, visible examples and specific feedback. These are real
+              classroom sessions at our Pune studio.
+            </p>
+          </div>
+          <div className="dea-classroom-proof__gallery">
+            <figure>
+              <img
+                src="/assets/studio/dexam-classroom-composition.jpg"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
+                alt="Students practising composition exercises at drawing desks in the DEXAM Pune studio"
+              />
+              <figcaption>Composition practice · Pune studio</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="/assets/studio/dexam-classroom-perspective.jpg"
+                width="1086"
+                height="1448"
+                loading="lazy"
+                decoding="async"
+                alt="Students working on perspective drawings during a classroom session at the DEXAM Pune studio"
+              />
+              <figcaption>Perspective studies · Pune studio</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
       <section className="dea-wrap dea-section">
         <SectionTitle
           eyebrow="THE PEOPLE IN YOUR CORNER"
