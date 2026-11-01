@@ -29,3 +29,9 @@ The owner explicitly approved pushing the redesigned website to its existing rep
 ## 2026-11-01 — Keep structured data narrow and evidenced
 
 Use `WebSite` and the existing `EducationalOrganization` facts on the homepage, plus route-specific `BreadcrumbList` data on internal pages. Do not add Course, review, rating, result, availability or price schema until the corresponding public content and business/legal facts satisfy the relevant structured-data rules. Structured data may help search systems understand the site; it is not described as a ranking guarantee or a guaranteed rich result.
+
+## 2026-11-01 — Optimize paid acquisition to qualified outcomes, not platform leads
+
+Google Ads and Meta Ads are explicit completion workstreams in the March 2027 plan. Preserve the paused historical campaigns as evidence and build replacement campaigns paused after landing pages, conversion tracking, qualification and follow-up operations are ready. Run the first pilots sequentially by default—Google high-intent Search before Meta—to keep the learning budget controlled.
+
+The audience objective is genuine NID, UCEED, CEED, NIFT and NATA preparation intent among students and parents, but no platform-perfect audience is promised. Use exact/phrase search intent, geographic presence, separated student/parent journeys, target exam/year, service mode, transparent programme pricing, valid contact, consent and counselling readiness. Do not include or exclude people using perceived income, neighbourhood, social class or related proxies. Scale only from CPQL and downstream counselling/enrolment evidence, never raw CPL alone.

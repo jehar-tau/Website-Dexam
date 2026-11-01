@@ -120,3 +120,17 @@
 **Next:** Validate both CSV contracts, complete the release review, then use this baseline to prioritize one evidence-rich mock/practice page and repeat the same samples monthly. Search Console-driven keyword prioritisation remains gated on T02.
 
 **Release evidence:** PR #8 merged after its full GitHub build gate passed. Pages workflow `41286409932` completed successfully, including the growth-data contract, 31-route static validation, route-model and assessment tests, and 69 browser journeys. The post-deploy smoke check returned HTTP 200 for the apex, representative routes, robots and sitemap; `www` redirected to the canonical apex. T05 is complete as a dated baseline. Trend conclusions remain pending a like-for-like future sample.
+
+### 2026-11-01 — T26–T30: Paid-acquisition goal and remediation workstream
+
+**Observed before:** Google Ads and Meta Ads had produced platform-labelled leads without a dependable connection to qualified prospects, counselling attendance or enrolments. All inspected Google campaigns were paused and the historical Meta campaign was off. Google conversion actions were not recording useful outcomes; Meta optimized a broad mixed audience toward low-friction instant-form volume. The delivered Meta artwork was dense and generic, and the form allowed auto-filled identity fields without enough exam/product qualification.
+
+**Action:** Completed read-only Google and Meta configuration/performance audits, recorded private evidence outside Git, and expanded the master execution plan to version 1.1. Added T26–T30 to the public task ledger with privacy-safe blockers, January paused-build targets, February activation gates, sequential pilot budgets and CPQL/CAC decision rules. No campaign, draft, budget, billing record, conversion action, audience or form was changed.
+
+**Verification:** Confirmed the new plan sections cover Google advertiser/destination/conversion repair, a Search-only high-intent build, negative keywords, geographic presence, Meta student/parent separation, real-person creative, higher-intent qualification, CRM outcome feedback, budget ceilings and final owner approvals. `growth/private/` remains excluded by `.gitignore`; the task ledger contains no account identifiers or lead-level data.
+
+**Result:** Paid acquisition is now an explicit plan goal rather than a generic future experiment. The first pilots will be built paused and run sequentially by default: Google high-intent Search first, then Meta, so a small budget is not fragmented across two unproven funnels. A platform-perfect audience is not promised; relevance will be improved through search intent, separated journeys, transparent product information and verified downstream outcomes.
+
+**Owner action required:** Confirm whether `CEAT` means `CEED`; then confirm the first exam/offer, Pune classroom versus India-wide online scope, follow-up owner/hours and aggregate outcomes for the historical leads. Exact spend caps and final previews are later activation decisions.
+
+**Follow-up:** Complete T04/T27 qualification definitions and the relevant exam-specific landing page/measurement foundation before preparing paused Google and Meta builds.
