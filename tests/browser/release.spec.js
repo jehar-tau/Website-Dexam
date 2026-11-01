@@ -74,6 +74,24 @@ test("campus illustrations load and all entrance links are correct", async ({ pa
   }
 });
 
+test("public admin route is unavailable", async ({ page }) => {
+  await page.goto("/admin/");
+  await expect(page.getByRole("heading", { name: "That page took a different turn." })).toBeVisible();
+  await expect(page.getByText("Website content manager")).toHaveCount(0);
+});
+
+test("consented classroom proof images load without exposing names", async ({ page }) => {
+  await page.goto("/about/");
+  const section = page.locator(".dea-classroom-proof");
+  await section.scrollIntoViewIfNeeded();
+  await expect(section.locator("img")).toHaveCount(2);
+  for (const img of await section.locator("img").all()) {
+    await expect(img).toHaveJSProperty("complete", true);
+    expect(await img.evaluate(el => el.naturalWidth)).toBeGreaterThan(1000);
+    await expect(img).not.toHaveAttribute("alt", /[A-Z][a-z]+ [A-Z][a-z]+/);
+  }
+});
+
 test("failed counselling delivery preserves details and offers retry", async ({ page }) => {
   let calls = 0;
   await page.route("https://script.google.com/**", route => { calls++; return route.abort(); });
