@@ -77,7 +77,7 @@ await writeFile(
 );
 await writeFile(
   new URL("../dist/robots.txt", import.meta.url),
-  `User-agent: *\nAllow: /\nDisallow: /admin\nSitemap: ${site.origin}/sitemap.xml\n`,
+  `User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /internal/\nDisallow: /progress/\n\nSitemap: ${site.origin}/sitemap.xml\n`,
 );
 console.log(
   `Pre-rendered ${publicPaths.length - 1} public pages; prepared ${publicPaths.length} direct-entry routes and sitemap.`,
