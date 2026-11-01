@@ -104,3 +104,7 @@
 **Verification:** Production build and static site checks pass for 31 direct routes. Three route-model tests, eight assessment tests and 69 desktop/mobile/accessibility browser tests pass. The static release check parses every JSON-LD block, validates its context, ordered list items, absolute same-origin URLs and canonical destination.
 
 **Follow-up:** Complete diff/security checks, open a focused PR, deploy only after CI passes, then validate representative live pages. Search Console URL Inspection remains dependent on T02 access.
+
+**Release evidence:** PR #6 merged as `f4d68f2` after the GitHub build gate passed. Pages workflow `41285646080` completed successfully. The live smoke check returned HTTP 200 for the canonical site, core routes, robots and sitemap, with `www` redirecting to the apex. Cache-bypassed production fetches parsed the homepage `WebSite`/`EducationalOrganization` graph and full breadcrumb trails on `/exams/nid/`, `/papers/uceed/` and `/resources/drawing-vs-design/`.
+
+**External validation limitation:** Google’s Rich Results Test was attempted against the live UCEED paper archive, but the tool reported that it could not connect to its reCAPTCHA service and asked for a retry later. This is recorded as an unavailable external check, not as a pass or a schema defect. Search Console URL Inspection remains gated on T02 account access.
