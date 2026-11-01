@@ -24,6 +24,12 @@ import Quiz from "./pages/Quiz.jsx";
 import Privacy from "./pages/Privacy.jsx";
 import Terms from "./pages/Terms.jsx";
 import { CmsProvider } from "./cms.jsx";
+import {
+  DesignCollegeDirectory,
+  DesignDegrees,
+  ScoreRoutes,
+  ArchitectureColleges,
+} from "./site/CollegeGuides.jsx";
 
 export default function App() {
   const { pathname } = useLocation();
@@ -44,6 +50,27 @@ export default function App() {
             <Route path="/resources" element={<Resources />} />
             <Route path="/resources/:slug" element={<Article />} />
             <Route path="/design-careers" element={<Careers />} />
+            <Route path="/design-degrees" element={<DesignDegrees />} />
+            <Route
+              path="/design-colleges"
+              element={<DesignCollegeDirectory />}
+            />
+            <Route
+              path="/design-colleges/pune"
+              element={<DesignCollegeDirectory pune />}
+            />
+            <Route
+              path="/design-colleges/uceed-nid"
+              element={<ScoreRoutes />}
+            />
+            <Route
+              path="/architecture-colleges"
+              element={<ArchitectureColleges />}
+            />
+            <Route
+              path="/architecture-colleges/pune"
+              element={<ArchitectureColleges pune />}
+            />
             <Route path="/design-coaching-pune" element={<Pune />} />
             <Route path="/mock-tests" element={<MockTests />} />
             <Route path="/student-access" element={<StudentAccess />} />

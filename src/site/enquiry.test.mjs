@@ -19,7 +19,7 @@ test("paid campaign context preselects only supported choices", () => {
       ...emptyEnquiry,
       role: "parent",
       exam: "uceed",
-      programme: "two-year",
+      programme: "end-to-end",
     },
   );
   assert.equal(initialEnquiry(params("exam=anything")).exam, "");
@@ -59,7 +59,7 @@ test("a complete counselling request passes validation", () => {
       exam: "nid",
       targetYear: "2027",
       mode: "pune-classroom",
-      programme: "one-year",
+      programme: "end-to-end",
       preferredTime: "evening",
       guidance: "I need a preparation plan for NID DAT.",
       feeAcknowledged: true,
@@ -90,7 +90,7 @@ test("measurement and attribution exclude contact details", () => {
       exam: "uceed",
       targetYear: "2028",
       mode: "pune-classroom",
-      programme: "two-year",
+      programme: "end-to-end",
     },
     attribution,
   );

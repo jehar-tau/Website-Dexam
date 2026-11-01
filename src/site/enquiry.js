@@ -34,11 +34,10 @@ export const enquiryOptions = {
     ["not-sure", "Not sure yet"],
   ],
   programme: [
-    ["one-year", "One-year programme · ₹73,535"],
-    ["two-year", "Two-year programme · ₹1,13,557"],
-    ["not-sure", "Help me choose between the programmes"],
+    ["end-to-end", "End-to-end preparation"],
+    ["studio-interview", "Studio test & interview prep"],
     ["test-series", "Test series / mock tests"],
-    ["portfolio", "Portfolio / studio-test guidance"],
+    ["not-sure", "Help me choose a programme"],
   ],
   preferredTime: [
     ["morning", "Morning · 9 am–12 pm"],
@@ -71,7 +70,7 @@ export function initialEnquiry(searchParams) {
   const query = {
     role: searchParams.get("audience"),
     exam: searchParams.get("exam"),
-    programme: searchParams.get("programme"),
+    programme: ({ "one-year": "end-to-end", "two-year": "end-to-end", portfolio: "studio-interview" })[searchParams.get("programme")] || searchParams.get("programme"),
   };
   for (const [key, value] of Object.entries(query)) {
     if (allowed[key].has(value)) form[key] = value;
@@ -102,7 +101,7 @@ export function validateEnquiry(form) {
   if (form.guidance.trim().length < 15)
     errors.guidance = "Tell us what guidance you need in at least 15 characters.";
   if (!form.feeAcknowledged)
-    errors.feeAcknowledged = "Please review the programme fees before continuing.";
+    errors.feeAcknowledged = "Please acknowledge the programme information before continuing.";
   return errors;
 }
 

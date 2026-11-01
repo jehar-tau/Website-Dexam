@@ -96,6 +96,8 @@ export default function Layout({ children }) {
                     <small>{e.degree}</small>
                   </Link>
                 ))}
+                <Link to="/design-degrees">Degrees &amp; durations</Link>
+                <Link to="/design-colleges">College guides</Link>
               </div>
             </details>
             <NavLink
@@ -144,6 +146,7 @@ export default function Layout({ children }) {
               <span>FIND YOUR DIRECTION</span>
               <Link to="/courses">Our programmes</Link>
               <Link to="/design-careers">The world of design</Link>
+              <Link to="/design-colleges">College guides</Link>
               <Link to="/quiz">Design Instinct test</Link>
               <Link to="/guide">For students &amp; parents</Link>
               <Link to="/mock-tests">Mock tests &amp; practice</Link>
@@ -153,6 +156,7 @@ export default function Layout({ children }) {
               <Link to="/resources">Free resource library</Link>
               <Link to="/papers">Previous year papers</Link>
               <Link to="/exams">Exam guides</Link>
+              <Link to="/design-degrees">Degrees &amp; durations</Link>
               <Link to="/about">Meet the mentors</Link>
               <Link to="/results">Learning &amp; progress</Link>
             </div>

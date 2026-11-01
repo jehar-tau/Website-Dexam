@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { publicPaths, canonicalFor } from "../src/site/routes.js";
+import { curriculum } from "../src/site/curriculum.js";
 
 const designContract = JSON.parse(
   await readFile(
@@ -92,6 +93,18 @@ for (const route of publicPaths) {
   }
   if (route !== "/quiz") {
     assert.ok(
+      !/₹|&#(?:8377|x20b9);|\bINR\s*\d/i.test(html),
+      `No public fee amounts: ${route}`,
+    );
+    assert.ok(
+      !/confirmed programme fees|The two-year journey|The one-year focus/.test(
+        html,
+      ),
+      `No superseded course copy: ${route}`,
+    );
+  }
+  if (route !== "/quiz") {
+    assert.ok(
       html.includes(`data-prerender-path="${route}"`),
       `Hydration route identity: ${route}`,
     );
@@ -122,11 +135,41 @@ const homepage = await readFile(
   new URL("../dist/index.html", import.meta.url),
   "utf8",
 );
-assert.ok(
-  homepage.includes("₹1,13,557") && homepage.includes("₹73,535"),
-  "Both confirmed programme fees",
+for (const route of ["", "/courses"]) {
+  const html = await readFile(
+    new URL(`../dist${route}/index.html`, import.meta.url),
+    "utf8",
+  );
+  assert.equal(
+    (html.match(/class="dea-programme-card /g) || []).length,
+    3,
+    `Three programmes: ${route || "/"}`,
+  );
+  for (const id of ["end-to-end", "studio-interview", "test-series"])
+    assert.ok(
+      html.includes(`/contact?programme=${id}`),
+      `Programme enquiry: ${id}`,
+    );
+  for (const format of ["4-year", "2-year", "1-year", "30-day crash course"])
+    assert.ok(html.includes(format), `End-to-end format: ${format}`);
+}
+const courseHtml = await readFile(
+  new URL("../dist/courses/index.html", import.meta.url),
+  "utf8",
 );
-assert.ok(homepage.includes("application/ld+json"), "Structured site data");
+assert.ok(
+  courseHtml.includes('id="curriculum"'),
+  "Curriculum is server-rendered",
+);
+for (const topic of curriculum.flatMap((group) => group.topics))
+  assert.ok(
+    courseHtml.includes(topic.title),
+    `Curriculum topic: ${topic.title}`,
+  );
+assert.ok(
+  homepage.includes("application/ld+json"),
+  "Structured organisation data",
+);
 assert.ok(
   homepage.includes('id="campus-pathways"'),
   "Campus section is server-rendered",
@@ -167,5 +210,5 @@ assert.equal(socialCard.readUInt32BE(16), 1200, "Social card width is 1200px");
 assert.equal(socialCard.readUInt32BE(20), 630, "Social card height is 630px");
 assert.ok(socialCard.length < 500_000, "Social card stays within the 500 KB budget");
 console.log(
-  `PASS: ${publicPaths.length} direct routes, ${titles.size} unique titles/descriptions, ${links} internal links, server-rendered content, confirmed prices and sitemap.`,
+  `PASS: ${publicPaths.length} direct routes, ${titles.size} unique titles/descriptions, ${links} internal links, three programmes without public fee amounts, server-rendered content and sitemap.`,
 );

@@ -25,7 +25,12 @@ npm run build    # production build in dist/
 
 ## Content & config
 
-- All page content (exams, courses, guide tables, testimonials): `src/data.js`
+- Active public programmes, exam guides, resources and FAQs: `src/site/content.js`
+- Programme structure and public-fee policy: `src/site/PROGRAMMES.md`
+- Design disciplines, college directories and degree routes: `src/site/discipline-data.js`, `src/site/college-data.js`
+- Admissions source editions and review rules: `src/site/ADMISSIONS_RESEARCH.md`, `src/site/admissions-sources.js`
+- Public pages and shared components: `src/site/Pages.jsx`, `src/site/components.jsx`
+- Paper archive and retained legacy content: `src/data.js`
 - WhatsApp number, lead-form variant, unlock behaviour: `src/config.js`
 
 ## Images to drop in

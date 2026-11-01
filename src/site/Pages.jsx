@@ -34,6 +34,10 @@ import {
   initialEnquiry,
   validateEnquiry,
 } from "./enquiry.js";
+import { curriculum } from "./curriculum.js";
+import DisciplineExplorer from "./DisciplineExplorer.jsx";
+import { CollegeGuideLinks, OfficialSource } from "./CollegeGuides.jsx";
+import { degreeRoutes } from "./college-data.js";
 
 export function Home() {
   return (
@@ -159,7 +163,7 @@ export function Home() {
                 <b>9</b> abilities to explore
               </span>
               <span>
-                <b>₹0</b> instant score
+                <b>Free</b> instant score
               </span>
             </div>
             <Button to="/quiz">Find my design instinct</Button>
@@ -185,9 +189,12 @@ export function Home() {
           ))}
         </div>
         <p className="dea-fee-note">
-          Programme fees shown as confirmed. Ask us about current batches,
-          applicable taxes, payment options and enrolment terms.
+          Three programmes. Choose the support you need. Meet us at the academy
+          to discuss the right fit, batch timings and fees.
         </p>
+        <ArrowLink to="/courses#curriculum" className="dea-curriculum-link">
+          See what you’ll learn
+        </ArrowLink>
       </section>
       <section className="dea-disciplines-section dea-wrap">
         <SectionTitle
@@ -273,104 +280,88 @@ export function Courses() {
             your <em>creative future.</em>
           </>
         }
-        description="Two clear paths. The same thoughtful foundation. Choose a timeline that gives your ideas room to grow."
+        description="Three programmes. One clear next step. Prepare from the beginning, focus on your next admission stage, or join just the test series."
         art="build"
       />
       <section className="dea-wrap dea-section dea-section-first">
+        <p className="dea-programme-intro">
+          For NID, NIFT, NATA, UCEED and CEED. Choose your exam, then the
+          support that fits where you are.
+        </p>
         <div className="dea-programme-grid">
           {programmes.map((p, i) => (
             <ProgrammeCard key={p.id} programme={p} index={i} />
           ))}
         </div>
         <p className="dea-fee-note">
-          Programme fees shown as confirmed. Applicable taxes, instalments,
-          batch schedules and enrolment terms are confirmed during counselling.
+          Not sure where to begin? Visit the academy with your questions. We’ll
+          help you choose a programme and discuss fees in person.
         </p>
       </section>
-      <section className="dea-wrap dea-section">
+      <section
+        className="dea-wrap dea-section"
+        id="curriculum"
+        aria-labelledby="curriculum-title"
+      >
         <SectionTitle
-          eyebrow="HOW THE LEARNING UNFOLDS"
+          eyebrow="INSIDE END-TO-END PREPARATION"
           title={
-            <>
-              First, a foundation.
+            <span id="curriculum-title">
+              From a first line.
               <br />
-              Then, your <em>direction.</em>
-            </>
+              To a <em>fresh idea.</em>
+            </span>
           }
         />
-        <div className="dea-process-grid">
-          {[
-            [
-              "01",
-              "Learn to see.",
-              "Observe, draw, question and find visual relationships.",
-            ],
-            [
-              "02",
-              "Learn to think.",
-              "Explore alternatives, constraints and the people behind a problem.",
-            ],
-            [
-              "03",
-              "Learn to make.",
-              "Turn ideas into sketches, compositions, models and clear stories.",
-            ],
-            [
-              "04",
-              "Bring it to the exam.",
-              "Practise your chosen route, review the gaps and refine your approach.",
-            ],
-          ].map(([n, title, text]) => (
-            <article key={n}>
-              <span>{n}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-      <section className="dea-wrap dea-additional">
-        <SectionTitle
-          eyebrow="MORE WAYS TO LEARN · IN PREPARATION"
-          title={
-            <>
-              A focused next step,
-              <br />
-              when you <em>need it.</em>
-            </>
-          }
-        />
-        <div>
-          {[
-            [
-              "Test series & mock tests",
-              "Timed practice, review and an All-India test-series experience.",
-              "papers",
-              "/mock-tests",
-            ],
-            [
-              "Portfolio & studio guidance",
-              "A clearer process for developing, presenting and discussing your work.",
-              "portfolio",
-              "/resources/portfolio-that-shows-thinking",
-            ],
-          ].map(([title, text, art, to]) => (
-            <article key={title}>
-              <Art kind={art} />
-              <div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-                <ArrowLink to={to}>Explore the next step</ArrowLink>
+        <p className="dea-curriculum-intro">
+          Drawing, design thinking and aptitude. Explore the topics within each
+          theme. Your chosen exam, starting point and programme length shape the
+          emphasis and pace.
+        </p>
+        <div className="dea-curriculum-grid">
+          {curriculum.map((group, i) => (
+            <article className="dea-curriculum-card" key={group.id}>
+              <div className="dea-curriculum-card-top">
+                <Art kind={group.art} />
+                <span className="dea-small-label">
+                  0{i + 1} / {group.area}
+                </span>
               </div>
+              <h3>{group.title}</h3>
+              <p>{group.description}</p>
+              <details>
+                <summary aria-label={`Explore ${group.label} topics`}>
+                  <span>
+                    {group.label}
+                    <small>{group.topics.length} topics</small>
+                  </span>
+                  <b aria-hidden="true">+</b>
+                </summary>
+                <ul>
+                  {group.topics.map((topic) => (
+                    <li key={topic.title}>
+                      <span>{topic.title}</span>
+                      {topic.selfStudy && (
+                        <small className="dea-self-study">Self-study</small>
+                      )}
+                      {topic.detail && <p>{topic.detail}</p>}
+                    </li>
+                  ))}
+                </ul>
+              </details>
             </article>
           ))}
         </div>
-        <p className="dea-fee-note">
-          Separate product availability, fees and access periods will be
-          confirmed before enrolment.
+        <p className="dea-curriculum-note">
+          Some topics use self-study, as marked in the topic lists. Portfolio
+          and interview topics sit outside this outline. You can also join our
+          studio test and interview programme on its own.
         </p>
+        <ArrowLink to="/contact?programme=end-to-end">
+          Talk through your learning plan
+        </ArrowLink>
       </section>
-      <Faq items={[faqs[0], faqs[1], faqs[4]]} />
+      <Faq items={[faqs[5], faqs[4], faqs[6], faqs[1]]} />
       <Cta />
     </>
   );
@@ -438,6 +429,24 @@ export function ExamGuide() {
           <ArrowLink to="/contact">Discuss your exam path</ArrowLink>
         </div>
       </PageHero>
+      <section className="dea-wrap dea-exam-route-summary">
+        <h2>Programmes, durations & your next step.</h2>
+        <div className="dea-exam-route-grid">
+          {degreeRoutes
+            .filter((d) => d.exam === examId)
+            .map((d) => (
+              <article key={d.name}>
+                <span className="dea-small-label">{d.name}</span>
+                <h3>{d.duration}</h3>
+                <p>{d.award}</p>
+                <OfficialSource id={d.source} />
+              </article>
+            ))}
+        </div>
+        <ArrowLink to="/design-degrees">
+          Compare degree routes and entry levels
+        </ArrowLink>
+      </section>
       <section className="dea-wrap dea-exam-details">
         <aside>
           <span className="dea-small-label">THE FOCUS</span>
@@ -518,57 +527,7 @@ export function ExamGuide() {
 }
 
 export function Careers() {
-  return (
-    <>
-      <PageHero
-        eyebrow="THE WORLD OF DESIGN"
-        title={
-          <>
-            What if curiosity
-            <br />
-            became your <em>craft?</em>
-          </>
-        }
-        description="Design has many forms. Explore the questions different designers ask—and try a small experiment of your own."
-        art="product"
-      />
-      <section className="dea-wrap dea-career-list">
-        {disciplines.map((d, i) => (
-          <article id={d.id} key={d.id}>
-            <div
-              className={`dea-career-art tone-${["sage", "peach", "sand", "pink", "blue"][i]}`}
-            >
-              <Art kind={d.art} />
-            </div>
-            <div>
-              <span className="dea-small-label">
-                0{i + 1} / {d.name.toUpperCase()}
-              </span>
-              <h2>{d.question}</h2>
-              <p>{d.text}</p>
-              <div className="dea-small-exercise">
-                <b>TRY THIS</b>
-                <p>{d.exercise}</p>
-              </div>
-            </div>
-          </article>
-        ))}
-      </section>
-      <section className="dea-wrap dea-note-panel">
-        <Icon name="heart" size={27} />
-        <div>
-          <h2>You don’t need a label to start exploring.</h2>
-          <p>
-            Notice the work you enjoy returning to, the problems you like
-            solving and how you respond to feedback. An assessment can be a
-            useful starting point for a conversation.
-          </p>
-          <ArrowLink to="/quiz">Explore your design instinct</ArrowLink>
-        </div>
-      </section>
-      <Cta />
-    </>
-  );
+  return <DisciplineExplorer />;
 }
 
 export function Resources() {
@@ -694,6 +653,7 @@ export function Resources() {
             </p>
           )}
       </section>
+      <CollegeGuideLinks />
       <Cta />
     </>
   );
@@ -1306,7 +1266,7 @@ export function MockTests() {
             to a new <em>perspective.</em>
           </>
         }
-        description="A dedicated mock-test and All-India test-series experience is in preparation. Start exploring your visual thinking and build a better paper-review routine today."
+        description="Focused exam practice, available as a standalone programme. Join just the test series, with no full-course enrolment required. Ask the team about your chosen exam and schedule."
         art="practice"
       />
       <section className="dea-wrap dea-feature-pair">
@@ -1346,13 +1306,13 @@ export function MockTests() {
       <section className="dea-wrap dea-note-panel">
         <Icon name="lock" size={25} />
         <div>
-          <h2>A dedicated practice space is coming together.</h2>
+          <h2>Just the test series? That’s a programme, too.</h2>
           <p>
-            Separate test-series dates, fees, access periods and release details
-            will be shared once confirmed. Ask the team about current
-            availability.
+            Choose test-series-only access when you want independent practice.
+            Meet the academy team to discuss exam options, batch dates, your
+            access period and fees.
           </p>
-          <ArrowLink to="/contact?interest=test-series">
+          <ArrowLink to="/contact?programme=test-series">
             Ask about the test series
           </ArrowLink>
         </div>
@@ -1482,7 +1442,10 @@ export function StudentAccess() {
           </Link>
           <Link to="/courses">
             <h3>Programmes</h3>
-            <p>Explore one-year and two-year preparation paths.</p>
+            <p>
+              Choose complete preparation, studio prep or test-series-only
+              access.
+            </p>
           </Link>
         </div>
       </section>
@@ -1644,16 +1607,11 @@ export function Contact() {
                 This form is for students and parents actively exploring design
                 entrance preparation. It takes about two minutes.
               </p>
-              <div className="dea-form-prices" aria-label="Programme fees">
-                <span>
-                  <b>One year</b>
-                  ₹73,535
-                </span>
-                <span>
-                  <b>Two years</b>
-                  ₹1,13,557
-                </span>
-              </div>
+              <p className="dea-form-programme-note">
+                Choose end-to-end preparation, studio test &amp; interview prep,
+                or the test series. Meet us at the academy to discuss fees and
+                the format that fits your plans.
+              </p>
               {programme && (
                 <div className="dea-form-interest">
                   You’re exploring: <strong>{programme.name}</strong>
@@ -1785,9 +1743,8 @@ export function Contact() {
                     }
                   />
                   <span>
-                    I reviewed the published one-year and two-year fees above.
-                    I understand that test-series, portfolio and other terms are
-                    confirmed separately.
+                    I reviewed the programme information. I understand that fees,
+                    schedules and enrolment terms are discussed with the academy.
                   </span>
                 </label>
                 {errors.feeAcknowledged && (
