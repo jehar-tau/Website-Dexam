@@ -1,5 +1,85 @@
 export const REVIEWED_ON = "1 November 2026";
 export const admissionsSources = {
+  iitBombayStreams: {
+    name: "IIT Bombay · M.Des streams, 2026–27",
+    url: "https://acad.iitb.ac.in/admissions/masters/mdes",
+  },
+  iitDelhiDesign: {
+    name: "IIT Delhi · design degrees",
+    url: "https://design.iitd.ac.in/programs.html",
+  },
+  iitHyderabadMasters: {
+    name: "IIT Hyderabad · four M.Des specialisations",
+    url: "https://design.iith.ac.in/academics/mdes/",
+  },
+  iitRoorkeeMasters: {
+    name: "IIT Roorkee · M.Des Industrial Design",
+    url: "https://iitr.ac.in/Departments/Department%20of%20Design/Academics/M.%20Des.%20%28Industrial%20Design%29.html",
+  },
+  iitGuwahatiDesign: {
+    name: "IIT Guwahati · design programmes",
+    url: "https://iitg.ac.in/design/Overview.html",
+  },
+  iitKanpurDesign: {
+    name: "IIT Kanpur · M.Des themes",
+    url: "https://www.iitk.ac.in/design/",
+  },
+  iitJodhpurMasters: {
+    name: "IIT Jodhpur · XR and Smart Product Design, 2026",
+    url: "https://www.iitj.ac.in/school-of-design/en/masters-of-design-%28mdes%29",
+  },
+  iiscDesign: {
+    name: "IISc · Design and Manufacturing",
+    url: "https://dm.iisc.ac.in/",
+  },
+  sidMasters: {
+    name: "Symbiosis Institute of Design · M.Des User Experience Design",
+    url: "https://sid.edu.in/programmes/post-graduate",
+  },
+  nmimsDesign: {
+    name: "NMIMS Mumbai · B.Des Humanising Technology",
+    url: "https://design.nmims.edu/program.php",
+  },
+  nmimsSchool: {
+    name: "NMIMS Mumbai · B.Des and B.Sc programmes",
+    url: "https://design.nmims.edu/about-school-of-design",
+  },
+  bitsProgrammes: {
+    name: "BITS Design School · five B.Des (Hons.) pathways",
+    url: "https://www.bitsdesign.edu.in/programme/",
+  },
+  fddiProgrammes: {
+    name: "FDDI · programmes and campus matrix, 2026–27",
+    url: "https://fddiindia.com/programmes-offered&-seat-structures",
+  },
+  fddiFootwear: {
+    name: "FDDI · footwear degrees, 2026–27",
+    url: "https://fddiindia.com/school-of-footwear-design-production",
+  },
+  atlasProgrammes: {
+    name: "ATLAS ISDI Mumbai · undergraduate programme cards",
+    url: "https://www.atlasuniversity.edu.in/programs/ug/ug-design-and-innovation",
+  },
+  pearlBachelors: {
+    name: "Pearl Academy · bachelor's design programmes",
+    url: "https://www.pearlacademy.com/programs/bachelors-degree",
+  },
+  pearlJewellery: {
+    name: "Pearl Academy · Product Design with Jewellery specialisation",
+    url: "https://www.pearlacademy.com/programs/bachelors-degree/product/bdes-product-design",
+  },
+  pearlXR: {
+    name: "Pearl Academy · M.Des Game Design and XR",
+    url: "https://www.pearlacademy.com/programs/masters-degree/communication-design/mdes-game-design-extended-reality",
+  },
+  upesDesign: {
+    name: "UPES · B.Des specialisations, 2026 reference",
+    url: "https://www.upes.ac.in/admissions/bdes",
+  },
+  anantProgrammes: {
+    name: "Anant National University · seven B.Des majors",
+    url: "https://www.anu.edu.in/lp-bdes/",
+  },
   nid: {
     name: "NID admissions 2027–28",
     url: "https://admissions.nid.edu/NIDA2027/",

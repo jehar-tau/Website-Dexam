@@ -34,7 +34,7 @@ const base = [
   [
     "/design-careers",
     "Explore the world of design careers",
-    "Explore NID 2027 design disciplines and emerging fields at MIT ID, NIFT and Srishti. Compare study levels, campuses and official programme sources.",
+    "Explore design disciplines at NID, IITs, Symbiosis, NMIMS, BITS Design School, FDDI and more. Compare exact programme names, study levels, campuses and sources.",
   ],
   [
     "/design-degrees",

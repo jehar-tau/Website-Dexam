@@ -7,10 +7,12 @@ for (const width of [1440, 390]) {
   }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/design-careers/");
-    await expect(page.locator(".dea-discipline-card")).toHaveCount(44);
+    await expect(page.locator(".dea-discipline-card")).toHaveCount(55);
     await page.getByRole("button", { name: "NID", exact: true }).click();
     await expect(page.locator(".dea-discipline-card")).toHaveCount(32);
-    await page.getByLabel("Study level", { exact: true }).selectOption("Undergraduate");
+    await page
+      .getByLabel("Study level", { exact: true })
+      .selectOption("Undergraduate");
     await expect(page.locator(".dea-discipline-card")).toHaveCount(0);
     await page
       .getByLabel("Study level", { exact: true })
@@ -35,7 +37,7 @@ for (const width of [1440, 390]) {
     await page
       .getByRole("button", { name: "Reset filters", exact: true })
       .click();
-    await expect(page.locator(".dea-discipline-card")).toHaveCount(44);
+    await expect(page.locator(".dea-discipline-card")).toHaveCount(55);
     await page
       .getByLabel("Study level", { exact: true })
       .selectOption("Diploma");
@@ -130,5 +132,65 @@ for (const path of [
         })),
       })),
     ).toEqual([]);
+  });
+}
+
+for (const width of [1440, 390]) {
+  test(`expanded college filters show only matching programme examples at ${width}px`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/design-careers/");
+    await page.getByRole("button", { name: "IITs", exact: true }).click();
+    await page
+      .getByLabel("Study level", { exact: true })
+      .selectOption("Undergraduate");
+    await expect(page.locator(".dea-discipline-card")).toHaveCount(1);
+    await expect(page.locator(".dea-discipline-card")).toContainText(
+      "Multidisciplinary Design",
+    );
+    await page.locator(".dea-discipline-card summary").click();
+    await expect(page.locator(".dea-discipline-card li")).toHaveCount(6);
+    await expect(page.locator(".dea-discipline-card")).not.toContainText(
+      "M.Des",
+    );
+    await page
+      .getByLabel("College or institute", { exact: true })
+      .selectOption("BITS Design School");
+    await expect(page.locator(".dea-discipline-card")).toHaveCount(5);
+    const research = page.locator("#design-research");
+    await research.locator("summary").click();
+    await expect(research).toContainText("Design Research & Insights pathway");
+    await expect(
+      research.getByRole("link", { name: "Official programme source" }),
+    ).toHaveAttribute("href", "https://www.bitsdesign.edu.in/programme/");
+    await expect(research).not.toContainText("IIT Kanpur");
+    await page
+      .getByLabel("College or institute", { exact: true })
+      .selectOption("NMIMS · School of Design");
+    await expect(page.locator(".dea-discipline-card")).toHaveCount(2);
+    const animation = page.locator("#animation-vfx");
+    await animation.locator("summary").click();
+    await expect(animation).toContainText("B.Sc · Animation & VFX");
+    await expect(animation).not.toContainText("B.Des");
+    await page.getByRole("button", { name: "Symbiosis", exact: true }).click();
+    await expect(page.locator(".dea-discipline-card")).toHaveCount(7);
+    await page
+      .getByLabel("Study level", { exact: true })
+      .selectOption("Postgraduate");
+    await expect(page.locator(".dea-discipline-card")).toHaveCount(1);
+    await page.locator(".dea-discipline-card summary").click();
+    await expect(page.locator(".dea-discipline-card")).toContainText(
+      "M.Des · User Experience Design",
+    );
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    const result = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+      .analyze();
+    expect(result.violations.map((v) => v.id)).toEqual([]);
   });
 }

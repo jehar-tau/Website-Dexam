@@ -1,3 +1,7 @@
+import {
+  additionalDisciplines,
+  collegeProgrammes,
+} from "./discipline-programmes.js";
 const offer = (institution, level, campus, source, programme) => ({
   institution,
   level,
@@ -450,6 +454,84 @@ add(
     "Design Management",
   ),
 );
+// Broad undergraduate degrees are not invented specialisation lists.
+designDisciplines.push(...additionalDisciplines);
+for (const [institution, campus] of [
+  ["IIT Bombay · IDC School of Design", "Mumbai"],
+  ["IIT Delhi", "New Delhi"],
+  ["IIT Guwahati", "Guwahati"],
+  ["IIT Hyderabad", "Hyderabad"],
+  ["IIT Indore", "Indore"],
+  ["IIT Roorkee", "Roorkee"],
+  ["IIITDM Jabalpur", "Jabalpur"],
+])
+  add(
+    "multidisciplinary",
+    offer(
+      institution,
+      "Undergraduate",
+      campus,
+      "uceedBrochure",
+      "B.Des · broad undergraduate design programme",
+    ),
+  );
+for (const college of collegeProgrammes) {
+  for (const { field, note, ...programme } of college.programmes) {
+    add(field, {
+      ...offer(
+        college.institution,
+        programme.level,
+        college.campus,
+        college.source,
+        programme.programme,
+      ),
+      ...(note ? { note } : {}),
+    });
+  }
+}
+
+export const disciplineInstitutions = [
+  ...new Set(
+    designDisciplines.flatMap((d) => d.offers.map((o) => o.institution)),
+  ),
+].sort((a, b) => a.localeCompare(b));
+
+// Every active filter must match the same programme example. Returned offers
+// also drive the card, so a postgraduate label cannot leak into an UG-only view.
+export function matchingDisciplineOffers(
+  discipline,
+  {
+    search = "",
+    family = "All",
+    level = "All",
+    school = "All",
+    institution = "All",
+  } = {},
+) {
+  if (family !== "All" && family !== discipline.family) return [];
+  const query = search.trim().toLocaleLowerCase();
+  const fieldMatches =
+    `${discipline.name} ${discipline.family} ${discipline.text}`
+      .toLocaleLowerCase()
+      .includes(query);
+  return discipline.offers.filter(
+    (o) =>
+      (level === "All" || o.level === level) &&
+      (institution === "All" || o.institution === institution) &&
+      (school === "All" ||
+        (school === "NID" && o.institution.startsWith("NID")) ||
+        (school === "NIFT" && o.institution === "NIFT") ||
+        (school === "IITs" && o.institution.startsWith("IIT ")) ||
+        (school === "Symbiosis" &&
+          o.institution === "Symbiosis Institute of Design") ||
+        (school === "Mumbai region" && /Mumbai|Thane/i.test(o.campus))) &&
+      (fieldMatches ||
+        `${o.institution} ${o.campus} ${o.programme || ""}`
+          .toLocaleLowerCase()
+          .includes(query)),
+  );
+}
+
 export const disciplineFamilies = [
   ...new Set(designDisciplines.map((d) => d.family)),
 ];
