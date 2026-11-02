@@ -64,6 +64,10 @@
 .dea-header-inner {
   gap: 1rem;
 }
+.dea-brand {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
 .dea-art-tabs {
   max-width: 100%;
   flex-wrap: wrap;
@@ -118,6 +122,7 @@
 @media (max-width: 1100px) {
   .dea-header-inner {
     min-height: 76px;
+    flex-wrap: wrap;
   }
   .dea-menu-toggle {
     display: block;
@@ -127,6 +132,9 @@
     padding: 8px 12px;
     color: var(--green-dark);
     font-size: 1rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-left: auto;
   }
   .dea-menu-toggle > span {
     display: flex;
@@ -190,6 +198,11 @@
   }
   .lab-task-area {
     min-width: 0;
+  }
+}
+@media (max-width: 380px) {
+  .dea-header .dea-brand > i {
+    display: none;
   }
 }
 @media (max-height: 600px) {

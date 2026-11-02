@@ -18,6 +18,8 @@ The baseline audit covered all 37 public routes at desktop width. It found 54 gr
 
 The extended checks exposed horizontal overflow in the footer with enlarged/spaced text and inconsistent keyboard cycling in the assessment collection. The footer now wraps, the desktop exam dropdown opens within the viewport, and collection focus cycles within the dialog. The main skip target is explicitly focusable.
 
+The final live check also caught broken wordmark and menu lettering in a 319px panel. Those labels now remain intact; the compact header uses the wordmark with its full accessible name, and controls can move to another row when enlarged text needs space.
+
 ## Repeatable verification
 
 `tests/browser/accessibility.spec.js` covers automated WCAG 2.2 A/AA rules and the project's 14px readable-copy floor across every public route at 1440px and 320px. It also covers:
