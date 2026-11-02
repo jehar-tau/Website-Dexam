@@ -136,7 +136,11 @@ export default function Layout({ children }) {
         <div className="dea-wrap">
           <div className="dea-footer-top">
             <div>
-              <Link to="/" className="dea-brand">
+              <Link
+                to="/"
+                className="dea-brand"
+                aria-label="DEXAM Design Exam Academy home"
+              >
                 DEX<span>A</span>M
                 <i>
                   DESIGN EXAM

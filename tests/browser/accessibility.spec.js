@@ -12,8 +12,12 @@ async function checkLayout(page) {
   const overflow = await page.evaluate(() => ({
     width: innerWidth,
     document: document.documentElement.scrollWidth,
+    protruding: [...document.querySelectorAll("body *")]
+      .filter(e => e.getBoundingClientRect().right > innerWidth + 1 && e.getBoundingClientRect().width)
+      .slice(0, 10).map(e => ({ tag: e.tagName, class: e.getAttribute("class"), parent: e.parentElement?.getAttribute("class"), text: e.textContent.slice(0, 50) })),
+    overflowing: [...document.querySelectorAll("body *")].filter(e=>e.clientWidth && e.scrollWidth>e.clientWidth+1).slice(0,20).map(e=>({tag:e.tagName,class:e.getAttribute("class"),width:e.clientWidth,scroll:e.scrollWidth})),
   }));
-  expect(overflow.document).toBeLessThanOrEqual(overflow.width);
+  expect(overflow.document, JSON.stringify(overflow)).toBeLessThanOrEqual(overflow.width);
 }
 for (const rootSize of [100, 200]) {
   test(`narrow header keeps the wordmark and menu label intact at ${rootSize}% text`, async ({ page }) => {

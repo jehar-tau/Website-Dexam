@@ -1,4 +1,7 @@
 /* Readability refinements to Discovery 1.0. Sizes use the reader's root font. */
+.academy {
+  overflow-wrap: anywhere;
+}
 .academy,
 .design-lab {
   --read-body: 1rem;
@@ -82,9 +85,14 @@
 }
 .dea-page-hero-copy,
 .dea-home-copy,
+.dea-fit-art,
+.dea-fit-copy,
 .dea-footer-top > div,
 .dea-programme-copy {
   min-width: 0;
+}
+.dea-fit-facts {
+  flex-wrap: wrap;
 }
 .lab-library {
   border: 0;
@@ -201,7 +209,7 @@
   }
 }
 @media (max-width: 380px) {
-  .dea-header .dea-brand > i {
+  .academy .dea-brand > i {
     display: none;
   }
 }
