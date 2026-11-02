@@ -444,35 +444,39 @@ export function HeroCollage() {
   ];
   return (
     <div className="dea-hero-collage">
-      <span className="dea-collage-side">A DIFFERENT WAY TO SEE THE WORLD</span>
-      <div className="dea-collage-back">
-        <Art kind="geometry" />
-      </div>
-      <div className="dea-collage-main">
-        <Art kind={active} />
-        <div className="dea-collage-caption">
-          <b>
-            {active === "poster"
-              ? "Find your point of view."
-              : active === "product"
-                ? "Good things start with a question."
-                : "Make room for possibility."}
-          </b>
-          <span>STUDIES IN DESIGN / DEXAM</span>
-        </div>
-      </div>
-      <div className="dea-colour-strip">
-        {["#244c3b", "#e7ebcf", "#edc668", "#ef633d"].map((c) => (
-          <i key={c} style={{ background: c }} />
-        ))}
-      </div>
-      <div className="dea-collage-note">
-        <Icon name="spark" size={25} />
-        <span>
-          Less theory.
-          <br />
-          <b>More discovery.</b>
+      <div className="dea-collage-scene">
+        <span className="dea-collage-side" aria-hidden="true">
+          A DIFFERENT WAY TO SEE THE WORLD
         </span>
+        <div className="dea-collage-back">
+          <Art kind="geometry" />
+        </div>
+        <div className="dea-collage-main">
+          <Art kind={active} />
+          <div className="dea-collage-caption">
+            <b>
+              {active === "poster"
+                ? "Find your point of view."
+                : active === "product"
+                  ? "Good things start with a question."
+                  : "Make room for possibility."}
+            </b>
+            <span aria-hidden="true">STUDIES IN DESIGN / DEXAM</span>
+          </div>
+        </div>
+        <div className="dea-colour-strip">
+          {["#244c3b", "#e7ebcf", "#edc668", "#ef633d"].map((c) => (
+            <i key={c} style={{ background: c }} />
+          ))}
+        </div>
+        <div className="dea-collage-note">
+          <Icon name="spark" size={25} />
+          <span>
+            Less theory.
+            <br />
+            <b>More discovery.</b>
+          </span>
+        </div>
       </div>
       <div className="dea-art-tabs">
         {options.map(([id, title]) => (

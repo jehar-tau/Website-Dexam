@@ -5,9 +5,11 @@ Owner request: 2 November 2026. This is a readability refinement of Discovery 1.
 ## Authoring contract
 
 - Use root-relative `rem` text sizes, allowing the reader's default font preference and zoom to work. Normal prose and form text are at least 1rem (16px with the usual browser default); editorial/legal reading text is 1.125rem (18px); supporting text, sources, metadata and badges are at least .875rem (14px). These are DEXAM's readability choices, not a WCAG-mandated minimum font size.
+- Preserve hierarchy: desktop navigation and form labels use .875rem, and marketing action labels use .9375rem. Centre text within its target. A 44px click target does not require 16px lettering or extra visible padding around every label. Recheck baselines and spacing after type changes.
 - Keep readable line heights and allow text to wrap. Do not shrink labels to fit a card or navigation bar. Reflow the layout instead. Navigation collapses at tablet widths and supports scrolling when the menu needs more room.
 - Primary controls and source links have comfortable 44px targets. Retain visible, contrasting focus rings and persistent field labels. Body-copy links use underlines.
 - Essential public copy must not live only inside an illustration. The compact brand descriptor is part of the logo; it may be 10px because the complete academy name is also the link's accessible name. Decorative thumbnail lettering and assessment stimulus typography keep their authored proportions. Do not change the optical assessment's fonts, colours or graphic geometry merely to satisfy a prose-size rule.
+- Nonessential micro lettering within the homepage collage may remain 10px and is marked `aria-hidden`. Its meaningful captions and interactive controls keep readable sizes. Give captions and controls their own layout space instead of enlarging them over artwork.
 - Aim for WCAG 2.2 AA: text contrast, keyboard operation, logical focus, accessible names, reflow and reader overrides. Ordinary text needs at least 4.5:1 contrast; large text has a 3:1 threshold. Do not use low-opacity caption text on a dark panel without measuring it.
 - Support a 320 CSS-pixel layout, 200% text resizing, and user text spacing without losing content or controls. Two-dimensional tables and interactive canvases have different layout needs; confine any horizontal scrolling to their own container.
 - Keep the skip link's main target focusable. Escape closes mobile navigation and restores focus to its toggle. The assessment collection uses a native modal dialog with focus cycling, Escape handling and focus restoration. Its decorative thumbnails are hidden from assistive technology and completed status is included in each challenge button's name.
@@ -19,6 +21,8 @@ The baseline audit covered all 37 public routes at desktop width. It found 54 gr
 The extended checks exposed horizontal overflow in the footer with enlarged/spaced text and inconsistent keyboard cycling in the assessment collection. The footer now wraps, the desktop exam dropdown opens within the viewport, and collection focus cycles within the dialog. The main skip target is explicitly focusable.
 
 The final live check also caught broken wordmark and menu lettering in a 319px panel. Those labels now remain intact; the compact header uses the wordmark with its full accessible name, and controls can move to another row when enlarged text needs space.
+
+The owner's subsequent visual review found that the larger type had disrupted component alignment and rhythm. The correction is documented in [Visual readability review](../../docs/VISUAL_READABILITY_REVIEW.md). It retains readability and keyboard improvements while restoring component-specific proportions. The owner approved the layout and shorter-copy revision for publication on 2 November 2026.
 
 ## Repeatable verification
 

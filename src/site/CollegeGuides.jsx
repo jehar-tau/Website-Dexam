@@ -97,7 +97,7 @@ export function CollegeGuideLinks({ compact = false }) {
   return (
     <section className="dea-wrap dea-section dea-guide-links">
       <SectionTitle
-        eyebrow="MAKE A MORE INFORMED CHOICE"
+        eyebrow="PLAN YOUR NEXT STEP"
         title={
           <>
             Find your field.
@@ -276,7 +276,7 @@ export function ScoreRoutes() {
   return (
     <>
       <PageHero
-        eyebrow="UCEED & NID · PRIVATE COLLEGE ROUTES"
+        eyebrow="UCEED & NID SCORE ROUTES"
         title={
           <>
             One score.
@@ -284,7 +284,7 @@ export function ScoreRoutes() {
             <em>More doors to explore.</em>
           </>
         }
-        description="Some private colleges consider national design-test scores. Read the admission year, the accepted test and any extra selection stages before you apply."
+        description="Check which private colleges accept your score, for which year, and any extra selection stages."
         art="target"
       />
       <section className="dea-wrap dea-section dea-section-first">
@@ -369,7 +369,7 @@ export function DesignDegrees() {
   return (
     <>
       <PageHero
-        eyebrow="DESIGN & ARCHITECTURE · DEGREES & DURATIONS"
+        eyebrow="DEGREES & DURATIONS"
         title={
           <>
             Know the route.
@@ -377,7 +377,7 @@ export function DesignDegrees() {
             <em>See the years ahead.</em>
           </>
         }
-        description="Compare undergraduate, integrated and postgraduate programmes. An entrance exam is a route into a programme; each institute sets its degree and admission conditions."
+        description="Compare undergraduate, integrated and postgraduate routes. Each institute sets its degree and entry rules."
         art="build"
       />
       <section className="dea-wrap dea-section dea-section-first">

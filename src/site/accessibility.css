@@ -1,4 +1,4 @@
-/* Readability refinements to Discovery 1.0. Sizes use the reader's root font. */
+/* Discovery 1.0: readable text with component-specific rhythm and alignment. */
 .academy {
   overflow-wrap: anywhere;
 }
@@ -7,11 +7,15 @@
   --read-body: 1rem;
   --read-support: 0.875rem;
   font-size: var(--read-body);
-  line-height: 1.7;
+  line-height: 1.65;
 }
 .academy :is(h1, h2, h3, p, li, dd, a, button, summary, label),
 .design-lab :is(h1, h2, h3, p, li, a, button, label) {
   overflow-wrap: anywhere;
+}
+.academy main p {
+  line-height: 1.65;
+  text-wrap: pretty;
 }
 .academy :is(input, select, textarea),
 .design-lab :is(input, select, textarea) {
@@ -38,6 +42,18 @@
 }
 .academy :is(.dea-text-link, .dea-guide-source, .dea-source-link) {
   align-items: center;
+  line-height: 1.45;
+}
+.academy .dea-button {
+  min-height: 44px;
+  padding: 0.75rem 1.125rem;
+  gap: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+.academy :is(.dea-eyebrow, .dea-small-label) {
+  letter-spacing: 0.07em;
+  line-height: 1.45;
 }
 .academy :is(.dea-editorial, .legal-body) p {
   font-size: 1.125rem;
@@ -50,38 +66,234 @@
   text-underline-offset: 0.2em;
 }
 .academy [id] {
-  scroll-margin-top: 9rem;
+  scroll-margin-top: 7rem;
 }
-.dea-nav {
-  flex: 1;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.5rem 1rem;
-  min-width: 0;
-}
-.dea-nav-dropdown {
-  width: min(24rem, 80vw);
-  max-height: min(70vh, 42rem);
-  overflow: auto;
+
+/* Equal target heights need equal text alignment, not just a min-height. */
+.dea-header {
+  container: academy-header / inline-size;
 }
 .dea-header-inner {
-  gap: 1rem;
+  min-height: 76px;
+  gap: 1.5rem;
 }
 .dea-brand {
   white-space: nowrap;
   flex-shrink: 0;
 }
+.dea-nav {
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.125rem;
+  min-width: 0;
+}
+.academy .dea-nav > a,
+.academy .dea-nav summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding-block: 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.academy .dea-nav .dea-nav-cta {
+  padding-inline: 0.875rem;
+  gap: 0.75rem;
+}
+.dea-student-link {
+  padding-left: 1rem;
+}
+.dea-student-link > span {
+  margin-left: 0;
+}
+.dea-nav-dropdown {
+  left: auto;
+  right: 0;
+  top: 100%;
+  width: min(23rem, 85vw);
+  max-height: min(70vh, 42rem);
+  overflow: auto;
+}
+.academy .dea-nav-dropdown > a {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  min-width: 0;
+  gap: 0.5rem 1rem;
+  padding: 0.625rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+.dea-nav-dropdown small {
+  min-width: 0;
+  font-size: 0.875rem;
+  text-align: right;
+  line-height: 1.45;
+}
+.dea-nav-dropdown > a > svg {
+  justify-self: end;
+}
+.dea-announcement {
+  min-height: 36px;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+}
+.dea-announcement > a {
+  min-height: 36px;
+  line-height: 1.4;
+  padding-block: 0.375rem;
+}
+.dea-announcement span {
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+/* A font-relative breakpoint also handles enlarged default/reader text. */
+@container academy-header (width < 76rem) {
+  .dea-header-inner {
+    min-height: 72px;
+    flex-wrap: wrap;
+  }
+  .academy .dea-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: transparent;
+    padding: 8px 12px;
+    color: var(--green-dark);
+    font-size: 1rem;
+    line-height: 1.25;
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-left: auto;
+  }
+  .dea-menu-toggle > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+  }
+  .dea-menu-toggle i {
+    font-style: normal;
+  }
+  .academy .dea-nav {
+    display: none;
+    position: absolute;
+    inset: 100% 0 auto;
+    background: var(--cream);
+    padding: 0.5rem max(24px, calc((100% - 1112px) / 2)) 1.5rem;
+    border-bottom: 1px solid var(--line);
+    max-height: calc(100dvh - 5rem);
+    overflow: auto;
+  }
+  .academy .dea-nav.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .academy .dea-nav > a,
+  .academy .dea-nav summary {
+    font-size: 1rem;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid var(--line-soft);
+    white-space: normal;
+  }
+  .academy .dea-nav .dea-nav-cta {
+    margin-top: 0.75rem;
+    padding: 0.875rem 1rem;
+    justify-content: space-between;
+  }
+  .dea-nav-dropdown {
+    position: static;
+    width: 100%;
+    max-height: none;
+    box-shadow: none;
+    padding: 0.5rem 0.75rem;
+    margin-block: 0.5rem;
+  }
+  .academy .dea-nav .dea-student-link {
+    display: flex !important;
+    border-left: 0;
+  }
+}
+
+/* The collage's controls occupy their own row instead of covering the art. */
+.dea-hero-collage {
+  padding: 0;
+  min-height: 0;
+  min-width: 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.dea-collage-scene {
+  position: relative;
+  padding: 1.875rem 2.1875rem 2rem 3.125rem;
+  min-width: 0;
+}
+.dea-collage-main {
+  max-width: 100%;
+}
+.dea-collage-caption > span {
+  font-size: 0.625rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  margin-top: 0.75rem;
+}
+.dea-collage-side {
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+}
+.dea-collage-note {
+  bottom: 1.5rem;
+}
+.dea-collage-note > span {
+  min-width: 0;
+}
 .dea-art-tabs {
+  position: static;
+  transform: none;
+  width: 100%;
   max-width: 100%;
   flex-wrap: wrap;
   justify-content: center;
   white-space: normal;
+  gap: 0.375rem;
+}
+.academy .dea-art-tabs > button {
+  font-size: 0.875rem;
+  padding: 0.5rem 0.625rem;
+  line-height: 1.35;
+}
+.dea-hero-reassurance {
+  flex-wrap: wrap;
+  gap: 0.375rem 0.75rem;
 }
 .dea-exam-ribbon > .dea-wrap {
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) repeat(5, minmax(0, 1fr));
+  align-items: start;
+  gap: 1rem;
 }
 .dea-exam-ribbon .dea-wrap > span {
-  max-width: 11rem;
+  max-width: none;
+  line-height: 1.45;
+  letter-spacing: 0.07em;
+}
+.dea-exam-ribbon a {
+  line-height: 1.1;
+}
+.dea-exam-ribbon a > small {
+  letter-spacing: 0;
+  line-height: 1.4;
 }
 .dea-page-hero-copy,
 .dea-home-copy,
@@ -91,9 +303,138 @@
 .dea-programme-copy {
   min-width: 0;
 }
+.dea-breadcrumbs {
+  align-items: flex-start;
+}
+.dea-breadcrumbs > a {
+  flex: none;
+}
+.dea-breadcrumbs > span:last-child {
+  flex: 1;
+  min-width: 0;
+}
 .dea-fit-facts {
   flex-wrap: wrap;
 }
+
+/* Reserve room for the caption instead of placing it over an illustration. */
+.dea-programme-art {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  justify-items: center;
+  gap: 0.5rem;
+  height: 12.5rem;
+  padding: 0.75rem 1rem 1rem;
+}
+.dea-programme-art > .dea-art {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin-top: 0;
+}
+.dea-programme-art > span {
+  position: static;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  letter-spacing: 0.035em;
+}
+.dea-programme-copy h3 {
+  min-height: 2.2em;
+  line-height: 1.1;
+}
+.dea-programme-copy > p {
+  min-height: 4.95em;
+}
+.dea-programme-copy > ul {
+  margin: 1.25rem 0;
+  padding-top: 1.125rem;
+  gap: 0.5rem;
+}
+.dea-programme-copy > ul > li {
+  line-height: 1.55;
+}
+.dea-programme-formats {
+  margin: 0 0 1.5rem;
+}
+.dea-programme-formats li {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+.dea-programme-copy > .dea-button {
+  margin-top: auto;
+  width: 100%;
+}
+.dea-guide-filter button,
+.dea-guide-empty button {
+  font-size: 0.875rem;
+  line-height: 1.35;
+  padding: 0.625rem 0.875rem;
+}
+.dea-guide-tools label {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+.academy .dea-enquiry-card label {
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+.dea-guide-tags > span {
+  line-height: 1.35;
+}
+.dea-discipline-card summary {
+  align-items: center;
+  padding: 0.875rem 0 0;
+  line-height: 1.45;
+}
+.dea-discipline-card-top > span {
+  letter-spacing: 0.035em;
+  line-height: 1.4;
+}
+@media (min-width: 651px) {
+  .dea-degree-card,
+  .dea-college-card {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 6;
+    row-gap: 0;
+  }
+  .dea-college-card > .dea-guide-tag {
+    justify-self: start;
+    align-self: start;
+  }
+  .dea-degree-card > .dea-guide-source,
+  .dea-college-card > .dea-guide-source {
+    align-self: end;
+    justify-self: start;
+    margin-right: 0;
+  }
+  .dea-discipline-card .dea-guide-tags {
+    min-height: 4rem;
+    align-content: start;
+  }
+  .dea-discipline-card h2 {
+    min-height: 2.3em;
+  }
+  .dea-discipline-card > p {
+    min-height: 4.95em;
+  }
+  .dea-mentor-grid small {
+    display: block;
+    min-height: 3em;
+    line-height: 1.5;
+  }
+}
+.dea-footer-word {
+  white-space: normal;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.dea-footer-word > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Preserve the assessment's diagram geometry and modal keyboard behaviour. */
 .lab-library {
   border: 0;
   margin: 0;
@@ -127,73 +468,23 @@
   outline: 3px solid #244735;
   outline-offset: 5px;
 }
-@media (max-width: 1100px) {
-  .dea-header-inner {
-    min-height: 76px;
-    flex-wrap: wrap;
+@media (max-width: 900px) {
+  .dea-exam-ribbon > .dea-wrap {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
-  .dea-menu-toggle {
-    display: block;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    background: transparent;
-    padding: 8px 12px;
-    color: var(--green-dark);
-    font-size: 1rem;
-    flex-shrink: 0;
-    white-space: nowrap;
-    margin-left: auto;
-  }
-  .dea-menu-toggle > span {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1rem;
-  }
-  .dea-menu-toggle i {
-    font-style: normal;
-  }
-  .dea-nav {
-    display: none;
-    position: absolute;
-    inset: 100% 0 auto;
-    background: var(--cream);
-    padding: 16px 24px 24px;
-    border-bottom: 1px solid var(--line);
-    max-height: calc(100dvh - 5rem);
-    overflow: auto;
-  }
-  .dea-nav.is-open {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
-  .dea-nav > a,
-  .dea-nav summary {
-    font-size: 1rem;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--line-soft);
-  }
-  .dea-nav .dea-nav-cta {
-    margin-top: 12px;
-    padding: 12px 16px;
-    font-size: 1rem;
-  }
-  .dea-nav-dropdown {
-    position: static;
-    width: 100%;
-    max-height: none;
-    box-shadow: none;
-    padding: 8px 16px;
-    margin-block: 8px;
-  }
-  .dea-nav .dea-student-link {
-    display: flex !important;
-    border-left: 0;
+  .dea-exam-ribbon .dea-wrap > span {
+    grid-column: 1 / -1;
   }
 }
 @media (max-width: 650px) {
+  .dea-announcement,
+  .dea-announcement > a {
+    min-height: 44px;
+    font-size: 0.875rem;
+  }
+  .dea-header-inner {
+    gap: 0.75rem;
+  }
   .dea-guide-tools input,
   .dea-guide-tools select {
     font-size: 1rem;
@@ -203,6 +494,29 @@
   }
   .dea-hero-actions {
     flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+  }
+  .dea-collage-scene {
+    padding: 1rem 1.75rem 0;
+  }
+  .dea-collage-note {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: max-content;
+    max-width: 100%;
+    margin: 0.75rem 0 0 auto;
+  }
+  .dea-exam-ribbon > .dea-wrap {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem 0.75rem;
+  }
+  .dea-programme-copy h3,
+  .dea-programme-copy > p {
+    min-height: 0;
+  }
+  .dea-programme-formats li {
+    font-size: 0.875rem;
   }
   .lab-task-area {
     min-width: 0;
@@ -217,35 +531,10 @@
   .dea-header {
     position: relative;
   }
-  .dea-header-inner {
-    flex-wrap: wrap;
-  }
-  .dea-nav {
+  .academy .dea-nav {
     position: static;
     max-height: none;
     flex-basis: 100%;
     box-shadow: none;
   }
-}
-.dea-footer-word {
-  white-space: normal;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.dea-footer-word > * {
-  min-width: 0;
-  max-width: 100%;
-}
-.dea-nav-dropdown {
-  left: auto;
-  right: 0;
-  top: 100%;
-}
-.dea-nav-dropdown > a {
-  min-width: 0;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.dea-nav-dropdown small {
-  min-width: 0;
 }

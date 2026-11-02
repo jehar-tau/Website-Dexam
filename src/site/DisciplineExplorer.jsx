@@ -43,7 +43,7 @@ export default function DisciplineExplorer() {
   return (
     <>
       <PageHero
-        eyebrow="DESIGN DISCIPLINES · NID & BEYOND"
+        eyebrow="DESIGN DISCIPLINES"
         title={
           <>
             Follow your curiosity.
@@ -51,15 +51,15 @@ export default function DisciplineExplorer() {
             <em>Find your field.</em>
           </>
         }
-        description="Explore what different designers work on, then check the programme, study level and campus. Start with a question that interests you."
+        description="Explore design fields, then compare programmes, study levels and campuses."
         art="product"
       >
         <div className="dea-hero-actions">
           <Link className="dea-button" to="/design-degrees">
-            Compare degrees & durations
+            Compare degrees
           </Link>
           <Link className="dea-text-link" to="/design-colleges">
-            Explore college guides
+            Explore colleges
           </Link>
         </div>
       </PageHero>
@@ -76,14 +76,12 @@ export default function DisciplineExplorer() {
           <div>
             <h2>Different names. Shared directions.</h2>
             <p>
-              Explore NID, IITs, Symbiosis, Mumbai-region schools and specialist
-              institutes. Related fields sit together, with each college’s exact
-              programme name inside the card.
+              Explore NID, IITs, Symbiosis and more. Related fields are grouped;
+              exact programme names are inside each card.
             </p>
             <p>
-              A broad degree, a specialisation and a pathway can offer different
-              experiences. Compare the qualification, campus and official
-              source.
+              Degrees, specialisations and pathways differ. Check the qualification,
+              campus and official source.
             </p>
             <OfficialSource id="nidIntegrated" />
             <OfficialSource id="nidMasters" />
@@ -183,7 +181,7 @@ export default function DisciplineExplorer() {
               <p>{d.text}</p>
               <details>
                 <summary>
-                  Programmes & sources ({d.offers.length}){" "}
+                  Programmes ({d.offers.length}){" "}
                   <span aria-hidden="true">+</span>
                 </summary>
                 <ul>
@@ -202,7 +200,7 @@ export default function DisciplineExplorer() {
                         <p className="dea-discipline-offer-note">{o.note}</p>
                       )}
                       <OfficialSource id={o.source}>
-                        Official programme source
+                        Programme source
                       </OfficialSource>
                     </li>
                   ))}

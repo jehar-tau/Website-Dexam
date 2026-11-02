@@ -95,12 +95,12 @@ export function SectionTitle({ eyebrow, title, to, link }) {
 export function Cta({
   title = (
     <>
-      Your next chapter
+      Your next step
       <br />
-      starts with a <em>conversation.</em>
+      <em>starts here.</em>
     </>
   ),
-  description = "Bring your questions. We’ll help you connect your interests, your timeline and a sensible next step.",
+  description = "Let’s find the right course and timeline for you.",
 }) {
   return (
     <section className="dea-cta dea-wrap">
@@ -122,7 +122,7 @@ export function Cta({
     </section>
   );
 }
-export function Faq({ items, title = "A few things you might be wondering." }) {
+export function Faq({ items, title = "Before you begin." }) {
   return (
     <section className="dea-faq-section dea-wrap">
       <div>
@@ -159,6 +159,14 @@ export function ProgrammeCard({ programme: p, index = 0 }) {
         <span className="dea-small-label">{p.label}</span>
         <h3>{p.name}</h3>
         <p>{p.description}</p>
+        <ul>
+          {p.points.map((point) => (
+            <li key={point}>
+              <Icon name="check" size={14} />
+              {point}
+            </li>
+          ))}
+        </ul>
         {p.formats && (
           <div className="dea-programme-formats">
             <span>CHOOSE YOUR TIMELINE</span>
@@ -169,16 +177,8 @@ export function ProgrammeCard({ programme: p, index = 0 }) {
             </ul>
           </div>
         )}
-        <ul>
-          {p.points.map((point) => (
-            <li key={point}>
-              <Icon name="check" size={14} />
-              {point}
-            </li>
-          ))}
-        </ul>
         <Button to={`/contact?programme=${p.id}`} orange={index === 0}>
-          Explore this programme
+          Explore programme
         </Button>
       </div>
     </article>

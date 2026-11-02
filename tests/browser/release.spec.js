@@ -27,7 +27,7 @@ async function completeCounsellingForm(page, overrides = {}) {
     .getByLabel("What are you considering?")
     .selectOption(overrides.programme || "end-to-end");
   await page
-    .getByLabel("What guidance do you need right now?")
+    .getByLabel("How can we help?")
     .fill("I need a practical preparation plan for the selected exam.");
   await page
     .getByLabel("Preferred time for a call")
@@ -90,7 +90,7 @@ test("programme choices carry through to the enquiry without publishing fees", a
     const card = page
       .locator(".dea-programme-card")
       .filter({ has: page.getByRole("heading", { name, exact: true }) });
-    await card.getByRole("link", { name: "Explore this programme" }).click();
+    await card.getByRole("link", { name: "Explore programme" }).click();
     await expect(page).toHaveURL(new RegExp(`/contact\\?programme=${id}$`));
     await expect(page.locator(".dea-form-interest")).toContainText(name);
   }

@@ -44,7 +44,7 @@ export function Home() {
     <>
       <section className="dea-home-hero dea-wrap">
         <div className="dea-home-copy">
-          <Eyebrow>DESIGN ENTRANCE PREPARATION · PUNE</Eyebrow>
+          <Eyebrow>DESIGN ENTRANCE PREP · PUNE</Eyebrow>
           <h1>
             For the ones
             <br />
@@ -93,7 +93,7 @@ export function Home() {
             </>
           }
           to="/about"
-          link="Inside the DEXAM approach"
+          link="Our approach"
         />
         <div className="dea-discovery-grid">
           {[
@@ -181,7 +181,7 @@ export function Home() {
             </>
           }
           to="/courses"
-          link="Compare the programmes"
+          link="Compare programmes"
         />
         <div className="dea-programme-grid">
           {programmes.map((p, i) => (
@@ -189,8 +189,7 @@ export function Home() {
           ))}
         </div>
         <p className="dea-fee-note">
-          Three programmes. Choose the support you need. Meet us at the academy
-          to discuss the right fit, batch timings and fees.
+          Meet us to choose a programme and discuss timings and fees.
         </p>
         <ArrowLink to="/courses#curriculum" className="dea-curriculum-link">
           See what you’ll learn
@@ -207,7 +206,7 @@ export function Home() {
             </>
           }
           to="/design-careers"
-          link="Explore the design world"
+          link="Explore design fields"
         />
         <div className="dea-discipline-strip">
           {disciplines.slice(0, 4).map((d) => (
@@ -224,7 +223,7 @@ export function Home() {
       <section className="dea-studio-band">
         <div className="dea-wrap">
           <div>
-            <Eyebrow>A STUDIO. A CONVERSATION. A NEW WAY OF SEEING.</Eyebrow>
+            <Eyebrow>LEARN IN OUR PUNE STUDIO</Eyebrow>
             <h2>
               Taught by designers.
               <br />
@@ -280,13 +279,12 @@ export function Courses() {
             your <em>creative future.</em>
           </>
         }
-        description="Three programmes. One clear next step. Prepare from the beginning, focus on your next admission stage, or join just the test series."
+        description="Full preparation, studio & interview prep, or just the test series."
         art="build"
       />
       <section className="dea-wrap dea-section dea-section-first">
         <p className="dea-programme-intro">
-          For NID, NIFT, NATA, UCEED and CEED. Choose your exam, then the
-          support that fits where you are.
+          Choose your path for NID, NIFT, NATA, UCEED or CEED.
         </p>
         <div className="dea-programme-grid">
           {programmes.map((p, i) => (
@@ -294,8 +292,7 @@ export function Courses() {
           ))}
         </div>
         <p className="dea-fee-note">
-          Not sure where to begin? Visit the academy with your questions. We’ll
-          help you choose a programme and discuss fees in person.
+          Visit the academy to choose a programme and discuss fees.
         </p>
       </section>
       <section
@@ -304,7 +301,7 @@ export function Courses() {
         aria-labelledby="curriculum-title"
       >
         <SectionTitle
-          eyebrow="INSIDE END-TO-END PREPARATION"
+          eyebrow="WHAT YOU’LL LEARN"
           title={
             <span id="curriculum-title">
               From a first line.
@@ -358,7 +355,7 @@ export function Courses() {
           studio test and interview programme on its own.
         </p>
         <ArrowLink to="/contact?programme=end-to-end">
-          Talk through your learning plan
+          Plan your learning
         </ArrowLink>
       </section>
       <Faq items={[faqs[5], faqs[4], faqs[6], faqs[1]]} />
@@ -379,7 +376,7 @@ export function Exams() {
             Your own <em>way in.</em>
           </>
         }
-        description="Start with the kind of work you want to do. Then understand the exam, the programme and the preparation that connects them."
+        description="Find the exam and preparation route for the work you want to do."
         art="geometry"
       />
       <section className="dea-wrap dea-section dea-section-first">
@@ -545,7 +542,7 @@ export function Resources() {
             <em>Find your next question.</em>
           </>
         }
-        description="Previous year papers, practice notes and thoughtful starting points for your design journey."
+        description="Past papers, practice notes and ideas to explore."
         art="papers"
       />
       <section className="dea-wrap dea-resource-library">
@@ -736,7 +733,7 @@ export function Papers() {
             <em>the questions.</em>
           </>
         }
-        description="Previous year papers and samples for NID DAT, UCEED, NIFT, NATA and CEED. Attempt, reflect and make your next session more useful."
+        description="Past papers and samples for NID DAT, UCEED, NIFT, NATA and CEED."
         art="papers"
       />
       <section className="dea-wrap dea-section dea-section-first">
@@ -799,7 +796,7 @@ export function PaperArchive() {
             <em>A little familiarity.</em>
           </>
         }
-        description="Explore the available papers and samples. Follow the instructions on each paper, and leave time to review your decisions."
+        description="Choose a paper, follow its instructions, then review your work."
         art="papers"
         breadcrumbs={[
           ["Resources", "/resources"],
@@ -898,7 +895,7 @@ export function About() {
   return (
     <>
       <PageHero
-        eyebrow="A DIFFERENT KIND OF DESIGN ACADEMY"
+        eyebrow="THE DEXAM STUDIO"
         title={
           <>
             A place for
@@ -906,7 +903,7 @@ export function About() {
             <em>curious minds.</em>
           </>
         }
-        description="We believe preparation becomes more meaningful when students learn to observe, question and make. DEXAM brings that thinking into design entrance coaching in Pune."
+        description="Learn to observe, question and make at our Pune design entrance studio."
         art="space"
       />
       <section className="dea-wrap dea-about-manifesto">
@@ -1082,7 +1079,7 @@ export function Guide() {
             <em>Small, sensible steps.</em>
           </>
         }
-        description="You don’t have to know the whole route before starting. Begin with interests, explore the options, and make the next decision with a little more clarity."
+        description="Start with your interests. Explore the options, then choose your next step."
         art="build"
       />
       <section className="dea-wrap dea-guide-paths">
@@ -1091,7 +1088,7 @@ export function Guide() {
             "Still exploring?",
             "Start with the work, not the college name.",
             "Try a few design disciplines, a short visual assessment and some small projects. Notice what you enjoy returning to.",
-            "Explore the design world",
+            "Explore design fields",
             "/design-careers",
             "geometry",
           ],
@@ -1176,7 +1173,7 @@ export function Pune() {
   return (
     <>
       <PageHero
-        eyebrow="DESIGN ENTRANCE COACHING IN PUNE"
+        eyebrow="DESIGN COACHING · PUNE"
         title={
           <>
             A creative corner
@@ -1184,7 +1181,7 @@ export function Pune() {
             <em>in Amanora.</em>
           </>
         }
-        description="Come with an interest, a sketchbook or a question. Explore design entrance preparation with DEXAM in Amanora Park Town, Pune."
+        description="Explore design entrance preparation at our Amanora studio in Pune."
         art="map"
       />
       <section className="dea-wrap dea-location-grid">
@@ -1266,7 +1263,7 @@ export function MockTests() {
             to a new <em>perspective.</em>
           </>
         }
-        description="Focused exam practice, available as a standalone programme. Join just the test series, with no full-course enrolment required. Ask the team about your chosen exam and schedule."
+        description="Join just the test series. Ask us about exams, schedules and access."
         art="practice"
       />
       <section className="dea-wrap dea-feature-pair">
@@ -1334,7 +1331,7 @@ export function Results() {
             <em>Not just the grade.</em>
           </>
         }
-        description="The clearest evidence of learning is often a better question, a clearer sketch or a more thoughtful decision. Here is how to look at your own progress."
+        description="Notice your progress in sharper questions, clearer sketches and thoughtful decisions."
         art="portfolio"
       />
       <section className="dea-wrap dea-section dea-section-first">
@@ -1399,7 +1396,7 @@ export function StudentAccess() {
             <em>A way to keep growing.</em>
           </>
         }
-        description="DEXAM’s student platform brings course learning, assignments and practice into a dedicated space. Access is connected to your enrolment."
+        description="Your learning, assignments and practice, together. Access comes with enrolment."
         art="interface"
       />
       <section className="dea-wrap dea-note-panel">
@@ -1407,8 +1404,7 @@ export function StudentAccess() {
         <div>
           <h2>Already part of DEXAM?</h2>
           <p>
-            Contact your mentor or the academy team for your current
-            student-access link and enrolment details.
+            Ask your mentor or the academy team for your access link.
           </p>
           <a
             className="dea-text-link"
@@ -1416,7 +1412,7 @@ export function StudentAccess() {
             target="_blank"
             rel="noreferrer"
           >
-            Ask for your student access <Icon name="arrow" size={16} />
+            Request access <Icon name="arrow" size={16} />
           </a>
         </div>
       </section>
@@ -1522,7 +1518,7 @@ export function Contact() {
   return (
     <>
       <PageHero
-        eyebrow="A CONVERSATION, NOT A COMMITMENT"
+        eyebrow="LET’S TALK DESIGN"
         title={
           <>
             Let’s talk
@@ -1530,7 +1526,7 @@ export function Contact() {
             <em>possibilities.</em>
           </>
         }
-        description="Review the programmes first, then tell us which exam, year and learning route you are considering. The extra detail helps us respond usefully."
+        description="Tell us your exam, target year and learning plans. We’ll help you choose a programme."
       />
       <section className="dea-wrap dea-contact-layout">
         <div className="dea-contact-info">
@@ -1604,13 +1600,10 @@ export function Contact() {
                 <em>a clear fit.</em>
               </h2>
               <p>
-                This form is for students and parents actively exploring design
-                entrance preparation. It takes about two minutes.
+                For students and parents exploring design entrance preparation. About two minutes.
               </p>
               <p className="dea-form-programme-note">
-                Choose end-to-end preparation, studio test &amp; interview prep,
-                or the test series. Meet us at the academy to discuss fees and
-                the format that fits your plans.
+                Choose a programme below. Discuss fees and course formats at the academy.
               </p>
               {programme && (
                 <div className="dea-form-interest">
@@ -1700,7 +1693,7 @@ export function Contact() {
                   error={errors.programme}
                 />
                 <label htmlFor="enquiry-guidance">
-                  What guidance do you need right now?
+                  How can we help?
                   <textarea
                     id="enquiry-guidance"
                     value={form.guidance}
@@ -1709,7 +1702,7 @@ export function Contact() {
                     aria-describedby={
                       errors.guidance ? "error-guidance" : undefined
                     }
-                    placeholder="For example: I am in Class 12 and need help planning NID DAT preparation."
+                    placeholder="For example: Help me plan NID DAT prep for Class 12."
                     rows="4"
                   />
                   {errors.guidance && (
