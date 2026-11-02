@@ -184,6 +184,97 @@ test("public admin route is unavailable", async ({ page }) => {
   await expect(page.getByText("Website content manager")).toHaveCount(0);
 });
 
+test("narrow phones keep marketing copy readable and navigation tappable", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto("/");
+
+  const announcementSize = await page
+    .locator(".dea-announcement > a")
+    .evaluate((element) => parseFloat(getComputedStyle(element).fontSize));
+  expect(announcementSize).toBeGreaterThanOrEqual(12);
+
+  const homeHeadingSize = await page
+    .locator("h1")
+    .evaluate((element) => parseFloat(getComputedStyle(element).fontSize));
+  expect(homeHeadingSize).toBeLessThanOrEqual(52);
+
+  const menu = page.getByRole("button", { name: "Open navigation" });
+  const menuBox = await menu.boundingBox();
+  expect(menuBox.height).toBeGreaterThanOrEqual(44);
+  expect(menuBox.width).toBeGreaterThanOrEqual(44);
+  await menu.click();
+  await page.locator(".dea-nav details summary").click();
+
+  for (const link of await page.locator(".dea-nav-dropdown > a").all()) {
+    const box = await link.boundingBox();
+    expect(box.height).toBeGreaterThanOrEqual(44);
+    expect(
+      await link.evaluate((element) =>
+        parseFloat(getComputedStyle(element).fontSize),
+      ),
+    ).toBeGreaterThanOrEqual(12);
+  }
+
+  await page.goto("/courses/");
+  expect(
+    await page
+      .locator(".dea-page-hero-art > span")
+      .evaluate((element) => parseFloat(getComputedStyle(element).fontSize)),
+  ).toBeGreaterThanOrEqual(11);
+  const paragraphSizes = await page.locator("main p").evaluateAll((elements) =>
+    elements
+      .filter((element) => element.getBoundingClientRect().height > 0)
+      .map((element) => parseFloat(getComputedStyle(element).fontSize)),
+  );
+  expect(Math.min(...paragraphSizes)).toBeGreaterThanOrEqual(14);
+  expect(
+    await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
+  ).toBe(true);
+});
+
+test("narrow-phone resource actions and quiz hero meet the mobile contract", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await page.goto("/resources/");
+  for (const filter of await page.locator(".dea-filter-tabs > button").all()) {
+    expect((await filter.boundingBox()).height).toBeGreaterThanOrEqual(44);
+  }
+
+  await page.goto("/papers/uceed/");
+  for (const button of await page.locator(".dea-unlock-button").all()) {
+    expect((await button.boundingBox()).height).toBeGreaterThanOrEqual(44);
+    expect(
+      await button.evaluate((element) =>
+        parseFloat(getComputedStyle(element).fontSize),
+      ),
+    ).toBeGreaterThanOrEqual(12);
+  }
+
+  await page.goto("/quiz/");
+  expect(
+    await page
+      .locator("h1")
+      .evaluate((element) => parseFloat(getComputedStyle(element).fontSize)),
+  ).toBeLessThanOrEqual(52);
+  expect(
+    await page
+      .locator(".lab-hero-foot")
+      .evaluate((element) => parseFloat(getComputedStyle(element).fontSize)),
+  ).toBeGreaterThanOrEqual(12);
+  const statSizes = await page
+    .locator(".lab-landing-stats span")
+    .evaluateAll((elements) =>
+      elements.map((element) => parseFloat(getComputedStyle(element).fontSize)),
+    );
+  expect(Math.min(...statSizes)).toBeGreaterThanOrEqual(11);
+  expect(
+    await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
+  ).toBe(true);
+});
+
 test("consented classroom proof images load without exposing names", async ({ page }) => {
   await page.goto("/about/");
   const section = page.locator(".dea-classroom-proof");

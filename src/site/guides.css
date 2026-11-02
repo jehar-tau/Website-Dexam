@@ -454,8 +454,48 @@
     gap: 7px;
   }
   .dea-guide-filter button {
-    font-size: 11px;
+    font-size: 13px;
     padding: 10px 12px;
+  }
+  .dea-guide-review > span,
+  .dea-guide-tag,
+  .dea-guide-tags > span,
+  .dea-college-card dt,
+  .dea-discipline-card-top > span {
+    font-size: 11px;
+  }
+  .dea-guide-review p,
+  .dea-guide-link-grid p,
+  .dea-exam-route-grid p,
+  .dea-college-card dd,
+  .dea-college-card > .dea-college-location,
+  .dea-discipline-card summary,
+  .dea-discipline-card li strong,
+  .dea-discipline-card li > span,
+  .dea-discipline-offer-note,
+  .dea-degree-card .dea-degree-entry,
+  .dea-guide-source,
+  .dea-guide-count,
+  .dea-guide-link-grid a > span {
+    font-size: 13px;
+  }
+  .dea-college-card > p,
+  .dea-discipline-card > p,
+  .dea-degree-card > p,
+  .dea-guide-callout p,
+  .dea-guide-note,
+  .dea-guide-clarification p,
+  .dea-guide-reference p,
+  .dea-guide-reference ul {
+    font-size: 14px;
+  }
+  .dea-guide-filter button,
+  .dea-guide-empty button,
+  .dea-guide-source,
+  .dea-guide-link-grid a > span,
+  .dea-discipline-card summary {
+    min-height: 44px;
+    align-items: center;
   }
   .dea-guide-reference ul {
     columns: 1;
