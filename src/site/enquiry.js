@@ -125,20 +125,24 @@ export function campaignAttribution(searchParams) {
 }
 
 export function enquiryMeasurement(form, attribution = {}) {
+  const safeAttribution = Object.fromEntries(
+    ["utmSource", "utmMedium", "utmCampaign", "utmContent"]
+      .map((key) => {
+        const value = attribution[key]?.trim().slice(0, 80);
+        if (!value || /@|(?:\+?\d[\d\s-]{8,})/.test(value)) return null;
+        return [key, value.replace(/[^a-zA-Z0-9._-]/g, "")];
+      })
+      .filter(Boolean),
+  );
   return {
-    formVersion: "qualified-counselling-v1",
-    audience: form.role,
     exam: form.exam,
     targetYear: form.targetYear,
-    mode: form.mode,
     programme: form.programme,
-    ...attribution,
+    ...safeAttribution,
   };
 }
 
 export function emitEnquirySuccess(detail) {
-  if (Array.isArray(window.dataLayer))
-    window.dataLayer.push({ event: "submit_enquiry", ...detail });
   window.dispatchEvent(
     new CustomEvent("dexam:submit_enquiry", { detail }),
   );

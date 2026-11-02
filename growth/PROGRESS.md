@@ -144,3 +144,10 @@
 **Verification:** Clean install/build, site contracts and 16 model tests, eight assessment tests, 102 browser tests, live 37-route/46-target smoke check, zero-vulnerability audit and credential/diff review pass. Live form inspection remained non-submitting. No public editorial or fee change, no sitemap lastmod change, and no private data added.
 
 **Evidence:** `growth/maintenance/2026-11-02.md`; maintenance PR records CI, merge and final deployment verification. T02 still needs owner-provided Search Console/GA4 access or exports.
+### 2026-11-03 — T02/T04: GA4 property and consent-gated measurement prepared
+
+**Action:** Created the Google Analytics account `DesignExam`, GA4 property `DesignExam Website`, and `https://designexam.com` web stream. The property uses India time and Indian Rupees. The stream measurement ID is `G-ZC3W71HWLF`. Enhanced measurement is limited to page views, scrolls and outbound clicks; email redaction and 30 common personal-data/search URL parameter redactions are enabled. Google Signals and optional account data-sharing controls remain off.
+
+**Website integration:** Prepared an adult-only privacy choice banner with equal accept/reject controls and footer settings access. The Google tag is injected only after an adult visitor affirmatively opts in; visitors under 18 are told to reject, and the tag remains absent. A successful enquiry emits only allow-listed exam, programme, target-year and safe campaign labels; contact fields, location, education, role and free-text guidance are excluded. Ads storage and advertising personalization remain denied.
+
+**Status:** This is on `codex/ga4-consent-tracking`; production has not been changed and GA4 has not yet received site visits. The live tag and consent flow need review, CI, merge/deploy and an opted-in adult Realtime verification. Search Console still needs an account with property access. T04 also needs the owner's lead-quality and follow-up definitions before funnel reports can distinguish qualified leads from raw enquiries.

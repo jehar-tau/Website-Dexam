@@ -1299,6 +1299,75 @@
   display: flex;
   gap: 20px;
 }
+.dea-cookie-settings {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.dea-analytics-consent {
+  --ink: #162824;
+  --cream: #faf9f3;
+  --green-dark: #244735;
+  --line: #dde0d4;
+  position: fixed;
+  z-index: 1200;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  left: max(20px, env(safe-area-inset-left));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  width: min(1040px, calc(100% - 40px));
+  margin-inline: auto;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--cream);
+  box-shadow: 0 12px 40px rgb(22 40 36 / 22%);
+  color: var(--ink);
+  font-family: Figtree, system-ui, sans-serif;
+}
+.dea-analytics-consent__copy {
+  max-width: 620px;
+}
+.dea-analytics-consent__copy strong {
+  display: block;
+  margin-bottom: 4px;
+  font-family: "Zilla Slab", Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+.dea-analytics-consent__copy p {
+  margin: 0 0 5px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.dea-analytics-consent__copy a {
+  color: var(--green-dark);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+.dea-analytics-consent__actions {
+  display: flex;
+  flex: none;
+  gap: 10px;
+}
+.dea-analytics-consent__actions button {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  background: var(--ink);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
 .dea-breadcrumbs {
   font-size: 0.875rem;
   color: var(--muted);
@@ -3670,6 +3739,23 @@
   }
   .dea-footer-bottom > div {
     gap: 12px;
+  }
+  .dea-analytics-consent {
+    right: max(10px, env(safe-area-inset-right));
+    bottom: max(10px, env(safe-area-inset-bottom));
+    left: max(10px, env(safe-area-inset-left));
+    width: auto;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+  .dea-analytics-consent__actions {
+    flex-direction: column;
+  }
+  .dea-analytics-consent__actions button {
+    width: 100%;
+    font-size: 1rem;
   }
   .dea-breadcrumbs {
     font-size: 0.875rem;

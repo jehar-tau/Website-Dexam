@@ -54,6 +54,7 @@ test("programme benefits and actions align across the three desktop cards", asyn
 test("enlarged text opens a compact navigation rather than wrapping desktop labels", async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto("/");
+  await page.getByRole("button", { name: "Reject optional analytics" }).click();
   await page.addStyleTag({ content: ":root{font-size:200%}" });
   await page.getByRole("button", { name: "Open navigation" }).click();
   await expect(page.getByRole("link", { name: "Programmes", exact: true })).toBeVisible();
