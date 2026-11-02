@@ -112,7 +112,7 @@ export default function LeadModal() {
                 marginBottom: 4,
               }}
             >
-              <h3 style={{ margin: 0, fontSize: 21, lineHeight: 1.2 }}>
+              <h3 style={{ margin: 0, fontSize: "1.3125rem", lineHeight: 1.2 }}>
                 Get your previous year paper
               </h3>
               <button
@@ -121,7 +121,7 @@ export default function LeadModal() {
                 onClick={lead.closeModal}
                 style={{
                   cursor: "pointer",
-                  fontSize: 20,
+                  fontSize: "1.25rem",
                   color: "var(--gray)",
                   lineHeight: 1,
                   padding: 2,
@@ -135,7 +135,7 @@ export default function LeadModal() {
             <p
               style={{
                 margin: "0 0 16px",
-                fontSize: 13,
+                fontSize: "1rem",
                 color: "var(--muted)",
               }}
             >
@@ -181,7 +181,7 @@ export default function LeadModal() {
               <p
                 style={{
                   margin: 0,
-                  fontSize: 11,
+                  fontSize: "1rem",
                   lineHeight: 1.5,
                   color: "var(--gray)",
                   textAlign: "center",
@@ -202,7 +202,7 @@ export default function LeadModal() {
                 borderRadius: "50%",
                 background: "rgba(30,138,76,.12)",
                 color: "var(--green)",
-                fontSize: 26,
+                fontSize: "1.625rem",
                 fontWeight: 700,
                 display: "flex",
                 alignItems: "center",
@@ -212,13 +212,13 @@ export default function LeadModal() {
             >
               ✓
             </div>
-            <h3 style={{ margin: "0 0 8px", fontSize: 22 }}>
+            <h3 style={{ margin: "0 0 8px", fontSize: "1.375rem" }}>
               Your download is ready
             </h3>
             <p
               style={{
                 margin: "0 0 18px",
-                fontSize: 13.5,
+                fontSize: "1rem",
                 lineHeight: 1.6,
                 color: "var(--muted)",
               }}
@@ -238,7 +238,7 @@ export default function LeadModal() {
                   border: "1.5px solid var(--ink)",
                   color: "var(--ink)",
                   fontWeight: 600,
-                  fontSize: 14,
+                  fontSize: "1rem",
                   textAlign: "center",
                   padding: 12,
                   borderRadius: 8,
@@ -251,7 +251,7 @@ export default function LeadModal() {
                 type="button"
                 onClick={lead.closeModal}
                 style={{
-                  fontSize: 13,
+                  fontSize: "1rem",
                   fontWeight: 600,
                   color: "var(--gray)",
                   cursor: "pointer",
