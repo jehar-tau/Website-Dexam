@@ -48,11 +48,10 @@ export function CampusPathways() {
           </span>
         }
         to="/exams"
-        link="Find your entrance route"
+        link="Explore exam routes"
       />
       <p className="dea-campus-intro">
-        Prepare for NID, NIFT and design at the IITs. A little direction today.
-        A world of possibilities ahead.
+        Prepare for NID, NIFT and design at the IITs.
       </p>
       <div className="dea-campus-grid">
         {pathways.map((campus, index) => (

@@ -16,13 +16,13 @@ export const programmes = [
     duration: "Learn. Practise. Prepare.",
     art: "build",
     description:
-      "Prepare for NID, NIFT, NATA, UCEED or CEED, from the foundations to each relevant admission stage.",
+      "From design foundations to your exam’s final admission stage.",
     formats: ["4-year", "2-year", "1-year", "30-day crash course"],
     points: [
       "Drawing, perspective, composition & colour",
-      "Design thinking, visual reasoning & aptitude",
-      "Mock tests, review & personal mentoring",
-      "Portfolio, studio & interview guidance where relevant",
+      "Design thinking, reasoning & aptitude",
+      "Mock tests & personal mentoring",
+      "Portfolio, studio & interviews, as needed",
     ],
   },
   {
@@ -32,11 +32,11 @@ export const programmes = [
     duration: "Make. Present. Discuss.",
     art: "portfolio",
     description:
-      "Focused preparation for practical tasks, your portfolio and conversations about your work. Join this programme on its own.",
+      "Prepare for studio tasks, portfolios and interviews. Available on its own.",
     points: [
       "Studio & situation-test practice",
-      "Material exploration, making & model building",
-      "Portfolio development & presentation",
+      "Materials & model making",
+      "Portfolio & presentation",
       "Interview practice & feedback",
     ],
   },
@@ -47,12 +47,12 @@ export const programmes = [
     duration: "Practise. Review. Repeat.",
     art: "papers",
     description:
-      "Just the test series, for students who want to practise independently. Full-course enrolment is not required.",
+      "Exam practice and feedback, with no full-course enrolment needed.",
     points: [
-      "Mock tests for your chosen exam",
-      "Timed practice & exam familiarity",
-      "Performance review to guide your next attempt",
-      "Standalone test-series access",
+      "Mocks for your chosen exam",
+      "Timed exam practice",
+      "Feedback for your next attempt",
+      "Standalone access",
     ],
   },
 ];

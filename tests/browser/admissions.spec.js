@@ -26,7 +26,7 @@ for (const width of [1440, 390]) {
     await page.keyboard.press("Enter");
     await expect(card).toContainText("NID Madhya Pradesh");
     await expect(
-      card.getByRole("link", { name: "Official programme source" }),
+      card.getByRole("link", { name: "Programme source" }),
     ).toHaveAttribute("href", /MDES_AdmissionsHandbook2027-28\.pdf$/);
     await page
       .getByLabel("Search disciplines", { exact: true })
@@ -162,7 +162,7 @@ for (const width of [1440, 390]) {
     await research.locator("summary").click();
     await expect(research).toContainText("Design Research & Insights pathway");
     await expect(
-      research.getByRole("link", { name: "Official programme source" }),
+      research.getByRole("link", { name: "Programme source" }),
     ).toHaveAttribute("href", "https://www.bitsdesign.edu.in/programme/");
     await expect(research).not.toContainText("IIT Kanpur");
     await page
