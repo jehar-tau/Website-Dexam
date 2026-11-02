@@ -1,4 +1,7 @@
 /* Readability refinements to Discovery 1.0. Sizes use the reader's root font. */
+.academy {
+  overflow-wrap: anywhere;
+}
 .academy,
 .design-lab {
   --read-body: 1rem;
@@ -64,6 +67,10 @@
 .dea-header-inner {
   gap: 1rem;
 }
+.dea-brand {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
 .dea-art-tabs {
   max-width: 100%;
   flex-wrap: wrap;
@@ -78,9 +85,14 @@
 }
 .dea-page-hero-copy,
 .dea-home-copy,
+.dea-fit-art,
+.dea-fit-copy,
 .dea-footer-top > div,
 .dea-programme-copy {
   min-width: 0;
+}
+.dea-fit-facts {
+  flex-wrap: wrap;
 }
 .lab-library {
   border: 0;
@@ -118,6 +130,7 @@
 @media (max-width: 1100px) {
   .dea-header-inner {
     min-height: 76px;
+    flex-wrap: wrap;
   }
   .dea-menu-toggle {
     display: block;
@@ -127,6 +140,9 @@
     padding: 8px 12px;
     color: var(--green-dark);
     font-size: 1rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-left: auto;
   }
   .dea-menu-toggle > span {
     display: flex;
@@ -190,6 +206,11 @@
   }
   .lab-task-area {
     min-width: 0;
+  }
+}
+@media (max-width: 380px) {
+  .academy .dea-brand > i {
+    display: none;
   }
 }
 @media (max-height: 600px) {

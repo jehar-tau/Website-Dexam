@@ -12,8 +12,32 @@ async function checkLayout(page) {
   const overflow = await page.evaluate(() => ({
     width: innerWidth,
     document: document.documentElement.scrollWidth,
+    protruding: [...document.querySelectorAll("body *")]
+      .filter(e => e.getBoundingClientRect().right > innerWidth + 1 && e.getBoundingClientRect().width)
+      .slice(0, 10).map(e => ({ tag: e.tagName, class: e.getAttribute("class"), parent: e.parentElement?.getAttribute("class"), text: e.textContent.slice(0, 50) })),
+    overflowing: [...document.querySelectorAll("body *")].filter(e=>e.clientWidth && e.scrollWidth>e.clientWidth+1).slice(0,20).map(e=>({tag:e.tagName,class:e.getAttribute("class"),width:e.clientWidth,scroll:e.scrollWidth})),
   }));
-  expect(overflow.document).toBeLessThanOrEqual(overflow.width);
+  expect(overflow.document, JSON.stringify(overflow)).toBeLessThanOrEqual(overflow.width);
+}
+for (const rootSize of [100, 200]) {
+  test(`narrow header keeps the wordmark and menu label intact at ${rootSize}% text`, async ({ page }) => {
+    await page.setViewportSize({ width: 319, height: 900 });
+    await page.goto("/");
+    await page.addStyleTag({ content: `:root{font-size:${rootSize}%}` });
+    await checkLayout(page);
+    for (const selector of [".dea-header .dea-brand", ".dea-menu-toggle > span"]) {
+      const lines = await page.locator(selector).evaluate((element) => {
+        const text = [...element.childNodes].find((n) => n.nodeType === 3 && n.textContent.trim());
+        const range = document.createRange();
+        range.selectNodeContents(text);
+        return range.getClientRects().length;
+      });
+      expect(lines).toBe(1);
+    }
+    await page.getByRole("button", { name: "Open navigation" }).click();
+    await expect(page.getByRole("link", { name: "Programmes", exact: true })).toBeVisible();
+    await checkLayout(page);
+  });
 }
 for (const width of [1440, 320]) {
   for (const path of publicPaths) {

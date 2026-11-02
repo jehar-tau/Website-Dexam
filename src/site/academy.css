@@ -647,10 +647,10 @@
   right: 26px;
   bottom: 24px;
   background: #f7f7eb;
-  padding: 21px;
+  padding: 1.3125rem;
   border-radius: 50%;
-  width: 102px;
-  height: 102px;
+  width: 6.375rem;
+  height: 6.375rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2895,8 +2895,8 @@
   }
   .dea-fit-stamp {
     right: 0;
-    width: 85px;
-    height: 85px;
+    width: 5.3125rem;
+    height: 5.3125rem;
     font-size: 1rem;
   }
   .dea-fit-facts {
@@ -3434,12 +3434,12 @@
     height: 260px;
   }
   .dea-fit-stamp {
-    width: 80px;
-    height: 80px;
+    width: 5rem;
+    height: 5rem;
     right: 20px;
     bottom: 15px;
     font-size: 1rem;
-    padding: 16px;
+    padding: 1rem;
   }
   .dea-fit-stamp > i {
     top: 11px;
