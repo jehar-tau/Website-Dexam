@@ -1,0 +1,230 @@
+/* Readability refinements to Discovery 1.0. Sizes use the reader's root font. */
+.academy,
+.design-lab {
+  --read-body: 1rem;
+  --read-support: 0.875rem;
+  font-size: var(--read-body);
+  line-height: 1.7;
+}
+.academy :is(h1, h2, h3, p, li, dd, a, button, summary, label),
+.design-lab :is(h1, h2, h3, p, li, a, button, label) {
+  overflow-wrap: anywhere;
+}
+.academy :is(input, select, textarea),
+.design-lab :is(input, select, textarea) {
+  font-size: var(--read-body);
+  line-height: 1.5;
+}
+.academy :is(a, button, summary, input, select, textarea):focus-visible,
+.design-lab :is(a, button, input, select, textarea):focus-visible,
+.lab-drag:focus-visible,
+.lab-tappable:focus-visible,
+.lab-paint-region:focus-visible {
+  outline: 3px solid #244735;
+  outline-offset: 4px;
+}
+.academy :is(.dea-text-link, .dea-guide-source, .dea-source-link),
+.academy :is(.dea-filter-tabs, .dea-art-tabs) > button,
+.academy .dea-menu-toggle,
+.academy .dea-nav > a,
+.academy .dea-nav summary,
+.academy .dea-nav-dropdown > a,
+.design-lab :is(.lab-icon-button, .lab-help, .lab-tool, .lab-text) {
+  min-height: 44px;
+  min-width: 44px;
+}
+.academy :is(.dea-text-link, .dea-guide-source, .dea-source-link) {
+  align-items: center;
+}
+.academy :is(.dea-editorial, .legal-body) p {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  max-width: 68ch;
+}
+.academy main p a:not([class*="button"]),
+.academy .legal-body a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.academy [id] {
+  scroll-margin-top: 9rem;
+}
+.dea-nav {
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem 1rem;
+  min-width: 0;
+}
+.dea-nav-dropdown {
+  width: min(24rem, 80vw);
+  max-height: min(70vh, 42rem);
+  overflow: auto;
+}
+.dea-header-inner {
+  gap: 1rem;
+}
+.dea-art-tabs {
+  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  white-space: normal;
+}
+.dea-exam-ribbon > .dea-wrap {
+  flex-wrap: wrap;
+}
+.dea-exam-ribbon .dea-wrap > span {
+  max-width: 11rem;
+}
+.dea-page-hero-copy,
+.dea-home-copy,
+.dea-footer-top > div,
+.dea-programme-copy {
+  min-width: 0;
+}
+.lab-library {
+  border: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  color: var(--lab-ink);
+}
+.lab-library::backdrop {
+  background: #162824aa;
+}
+.lab-help {
+  width: 44px;
+  height: 44px;
+}
+.lab-top {
+  height: auto;
+  min-height: 88px;
+  flex-wrap: wrap;
+  padding-block: 16px;
+}
+.lab-top > * {
+  min-width: 0;
+}
+.lab-task-title p,
+.lab-help-note {
+  font-size: 1rem;
+}
+.lab-task-title h1:focus-visible {
+  outline: 3px solid #244735;
+  outline-offset: 5px;
+}
+@media (max-width: 1100px) {
+  .dea-header-inner {
+    min-height: 76px;
+  }
+  .dea-menu-toggle {
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: transparent;
+    padding: 8px 12px;
+    color: var(--green-dark);
+    font-size: 1rem;
+  }
+  .dea-menu-toggle > span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+  }
+  .dea-menu-toggle i {
+    font-style: normal;
+  }
+  .dea-nav {
+    display: none;
+    position: absolute;
+    inset: 100% 0 auto;
+    background: var(--cream);
+    padding: 16px 24px 24px;
+    border-bottom: 1px solid var(--line);
+    max-height: calc(100dvh - 5rem);
+    overflow: auto;
+  }
+  .dea-nav.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .dea-nav > a,
+  .dea-nav summary {
+    font-size: 1rem;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .dea-nav .dea-nav-cta {
+    margin-top: 12px;
+    padding: 12px 16px;
+    font-size: 1rem;
+  }
+  .dea-nav-dropdown {
+    position: static;
+    width: 100%;
+    max-height: none;
+    box-shadow: none;
+    padding: 8px 16px;
+    margin-block: 8px;
+  }
+  .dea-nav .dea-student-link {
+    display: flex !important;
+    border-left: 0;
+  }
+}
+@media (max-width: 650px) {
+  .dea-guide-tools input,
+  .dea-guide-tools select {
+    font-size: 1rem;
+  }
+  .dea-classroom-proof__gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .dea-hero-actions {
+    flex-wrap: wrap;
+  }
+  .lab-task-area {
+    min-width: 0;
+  }
+}
+@media (max-height: 600px) {
+  .dea-header {
+    position: relative;
+  }
+  .dea-header-inner {
+    flex-wrap: wrap;
+  }
+  .dea-nav {
+    position: static;
+    max-height: none;
+    flex-basis: 100%;
+    box-shadow: none;
+  }
+}
+.dea-footer-word {
+  white-space: normal;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.dea-footer-word > * {
+  min-width: 0;
+  max-width: 100%;
+}
+.dea-nav-dropdown {
+  left: auto;
+  right: 0;
+  top: 100%;
+}
+.dea-nav-dropdown > a {
+  min-width: 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.dea-nav-dropdown small {
+  min-width: 0;
+}

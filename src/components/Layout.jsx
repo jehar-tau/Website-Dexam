@@ -1,5 +1,5 @@
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { waLink } from "../config.js";
 import LeadModal from "./LeadModal.jsx";
 import { useCms } from "../cms.jsx";
@@ -12,6 +12,7 @@ import "../site/academy.css";
 export default function Layout({ children }) {
   const { pathname, hash } = useLocation(),
     [menu, setMenu] = useState(false),
+    menuToggle = useRef(null),
     cms = useCms(),
     whatsapp = cms.link("whatsapp", waLink);
   useEffect(() => {
@@ -28,7 +29,10 @@ export default function Layout({ children }) {
   useEffect(() => {
     if (!menu) return;
     const close = (ev) => {
-      if (ev.key === "Escape") setMenu(false);
+      if (ev.key === "Escape") {
+        setMenu(false);
+        menuToggle.current?.focus();
+      }
     };
     window.addEventListener("keydown", close);
     return () => window.removeEventListener("keydown", close);
@@ -60,6 +64,7 @@ export default function Layout({ children }) {
             </i>
           </Link>
           <button
+            ref={menuToggle}
             className="dea-menu-toggle"
             aria-label={menu ? "Close navigation" : "Open navigation"}
             aria-expanded={menu}
@@ -78,6 +83,14 @@ export default function Layout({ children }) {
             className={`dea-nav ${menu ? "is-open" : ""}`}
             id="academy-navigation"
             aria-label="Main navigation"
+            onKeyDown={(event) => {
+              if (event.key !== "Escape") return;
+              const open = event.currentTarget.querySelector("details[open]");
+              if (open) {
+                open.open = false;
+                open.querySelector("summary")?.focus();
+              }
+            }}
           >
             <NavLink to="/courses">Programmes</NavLink>
             <details>
@@ -116,7 +129,9 @@ export default function Layout({ children }) {
           </nav>
         </div>
       </header>
-      <main id="main-content">{children}</main>
+      <main id="main-content" tabIndex={-1}>
+        {children}
+      </main>
       <footer className="dea-footer">
         <div className="dea-wrap">
           <div className="dea-footer-top">

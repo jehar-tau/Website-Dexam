@@ -17,7 +17,7 @@ export default function Terms() {
       <div className="dark-band">
         <div className="container container--narrow" style={{ paddingTop: 44, paddingBottom: 48 }}>
           <h1 style={{ margin: '0 0 10px', fontSize: 'clamp(28px,4vw,40px)', lineHeight: 1.12, color: '#fff' }}>Terms &amp; Conditions</h1>
-          <p style={{ margin: 0, fontSize: 14, color: 'rgba(255,255,255,.65)' }}>designexam.com · Last updated: 1 November 2026</p>
+          <p style={{ margin: 0, fontSize: '1rem', color: 'var(--cream)' }}>designexam.com · Last updated: 1 November 2026</p>
         </div>
       </div>
       <div className="container container--narrow legal-body" style={{ paddingTop: 40, paddingBottom: 64, display: 'flex', flexDirection: 'column', gap: 26 }}>

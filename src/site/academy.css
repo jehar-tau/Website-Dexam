@@ -16,7 +16,7 @@
   background: var(--cream);
   min-height: 100vh;
   font-family: Figtree, system-ui, sans-serif;
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 1.65;
 }
 .academy * {
@@ -86,7 +86,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 9px;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 1.6px;
   color: var(--green);
@@ -101,7 +101,7 @@
   flex: none;
 }
 .dea-small-label {
-  font-size: 9px;
+  font-size: 0.875rem;
   letter-spacing: 1.2px;
   color: var(--muted);
   font-weight: 600;
@@ -118,7 +118,7 @@
   justify-content: space-between;
   gap: 27px;
   color: #fff !important;
-  font-size: 12px;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.5;
   transition:
@@ -147,7 +147,7 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-size: 11px;
+  font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.5;
   color: var(--ink);
@@ -170,7 +170,7 @@
   width: 100%;
 }
 .dea-art-interactive > span {
-  font-size: 9px;
+  font-size: 0.875rem;
   display: flex;
   gap: 7px;
   justify-content: center;
@@ -199,7 +199,7 @@
   justify-content: center;
   align-items: center;
   padding: 6px 20px;
-  font-size: 9px;
+  font-size: 0.875rem;
   color: var(--muted);
 }
 .dea-announcement > a {
@@ -208,7 +208,7 @@
   align-items: center;
 }
 .dea-announcement span {
-  font-size: 7px;
+  font-size: 0.875rem;
   letter-spacing: 1px;
   font-weight: 700;
   color: var(--green);
@@ -230,7 +230,7 @@
 }
 .dea-brand {
   font-family: "Zilla Slab", serif;
-  font-size: 29px;
+  font-size: 1.8125rem;
   font-weight: 700;
   letter-spacing: -1.6px;
   display: flex;
@@ -243,7 +243,7 @@
 .dea-brand > i {
   font-family: Figtree, sans-serif;
   font-style: normal;
-  font-size: 7px;
+  font-size: 0.625rem;
   line-height: 1.7;
   letter-spacing: 1px;
   font-weight: 500;
@@ -255,7 +255,7 @@
   display: flex;
   align-items: center;
   gap: 23px;
-  font-size: 10px;
+  font-size: 1rem;
 }
 .dea-nav > a:not(.dea-nav-cta),
 .dea-nav summary {
@@ -307,10 +307,10 @@
 .dea-nav-dropdown small {
   color: var(--muted);
   font-weight: 400;
-  font-size: 8px;
+  font-size: 1rem;
 }
 .dea-nav-dropdown > a:first-child {
-  font-size: 10px;
+  font-size: 1rem;
   color: var(--green);
 }
 .dea-student-link {
@@ -346,13 +346,13 @@
   min-height: 650px;
 }
 .dea-home-copy h1 {
-  font-size: clamp(64px, 6.6vw, 88px);
+  font-size: clamp(4rem, 6.6vw, 5.5rem);
   line-height: 0.98;
   margin: 22px 0;
   letter-spacing: -3.2px;
 }
 .dea-home-copy > p {
-  font-size: 15px;
+  font-size: 1rem;
   line-height: 1.85;
   margin: 23px 0 28px;
 }
@@ -366,7 +366,7 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  font-size: 9px;
+  font-size: 0.875rem;
   color: var(--muted);
   margin-top: 20px;
 }
@@ -405,14 +405,14 @@
 }
 .dea-collage-caption > b {
   font:
-    500 26px/1.03 "Zilla Slab",
+    500 1.625rem/1.03 "Zilla Slab",
     serif;
   display: block;
   max-width: 200px;
   letter-spacing: -0.8px;
 }
 .dea-collage-caption > span {
-  font-size: 6px;
+  font-size: 0.875rem;
   letter-spacing: 1.3px;
   margin-top: 15px;
   display: block;
@@ -439,7 +439,7 @@
   left: 3px;
   top: 22px;
   writing-mode: vertical-rl;
-  font-size: 7px;
+  font-size: 0.875rem;
   letter-spacing: 1.9px;
   color: var(--muted);
 }
@@ -479,7 +479,7 @@
   color: var(--orange);
 }
 .dea-collage-note > span {
-  font-size: 11px;
+  font-size: 0.875rem;
   line-height: 1.8;
   color: var(--muted);
 }
@@ -501,7 +501,7 @@
   border-radius: 99px;
   background: transparent;
   padding: 6px 11px;
-  font-size: 8px;
+  font-size: 1rem;
   color: var(--muted);
 }
 .dea-art-tabs > button.active {
@@ -522,21 +522,21 @@
   padding-bottom: 21px;
 }
 .dea-exam-ribbon .dea-wrap > span {
-  font-size: 7px;
+  font-size: 0.875rem;
   letter-spacing: 1.4px;
   max-width: 75px;
   color: var(--muted);
 }
 .dea-exam-ribbon a {
   font:
-    500 25px/0.9 "Zilla Slab",
+    500 1.5625rem/0.9 "Zilla Slab",
     serif;
   letter-spacing: -0.6px;
 }
 .dea-exam-ribbon a > small {
   display: block;
   font:
-    400 7px Figtree,
+    400 0.875rem Figtree,
     sans-serif;
   letter-spacing: 0.3px;
   color: var(--muted);
@@ -553,7 +553,7 @@
   margin-bottom: 31px;
 }
 .dea-section-title h2 {
-  font-size: 43px;
+  font-size: 2.6875rem;
   line-height: 1.04;
   margin: 15px 0 0;
   letter-spacing: -1.6px;
@@ -595,7 +595,7 @@
   position: absolute;
   left: 18px;
   top: 15px;
-  font-size: 8px;
+  font-size: 0.875rem;
   color: var(--muted);
 }
 .dea-discovery-card > div > i {
@@ -610,12 +610,12 @@
   place-items: center;
 }
 .dea-discovery-card h3 {
-  font-size: 26px;
+  font-size: 1.625rem;
   letter-spacing: -0.7px;
   margin: 21px 0 8px;
 }
 .dea-discovery-card p {
-  font-size: 12px;
+  font-size: 1rem;
   line-height: 1.7;
   margin: 0;
   max-width: 280px;
@@ -641,7 +641,7 @@
 }
 .dea-fit-stamp {
   font:
-    500 18px/0.95 "Zilla Slab",
+    500 1.125rem/0.95 "Zilla Slab",
     serif;
   position: absolute;
   right: 26px;
@@ -665,12 +665,12 @@
   color: var(--orange);
 }
 .dea-fit-copy h2 {
-  font-size: 56px;
+  font-size: 3.5rem;
   letter-spacing: -2px;
   margin: 19px 0;
 }
 .dea-fit-copy p {
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 1.8;
 }
 .dea-fit-facts {
@@ -679,27 +679,27 @@
   margin: 22px 0 25px;
 }
 .dea-fit-facts > span {
-  font-size: 8px;
+  font-size: 0.875rem;
   color: var(--muted);
   display: flex;
   flex-direction: column;
 }
 .dea-fit-facts b {
   font:
-    500 28px "Zilla Slab",
+    500 1.75rem "Zilla Slab",
     serif;
   color: var(--green);
 }
 .dea-fit-copy > small {
   display: block;
-  font-size: 8px;
+  font-size: 0.875rem;
   color: var(--muted);
   margin-top: 14px;
 }
 .dea-programme-intro {
   max-width: 650px;
   margin: 0 0 28px;
-  font-size: 15px;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--muted);
 }
@@ -739,7 +739,7 @@
   margin-top: -14px;
 }
 .dea-programme-art > span {
-  font-size: 8px;
+  font-size: 0.875rem;
   letter-spacing: 1px;
   color: var(--muted);
   text-align: center;
@@ -756,13 +756,13 @@
   align-items: flex-start;
 }
 .dea-programme-copy h3 {
-  font-size: 31px;
+  font-size: 1.9375rem;
   letter-spacing: -1px;
   margin: 12px 0;
   min-height: 74px;
 }
 .dea-programme-copy > p {
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 1.7;
   margin: 0;
 }
@@ -780,7 +780,7 @@
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 12px;
+  font-size: 1rem;
   color: var(--muted);
   line-height: 1.6;
 }
@@ -795,7 +795,7 @@
   margin-top: 18px;
 }
 .dea-programme-formats > span {
-  font-size: 9px;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.7px;
   color: var(--green);
@@ -809,7 +809,7 @@
   margin: 8px 0 0;
 }
 .dea-programme-formats li {
-  font-size: 11px;
+  font-size: 1rem;
   line-height: 1.5;
   border: 1px solid var(--line);
   background: var(--cream);
@@ -818,7 +818,7 @@
   color: var(--ink);
 }
 .dea-programme-copy > .dea-button {
-  font-size: 11px;
+  font-size: 1rem;
   min-height: 44px;
   padding: 12px 14px;
   gap: 12px;
@@ -826,7 +826,7 @@
   margin-top: auto;
 }
 .dea-fee-note {
-  font-size: 10px;
+  font-size: 0.875rem;
   line-height: 1.8;
   color: var(--muted) !important;
   max-width: 850px;
@@ -839,7 +839,7 @@
   scroll-margin-top: 100px;
 }
 .dea-curriculum-intro {
-  font-size: 15px;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--muted);
   max-width: 660px;
@@ -875,14 +875,14 @@
   letter-spacing: 0.7px;
 }
 .dea-curriculum-card h3 {
-  font-size: 28px;
+  font-size: 1.75rem;
   letter-spacing: -0.7px;
   line-height: 1.15;
   min-height: 65px;
   margin: 18px 0 12px;
 }
 .dea-curriculum-card > p {
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--muted);
   min-height: 88px;
@@ -900,7 +900,7 @@
   gap: 12px;
   min-height: 64px;
   padding: 14px 0 0;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--green);
 }
@@ -909,13 +909,13 @@
 }
 .dea-curriculum-card summary small {
   display: block;
-  font-size: 11px;
+  font-size: 0.875rem;
   font-weight: 400;
   color: var(--muted);
   margin-top: 4px;
 }
 .dea-curriculum-card summary > b {
-  font-size: 23px;
+  font-size: 1.4375rem;
   font-weight: 400;
 }
 .dea-curriculum-card details[open] summary > b {
@@ -929,7 +929,7 @@
 .dea-curriculum-card li {
   padding: 13px 0;
   border-top: 1px solid var(--line-soft);
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--ink);
 }
@@ -937,7 +937,7 @@
   padding-bottom: 0;
 }
 .dea-curriculum-card li > p {
-  font-size: 12px;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--muted);
   margin: 5px 0 0;
@@ -949,12 +949,12 @@
   border-radius: 4px;
   padding: 1px 6px;
   margin: 4px 0 0 6px;
-  font-size: 10px;
+  font-size: 0.875rem;
   color: var(--green);
 }
 .dea-curriculum-note {
   max-width: 750px;
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--muted);
   margin: 22px 0 18px;
@@ -1011,7 +1011,7 @@
   transform: translateY(-5px);
 }
 .dea-discipline-strip a > span {
-  font-size: 10px;
+  font-size: 0.875rem;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -1030,13 +1030,13 @@
   align-items: center;
 }
 .dea-studio-band h2 {
-  font-size: 45px;
+  font-size: 2.8125rem;
   line-height: 1.05;
   letter-spacing: -1.5px;
   margin: 18px 0;
 }
 .dea-studio-band p {
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 1.9;
   max-width: 420px;
 }
@@ -1081,7 +1081,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 7px;
+  font-size: 0.875rem;
   letter-spacing: 1px;
   color: var(--muted);
   margin-top: 21px;
@@ -1091,13 +1091,13 @@
   color: #b9c1aa;
 }
 .dea-article-card h3 {
-  font-size: 26px;
+  font-size: 1.625rem;
   letter-spacing: -0.75px;
   line-height: 1.12;
   margin: 11px 0 9px;
 }
 .dea-article-card p {
-  font-size: 11px;
+  font-size: 1rem;
   line-height: 1.7;
   margin: 0;
   max-width: 290px;
@@ -1125,13 +1125,13 @@
   gap: 90px;
 }
 .dea-faq-section h2 {
-  font-size: 39px;
+  font-size: 2.4375rem;
   line-height: 1.08;
   letter-spacing: -1px;
   margin: 15px 0 20px;
 }
 .dea-faq-section > div > p {
-  font-size: 12px;
+  font-size: 1rem;
   line-height: 1.9;
 }
 .dea-faq-section .dea-text-link {
@@ -1147,7 +1147,7 @@
 .dea-faq-list summary {
   list-style: none;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 500;
   display: flex;
   justify-content: space-between;
@@ -1159,7 +1159,7 @@
 .dea-faq-list summary > span {
   font-weight: 400;
   color: var(--muted);
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1;
   transition: transform 0.2s;
 }
@@ -1167,7 +1167,7 @@
   transform: rotate(45deg);
 }
 .dea-faq-list p {
-  font-size: 11px;
+  font-size: 1rem;
   line-height: 1.9;
   margin: 14px 25px 0 0;
 }
@@ -1194,25 +1194,25 @@
   height: 270px;
 }
 .dea-cta h2 {
-  font-size: 44px;
+  font-size: 2.75rem;
   line-height: 1.05;
   letter-spacing: -1.5px;
   margin: 16px 0;
 }
 .dea-cta p {
-  font-size: 12px;
+  font-size: 1rem;
   line-height: 1.8;
   max-width: 430px;
   margin-bottom: 23px;
 }
 .dea-cta-foot {
   display: block;
-  font-size: 8px;
+  font-size: 0.875rem;
   color: var(--muted);
   margin-top: 13px;
 }
 .dea-cta-star {
-  font-size: 115px;
+  font-size: 7.1875rem;
   line-height: 1;
   color: #c3d3a7;
   position: absolute;
@@ -1232,10 +1232,10 @@
   gap: 50px;
 }
 .dea-footer .dea-brand {
-  font-size: 29px;
+  font-size: 1.8125rem;
 }
 .dea-footer-top > div > p {
-  font-size: 11px;
+  font-size: 1rem;
   line-height: 1.8;
   margin: 20px 0;
 }
@@ -1243,7 +1243,7 @@
   display: flex;
   gap: 15px;
   align-items: center;
-  font-size: 10px;
+  font-size: 0.875rem;
   font-weight: 500;
 }
 .dea-footer-top > div:not(:first-child) {
@@ -1252,13 +1252,13 @@
   gap: 10px;
 }
 .dea-footer-top > div > span {
-  font-size: 7px;
+  font-size: 0.875rem;
   letter-spacing: 1.3px;
   color: var(--muted);
   margin-bottom: 10px;
 }
 .dea-footer-top > div:not(:first-child) > a {
-  font-size: 10px;
+  font-size: 0.875rem;
   color: var(--muted);
   line-height: 1.7;
 }
@@ -1267,7 +1267,7 @@
 }
 .dea-footer-word {
   font:
-    500 clamp(65px, 12vw, 156px)/1 "Zilla Slab",
+    500 clamp(4.0625rem, 12vw, 9.75rem)/1 "Zilla Slab",
     serif;
   letter-spacing: -6px;
   display: flex;
@@ -1281,7 +1281,7 @@
   font-weight: 500;
 }
 .dea-footer-word > span {
-  font-size: 90px;
+  font-size: 5.625rem;
   color: var(--muted);
   margin-left: auto;
 }
@@ -1291,7 +1291,7 @@
   align-items: center;
   border-top: 1px solid #dce3d1;
   padding: 18px 0;
-  font-size: 8px;
+  font-size: 0.875rem;
   color: var(--muted);
   gap: 20px;
 }
@@ -1300,7 +1300,7 @@
   gap: 20px;
 }
 .dea-breadcrumbs {
-  font-size: 9px;
+  font-size: 0.875rem;
   color: var(--muted);
   display: flex;
   flex-wrap: wrap;
@@ -1333,13 +1333,13 @@
   align-items: center;
 }
 .dea-page-hero h1 {
-  font-size: 65px;
+  font-size: 4.0625rem;
   line-height: 1.01;
   letter-spacing: -2.4px;
   margin: 19px 0;
 }
 .dea-page-hero-copy > p {
-  font-size: 14px;
+  font-size: 1rem;
   max-width: 580px;
   line-height: 1.9;
   margin: 20px 0;
@@ -1357,7 +1357,7 @@
   max-height: 260px;
 }
 .dea-page-hero-art > span {
-  font-size: 6px;
+  font-size: 0.875rem;
   letter-spacing: 2px;
   display: block;
   text-align: center;
@@ -1365,7 +1365,7 @@
   margin-top: 7px;
 }
 .dea-reading-time {
-  font-size: 8px;
+  font-size: 0.875rem;
   letter-spacing: 1px;
   color: var(--muted);
   display: block;
@@ -1392,11 +1392,11 @@
   height: 170px;
 }
 .dea-additional h3 {
-  font-size: 26px;
+  font-size: 1.625rem;
   margin: 5px 0 10px;
 }
 .dea-additional p {
-  font-size: 11px;
+  font-size: 1rem;
   line-height: 1.8;
   max-width: 280px;
 }
@@ -1411,16 +1411,16 @@
 }
 .dea-process-grid article > span {
   font:
-    500 21px "Zilla Slab",
+    500 1.3125rem "Zilla Slab",
     serif;
   color: var(--muted);
 }
 .dea-process-grid h3 {
-  font-size: 27px;
+  font-size: 1.6875rem;
   margin: 30px 0 13px;
 }
 .dea-process-grid p {
-  font-size: 11px;
+  font-size: 1rem;
   line-height: 1.9;
   max-width: 225px;
 }
@@ -1439,7 +1439,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 8px;
+  font-size: 0.875rem;
   color: var(--muted);
 }
 .dea-exam-card .dea-art {
@@ -1450,12 +1450,12 @@
   transform: translateY(-5px) rotate(4deg);
 }
 .dea-exam-card h3 {
-  font-size: 38px;
+  font-size: 2.375rem;
   letter-spacing: -1.5px;
   margin: 14px 0 8px;
 }
 .dea-exam-card p {
-  font-size: 11px;
+  font-size: 1rem;
   margin: 0;
 }
 .dea-note-panel {
@@ -1473,12 +1473,12 @@
   color: var(--green);
 }
 .dea-note-panel h2 {
-  font-size: 29px;
+  font-size: 1.8125rem;
   letter-spacing: -0.8px;
   margin: 0 0 12px;
 }
 .dea-note-panel p {
-  font-size: 12px;
+  font-size: 1rem;
   max-width: 830px;
   line-height: 1.85;
   margin: 0 0 17px;
@@ -1491,13 +1491,13 @@
   padding-bottom: 60px;
 }
 .dea-exam-details h2 {
-  font-size: 40px;
+  font-size: 2.5rem;
   letter-spacing: -1.3px;
   line-height: 1.08;
   margin: 17px 0 25px;
 }
 .dea-exam-details aside > h2 {
-  font-size: 30px;
+  font-size: 1.875rem;
   max-width: 260px;
   margin: 14px 0 20px;
 }
@@ -1508,7 +1508,7 @@
   max-width: 290px;
 }
 .dea-tags > span {
-  font-size: 9px;
+  font-size: 0.875rem;
   padding: 5px 10px;
   border: 1px solid #dce3cd;
   border-radius: 99px;
@@ -1519,14 +1519,14 @@
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  font-size: 10px;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--green) !important;
   margin-top: 24px;
 }
 .dea-source-link > small {
   width: 100%;
-  font-size: 8px;
+  font-size: 0.875rem;
   font-weight: 400;
   color: var(--muted);
 }
@@ -1537,11 +1537,11 @@
   padding: 19px 0;
 }
 .dea-numbered-step > span {
-  font: 500 18px "Zilla Slab";
+  font: 500 1.125rem "Zilla Slab";
   color: var(--muted);
 }
 .dea-numbered-step p {
-  font-size: 12px;
+  font-size: 1rem;
   margin: 0;
   line-height: 1.85;
 }
@@ -1556,13 +1556,13 @@
   align-items: center;
 }
 .dea-exercise h2 {
-  font-size: 45px;
+  font-size: 2.8125rem;
   line-height: 1.05;
   letter-spacing: -1.5px;
   margin: 20px 0;
 }
 .dea-exercise p {
-  font-size: 13px;
+  font-size: 1rem;
   max-width: 450px;
   line-height: 1.9;
 }
@@ -1589,11 +1589,11 @@
   margin-bottom: 20px;
 }
 .dea-three-links h3 {
-  font-size: 25px;
+  font-size: 1.5625rem;
   margin: 0 0 13px;
 }
 .dea-three-links p {
-  font-size: 11px;
+  font-size: 1rem;
   line-height: 1.8;
   margin: 0;
 }
@@ -1621,12 +1621,12 @@
   height: 300px;
 }
 .dea-career-list h2 {
-  font-size: 41px;
+  font-size: 2.5625rem;
   letter-spacing: -1.2px;
   margin: 17px 0;
 }
 .dea-career-list p {
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 1.9;
   max-width: 460px;
 }
@@ -1637,12 +1637,12 @@
   margin-top: 22px;
 }
 .dea-small-exercise b {
-  font-size: 8px;
+  font-size: 0.875rem;
   letter-spacing: 1px;
   color: var(--muted);
 }
 .dea-small-exercise p {
-  font-size: 11px;
+  font-size: 1rem;
   margin: 7px 0 0;
 }
 .dea-resource-library {
@@ -1666,7 +1666,7 @@
   background: none;
   border-radius: 99px;
   padding: 8px 14px;
-  font-size: 10px;
+  font-size: 1rem;
   color: var(--muted);
 }
 .dea-filter-tabs > button.active {
@@ -1691,7 +1691,7 @@
   border: 1px solid var(--line);
   border-radius: 6px;
   background: transparent;
-  font-size: 10px;
+  font-size: 1rem;
   width: 100%;
   color: var(--ink);
 }
@@ -1699,7 +1699,7 @@
   position: absolute;
   right: 12px;
   top: 1px;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: var(--muted);
 }
 .dea-resource-feature {
@@ -1712,13 +1712,13 @@
   margin-bottom: 55px;
 }
 .dea-resource-feature h2 {
-  font-size: 49px;
+  font-size: 3.0625rem;
   letter-spacing: -1.8px;
   line-height: 1.02;
   margin: 19px 0;
 }
 .dea-resource-feature p {
-  font-size: 12px;
+  font-size: 1rem;
   margin: 15px 0 25px;
   max-width: 300px;
 }
@@ -1744,12 +1744,12 @@
   background: #fffef7;
 }
 .dea-paper-mini-grid a > span {
-  font: 500 24px "Zilla Slab";
+  font: 500 1.5rem "Zilla Slab";
   letter-spacing: -0.7px;
 }
 .dea-paper-mini-grid a > small {
   display: block;
-  font-size: 8px;
+  font-size: 0.875rem;
   color: var(--muted);
   margin-top: 5px;
 }
@@ -1763,7 +1763,7 @@
   background: #e9eedc;
 }
 .dea-empty {
-  font-size: 13px;
+  font-size: 1rem;
   padding: 30px;
   border: 1px dashed #d3ddc5;
   border-radius: 8px;
@@ -1785,7 +1785,7 @@
   max-width: 230px;
 }
 .dea-editorial aside > a {
-  font-size: 10px;
+  font-size: 1rem;
   line-height: 1.7;
   color: var(--muted);
 }
@@ -1802,18 +1802,18 @@
   margin-bottom: 43px;
 }
 .dea-editorial section > span {
-  font-size: 9px;
+  font-size: 1rem;
   color: var(--muted);
   letter-spacing: 1px;
 }
 .dea-editorial h2 {
-  font-size: 33px;
+  font-size: 2.0625rem;
   letter-spacing: -1px;
   line-height: 1.1;
   margin: 9px 0 20px;
 }
 .dea-editorial p {
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 1.95;
   max-width: 610px;
   color: var(--muted);
@@ -1829,7 +1829,7 @@
   color: var(--orange);
 }
 .dea-editorial-end > p {
-  font-size: 12px;
+  font-size: 1rem;
 }
 .dea-editorial-end b {
   font-weight: 500;
@@ -1855,12 +1855,12 @@
   transform: rotate(4deg);
 }
 .dea-paper-card h2 {
-  font-size: 36px;
+  font-size: 2.25rem;
   letter-spacing: -1.2px;
   margin: 13px 0 9px;
 }
 .dea-paper-card p {
-  font-size: 11px;
+  font-size: 1rem;
   margin: 0 0 20px;
 }
 .dea-archive-layout {
@@ -1879,7 +1879,7 @@
   margin-bottom: 22px;
 }
 .dea-archive-heading h2 {
-  font-size: 29px;
+  font-size: 1.8125rem;
   letter-spacing: -0.8px;
   margin: 0;
 }
@@ -1889,7 +1889,7 @@
   padding: 10px 12px;
   border-radius: 5px;
   max-width: 190px;
-  font-size: 10px;
+  font-size: 1rem;
   color: var(--ink);
 }
 .dea-paper-table {
@@ -1923,12 +1923,12 @@
 }
 .dea-paper-row strong {
   display: block;
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 500;
 }
 .dea-paper-row div > span {
   display: block;
-  font-size: 8px;
+  font-size: 0.875rem;
   color: var(--muted);
   margin-top: 4px;
 }
@@ -1940,7 +1940,7 @@
   gap: 13px;
   align-items: center;
   background: transparent;
-  font-size: 9px;
+  font-size: 1rem;
   color: var(--green);
 }
 .dea-unlock-button:hover {
@@ -1952,13 +1952,13 @@
   align-items: center;
 }
 .dea-paper-actions > a {
-  font-size: 9px;
+  font-size: 0.875rem;
   color: var(--muted);
 }
 .dea-paper-actions .dea-button {
   min-height: 32px;
   padding: 8px 10px;
-  font-size: 9px;
+  font-size: 1rem;
   gap: 10px;
 }
 .dea-archive-aside {
@@ -1972,16 +1972,16 @@
   height: 160px;
 }
 .dea-archive-aside h3 {
-  font-size: 28px;
+  font-size: 1.75rem;
   letter-spacing: -0.7px;
   margin: 15px 0;
 }
 .dea-archive-aside p {
-  font-size: 11px;
+  font-size: 1rem;
   line-height: 1.8;
 }
 .dea-archive-aside .dea-text-link {
-  font-size: 10px;
+  font-size: 0.875rem;
 }
 .dea-archive-aside .dea-source-link {
   border-top: 1px solid #dfe5d1;
@@ -1993,18 +1993,18 @@
   padding-bottom: 45px;
 }
 .dea-about-manifesto > span {
-  font-size: 8px;
+  font-size: 0.875rem;
   letter-spacing: 1.7px;
   color: var(--muted);
 }
 .dea-about-manifesto h2 {
-  font-size: 54px;
+  font-size: 3.375rem;
   line-height: 1.1;
   letter-spacing: -1.7px;
   margin: 25px 0;
 }
 .dea-about-manifesto p {
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 1.95;
   max-width: 620px;
   margin: 25px auto 0;
@@ -2030,19 +2030,19 @@
 .dea-studio-proof figcaption {
   margin-top: 10px;
   color: var(--muted);
-  font-size: 8px;
+  font-size: 0.875rem;
   letter-spacing: 1.2px;
   text-transform: uppercase;
 }
 .dea-studio-proof h2 {
   margin: 18px 0;
-  font-size: 46px;
+  font-size: 2.875rem;
   line-height: 1.08;
   letter-spacing: -1.5px;
 }
 .dea-studio-proof p {
   margin: 0 0 24px;
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 1.85;
 }
 .dea-classroom-proof {
@@ -2061,7 +2061,7 @@
 }
 .dea-classroom-proof__intro h2 {
   margin: 18px 0;
-  font-size: 46px;
+  font-size: 2.875rem;
   line-height: 1.08;
   letter-spacing: -1.5px;
 }
@@ -2072,7 +2072,7 @@
   margin: 0;
   max-width: 390px;
   color: rgba(255, 255, 255, 0.72);
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 1.85;
 }
 .dea-classroom-proof__gallery {
@@ -2096,8 +2096,8 @@
 }
 .dea-classroom-proof__gallery figcaption {
   margin-top: 10px;
-  color: rgba(255, 255, 255, 0.56);
-  font-size: 8px;
+  color: var(--cream);
+  font-size: 0.875rem;
   letter-spacing: 1.2px;
   text-transform: uppercase;
 }
@@ -2127,7 +2127,7 @@
   right: 16px;
   bottom: 16px;
   font:
-    500 22px "Zilla Slab",
+    500 1.375rem "Zilla Slab",
     serif;
   color: var(--green);
   width: 43px;
@@ -2138,17 +2138,17 @@
   background: #faf9f3;
 }
 .dea-mentor-grid h3 {
-  font-size: 27px;
+  font-size: 1.6875rem;
   letter-spacing: -0.9px;
   margin: 22px 0 8px;
 }
 .dea-mentor-grid small {
-  font-size: 8px;
+  font-size: 0.875rem;
   color: var(--muted);
   letter-spacing: 0.3px;
 }
 .dea-mentor-grid p {
-  font-size: 11px;
+  font-size: 1rem;
   line-height: 1.9;
   max-width: 290px;
 }
@@ -2167,13 +2167,13 @@
   height: 270px;
 }
 .dea-guide-paths h2 {
-  font-size: 38px;
+  font-size: 2.375rem;
   letter-spacing: -1.2px;
   line-height: 1.1;
   margin: 20px 0;
 }
 .dea-guide-paths p {
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 1.9;
   max-width: 490px;
   margin-bottom: 23px;
@@ -2208,17 +2208,17 @@
 .dea-comparison-scroll td {
   padding: 17px 22px;
   border-bottom: 1px solid var(--line-soft);
-  font-size: 11px;
+  font-size: 0.875rem;
   color: var(--muted);
 }
 .dea-comparison-scroll thead th {
-  font-size: 8px;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 1px;
 }
 .dea-comparison-scroll tbody th {
   font:
-    500 23px "Zilla Slab",
+    500 1.4375rem "Zilla Slab",
     serif;
   color: var(--ink);
 }
@@ -2226,7 +2226,7 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: 10px;
+  font-size: 0.875rem;
   color: var(--green);
 }
 .dea-location-grid {
@@ -2238,13 +2238,13 @@
   align-items: center;
 }
 .dea-location-grid h2 {
-  font-size: 45px;
+  font-size: 2.8125rem;
   line-height: 1.05;
   letter-spacing: -1.4px;
   margin: 20px 0;
 }
 .dea-location-grid p {
-  font-size: 13px;
+  font-size: 1rem;
   line-height: 1.9;
   max-width: 440px;
 }
@@ -2260,7 +2260,7 @@
   height: 280px;
 }
 .dea-location-card > span {
-  font-size: 7px;
+  font-size: 0.875rem;
   letter-spacing: 1.6px;
   display: block;
   text-align: center;
@@ -2287,13 +2287,13 @@
   margin-bottom: 25px;
 }
 .dea-feature-pair h2 {
-  font-size: 42px;
+  font-size: 2.625rem;
   letter-spacing: -1.5px;
   line-height: 1.05;
   margin: 17px 0;
 }
 .dea-feature-pair p {
-  font-size: 12px;
+  font-size: 1rem;
   max-width: 340px;
   line-height: 1.9;
   margin-bottom: 25px;
@@ -2311,7 +2311,7 @@
   margin: -15px 0 20px;
 }
 .dea-contact-info h2 {
-  font-size: 40px;
+  font-size: 2.5rem;
   letter-spacing: -1.4px;
   line-height: 1.05;
   margin: 0 0 32px;
@@ -2324,13 +2324,13 @@
   padding: 17px 0;
 }
 .dea-contact-info dt {
-  font-size: 7px;
+  font-size: 0.875rem;
   letter-spacing: 1px;
   color: var(--muted);
   margin-bottom: 9px;
 }
 .dea-contact-info dd {
-  font-size: 12px;
+  font-size: 1rem;
   line-height: 1.8;
   color: var(--muted);
   margin: 0;
@@ -2345,7 +2345,7 @@
   color: var(--orange);
 }
 .dea-contact-info dd > a:not(:first-child) {
-  font-size: 10px;
+  font-size: 1rem;
   margin-top: 10px;
 }
 .dea-enquiry-card {
@@ -2356,13 +2356,13 @@
   padding: 35px;
 }
 .dea-enquiry-card h2 {
-  font-size: 41px;
+  font-size: 2.5625rem;
   letter-spacing: -1.5px;
   line-height: 1.04;
   margin: 20px 0 14px;
 }
 .dea-enquiry-card > p {
-  font-size: 11px;
+  font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 25px;
 }
@@ -2372,7 +2372,7 @@
   gap: 19px;
 }
 .dea-enquiry-card label {
-  font-size: 10px;
+  font-size: 1rem;
   font-weight: 500;
   display: block;
 }
@@ -2386,7 +2386,7 @@
   border-radius: 6px;
   padding: 13px 14px;
   font: inherit;
-  font-size: 14px;
+  font-size: 1rem;
   margin-top: 7px;
   color: var(--ink);
   outline: none;
@@ -2416,14 +2416,14 @@
   width: 100%;
 }
 .dea-form-error {
-  font-size: 10px;
+  font-size: 0.875rem;
   line-height: 1.7;
   display: block;
   margin-top: 7px;
   color: var(--muted) !important;
 }
 .dea-form-note {
-  font-size: 8px;
+  font-size: 0.875rem;
   line-height: 1.9 !important;
   color: var(--muted) !important;
   margin: 0;
@@ -2444,14 +2444,14 @@
   color: var(--green);
   display: grid;
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 1.125rem;
   gap: 4px;
   padding: 13px;
 }
 .dea-form-prices b {
   color: var(--muted);
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -2459,7 +2459,7 @@
 .dea-enquiry-card .dea-form-check {
   align-items: flex-start;
   display: flex;
-  font-size: 12px;
+  font-size: 0.875rem;
   gap: 10px;
   line-height: 1.55;
 }
@@ -2474,7 +2474,7 @@
   color: var(--muted);
 }
 .dea-form-interest {
-  font-size: 10px;
+  font-size: 0.875rem;
   border-left: 2px solid var(--orange);
   padding: 9px 12px;
   background: #e6ecd7;
@@ -2498,7 +2498,7 @@
   color: var(--green);
 }
 .dea-enquiry-sent p {
-  font-size: 12px;
+  font-size: 1rem;
   line-height: 1.9;
   margin: 20px 0 30px;
 }
@@ -2516,7 +2516,7 @@
 }
 .academy .dark-band h1 {
   font-weight: 500 !important;
-  font-size: 46px !important;
+  font-size: 2.875rem !important;
   letter-spacing: -1.5px;
 }
 .academy .legal-body {
@@ -2524,12 +2524,12 @@
   padding-bottom: 80px !important;
 }
 .academy .legal-body h2 {
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 500;
   margin-bottom: 15px;
 }
 .academy .legal-body p {
-  font-size: 13px;
+  font-size: 1rem;
   color: var(--muted);
   line-height: 1.95;
 }
@@ -2544,25 +2544,25 @@
   box-shadow: 0 20px 60px #142d2440;
 }
 .academy .modal-box h3 {
-  font-size: 29px !important;
+  font-size: 1.8125rem !important;
   font-weight: 500 !important;
 }
 .academy .field-input {
   background: #fffef8;
   border-color: #d7e0cb;
-  font-size: 12px;
+  font-size: 1rem;
   border-radius: 5px;
 }
 .academy .field-label {
-  font-size: 10px;
+  font-size: 0.875rem;
   font-weight: 500;
 }
 .academy .field-error {
-  font-size: 10px;
+  font-size: 0.875rem;
   color: var(--muted);
 }
 .academy .btn {
-  font-size: 12px;
+  font-size: 0.875rem;
   font-weight: 500;
   border-radius: 6px;
 }
@@ -2576,7 +2576,7 @@
     padding-bottom: 90px;
   }
   .dea-home-copy h1 {
-    font-size: 94px;
+    font-size: 5.875rem;
   }
   .dea-hero-collage {
     transform: scale(1.06);
@@ -2589,14 +2589,14 @@
   }
   .dea-nav {
     gap: 16px;
-    font-size: 9px;
+    font-size: 1rem;
   }
   .dea-header-inner {
     gap: 20px;
     min-height: 73px;
   }
   .dea-brand > i {
-    font-size: 6px;
+    font-size: 0.625rem;
   }
   .dea-nav-cta {
     gap: 8px;
@@ -2612,16 +2612,16 @@
     min-height: 570px;
   }
   .dea-home-copy h1 {
-    font-size: 66px;
+    font-size: 4.125rem;
   }
   .dea-home-copy > p {
-    font-size: 13px;
+    font-size: 1rem;
   }
   .dea-hero-actions {
     gap: 18px;
   }
   .dea-hero-actions .dea-text-link {
-    font-size: 10px;
+    font-size: 0.875rem;
   }
   .dea-hero-collage {
     padding-left: 20px;
@@ -2652,16 +2652,16 @@
     bottom: 48px;
   }
   .dea-collage-note > span {
-    font-size: 10px;
+    font-size: 0.875rem;
   }
   .dea-collage-caption > b {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
   .dea-discovery-card > div {
     height: 210px;
   }
   .dea-section-title h2 {
-    font-size: 39px;
+    font-size: 2.4375rem;
   }
   .dea-fit-band > .dea-wrap {
     gap: 50px;
@@ -2670,7 +2670,7 @@
     padding: 24px 19px;
   }
   .dea-programme-copy h3 {
-    font-size: 27px;
+    font-size: 1.6875rem;
   }
   .dea-discipline-strip > a {
     padding: 15px;
@@ -2679,19 +2679,19 @@
     height: 145px;
   }
   .dea-discipline-strip a > span {
-    font-size: 9px;
+    font-size: 0.875rem;
   }
   .dea-studio-band > .dea-wrap {
     gap: 60px;
   }
   .dea-studio-band h2 {
-    font-size: 40px;
+    font-size: 2.5rem;
   }
   .dea-article-art {
     height: 190px;
   }
   .dea-article-card h3 {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
   .dea-faq-section {
     gap: 60px;
@@ -2702,10 +2702,10 @@
     max-width: calc(100% - 60px);
   }
   .dea-cta h2 {
-    font-size: 41px;
+    font-size: 2.5625rem;
   }
   .dea-cta-star {
-    font-size: 85px;
+    font-size: 5.3125rem;
   }
   .dea-footer-top {
     gap: 30px;
@@ -2717,7 +2717,7 @@
     gap: 0 30px;
   }
   .dea-page-hero h1 {
-    font-size: 59px;
+    font-size: 3.6875rem;
   }
   .dea-page-hero-art > .dea-art {
     max-height: 230px;
@@ -2741,7 +2741,7 @@
     height: 270px;
   }
   .dea-career-list h2 {
-    font-size: 37px;
+    font-size: 2.3125rem;
   }
   .dea-editorial {
     gap: 60px;
@@ -2754,7 +2754,7 @@
     height: 170px;
   }
   .dea-paper-card h2 {
-    font-size: 32px;
+    font-size: 2rem;
   }
   .dea-archive-layout {
     grid-template-columns: 1fr 230px;
@@ -2776,14 +2776,14 @@
     padding: 15px 12px;
   }
   .dea-paper-mini-grid a > small {
-    font-size: 7px;
+    font-size: 0.875rem;
   }
   .dea-paper-mini-grid a > svg {
     width: 12px;
     right: 8px;
   }
   .dea-paper-mini-grid a > span {
-    font-size: 22px;
+    font-size: 1.375rem;
   }
 }
 @media (max-width: 850px) {
@@ -2797,13 +2797,13 @@
     min-height: 70px;
   }
   .dea-brand {
-    font-size: 27px;
+    font-size: 1.6875rem;
   }
   .dea-brand > i {
     display: none;
   }
   .dea-home-copy h1 {
-    font-size: 64px;
+    font-size: 4rem;
   }
   .dea-home-hero {
     gap: 15px;
@@ -2833,7 +2833,7 @@
     height: 45px;
   }
   .dea-collage-caption > b {
-    font-size: 22px;
+    font-size: 1.375rem;
   }
   .dea-collage-note {
     padding: 12px;
@@ -2844,48 +2844,48 @@
     width: 20px;
   }
   .dea-collage-note > span {
-    font-size: 9px;
+    font-size: 0.875rem;
   }
   .dea-collage-side {
-    font-size: 6px;
+    font-size: 0.875rem;
   }
   .dea-art-tabs > button {
-    font-size: 7px;
+    font-size: 1rem;
     padding: 6px 9px;
   }
   .dea-exam-ribbon a {
-    font-size: 23px;
+    font-size: 1.4375rem;
   }
   .dea-hero-reassurance {
-    font-size: 8px;
+    font-size: 0.875rem;
   }
   .dea-hero-actions {
     gap: 15px;
   }
   .dea-hero-actions > .dea-text-link {
-    font-size: 9px;
+    font-size: 0.875rem;
   }
   .dea-hero-actions > .dea-button {
-    font-size: 11px;
+    font-size: 1rem;
     gap: 14px;
   }
   .dea-discovery-card h3 {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
   .dea-discovery-card > div {
     height: 180px;
   }
   .dea-discovery-card p {
-    font-size: 11px;
+    font-size: 1rem;
   }
   .dea-section-title h2 {
-    font-size: 36px;
+    font-size: 2.25rem;
   }
   .dea-section-title > .dea-text-link {
-    font-size: 9px;
+    font-size: 0.875rem;
   }
   .dea-fit-copy h2 {
-    font-size: 49px;
+    font-size: 3.0625rem;
   }
   .dea-fit-band > .dea-wrap {
     gap: 35px;
@@ -2897,7 +2897,7 @@
     right: 0;
     width: 85px;
     height: 85px;
-    font-size: 15px;
+    font-size: 1rem;
   }
   .dea-fit-facts {
     gap: 18px;
@@ -2925,7 +2925,7 @@
   }
   .dea-programme-copy h3 {
     min-height: 0;
-    font-size: 32px;
+    font-size: 2rem;
   }
   .dea-discipline-strip {
     grid-template-columns: 1fr 1fr;
@@ -2940,13 +2940,13 @@
     height: 175px;
   }
   .dea-discipline-strip a > span {
-    font-size: 11px;
+    font-size: 0.875rem;
   }
   .dea-studio-band h2 {
-    font-size: 35px;
+    font-size: 2.1875rem;
   }
   .dea-studio-band p {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .dea-studio-band > .dea-wrap {
     gap: 35px;
@@ -2959,10 +2959,10 @@
     height: 170px;
   }
   .dea-article-card h3 {
-    font-size: 23px;
+    font-size: 1.4375rem;
   }
   .dea-article-card > small {
-    font-size: 6px;
+    font-size: 0.875rem;
     gap: 5px;
     letter-spacing: 0.5px;
   }
@@ -2970,19 +2970,19 @@
     gap: 45px;
   }
   .dea-faq-section h2 {
-    font-size: 34px;
+    font-size: 2.125rem;
   }
   .dea-faq-list summary {
-    font-size: 11px;
+    font-size: 0.875rem;
   }
   .dea-cta {
     grid-template-columns: 0.6fr 1.4fr;
   }
   .dea-cta h2 {
-    font-size: 38px;
+    font-size: 2.375rem;
   }
   .dea-cta-star {
-    font-size: 65px;
+    font-size: 4.0625rem;
     right: 15px;
     top: 15px;
   }
@@ -3011,16 +3011,16 @@
   }
   .dea-footer-word {
     margin-top: 40px;
-    font-size: 100px;
+    font-size: 6.25rem;
   }
   .dea-footer-word > span {
-    font-size: 65px;
+    font-size: 4.0625rem;
   }
   .dea-page-hero h1 {
-    font-size: 52px;
+    font-size: 3.25rem;
   }
   .dea-page-hero-copy > p {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .dea-page-hero.has-art {
     grid-template-columns: 1.3fr 0.7fr;
@@ -3047,13 +3047,13 @@
     grid-template-columns: 0.7fr 1.3fr;
   }
   .dea-exam-details h2 {
-    font-size: 35px;
+    font-size: 2.1875rem;
   }
   .dea-exercise {
     gap: 25px;
   }
   .dea-exercise h2 {
-    font-size: 39px;
+    font-size: 2.4375rem;
   }
   .dea-three-links {
     gap: 15px;
@@ -3063,19 +3063,19 @@
     padding: 20px;
   }
   .dea-three-links h3 {
-    font-size: 23px;
+    font-size: 1.4375rem;
   }
   .dea-career-list > article {
     gap: 30px;
   }
   .dea-career-list h2 {
-    font-size: 32px;
+    font-size: 2rem;
   }
   .dea-career-list p {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .dea-small-exercise p {
-    font-size: 10px;
+    font-size: 1rem;
   }
   .dea-paper-mini-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -3088,7 +3088,7 @@
     gap: 20px;
   }
   .dea-filter-tabs > button {
-    font-size: 9px;
+    font-size: 1rem;
     padding: 7px 10px;
   }
   .dea-search {
@@ -3098,7 +3098,7 @@
     padding: 28px;
   }
   .dea-resource-feature h2 {
-    font-size: 43px;
+    font-size: 2.6875rem;
   }
   .dea-paper-grid {
     gap: 20px;
@@ -3121,7 +3121,7 @@
     display: none;
   }
   .dea-about-manifesto h2 {
-    font-size: 45px;
+    font-size: 2.8125rem;
   }
   .dea-mentor-visual {
     height: 190px;
@@ -3130,25 +3130,25 @@
     gap: 20px;
   }
   .dea-mentor-grid h3 {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
   .dea-mentor-grid small {
-    font-size: 7px;
+    font-size: 0.875rem;
   }
   .dea-guide-paths > article {
     gap: 35px;
   }
   .dea-guide-paths h2 {
-    font-size: 33px;
+    font-size: 2.0625rem;
   }
   .dea-location-grid {
     gap: 35px;
   }
   .dea-location-grid h2 {
-    font-size: 39px;
+    font-size: 2.4375rem;
   }
   .dea-feature-pair h2 {
-    font-size: 37px;
+    font-size: 2.3125rem;
   }
   .dea-feature-pair > a {
     padding: 27px;
@@ -3158,16 +3158,16 @@
     grid-template-columns: 0.8fr 1.2fr;
   }
   .dea-enquiry-card h2 {
-    font-size: 36px;
+    font-size: 2.25rem;
   }
   .dea-contact-info h2 {
-    font-size: 33px;
+    font-size: 2.0625rem;
   }
   .dea-additional .dea-art {
     width: 115px;
   }
   .dea-additional h3 {
-    font-size: 23px;
+    font-size: 1.4375rem;
   }
 }
 @media (max-width: 650px) {
@@ -3176,7 +3176,7 @@
     padding-right: 22px;
   }
   .dea-announcement {
-    font-size: 8px;
+    font-size: 0.875rem;
     min-height: 29px;
     padding: 7px 15px;
   }
@@ -3187,11 +3187,11 @@
     min-height: 65px;
   }
   .dea-brand {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
   .dea-brand > i {
     display: block;
-    font-size: 6px;
+    font-size: 0.625rem;
     letter-spacing: 0.9px;
     padding-left: 11px;
     margin-left: 11px;
@@ -3206,14 +3206,14 @@
     color: var(--green);
   }
   .dea-menu-toggle > span {
-    font-size: 9px;
+    font-size: 0.875rem;
     display: flex;
     gap: 10px;
     align-items: center;
   }
   .dea-menu-toggle i {
     font-style: normal;
-    font-size: 14px;
+    font-size: 1rem;
     color: var(--muted);
   }
   .dea-nav {
@@ -3232,7 +3232,7 @@
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    font-size: 13px;
+    font-size: 1rem;
   }
   .dea-nav > a,
   .dea-nav summary {
@@ -3242,7 +3242,7 @@
   .dea-nav .dea-nav-cta {
     margin-top: 15px;
     padding: 13px 16px;
-    font-size: 11px;
+    font-size: 1rem;
     justify-content: space-between;
   }
   .dea-nav-dropdown {
@@ -3257,10 +3257,10 @@
     border: 0;
   }
   .dea-nav-dropdown a {
-    font-size: 11px;
+    font-size: 1rem;
   }
   .dea-nav-dropdown small {
-    font-size: 9px;
+    font-size: 1rem;
   }
   .dea-student-link {
     display: block !important;
@@ -3274,17 +3274,17 @@
     min-height: 0;
   }
   .dea-home-copy > .dea-eyebrow {
-    font-size: 7px;
+    font-size: 0.875rem;
     letter-spacing: 1.4px;
   }
   .dea-home-copy h1 {
-    font-size: 58px;
+    font-size: 3.625rem;
     line-height: 0.98;
     letter-spacing: -2.6px;
     margin: 24px 0;
   }
   .dea-home-copy > p {
-    font-size: 13px;
+    font-size: 1rem;
     line-height: 1.9;
     margin-bottom: 25px;
   }
@@ -3292,16 +3292,16 @@
     gap: 19px;
   }
   .dea-hero-actions > .dea-text-link {
-    font-size: 10px;
+    font-size: 0.875rem;
   }
   .dea-hero-actions > .dea-button {
-    font-size: 11px;
+    font-size: 1rem;
     padding: 12px 14px;
     gap: 17px;
     min-height: 45px;
   }
   .dea-hero-reassurance {
-    font-size: 8px;
+    font-size: 0.875rem;
     margin-top: 18px;
   }
   .dea-hero-collage {
@@ -3324,7 +3324,7 @@
     height: 245px;
   }
   .dea-collage-caption > b {
-    font-size: 24px;
+    font-size: 1.5rem;
     max-width: 190px;
   }
   .dea-collage-side {
@@ -3345,7 +3345,7 @@
     padding: 12px 17px;
   }
   .dea-collage-note > span {
-    font-size: 10px;
+    font-size: 0.875rem;
   }
   .dea-collage-note > svg {
     width: 23px;
@@ -3354,7 +3354,7 @@
     bottom: 0;
   }
   .dea-art-tabs > button {
-    font-size: 8px;
+    font-size: 1rem;
     padding: 6px 12px;
   }
   .dea-exam-ribbon > .dea-wrap {
@@ -3365,15 +3365,15 @@
     gap: 23px 15px;
   }
   .dea-exam-ribbon .dea-wrap > span {
-    font-size: 7px;
+    font-size: 0.875rem;
     line-height: 1.7;
     max-width: 70px;
   }
   .dea-exam-ribbon a {
-    font-size: 25px;
+    font-size: 1.5625rem;
   }
   .dea-exam-ribbon a > small {
-    font-size: 7px;
+    font-size: 0.875rem;
   }
   .dea-section {
     padding-top: 55px;
@@ -3386,13 +3386,13 @@
     margin-bottom: 26px;
   }
   .dea-section-title h2 {
-    font-size: 38px;
+    font-size: 2.375rem;
     line-height: 1.03;
     letter-spacing: -1.3px;
     margin-top: 14px;
   }
   .dea-section-title > .dea-text-link {
-    font-size: 10px;
+    font-size: 0.875rem;
     margin: 0;
   }
   .dea-discovery-grid {
@@ -3403,18 +3403,18 @@
     height: 240px;
   }
   .dea-discovery-card h3 {
-    font-size: 30px;
+    font-size: 1.875rem;
     margin-top: 18px;
   }
   .dea-discovery-card p {
-    font-size: 12px;
+    font-size: 1rem;
     max-width: 100%;
   }
   .dea-discovery-card:nth-child(2) > div > .dea-art {
     transform: rotate(-7deg);
   }
   .dea-eyebrow {
-    font-size: 8px;
+    font-size: 0.875rem;
     letter-spacing: 1.4px;
   }
   .dea-fit-band {
@@ -3438,7 +3438,7 @@
     height: 80px;
     right: 20px;
     bottom: 15px;
-    font-size: 14px;
+    font-size: 1rem;
     padding: 16px;
   }
   .dea-fit-stamp > i {
@@ -3446,24 +3446,24 @@
     right: 12px;
   }
   .dea-fit-copy h2 {
-    font-size: 52px;
+    font-size: 3.25rem;
     margin: 20px 0;
   }
   .dea-fit-copy p {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .dea-fit-facts {
     gap: 35px;
   }
   .dea-fit-facts > span {
-    font-size: 8px;
+    font-size: 0.875rem;
   }
   .dea-fit-copy > .dea-button {
     width: 100%;
     max-width: 315px;
   }
   .dea-fit-copy > small {
-    font-size: 9px;
+    font-size: 0.875rem;
   }
   .dea-programme-grid {
     gap: 22px;
@@ -3484,14 +3484,14 @@
     padding: 25px;
   }
   .dea-programme-copy .dea-small-label {
-    font-size: 9px;
+    font-size: 0.875rem;
     letter-spacing: 0.8px;
   }
   .dea-programme-copy h3 {
-    font-size: 32px;
+    font-size: 2rem;
   }
   .dea-fee-note {
-    font-size: 9px;
+    font-size: 0.875rem;
   }
   .dea-disciplines-section {
     padding-top: 45px;
@@ -3504,7 +3504,7 @@
     height: 155px;
   }
   .dea-discipline-strip a > span {
-    font-size: 9px;
+    font-size: 0.875rem;
     gap: 8px;
   }
   .dea-discipline-strip a > span > svg {
@@ -3519,22 +3519,22 @@
     gap: 20px;
   }
   .dea-studio-band .dea-eyebrow {
-    font-size: 7px;
+    font-size: 0.875rem;
     letter-spacing: 1px;
   }
   .dea-studio-band h2 {
-    font-size: 39px;
+    font-size: 2.4375rem;
     margin: 20px 0;
   }
   .dea-studio-band p {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .dea-studio-links {
     flex-direction: row;
     gap: 30px;
   }
   .dea-studio-links > .dea-text-link {
-    font-size: 10px;
+    font-size: 0.875rem;
   }
   .dea-studio-band .dea-art {
     height: 250px;
@@ -3549,16 +3549,16 @@
     height: 235px;
   }
   .dea-article-card h3 {
-    font-size: 29px;
+    font-size: 1.8125rem;
     letter-spacing: -0.9px;
     max-width: 360px;
   }
   .dea-article-card p {
-    font-size: 12px;
+    font-size: 1rem;
     max-width: 100%;
   }
   .dea-article-card > small {
-    font-size: 7px;
+    font-size: 0.875rem;
     letter-spacing: 0.8px;
     margin-top: 18px;
   }
@@ -3569,18 +3569,18 @@
     padding-bottom: 35px;
   }
   .dea-faq-section h2 {
-    font-size: 36px;
+    font-size: 2.25rem;
     max-width: 310px;
   }
   .dea-faq-section > div > p {
-    font-size: 11px;
+    font-size: 1rem;
   }
   .dea-faq-list summary {
-    font-size: 12px;
+    font-size: 0.875rem;
     gap: 20px;
   }
   .dea-faq-list p {
-    font-size: 11px;
+    font-size: 1rem;
     line-height: 1.9;
   }
   .dea-cta {
@@ -3598,29 +3598,29 @@
     height: 130px;
   }
   .dea-cta h2 {
-    font-size: 36px;
+    font-size: 2.25rem;
     line-height: 1.03;
     letter-spacing: -1px;
     position: relative;
     z-index: 1;
   }
   .dea-cta p {
-    font-size: 11px;
+    font-size: 1rem;
   }
   .dea-cta .dea-eyebrow {
-    font-size: 7px;
+    font-size: 0.875rem;
   }
   .dea-cta .dea-button {
-    font-size: 11px;
+    font-size: 1rem;
     min-height: 44px;
   }
   .dea-cta-foot {
-    font-size: 7px;
+    font-size: 0.875rem;
   }
   .dea-cta-star {
     top: 20px;
     right: 20px;
-    font-size: 70px;
+    font-size: 4.375rem;
   }
   .dea-footer {
     padding-top: 35px;
@@ -3633,10 +3633,10 @@
     grid-column: 1/-1;
   }
   .dea-footer-top > div:not(:first-child) > a {
-    font-size: 10px;
+    font-size: 0.875rem;
   }
   .dea-footer-top > div > span {
-    font-size: 7px;
+    font-size: 0.875rem;
   }
   .dea-footer-top > div:last-child {
     flex-direction: column;
@@ -3650,20 +3650,20 @@
     display: block;
   }
   .dea-footer-top > div > p {
-    font-size: 11px;
+    font-size: 1rem;
     margin: 17px 0;
   }
   .dea-footer-word {
-    font-size: clamp(49px, 16vw, 64px);
+    font-size: clamp(3.0625rem, 16vw, 4rem);
     letter-spacing: -3.5px;
     gap: 8px;
     margin: 35px 0 25px;
   }
   .dea-footer-word > span {
-    font-size: clamp(28px, 9vw, 38px);
+    font-size: clamp(1.75rem, 9vw, 2.375rem);
   }
   .dea-footer-bottom {
-    font-size: 7px;
+    font-size: 0.875rem;
     align-items: flex-start;
     gap: 15px;
     padding: 17px 0;
@@ -3672,7 +3672,7 @@
     gap: 12px;
   }
   .dea-breadcrumbs {
-    font-size: 8px;
+    font-size: 0.875rem;
     margin-bottom: 30px;
     gap: 7px;
   }
@@ -3687,13 +3687,13 @@
     padding-bottom: 30px;
   }
   .dea-page-hero h1 {
-    font-size: 49px;
+    font-size: 3.0625rem;
     line-height: 1.04;
     letter-spacing: -1.7px;
     margin: 19px 0;
   }
   .dea-page-hero-copy > p {
-    font-size: 12px;
+    font-size: 1rem;
     line-height: 1.95;
     margin: 16px 0;
   }
@@ -3707,7 +3707,7 @@
     height: 185px;
   }
   .dea-page-hero-art > span {
-    font-size: 5px;
+    font-size: 0.875rem;
     letter-spacing: 1.6px;
   }
   .dea-page-hero-copy > .dea-hero-actions {
@@ -3722,15 +3722,15 @@
     gap: 22px;
   }
   .dea-process-grid article > span {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
   .dea-process-grid h3 {
-    font-size: 27px;
+    font-size: 1.6875rem;
     line-height: 1.05;
     margin: 20px 0 10px;
   }
   .dea-process-grid p {
-    font-size: 10px;
+    font-size: 1rem;
     line-height: 1.9;
   }
   .dea-additional {
@@ -3749,10 +3749,10 @@
     height: 140px;
   }
   .dea-additional h3 {
-    font-size: 26px;
+    font-size: 1.625rem;
   }
   .dea-additional p {
-    font-size: 11px;
+    font-size: 1rem;
   }
   .dea-exam-grid {
     gap: 16px;
@@ -3762,7 +3762,7 @@
     padding: 16px 14px 21px;
   }
   .dea-exam-card > div {
-    font-size: 6px;
+    font-size: 0.875rem;
   }
   .dea-exam-card > div > svg {
     width: 13px;
@@ -3771,11 +3771,11 @@
     height: 130px;
   }
   .dea-exam-card h3 {
-    font-size: 31px;
+    font-size: 1.9375rem;
     margin: 14px 0 9px;
   }
   .dea-exam-card p {
-    font-size: 9px;
+    font-size: 1rem;
     max-width: 130px;
     line-height: 1.7;
   }
@@ -3789,15 +3789,15 @@
     width: 22px;
   }
   .dea-note-panel h2 {
-    font-size: 28px;
+    font-size: 1.75rem;
     line-height: 1.08;
   }
   .dea-note-panel p {
-    font-size: 11px;
+    font-size: 1rem;
     line-height: 1.9;
   }
   .dea-note-panel .dea-text-link {
-    font-size: 10px;
+    font-size: 0.875rem;
   }
   .dea-exam-details {
     grid-template-columns: 1fr;
@@ -3806,11 +3806,11 @@
     padding-bottom: 35px;
   }
   .dea-exam-details h2 {
-    font-size: 38px;
+    font-size: 2.375rem;
   }
   .dea-exam-details aside > h2 {
     max-width: 300px;
-    font-size: 32px;
+    font-size: 2rem;
   }
   .dea-exam-details aside {
     padding-bottom: 25px;
@@ -3820,7 +3820,7 @@
     max-width: none;
   }
   .dea-tags > span {
-    font-size: 8px;
+    font-size: 0.875rem;
   }
   .dea-source-link {
     margin-top: 18px;
@@ -3830,7 +3830,7 @@
     padding: 17px 0;
   }
   .dea-numbered-step p {
-    font-size: 11px;
+    font-size: 1rem;
   }
   .dea-exercise {
     margin: 0 22px;
@@ -3841,10 +3841,10 @@
     gap: 15px;
   }
   .dea-exercise h2 {
-    font-size: 37px;
+    font-size: 2.3125rem;
   }
   .dea-exercise p {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .dea-exercise .dea-art {
     height: 200px;
@@ -3859,10 +3859,10 @@
     padding: 23px;
   }
   .dea-three-links h3 {
-    font-size: 27px;
+    font-size: 1.6875rem;
   }
   .dea-three-links p {
-    font-size: 11px;
+    font-size: 1rem;
     max-width: 320px;
   }
   .dea-three-links > a > svg {
@@ -3884,14 +3884,14 @@
     height: 240px;
   }
   .dea-career-list h2 {
-    font-size: 37px;
+    font-size: 2.3125rem;
     margin: 15px 0;
   }
   .dea-career-list p {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .dea-small-exercise p {
-    font-size: 11px;
+    font-size: 1rem;
   }
   .dea-resource-tools {
     flex-direction: column;
@@ -3904,13 +3904,13 @@
   }
   .dea-filter-tabs > button {
     padding: 7px 12px;
-    font-size: 9px;
+    font-size: 1rem;
   }
   .dea-search {
     max-width: none;
   }
   .dea-search > input {
-    font-size: 11px;
+    font-size: 1rem;
     padding: 12px;
   }
   .dea-resource-library {
@@ -3924,7 +3924,7 @@
     overflow: hidden;
   }
   .dea-resource-feature h2 {
-    font-size: 45px;
+    font-size: 2.8125rem;
   }
   .dea-resource-feature > div {
     position: relative;
@@ -3937,7 +3937,7 @@
     opacity: 0.9;
   }
   .dea-resource-feature p {
-    font-size: 11px;
+    font-size: 1rem;
     max-width: 240px;
   }
   .dea-paper-mini-grid {
@@ -3949,10 +3949,10 @@
     padding: 18px 14px;
   }
   .dea-paper-mini-grid a > span {
-    font-size: 26px;
+    font-size: 1.625rem;
   }
   .dea-paper-mini-grid a > small {
-    font-size: 8px;
+    font-size: 0.875rem;
   }
   .dea-paper-mini-grid a > svg {
     top: 28px;
@@ -3972,19 +3972,19 @@
     gap: 10px;
   }
   .dea-editorial aside > a {
-    font-size: 10px;
+    font-size: 1rem;
   }
   .dea-editorial aside > .dea-text-link {
     padding-top: 15px;
     margin-top: 9px;
   }
   .dea-editorial h2 {
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 1.08;
     margin: 10px 0 18px;
   }
   .dea-editorial p {
-    font-size: 13px;
+    font-size: 1rem;
     line-height: 2;
   }
   .dea-editorial > div > section {
@@ -3994,7 +3994,7 @@
     gap: 13px;
   }
   .dea-editorial-end > p {
-    font-size: 11px;
+    font-size: 1rem;
   }
   .dea-paper-grid {
     grid-template-columns: 1fr;
@@ -4008,21 +4008,21 @@
     height: 165px;
   }
   .dea-paper-card h2 {
-    font-size: 33px;
+    font-size: 2.0625rem;
   }
   .dea-paper-card > div {
     padding: 0;
   }
   .dea-paper-card .dea-small-label {
-    font-size: 7px;
+    font-size: 0.875rem;
   }
   .dea-paper-card p {
-    font-size: 10px;
+    font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 17px;
   }
   .dea-paper-card .dea-text-link {
-    font-size: 9px;
+    font-size: 0.875rem;
     gap: 8px;
   }
   .dea-archive-layout {
@@ -4035,12 +4035,12 @@
     gap: 16px;
   }
   .dea-archive-heading h2 {
-    font-size: 32px;
+    font-size: 2rem;
   }
   .dea-archive-heading input {
     max-width: none;
     width: 100%;
-    font-size: 11px;
+    font-size: 1rem;
     padding: 12px;
   }
   .dea-paper-row {
@@ -4055,13 +4055,13 @@
     width: 15px;
   }
   .dea-paper-row strong {
-    font-size: 11px;
+    font-size: 0.875rem;
   }
   .dea-paper-row div > span {
-    font-size: 7px;
+    font-size: 0.875rem;
   }
   .dea-unlock-button {
-    font-size: 8px;
+    font-size: 1rem;
     padding: 8px;
     gap: 6px;
     flex: none;
@@ -4072,38 +4072,38 @@
     align-items: flex-end;
   }
   .dea-paper-actions .dea-button {
-    font-size: 8px;
+    font-size: 1rem;
     gap: 7px;
     padding: 8px;
   }
   .dea-paper-actions > a {
-    font-size: 8px;
+    font-size: 0.875rem;
   }
   .dea-about-manifesto {
     padding-top: 45px;
     padding-bottom: 25px;
   }
   .dea-about-manifesto h2 {
-    font-size: 36px;
+    font-size: 2.25rem;
     line-height: 1.16;
     letter-spacing: -1.2px;
   }
   .dea-about-manifesto > span {
-    font-size: 7px;
+    font-size: 0.875rem;
   }
   .dea-about-manifesto p {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .dea-studio-proof {
     grid-template-columns: 1fr;
     gap: 28px;
   }
   .dea-studio-proof h2 {
-    font-size: 36px;
+    font-size: 2.25rem;
     letter-spacing: -1.2px;
   }
   .dea-studio-proof p {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .dea-classroom-proof {
     padding: 52px 0;
@@ -4113,11 +4113,11 @@
     gap: 30px;
   }
   .dea-classroom-proof__intro h2 {
-    font-size: 36px;
+    font-size: 2.25rem;
     letter-spacing: -1.2px;
   }
   .dea-classroom-proof__intro p {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .dea-classroom-proof__gallery {
     grid-template-columns: 1fr 0.72fr;
@@ -4137,14 +4137,14 @@
     height: 240px;
   }
   .dea-mentor-grid h3 {
-    font-size: 29px;
+    font-size: 1.8125rem;
     margin-top: 18px;
   }
   .dea-mentor-grid small {
-    font-size: 9px;
+    font-size: 0.875rem;
   }
   .dea-mentor-grid p {
-    font-size: 12px;
+    font-size: 1rem;
     max-width: 100%;
   }
   .dea-guide-paths > article {
@@ -4158,10 +4158,10 @@
     justify-self: center;
   }
   .dea-guide-paths h2 {
-    font-size: 35px;
+    font-size: 2.1875rem;
   }
   .dea-guide-paths p {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .dea-guide-comparison {
     padding-top: 40px;
@@ -4177,10 +4177,10 @@
     padding-bottom: 25px;
   }
   .dea-location-grid h2 {
-    font-size: 39px;
+    font-size: 2.4375rem;
   }
   .dea-location-grid p {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .dea-location-card .dea-art {
     height: 240px;
@@ -4198,7 +4198,7 @@
     height: 210px;
   }
   .dea-feature-pair h2 {
-    font-size: 39px;
+    font-size: 2.4375rem;
   }
   .dea-contact-layout {
     grid-template-columns: 1fr;
@@ -4214,44 +4214,44 @@
     margin-top: 0;
   }
   .dea-contact-info h2 {
-    font-size: 35px;
+    font-size: 2.1875rem;
   }
   .dea-contact-info dl > div {
     padding: 17px 0;
   }
   .dea-contact-info dt {
-    font-size: 8px;
+    font-size: 0.875rem;
   }
   .dea-contact-info dd {
-    font-size: 12px;
+    font-size: 1rem;
   }
   .dea-enquiry-card {
     padding: 28px 24px;
   }
   .dea-enquiry-card h2 {
-    font-size: 40px;
+    font-size: 2.5rem;
     margin-top: 20px;
   }
   .dea-enquiry-card > p {
-    font-size: 11px;
+    font-size: 1rem;
   }
   .dea-enquiry-card label {
-    font-size: 11px;
+    font-size: 1rem;
   }
   .dea-enquiry-card input,
   .dea-enquiry-card select,
   .dea-enquiry-card textarea {
-    font-size: 12px;
+    font-size: 1rem;
     padding: 13px;
   }
   .dea-enquiry-card form {
     gap: 18px;
   }
   .dea-enquiry-card .dea-button {
-    font-size: 11px;
+    font-size: 1rem;
   }
   .dea-form-note {
-    font-size: 8px;
+    font-size: 0.875rem;
   }
   .dea-enquiry-sent {
     padding: 10px 0;
@@ -4264,13 +4264,13 @@
     align-items: flex-start;
   }
   .academy .dark-band h1 {
-    font-size: 39px !important;
+    font-size: 2.4375rem !important;
   }
   .academy .legal-body h2 {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
   .academy .legal-body p {
-    font-size: 12px;
+    font-size: 1rem;
     line-height: 2;
   }
   .academy .container--narrow {
@@ -4281,16 +4281,16 @@
     max-width: 370px;
   }
   .academy .modal-box h3 {
-    font-size: 27px !important;
+    font-size: 1.6875rem !important;
   }
 
   /* Mobile readability contract: preserve the editorial hierarchy without
      shrinking meaningful copy or primary targets below a comfortable size. */
   .academy {
-    --phone-body: 15px;
-    --phone-support: 14px;
-    --phone-control: 14px;
-    --phone-caption: 12px;
+    --phone-body: 1rem;
+    --phone-support: 1rem;
+    --phone-control: 1rem;
+    --phone-caption: 0.875rem;
     font-size: var(--phone-body);
   }
   .academy main p {
@@ -4300,13 +4300,13 @@
   .dea-announcement,
   .dea-announcement > a {
     min-height: 44px;
-    font-size: 13px;
+    font-size: 1rem;
   }
   .dea-brand {
     min-height: 44px;
   }
   .dea-brand > i {
-    font-size: 10px;
+    font-size: 0.625rem;
     line-height: 1.45;
   }
   .dea-menu-toggle {
@@ -4315,7 +4315,7 @@
     padding: 8px 12px;
   }
   .dea-menu-toggle > span {
-    font-size: 13px;
+    font-size: 1rem;
   }
   .dea-nav > a,
   .dea-nav summary,
@@ -4330,7 +4330,7 @@
     font-size: var(--phone-caption);
   }
   .dea-home-copy h1 {
-    font-size: clamp(50px, 16vw, 58px);
+    font-size: clamp(3.125rem, 16vw, 3.625rem);
   }
   .dea-hero-reassurance {
     font-size: var(--phone-caption);
@@ -4367,7 +4367,7 @@
   .dea-editorial aside > a,
   .dea-footer-top > div:not(:first-child) > a {
     min-height: 44px;
-    font-size: 13px;
+    font-size: 1rem;
     align-items: center;
   }
   .academy .dea-button,
@@ -4382,7 +4382,7 @@
   .dea-art-tabs > button {
     min-height: 44px;
     padding: 10px 14px;
-    font-size: 12px;
+    font-size: 1rem;
   }
   .dea-search > input,
   .dea-archive-heading input,
@@ -4390,19 +4390,19 @@
   .dea-enquiry-card select,
   .dea-enquiry-card textarea {
     min-height: 44px;
-    font-size: 16px;
+    font-size: 1rem;
   }
   .dea-enquiry-card label,
   .dea-contact-info dd,
   .dea-faq-list summary,
   .dea-paper-row strong {
-    font-size: 13px;
+    font-size: 1rem;
   }
   .dea-paper-row div > span,
   .dea-exam-card > div,
   .dea-tags > span,
   .dea-campus-number {
-    font-size: 11px;
+    font-size: 0.875rem;
   }
   .dea-resource-feature p,
   .dea-paper-card p,
@@ -4413,12 +4413,12 @@
   .dea-small-exercise p,
   .dea-form-note,
   .dea-cta-foot {
-    font-size: 13px;
+    font-size: 1rem;
   }
   .dea-paper-mini-grid a > small,
   .dea-fit-copy > small,
   .dea-fee-note {
-    font-size: 11px;
+    font-size: 0.875rem;
   }
   .dea-exam-ribbon > .dea-wrap > span,
   .dea-fit-facts > span,
@@ -4429,11 +4429,11 @@
     font-size: var(--phone-caption);
   }
   .dea-exam-ribbon a > small {
-    font-size: 11px;
+    font-size: 0.875rem;
   }
   .dea-programme-formats li,
   .dea-programme-copy > ul > li {
-    font-size: 13px;
+    font-size: 1rem;
   }
   .dea-footer-top > div > p {
     font-size: var(--phone-support);
@@ -4442,7 +4442,7 @@
     min-height: 44px;
     display: inline-flex;
     align-items: center;
-    font-size: 13px;
+    font-size: 1rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {

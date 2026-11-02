@@ -180,6 +180,7 @@ function Thumb({ kind, index = 0 }) {
     return (
       <div
         className="lab-thumb-type"
+        aria-hidden="true"
         style={{ letterSpacing: index % 2 ? "-.08em" : ".08em" }}
       >
         Aa<span>TYPE &amp; SPACE</span>
@@ -255,12 +256,42 @@ function Thumb({ kind, index = 0 }) {
 }
 
 function Library({ answers, onChoose, onClose }) {
+  const dialog = useRef(null);
+  useEffect(() => {
+    const previous = document.activeElement;
+    const node = dialog.current;
+    node.showModal();
+    return () => {
+      node.close();
+      if (previous?.isConnected) previous.focus();
+    };
+  }, []);
   return (
-    <div
+    <dialog
+      ref={dialog}
       className="lab-library"
       role="dialog"
       aria-modal="true"
       aria-label="All 30 challenges"
+      onCancel={(event) => {
+        event.preventDefault();
+        onClose();
+      }}
+      onKeyDown={(event) => {
+        if (event.key !== "Tab") return;
+        const controls = [
+          ...dialog.current.querySelectorAll("button:not(:disabled)"),
+        ];
+        const first = controls[0],
+          last = controls.at(-1);
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }}
     >
       <header>
         <div>
@@ -282,8 +313,9 @@ function Library({ answers, onChoose, onClose }) {
             key={t.id}
             onClick={() => onChoose(i)}
             className="lab-library-card"
+            aria-label={`Challenge ${t.id}: ${t.title}${answers[t.id]?.submitted ? ", completed" : ""}`}
           >
-            <div className="lab-library-art">
+            <div className="lab-library-art" aria-hidden="true">
               <Thumb kind={t.kind} index={i} />
               {answers[t.id]?.submitted && (
                 <b>
@@ -299,7 +331,7 @@ function Library({ answers, onChoose, onClose }) {
           </button>
         ))}
       </div>
-    </div>
+    </dialog>
   );
 }
 
@@ -341,7 +373,7 @@ function Landing({ answers, onStart, onLibrary }) {
         </div>
         <div className="lab-hero-collage">
           <div className="lab-art-caption">AN EXERCISE IN SEEING</div>
-          <div className="lab-hero-poster">
+          <div className="lab-hero-poster" aria-hidden="true">
             <Artwork />
           </div>
           <div className="lab-floating-palette">
@@ -502,7 +534,11 @@ function Report({ answers, onReturn, onRestart, onDetailed }) {
           </button>
           {import.meta.env.DEV && (
             <div style={{ marginTop: 24 }}>
-              <button className="lab-button" onClick={onDetailed} disabled={!full}>
+              <button
+                className="lab-button"
+                onClick={onDetailed}
+                disabled={!full}
+              >
                 Preview detailed report <Icon name="arrow" size={16} />
               </button>
               <p className="lab-evidence-note">
@@ -534,10 +570,7 @@ function Report({ answers, onReturn, onRestart, onDetailed }) {
             <li>A 4-week making plan</li>
             <li>Downloadable personal report</li>
           </ul>
-          <button
-            className="lab-button lab-button-orange"
-            disabled
-          >
+          <button className="lab-button lab-button-orange" disabled>
             <Icon name="lock" size={17} /> Detailed report coming soon
           </button>
           <small>
@@ -555,7 +588,8 @@ export default function Quiz() {
     [answers, setAnswers] = useState(saved.current?.answers || {}),
     [step, setStep] = useState(saved.current?.step || 0),
     [view, setView] = useState(() =>
-      import.meta.env.DEV && typeof window !== "undefined" &&
+      import.meta.env.DEV &&
+      typeof window !== "undefined" &&
       new URLSearchParams(window.location.search).get("report") === "detailed"
         ? "detailed"
         : "landing",
@@ -667,11 +701,14 @@ export default function Quiz() {
           onLibrary={() => setLibrary(true)}
         />
       ) : view === "detailed" && import.meta.env.DEV ? (
-        <Suspense fallback={<main className="lab-report"><p>Preparing your report…</p></main>}>
-          <DetailedReport
-            answers={answers}
-            onBack={() => setView("report")}
-          />
+        <Suspense
+          fallback={
+            <main className="lab-report">
+              <p>Preparing your report…</p>
+            </main>
+          }
+        >
+          <DetailedReport answers={answers} onBack={() => setView("report")} />
         </Suspense>
       ) : view === "report" ? (
         <Report
