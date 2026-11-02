@@ -11,6 +11,8 @@ Implemented from the Claude Design file `DEXAM Website.dc.html`.
 
 ## Develop
 
+Use Node.js 20.19+ or 22.12+ (CI uses the latest Node.js 20 release).
+
 ```bash
 npm install
 npm run dev      # local dev server

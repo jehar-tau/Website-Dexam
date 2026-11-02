@@ -134,3 +134,13 @@
 **Owner action required:** Confirm whether `CEAT` means `CEED`; then confirm the first exam/offer, Pune classroom versus India-wide online scope, follow-up owner/hours and aggregate outcomes for the historical leads. Exact spend caps and final previews are later activation decisions.
 
 **Follow-up:** Complete T04/T27 qualification definitions and the relevant exam-specific landing page/measurement foundation before preparing paused Google and Meta builds.
+
+### 2026-11-02 — Weekly website maintenance and dependency repair
+
+**Observed:** Main and GitHub Pages are healthy, with 37 public direct routes. Full dependency audit reported four affected packages, including a high-severity development-tool finding. Search Console/GA4 evidence remains missing (T02); no page-performance conclusions are possible.
+
+**Action:** Prepared patched Vite/React Router dependencies, the supported prerender import, preserved browser build targets and an explicit Node engine requirement. The optional Node 22/audit workflow gate could not be pushed with the current token’s workflow permissions; existing CI remains unchanged. Expanded live checks to every public route, linked resources, discovery files and canonical redirects. Official exam-source review found no verified correction required in current public guide copy; NID revalidation was blocked by its unavailable official endpoint.
+
+**Verification:** Clean install/build, site contracts and 16 model tests, eight assessment tests, 102 browser tests, live 37-route/46-target smoke check, zero-vulnerability audit and credential/diff review pass. Live form inspection remained non-submitting. No public editorial or fee change, no sitemap lastmod change, and no private data added.
+
+**Evidence:** `growth/maintenance/2026-11-02.md`; maintenance PR records CI, merge and final deployment verification. T02 still needs owner-provided Search Console/GA4 access or exports.
