@@ -148,6 +148,14 @@
 
 **Action:** Created the Google Analytics account `DesignExam`, GA4 property `DesignExam Website`, and `https://designexam.com` web stream. The property uses India time and Indian Rupees. The stream measurement ID is `G-ZC3W71HWLF`. Enhanced measurement is limited to page views, scrolls and outbound clicks; email redaction and 30 common personal-data/search URL parameter redactions are enabled. Google Signals and optional account data-sharing controls remain off.
 
-**Website integration:** Prepared an adult-only privacy choice banner with equal accept/reject controls and footer settings access. The Google tag is injected only after an adult visitor affirmatively opts in; visitors under 18 are told to reject, and the tag remains absent. A successful enquiry emits only allow-listed exam, programme, target-year and safe campaign labels; contact fields, location, education, role and free-text guidance are excluded. Ads storage and advertising personalization remain denied.
+**Website integration:** Prepared an adult-only privacy choice banner with equal accept/reject controls and footer settings access. The Google tag is injected only after an adult visitor affirmatively opts in; visitors under 18 are told to reject, and the tag remains absent. A successful enquiry event emits only allow-listed exam, programme and target-year values; contact fields, location, education, role and free-text guidance are excluded. Campaign attribution uses GA4's standard URL attribution, while the conversion event itself does not include UTM fields. Ads storage and advertising personalization remain denied.
 
-**Status:** This is on `codex/ga4-consent-tracking`; production has not been changed and GA4 has not yet received site visits. The live tag and consent flow need review, CI, merge/deploy and an opted-in adult Realtime verification. Search Console still needs an account with property access. T04 also needs the owner's lead-quality and follow-up definitions before funnel reports can distinguish qualified leads from raw enquiries.
+**Status:** Superseded by the live verification below. Search Console still needs an account with property access. T04 still needs the owner's lead-quality and follow-up definitions before funnel reports can distinguish qualified leads from raw enquiries.
+
+### 2026-11-03 — T02/T04: GA4 integration deployed and verified
+
+**Release:** PR #25 merged as `4b14778026948b929274d8595a0e14d9f9b7747c`. GitHub Pages deployment workflow `41520287845` completed successfully; its build, site checks and 204 browser tests passed.
+
+**Production verification:** On `https://designexam.com`, the tag was absent before a choice and remained absent after rejecting analytics. After an adult opt-in, the page loaded the GA4 script and sent a `page_view` request for `G-ZC3W71HWLF` (HTTP 204, analytics consent granted). GA4 Realtime then showed one active user, one homepage view and the `page_view` event. No counselling form was submitted during the test. The production conversion path is covered by the browser suite with only allow-listed exam, programme and target-year parameters.
+
+**Next:** Connect Search Console access for the verified Google account. The owner still needs to define valid/qualified lead and follow-up outcomes before T04 funnel reporting can be completed.
