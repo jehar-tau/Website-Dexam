@@ -1863,13 +1863,17 @@
     gap: 12px;
   }
   .lab-top > a:last-child {
-    font-size: 9px;
+    min-height: 44px;
+    font-size: 12px;
+  }
+  .lab-top-label {
+    font-size: 11px;
   }
   .lab-session-name {
     margin: 0 auto;
   }
   .lab-session-name > span {
-    font-size: 6px;
+    font-size: 11px;
     letter-spacing: 1px;
   }
   .lab-header-actions {
@@ -1891,21 +1895,23 @@
   }
   .lab-hero-copy > .lab-eyebrow {
     justify-content: center;
-    font-size: 8px;
+    font-size: 12px;
   }
   .lab-hero-copy h1 {
-    font-size: 64px;
+    font-size: clamp(50px, 16vw, 64px);
     margin: 20px 0;
   }
   .lab-hero-copy p {
-    font-size: 13px;
+    font-size: 15px;
   }
   .lab-hero-copy > .lab-button {
     margin: auto;
     min-height: 49px;
+    font-size: 14px;
   }
   .lab-hero-foot {
     justify-content: center;
+    font-size: 12px;
   }
   .lab-hero-collage {
     min-height: 340px;
@@ -1922,6 +1928,9 @@
     right: 5px;
     bottom: 20px;
   }
+  .lab-floating-note span {
+    font-size: 11px;
+  }
   .lab-collage-no {
     left: 8px;
     bottom: 10px;
@@ -1934,8 +1943,8 @@
     font-size: 24px;
   }
   .lab-landing-stats span {
-    font-size: 7px;
-    max-width: 60px;
+    font-size: 11px;
+    max-width: 70px;
   }
   .lab-sneak {
     padding: 35px 20px;
@@ -1949,8 +1958,13 @@
     font-size: 27px;
     margin-bottom: 17px;
   }
+  .lab-section-heading .lab-eyebrow {
+    font-size: 12px;
+  }
   .lab-section-heading > .lab-text {
     margin-bottom: 25px;
+    min-height: 44px;
+    font-size: 13px;
   }
   .lab-sneak-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1958,6 +1972,9 @@
   }
   .lab-sneak-grid > button:nth-child(3) {
     display: none;
+  }
+  .lab-sneak-grid small {
+    font-size: 11px;
   }
   .lab-task-area {
     padding: 20px 14px;

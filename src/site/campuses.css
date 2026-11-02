@@ -98,6 +98,10 @@
   }
   .dea-campus-copy p {
     min-height: 0;
+    font-size: 14px;
+  }
+  .dea-campus-number {
+    font-size: 11px;
   }
   .dea-campus-links .dea-text-link {
     min-height: 44px;

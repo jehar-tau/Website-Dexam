@@ -4283,6 +4283,167 @@
   .academy .modal-box h3 {
     font-size: 27px !important;
   }
+
+  /* Mobile readability contract: preserve the editorial hierarchy without
+     shrinking meaningful copy or primary targets below a comfortable size. */
+  .academy {
+    --phone-body: 15px;
+    --phone-support: 14px;
+    --phone-control: 14px;
+    --phone-caption: 12px;
+    font-size: var(--phone-body);
+  }
+  .academy main p {
+    font-size: var(--phone-support);
+    line-height: 1.75;
+  }
+  .dea-announcement,
+  .dea-announcement > a {
+    min-height: 44px;
+    font-size: 13px;
+  }
+  .dea-brand {
+    min-height: 44px;
+  }
+  .dea-brand > i {
+    font-size: 10px;
+    line-height: 1.45;
+  }
+  .dea-menu-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px 12px;
+  }
+  .dea-menu-toggle > span {
+    font-size: 13px;
+  }
+  .dea-nav > a,
+  .dea-nav summary,
+  .dea-nav .dea-nav-cta,
+  .dea-nav-dropdown > a {
+    min-height: 44px;
+    font-size: var(--phone-control);
+    align-items: center;
+  }
+  .dea-nav-dropdown small,
+  .dea-nav-dropdown > a:first-child {
+    font-size: var(--phone-caption);
+  }
+  .dea-home-copy h1 {
+    font-size: clamp(50px, 16vw, 58px);
+  }
+  .dea-hero-reassurance {
+    font-size: var(--phone-caption);
+  }
+  .dea-home-copy > p,
+  .dea-page-hero-copy > p,
+  .dea-editorial p,
+  .dea-legal-body p {
+    font-size: var(--phone-body);
+  }
+  .dea-eyebrow,
+  .dea-home-copy > .dea-eyebrow,
+  .dea-studio-band .dea-eyebrow,
+  .dea-cta .dea-eyebrow,
+  .dea-small-label,
+  .dea-programme-copy .dea-small-label,
+  .dea-paper-card .dea-small-label,
+  .dea-page-hero-art > span,
+  .dea-article-card > small,
+  .dea-about-manifesto > span,
+  .dea-contact-info dt,
+  .dea-footer-top > div > span,
+  .dea-footer-bottom,
+  .dea-breadcrumbs {
+    font-size: var(--phone-caption);
+    line-height: 1.5;
+  }
+  .academy .dea-text-link,
+  .dea-hero-actions > .dea-text-link,
+  .dea-studio-links > .dea-text-link,
+  .dea-note-panel .dea-text-link,
+  .dea-paper-card .dea-text-link,
+  .dea-paper-actions > a,
+  .dea-editorial aside > a,
+  .dea-footer-top > div:not(:first-child) > a {
+    min-height: 44px;
+    font-size: 13px;
+    align-items: center;
+  }
+  .academy .dea-button,
+  .dea-hero-actions > .dea-button,
+  .dea-cta .dea-button,
+  .dea-paper-actions .dea-button,
+  .dea-unlock-button {
+    min-height: 44px;
+    font-size: var(--phone-control);
+  }
+  .dea-filter-tabs > button,
+  .dea-art-tabs > button {
+    min-height: 44px;
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+  .dea-search > input,
+  .dea-archive-heading input,
+  .dea-enquiry-card input,
+  .dea-enquiry-card select,
+  .dea-enquiry-card textarea {
+    min-height: 44px;
+    font-size: 16px;
+  }
+  .dea-enquiry-card label,
+  .dea-contact-info dd,
+  .dea-faq-list summary,
+  .dea-paper-row strong {
+    font-size: 13px;
+  }
+  .dea-paper-row div > span,
+  .dea-exam-card > div,
+  .dea-tags > span,
+  .dea-campus-number {
+    font-size: 11px;
+  }
+  .dea-resource-feature p,
+  .dea-paper-card p,
+  .dea-exam-card p,
+  .dea-process-grid p,
+  .dea-numbered-step p,
+  .dea-three-links p,
+  .dea-small-exercise p,
+  .dea-form-note,
+  .dea-cta-foot {
+    font-size: 13px;
+  }
+  .dea-paper-mini-grid a > small,
+  .dea-fit-copy > small,
+  .dea-fee-note {
+    font-size: 11px;
+  }
+  .dea-exam-ribbon > .dea-wrap > span,
+  .dea-fit-facts > span,
+  .dea-fit-copy > small,
+  .dea-programme-art > span,
+  .dea-programme-formats > span,
+  .dea-self-study {
+    font-size: var(--phone-caption);
+  }
+  .dea-exam-ribbon a > small {
+    font-size: 11px;
+  }
+  .dea-programme-formats li,
+  .dea-programme-copy > ul > li {
+    font-size: 13px;
+  }
+  .dea-footer-top > div > p {
+    font-size: var(--phone-support);
+  }
+  .dea-footer-contact {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 13px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .academy * {
