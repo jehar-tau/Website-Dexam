@@ -23,6 +23,7 @@ for (const rootSize of [100, 200]) {
   test(`narrow header keeps the wordmark and menu label intact at ${rootSize}% text`, async ({ page }) => {
     await page.setViewportSize({ width: 319, height: 900 });
     await page.goto("/");
+    await page.getByRole("button", { name: "Reject optional analytics" }).click();
     await page.addStyleTag({ content: `:root{font-size:${rootSize}%}` });
     await checkLayout(page);
     for (const selector of [".dea-header .dea-brand", ".dea-menu-toggle > span"]) {

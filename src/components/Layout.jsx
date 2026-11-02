@@ -2,6 +2,7 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { waLink } from "../config.js";
 import LeadModal from "./LeadModal.jsx";
+import AnalyticsConsent from "./AnalyticsConsent.jsx";
 import { useCms } from "../cms.jsx";
 import { Icon } from "../site/Art.jsx";
 import { PageMeta } from "../site/components.jsx";
@@ -205,11 +206,21 @@ export default function Layout({ children }) {
             <div>
               <Link to="/privacy">Privacy</Link>
               <Link to="/terms">Terms</Link>
+              <button
+                className="dea-cookie-settings"
+                type="button"
+                onClick={() =>
+                  window.dispatchEvent(new Event("dexam:open-privacy-settings"))
+                }
+              >
+                Cookie settings
+              </button>
             </div>
           </div>
         </div>
       </footer>
       <LeadModal />
+      <AnalyticsConsent />
     </div>
   );
 }

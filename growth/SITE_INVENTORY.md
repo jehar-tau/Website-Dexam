@@ -55,7 +55,7 @@ Unknown routes redirect to `/` in React. `public/404.html` implements a GitHub P
 - The client marks a lead captured and unlocks papers before confirming that the Google Sheet submission succeeded. Submission errors are discarded. This means a displayed conversion is not proof of a successfully stored enquiry.
 - Paper links are Google Drive file IDs compiled into site data.
 - Unlock state and browser-local CMS data use `localStorage`.
-- No GA4, Google Tag Manager or other analytics tag was found in `index.html` during the initial audit.
+- No analytics code is present in the initial HTML. A consent-gated GA4 loader has been prepared in `src/analytics.js`; it only injects the Google tag after the visitor opts in. Measurement ID: `G-ZC3W71HWLF`. The integration is pending review and deployment.
 - No `robots.txt` or `sitemap.xml` exists in the repository.
 
 ## Metadata and rendering observations

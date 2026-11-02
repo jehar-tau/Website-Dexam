@@ -23,6 +23,7 @@ import {
 import Quiz from "./pages/Quiz.jsx";
 import Privacy from "./pages/Privacy.jsx";
 import Terms from "./pages/Terms.jsx";
+import AnalyticsConsent from "./components/AnalyticsConsent.jsx";
 import { CmsProvider } from "./cms.jsx";
 import {
   DesignCollegeDirectory,
@@ -33,7 +34,13 @@ import {
 
 export default function App() {
   const { pathname } = useLocation();
-  if (pathname.replace(/\/$/, "") === "/quiz") return <Quiz />;
+  if (pathname.replace(/\/$/, "") === "/quiz")
+    return (
+      <>
+        <Quiz />
+        <AnalyticsConsent />
+      </>
+    );
   return (
     <CmsProvider>
       <LeadProvider>

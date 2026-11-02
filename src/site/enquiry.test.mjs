@@ -98,5 +98,27 @@ test("measurement and attribution exclude contact details", () => {
   assert.equal(measurement.phone, undefined);
   assert.equal(measurement.guidance, undefined);
   assert.equal(measurement.exam, "uceed");
+  assert.equal(measurement.targetYear, "2028");
+  assert.equal(measurement.utmTerm, undefined);
   assert.equal(measurement.utmSource, "google");
+});
+
+test("analytics enquiry labels reject email and phone-like campaign values", () => {
+  const measurement = enquiryMeasurement(
+    { ...emptyEnquiry, exam: "nid", programme: "end-to-end" },
+    {
+      utmSource: "owner@example.com",
+      utmMedium: "9000000000",
+      utmCampaign: "march2027_nid",
+      utmContent: "faculty-video",
+      utmTerm: "search phrase containing private words",
+    },
+  );
+  assert.deepEqual(measurement, {
+    exam: "nid",
+    targetYear: "",
+    programme: "end-to-end",
+    utmCampaign: "march2027_nid",
+    utmContent: "faculty-video",
+  });
 });

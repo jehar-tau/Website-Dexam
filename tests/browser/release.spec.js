@@ -347,6 +347,9 @@ test("paid campaign context is preserved without contact data in analytics", asy
   let payload;
   await page.addInitScript(() => {
     window.dataLayer = [];
+    window.addEventListener("dexam:submit_enquiry", event => {
+      window.lastEnquiryMeasurement = event.detail;
+    });
   });
   await page.route("https://script.google.com/**", async route => {
     payload = JSON.parse(route.request().postData());
@@ -369,15 +372,65 @@ test("paid campaign context is preserved without contact data in analytics", asy
   expect(payload.role).toBe("parent");
   expect(payload.exam).toBe("uceed");
   expect(payload.utmSource).toBe("google");
-  const measured = await page.evaluate(() => window.dataLayer.at(-1));
+  const measured = await page.evaluate(() => window.lastEnquiryMeasurement);
   expect(measured).toMatchObject({
-    event: "submit_enquiry",
-    audience: "parent",
     exam: "uceed",
     programme: "end-to-end",
     utmSource: "google",
   });
+  expect(measured.audience).toBeUndefined();
+  expect(measured.utmTerm).toBeUndefined();
   expect(measured.name).toBeUndefined();
   expect(measured.phone).toBeUndefined();
   expect(measured.guidance).toBeUndefined();
+  expect(await page.evaluate(() => window.dataLayer)).toEqual([]);
+});
+
+test("Google Analytics loads only after an explicit analytics choice", async ({ page }) => {
+  await page.addInitScript(() => localStorage.clear());
+  await page.route("https://www.googletagmanager.com/gtag/js?id=*", route =>
+    route.fulfill({ status: 200, contentType: "application/javascript", body: "" }),
+  );
+  await page.goto("/");
+  await expect(page.getByRole("button", { name: "Reject optional analytics" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Allow analytics" })).toBeVisible();
+  await expect(page.locator('script[data-dexam-ga="G-ZC3W71HWLF"]')).toHaveCount(0);
+  await page.getByRole("button", { name: "Reject optional analytics" }).click();
+  await expect(page.locator('script[data-dexam-ga="G-ZC3W71HWLF"]')).toHaveCount(0);
+  expect(await page.evaluate(() => localStorage.getItem("dexam-analytics-consent-v1"))).toBe("rejected");
+  await page.getByRole("button", { name: "Cookie settings" }).click();
+  await page.getByRole("button", { name: "Allow analytics" }).click();
+  await expect(page.locator('script[data-dexam-ga="G-ZC3W71HWLF"]')).toHaveCount(1);
+  expect(await page.evaluate(() => localStorage.getItem("dexam-analytics-consent-v1"))).toBe("accepted");
+});
+
+test("consented counselling conversion sends only allow-listed context", async ({ page }) => {
+  await page.addInitScript(() => localStorage.clear());
+  await page.route("https://www.googletagmanager.com/gtag/js?id=*", route =>
+    route.fulfill({ status: 200, contentType: "application/javascript", body: "" }),
+  );
+  await page.route("https://script.google.com/**", route =>
+    route.fulfill({ status: 200, body: "ok" }),
+  );
+  await page.goto("/contact/?exam=uceed&programme=test-series");
+  await page.getByRole("button", { name: "Allow analytics" }).click();
+  await completeCounsellingForm(page, {
+    exam: "uceed",
+    programme: "test-series",
+    targetYear: "2027",
+  });
+  await page.getByRole("button", { name: "Start the conversation" }).click();
+  await expect(page.getByText("is on its way.")).toBeVisible();
+  const measured = await page.evaluate(() => {
+    for (const item of window.dataLayer || []) {
+      const args = Array.from(item || []);
+      if (args[0] === "event" && args[1] === "generate_lead") return args[2];
+    }
+    return null;
+  });
+  expect(measured).toEqual({
+    exam: "uceed",
+    programme: "test-series",
+    target_year: "2027",
+  });
 });
