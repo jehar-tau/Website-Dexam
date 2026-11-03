@@ -2,7 +2,7 @@
   padding: 20px 24px;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: #f0f2e5;
+  background: var(--surface-soft, #f0f2e5);
   margin-bottom: 28px;
 }
 .dea-guide-review > span {
@@ -71,7 +71,7 @@
 .dea-guide-tools select {
   border: 1px solid var(--line);
   border-radius: 6px;
-  background: #fffef9;
+  background: var(--surface, #fffef9);
   color: var(--ink);
   padding: 12px 14px;
   min-height: 46px;
@@ -97,7 +97,7 @@
 .dea-guide-filter button,
 .dea-guide-empty button {
   border: 1px solid var(--line);
-  background: #fffef9;
+  background: var(--surface, #fffef9);
   color: var(--ink);
   border-radius: 6px;
   min-height: 44px;
@@ -128,7 +128,7 @@
 .dea-degree-card {
   border: 1px solid var(--line);
   border-radius: 11px;
-  background: #fffef9;
+  background: var(--surface, #fffef9);
   padding: 26px;
   min-width: 0;
 }
@@ -149,7 +149,7 @@
 .dea-guide-tag,
 .dea-guide-tags > span {
   display: inline-block;
-  background: #f0f2e5;
+  background: var(--surface-soft, #f0f2e5);
   color: var(--green-dark);
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -268,7 +268,7 @@
   width: 100%;
   min-width: 720px;
   text-align: left;
-  background: #fffef9;
+  background: var(--surface, #fffef9);
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -276,7 +276,7 @@
   padding: 18px;
   text-align: left;
   color: var(--muted);
-  background: #f0f2e5;
+  background: var(--surface-soft, #f0f2e5);
 }
 .dea-guide-table th,
 .dea-guide-table td {
@@ -299,7 +299,7 @@
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 25px;
-  background: #f4f5e9;
+  background: var(--surface-soft, #f4f5e9);
   text-decoration: none;
 }
 .dea-guide-link-grid .dea-art {
@@ -405,7 +405,7 @@
   border: 1px solid var(--line);
   border-radius: 10px;
   padding: 24px;
-  background: #fffef9;
+  background: var(--surface, #fffef9);
 }
 .dea-exam-route-grid h3 {
   font-size: 1.5625rem;

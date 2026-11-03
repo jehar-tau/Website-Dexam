@@ -9,6 +9,7 @@ import {
   VERSION,
 } from "../assessment/model.mjs";
 import "../assessment/lab.css";
+import ThemeToggle from "../components/ThemeToggle.jsx";
 
 const STORAGE = `dexam-${VERSION}`;
 const DetailedReport = import.meta.env.DEV
@@ -342,6 +343,7 @@ function Landing({ answers, onStart, onLibrary }) {
       <header className="lab-top">
         <Brand />
         <span className="lab-top-label">THE DESIGN INSTINCT TEST</span>
+        <ThemeToggle />
         <a href="/">
           Back to academy <Icon name="arrow" size={15} />
         </a>
@@ -464,6 +466,7 @@ function Report({ answers, onReturn, onRestart, onDetailed }) {
       <header className="lab-top">
         <Brand />
         <span className="lab-top-label">YOUR DESIGN PROFILE</span>
+        <ThemeToggle />
         <button className="lab-text" onClick={onReturn}>
           Back to challenges <Icon name="arrow" size={16} />
         </button>
@@ -726,6 +729,7 @@ export default function Quiz() {
               <b>Try. Adjust. Trust your eye.</b>
             </div>
             <div className="lab-header-actions">
+              <ThemeToggle />
               <span className="lab-saved">
                 <i /> Saved on this device
               </span>

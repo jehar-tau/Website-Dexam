@@ -1,0 +1,352 @@
+/* Editorial mentor posters. Only the portrait pixels are generated; every
+   credential and name remains real, responsive, selectable website text. */
+.dea-mentor-poster {
+  --poster-paper: #efe6d8;
+  --poster-ink: #162824;
+  --poster-accent: #a93f32;
+  position: relative;
+  container-type: inline-size;
+  aspect-ratio: 0.94;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--poster-paper);
+  color: var(--poster-ink);
+}
+.dea-mentor-poster-furniture {
+  position: absolute;
+  top: 1rem;
+  left: 1.125rem;
+  right: 1.125rem;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  z-index: 3;
+  font-size: 0.625rem;
+  line-height: 1.5;
+  letter-spacing: 0.09em;
+}
+.dea-mentor-poster-furniture > span:last-child {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: right;
+}
+.dea-mentor-poster-furniture i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--poster-accent);
+  flex: none;
+}
+.dea-mentor-poster-name {
+  position: absolute;
+  inset: 14% 5% auto;
+  color: var(--poster-accent);
+  font-family: Figtree, system-ui, sans-serif;
+  font-size: clamp(3rem, 23cqw, 8rem);
+  line-height: 0.88;
+  letter-spacing: -0.065em;
+  text-transform: uppercase;
+  overflow-wrap: normal !important;
+}
+.dea-mentor-poster-name > span {
+  display: block;
+  font-size: 0.37em;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  margin-bottom: 0.15em;
+}
+.dea-mentor-poster-name > b {
+  font-weight: 700;
+}
+.dea-mentor-poster > img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 89%;
+  display: block;
+  object-fit: contain;
+  object-position: center bottom;
+}
+.dea-mentor-poster-field {
+  position: absolute;
+  right: 0.875rem;
+  bottom: 1rem;
+  z-index: 3;
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+}
+.poster-clay {
+  --poster-paper: #eee5d6;
+  --poster-accent: #b44335;
+}
+.poster-paper {
+  --poster-paper: #e9e0d0;
+  --poster-accent: #162824;
+}
+.poster-paper .dea-mentor-poster-name {
+  font-family: "Zilla Slab", Georgia, serif;
+  font-size: clamp(3rem, 27cqw, 9rem);
+}
+.poster-paper .dea-mentor-poster-name > b {
+  font-weight: 500;
+}
+.poster-midnight {
+  --poster-paper: #172d43;
+  --poster-ink: #faf9f3;
+  --poster-accent: #faf9f3;
+}
+.poster-midnight .dea-mentor-poster-furniture i {
+  background: #edc668;
+}
+.poster-midnight .dea-mentor-poster-name {
+  text-align: center;
+}
+.poster-grid {
+  --poster-paper: #f0f1ec;
+  --poster-accent: #244735;
+}
+.poster-grid .dea-mentor-poster-name {
+  text-align: right;
+}
+.dea-mentor-poster-lines {
+  display: none;
+}
+.poster-grid .dea-mentor-poster-lines {
+  display: block;
+  position: absolute;
+  inset: 20% 12% 9%;
+  border: 1px solid #c7cfc2;
+}
+.poster-grid .dea-mentor-poster-lines::before,
+.poster-grid .dea-mentor-poster-lines::after {
+  content: "";
+  position: absolute;
+  left: -18%;
+  right: -18%;
+  top: 52%;
+  border-top: 1px solid #c7cfc2;
+}
+.poster-grid .dea-mentor-poster-lines::after {
+  top: 83%;
+}
+
+.dea-hero-mentors {
+  min-width: 0;
+  max-width: 100%;
+  gap: 0.5rem;
+}
+.dea-mentor-hero-stage {
+  position: relative;
+  padding: 1rem 1.75rem 1.5rem;
+  min-width: 0;
+}
+.dea-mentor-paper-back {
+  position: absolute;
+  left: 10%;
+  top: 9%;
+  width: 65%;
+  height: 70%;
+  background: #edc668;
+  transform: rotate(-11deg);
+}
+.dea-mentor-hero-card {
+  --theme-focus: #244735;
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  width: min(100%, 338px);
+  padding: 7px;
+  border: 1px solid #e1dfd2;
+  background: #fffdf5;
+  color: #162824;
+  transform: rotate(3deg);
+  box-shadow: 0 10px 24px #16282412;
+}
+.dea-mentor-hero-card .dea-mentor-poster {
+  aspect-ratio: 1.02;
+}
+.dea-mentor-hero-caption {
+  padding: 1rem 0.75rem 0.5rem;
+  min-width: 0;
+}
+.dea-mentor-kicker {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  letter-spacing: 0.055em;
+  font-weight: 600;
+}
+.dea-mentor-hero-caption > .dea-mentor-kicker {
+  color: #53634f;
+}
+.academy .dea-mentor-hero-caption h2 {
+  font-size: 1.75rem;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  margin: 0.5rem 0 0;
+}
+.dea-mentor-hero-caption h2 > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 44px;
+}
+.academy .dea-mentor-hero-company {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #244735;
+  font-weight: 600;
+  margin: 0.625rem 0;
+}
+.dea-mentor-hero-company > span {
+  color: #53634f;
+  font-weight: 400;
+}
+.dea-mentor-hero-education {
+  display: grid;
+  gap: 0.25rem;
+  padding-top: 0.625rem;
+  border-top: 1px solid #dde0d4;
+  color: #53634f;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.dea-mentor-switcher {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  max-width: 380px;
+  width: 100%;
+  align-self: center;
+}
+.dea-mentor-switcher > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.5rem;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+.dea-mentor-switcher > button[aria-pressed="true"] {
+  color: var(--ink);
+  background: var(--surface-soft, #ecf0df);
+  border-color: var(--green);
+  font-weight: 600;
+}
+.dea-mentor-switcher > button > span {
+  font-size: 0.625rem;
+  line-height: 1;
+}
+
+.academy .dea-mentor-intro {
+  max-width: 650px;
+  margin: 0 0 2rem;
+}
+.academy .dea-mentor-directory {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 2rem;
+}
+.dea-mentor-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface, #fffef9);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.dea-mentor-card-copy {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.dea-mentor-card-copy > .dea-mentor-kicker {
+  color: var(--green);
+  letter-spacing: 0.035em;
+}
+.academy .dea-mentor-card-copy h3 {
+  font-size: 2rem;
+  line-height: 1.15;
+  margin: 0.75rem 0;
+}
+.academy .dea-mentor-position {
+  margin: 0 0 1.5rem;
+  line-height: 1.6;
+  max-width: none;
+}
+.dea-mentor-position > strong {
+  display: block;
+  color: var(--green);
+  font-weight: 600;
+}
+.dea-mentor-credentials {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  margin: 0 0 1.5rem;
+}
+.dea-mentor-credentials dt {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--ink);
+}
+.dea-mentor-credentials dd {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.academy .dea-mentor-bio {
+  margin: 0 0 1.25rem;
+  max-width: none;
+  line-height: 1.7;
+}
+.dea-mentor-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 44px;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  color: var(--green) !important;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+@media (max-width: 700px) {
+  .academy .dea-mentor-directory {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .dea-mentor-card-copy {
+    padding: 1.25rem;
+  }
+  .dea-mentor-hero-stage {
+    padding: 1rem;
+  }
+  .dea-mentor-hero-card {
+    transform: none;
+  }
+}

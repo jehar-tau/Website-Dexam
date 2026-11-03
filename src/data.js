@@ -189,26 +189,7 @@ export const placements = [
 
 export const graduateCompanies = ['Google', 'Apple', 'Microsoft', 'Amazon', 'Samsung', 'Titan']
 
-export const mentors = [
-  {
-    slotId: 'mentor-1',
-    photo: 'https://www.designexam.com/_assets/v11/63914875c3e56c487b908d4cd75a0d1ce1156d37.png',
-    name: 'Snehalkumar Shinde', creds: 'NID Alumni · Industrial Design',
-    bio: 'Teaches drawing, design aptitude and studio-test thinking the way NID actually evaluates it.',
-  },
-  {
-    slotId: 'mentor-2',
-    photo: 'https://www.designexam.com/_assets/v11/967be8908f534b477d4e6f503246f7238f79c4d9.png',
-    name: 'Swapna Yelluru', creds: 'NID Alumni · Industrial Design',
-    bio: 'Guides observation, visual thinking and portfolio development with personal feedback.',
-  },
-  {
-    slotId: 'mentor-3',
-    photo: 'https://www.designexam.com/_assets/v11/f6f528c174b8d1f129e69033fd73fcbfae817a04.png',
-    name: 'Siddhant Modi', creds: 'NID & JJ School of Arts Alumni · Information Design',
-    bio: 'Trains visual communication, composition and exam strategy across NID, UCEED and NIFT.',
-  },
-]
+export { mentors } from "./site/mentor-data.js";
 
 export const whyPoints = [
   { num: '01', title: 'Exam-first curriculum', text: 'Every module maps to what NID, UCEED, NIFT, NATA and CEED actually test — observation, creativity, aptitude and communication.' },

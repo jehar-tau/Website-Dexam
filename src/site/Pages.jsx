@@ -21,7 +21,8 @@ import {
   articles,
   faqs,
 } from "./content.js";
-import { mentors, examPapers, driveDownloadUrl } from "../data.js";
+import { examPapers, driveDownloadUrl } from "../data.js";
+import { MentorDirectory } from "./Mentors.jsx";
 import { useLead } from "../lead-context.jsx";
 import { waLink } from "../config.js";
 import { submitToGoogleSheet } from "../cms.jsx";
@@ -990,7 +991,7 @@ export function About() {
           </div>
         </div>
       </section>
-      <section className="dea-wrap dea-section">
+      <section id="mentors" className="dea-wrap dea-section">
         <SectionTitle
           eyebrow="THE PEOPLE IN YOUR CORNER"
           title={
@@ -1001,24 +1002,7 @@ export function About() {
             </>
           }
         />
-        <div className="dea-mentor-grid">
-          {mentors.map((m, i) => (
-            <article key={m.name}>
-              <div className={`dea-mentor-visual mentor-${i}`}>
-                <Art kind={["product", "portfolio", "poster"][i]} />
-                <span>
-                  {m.name
-                    .split(" ")
-                    .map((s) => s[0])
-                    .join("")}
-                </span>
-              </div>
-              <h3>{m.name}</h3>
-              <small>{m.creds}</small>
-              <p>{m.bio}</p>
-            </article>
-          ))}
-        </div>
+        <MentorDirectory />
       </section>
       <section className="dea-wrap dea-section">
         <SectionTitle

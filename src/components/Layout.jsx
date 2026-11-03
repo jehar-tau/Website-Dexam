@@ -8,6 +8,7 @@ import { Icon } from "../site/Art.jsx";
 import { PageMeta } from "../site/components.jsx";
 import { metadataFor } from "../site/routes.js";
 import { exams, site } from "../site/content.js";
+import ThemeToggle from "./ThemeToggle.jsx";
 import "../site/academy.css";
 
 export default function Layout({ children }) {
@@ -64,22 +65,25 @@ export default function Layout({ children }) {
               ACADEMY
             </i>
           </Link>
-          <button
-            ref={menuToggle}
-            className="dea-menu-toggle"
-            aria-label={menu ? "Close navigation" : "Open navigation"}
-            aria-expanded={menu}
-            aria-controls="academy-navigation"
-            onClick={() => setMenu(!menu)}
-          >
-            {menu ? (
-              <Icon name="close" />
-            ) : (
-              <span>
-                Menu <i>☰</i>
-              </span>
-            )}
-          </button>
+          <div className="dea-header-tools">
+            <ThemeToggle />
+            <button
+              ref={menuToggle}
+              className="dea-menu-toggle"
+              aria-label={menu ? "Close navigation" : "Open navigation"}
+              aria-expanded={menu}
+              aria-controls="academy-navigation"
+              onClick={() => setMenu(!menu)}
+            >
+              {menu ? (
+                <Icon name="close" />
+              ) : (
+                <span>
+                  Menu <i>☰</i>
+                </span>
+              )}
+            </button>
+          </div>
           <nav
             className={`dea-nav ${menu ? "is-open" : ""}`}
             id="academy-navigation"

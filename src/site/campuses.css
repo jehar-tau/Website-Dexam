@@ -21,7 +21,7 @@
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: #fffdf7;
+  background: var(--surface, #fffdf7);
 }
 .dea-campus-scene {
   position: relative;

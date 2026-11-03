@@ -25,9 +25,10 @@ for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/");
     await page.evaluate(() => document.fonts.ready);
-    const tabs = await page.locator(".dea-art-tabs").boundingBox();
-    for (const selector of [".dea-collage-main", ".dea-collage-note"]) {
-      const art = await page.locator(selector).boundingBox();
+    for (const name of ["Show Snehalkumar Shinde", "Show Siddhant Modi", "Show Vinod Kumar", "Show Prajna Nayak"]) {
+      await page.getByRole("button", { name, exact: true }).click();
+      const tabs = await page.locator(".dea-mentor-switcher").boundingBox();
+      const art = await page.locator(".dea-mentor-hero-card").boundingBox();
       expect(tabs.y).toBeGreaterThanOrEqual(art.y + art.height);
     }
     await page.goto("/courses/");
@@ -36,6 +37,31 @@ for (const width of [320, 390, 768, 1440]) {
       const art = await card.locator(".dea-art").boundingBox();
       const caption = await card.locator(":scope > span").boundingBox();
       expect(caption.y).toBeGreaterThan(art.y + art.height);
+    }
+  });
+}
+
+for (const colorScheme of ["light", "dark"]) {
+  test(`mentor portraits load, switch by keyboard and link to each profile in ${colorScheme} mode`, async ({ page }) => {
+    await page.emulateMedia({ colorScheme });
+    for (const [id, name] of [
+      ["snehalkumar-shinde", "Snehalkumar Shinde"],
+      ["siddhant-modi", "Siddhant Modi"],
+      ["vinod-kumar", "Vinod Kumar"],
+      ["prajna-nayak", "Prajna Nayak"],
+    ]) {
+      await page.goto("/");
+      const control = page.getByRole("button", { name: `Show ${name}`, exact: true });
+      await control.focus();
+      await page.keyboard.press("Enter");
+      await expect(control).toBeFocused();
+      await expect(control).toHaveAttribute("aria-pressed", "true");
+      const portrait = page.getByRole("img", { name: `Editorial portrait of ${name}.`, exact: true });
+      await expect(portrait).toBeVisible();
+      await expect(portrait).toHaveJSProperty("naturalWidth", 1024);
+      await page.locator(".dea-mentor-hero-caption").getByRole("link", { name, exact: true }).click();
+      await expect(page).toHaveURL(new RegExp(`/about#mentor-${id}$`));
+      await expect(page.locator(`#mentor-${id}`)).toBeInViewport();
     }
   });
 }

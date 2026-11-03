@@ -3,6 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#faf9f3" />
+    <script>
+      // Apply the preference before the first paint, including pre-rendered pages.
+      (function () {
+        var theme;
+        try { theme = localStorage.getItem('dexam-theme'); } catch (error) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#12251f' : '#faf9f3';
+      }());
+    </script>
     <title>DEXAM — Design Exam Academy | NID, UCEED, NIFT, NATA & CEED Coaching in Pune</title>
     <meta name="description" content="DEXAM prepares students in Pune for India's top design and architecture entrance exams — NID DAT, UCEED, NIFT, NATA and CEED. Free previous year papers, counselling and expert mentorship." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
