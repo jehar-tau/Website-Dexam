@@ -32,7 +32,7 @@ Use semantic tokens in app components, not literal color values. Brand primitive
 
 Orange and yellow are not default body-text colors. Orange with white small text is not an approved action treatment. Use green with paper text, or ink on a pale accent. Status colors retain distinct success, warning, error, info, and exam-review meanings, accompanied by text or shape.
 
-Dark mode is deep forest with paper text, lime actions, and the same orange/yellow artwork. It uses the same semantic token names; do not invert images or printed exam questions. The website remains light unless dark mode is separately requested.
+Dark mode is deep forest with paper text, lime actions, and the same orange/yellow artwork. It uses the same semantic token names; do not invert images or printed exam questions. The owner requested website dark mode on 2 November 2026. The website follows the device preference until the visitor chooses light or dark using the header switch; the choice is stored locally. Keep assessment canvases and A4 report previews in their original print colours so the theme cannot change a visual assessment.
 
 ## Typography
 
@@ -80,6 +80,7 @@ Original code-native SVG, rather than generic stock icons or copied reference ar
 - Art scales with a viewBox, has no external requests, and remains clear at phone sizes.
 - Decorative SVG uses `aria-hidden` and does not intercept input. Meaningful interactive diagrams require labels, keyboard equivalents, and instructions.
 - Keep printed exam content on its original white surface. Brand illustrations never modify question imagery or imply an answer.
+- Owner-approved teacher photos may use paper cutouts or the editorial seated-portrait posters requested on 2 November 2026. Preserve faces, natural skin tone and image colours in both themes. Keep names and verified credentials as real text; follow `docs/TEACHER_PORTRAITS.md` and `docs/MENTOR_PROFILE_SOURCES.md`. Continue using original SVG for design illustrations.
 
 References such as Brilliant, Kern Type, and Bézier games inform learning through action. Do not copy their code, logos, artwork, question content, or distinctive branded assets.
 
@@ -92,6 +93,8 @@ Short, concrete, and inviting. “Choose an exam.” “Continue practice.” �
 Website:
 
 - `src/site/academy.css`: approved website tokens and layouts.
+- `src/site/theme.css`: dark semantic surfaces, controls, and artwork/assessment exceptions. Light declarations retain their original colour as the fallback.
+- `src/components/ThemeToggle.jsx` and the early script in `index.html`: shared preference, keyboard-accessible switch, and first-paint theme. Keep their storage key and preference rules in sync.
 - `src/site/Art.jsx` and `src/assessment/Graphics.jsx`: original visual language.
 - `src/site/components.jsx`: shared public patterns.
 - `DESIGN_SYSTEM.md`: this versioned contract.

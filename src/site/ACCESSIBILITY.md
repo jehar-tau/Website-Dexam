@@ -37,7 +37,23 @@ The owner's subsequent visual review found that the larger type had disrupted co
 
 Existing release and admissions checks still cover cards, expanded programme sources, curriculum disclosures, form validation and delivery states, and responsive navigation. Re-run the production build, `check:site`, assessment model tests and browser suite when these patterns change. Inspect actual desktop/mobile rendering as well as test output.
 
+## Dark mode
+
+The owner requested the website's dark theme on 2 November 2026. The header switch has a persistent accessible name, checked state, keyboard activation and a 44px target. It follows the device colour preference until the visitor makes a choice, then remembers that choice across pages, reloads and open tabs. The early head script applies the preference before the pre-rendered page is painted.
+
+Use `src/site/theme.css` for the deep forest surfaces, paper text, lime actions and contrasting focus rings. Preserve paper artwork, photographs, the assessment's scored workspace and A4 report preview colours. Do not apply inversion filters to images or diagrams. Existing light surface colours remain as semantic-token fallbacks.
+
+`tests/browser/theme.spec.js` adds 84 checks: all 37 public routes in dark mode at desktop and 320px; device/manual preference, direct-entry first paint, unavailable preference storage and cross-tab sync; header reflow at 200% text; expanded sources and the paper form; and all 30 assessment workspaces plus the result screen. The complete 286-check browser suite, production build, site checks and eight assessment model tests passed for the local dark-mode implementation. Desktop homepage/programme cards and phone navigation/assessment entrance were also visually reviewed.
+
 The audit does not establish complete WCAG conformance. Screen-reader usability with VoiceOver/NVDA, representative disabled-user testing, and equivalent alternatives for inherently visual assessment tasks remain manual review work. Automated checks do not assess the validity or accessibility of a design aptitude assessment for every disability. Public paid report delivery remains outside this release.
+
+## Four-mentor poster update
+
+The subsequent owner-requested mentor gallery keeps decorative poster typography separate from readable names, roles and qualifications. The homepage has four manually selected, keyboard-accessible mentor buttons with pressed state and a live caption; it does not auto-rotate. Portrait colours stay fixed in both themes. Full cards link to the supplied professional profiles, and the directory reflows into one column on phones.
+
+After this update, the production build, site checks and eight assessment model tests passed. All six browser files passed: 188 accessibility, theme, mentor and visual-layout checks plus 104 release/admissions checks, for 292 total. Visual review covered both gallery rows on desktop, the mobile card at 390px, and the homepage selector/caption at 320px. Temporary viewport overrides were reset. These are local-preview results; this mentor update has not been published.
+
+On 3 November, the owner requested smaller heads while retaining all four seated poses. The four image references now use the second seated assets, with no layout or interaction changes. The build, site checks, eight assessment model tests and 16 targeted mentor/visual-layout browser checks passed again; both desktop gallery rows and a 390px card were visually reviewed. The earlier 292-check run remains historical evidence for the broader implementation, rather than a repeated full-suite claim for this image-only revision.
 
 ## Reference
 

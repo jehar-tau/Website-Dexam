@@ -1,0 +1,240 @@
+/* Discovery 1.0: one visual language, two reading environments. */
+:root {
+  color-scheme: light;
+  --theme-page: #faf9f3;
+  --theme-ink: #162824;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --theme-page: #12251f;
+  --theme-ink: #f4f3e8;
+  --surface: #1a3027;
+  --surface-soft: #223a2e;
+  --surface-warm: #372f25;
+  --surface-rose: #362c2e;
+  --surface-cool: #223833;
+  --surface-border: #415649;
+  --header-surface: #12251ff7;
+  --theme-muted: #bdc9b7;
+  --theme-emphasis: #c8dea8;
+  --theme-action: #dceba1;
+  --theme-action-hover: #eaf7b9;
+  --theme-on-action: #162824;
+  --theme-focus: #edc668;
+}
+body {
+  background: var(--theme-page);
+}
+
+.dea-header-inner {
+  gap: 1rem;
+}
+.dea-nav {
+  order: 1;
+  gap: 0.875rem;
+}
+.dea-header-tools {
+  order: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.dea-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  flex: none;
+  border: 1px solid var(--line, #dde0d4);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--theme-ink);
+  cursor: pointer;
+}
+.dea-theme-toggle:hover {
+  background: var(--surface-soft, #ecf0df);
+}
+.dea-theme-toggle:focus-visible {
+  outline: 3px solid var(--theme-focus, #244735);
+  outline-offset: 4px;
+}
+.dea-theme-toggle > svg {
+  width: 21px;
+  height: 21px;
+  flex: none;
+}
+.dea-theme-toggle .dea-theme-sun,
+[data-theme="dark"] .dea-theme-toggle .dea-theme-moon {
+  display: none;
+}
+[data-theme="dark"] .dea-theme-toggle .dea-theme-sun {
+  display: block;
+}
+@container academy-header (width < 76rem) {
+  .dea-header-tools {
+    margin-left: auto;
+  }
+  .academy .dea-nav {
+    gap: 0;
+  }
+}
+@media (max-width: 480px) {
+  .academy .dea-header .dea-brand > i {
+    display: none;
+  }
+}
+
+[data-theme="dark"] .academy {
+  --ink: var(--theme-ink);
+  --cream: var(--theme-page);
+  --green: var(--theme-emphasis);
+  --green-dark: var(--theme-emphasis);
+  --muted: var(--theme-muted);
+  --gray: var(--theme-muted);
+  --slate: var(--theme-muted);
+  --line: #415649;
+  --line-soft: #30483a;
+}
+[data-theme="dark"] .academy :is(a, button, summary, input, select, textarea):focus-visible,
+[data-theme="dark"] .design-lab :is(a, button, input, select, textarea):focus-visible,
+[data-theme="dark"] .lab-task-title h1:focus-visible {
+  outline-color: var(--theme-focus);
+}
+[data-theme="dark"] .academy :is(.dea-button, .dea-nav-cta, .dea-skip),
+[data-theme="dark"] .academy :is(.dea-filter-tabs > button.active, .dea-guide-filter button[aria-pressed="true"]),
+[data-theme="dark"] .academy .btn:is(.btn--orange, .btn--green, .btn--ink) {
+  background: var(--theme-action);
+  border-color: var(--theme-action);
+  color: var(--theme-on-action) !important;
+}
+[data-theme="dark"] .academy :is(.dea-button, .dea-nav-cta):hover,
+[data-theme="dark"] .academy .btn:is(.btn--orange, .btn--green, .btn--ink):hover {
+  background: var(--theme-action-hover);
+}
+[data-theme="dark"] .academy .dea-button-light {
+  background: var(--surface);
+  border-color: var(--line);
+  color: var(--ink) !important;
+}
+[data-theme="dark"] .dea-footer-word,
+[data-theme="dark"] .dea-breadcrumbs i {
+  color: var(--theme-muted);
+}
+[data-theme="dark"] .dea-classroom-proof {
+  background: #1c382c;
+  color: #f4f3e8;
+}
+[data-theme="dark"] .academy .dark-band {
+  background: #1c382c;
+}
+[data-theme="dark"] .academy .dark-band p {
+  color: var(--theme-muted) !important;
+}
+[data-theme="dark"] .dea-classroom-proof__gallery figcaption {
+  color: #f4f3e8;
+}
+
+/* Paper objects keep their ink. No image filters or changed artwork colours. */
+[data-theme="dark"] :is(.dea-collage-main, .dea-discovery-card > div, .dea-programme-art, .dea-mentor-visual) {
+  --ink: #162824;
+  --green: #386451;
+  --muted: #53634f;
+  color: #162824;
+}
+[data-theme="dark"] :is(.dea-discovery-card > div > i, .dea-mentor-visual > span) {
+  background: #faf9f3;
+}
+[data-theme="dark"] :is(.dea-page-hero-art, .dea-exam-card, .dea-discipline-strip, .dea-studio-band, .dea-additional, .dea-guide-callout, .dea-cta-drawing) .dea-art {
+  background: #e8ecd3;
+  border-radius: 10px;
+}
+
+/* Assessment chrome adapts; the scored workspace is a stable light island. */
+[data-theme="dark"] .design-lab {
+  --lab-paper: var(--theme-page);
+  --lab-ink: var(--theme-ink);
+  --lab-green: var(--theme-emphasis);
+  --lab-muted: var(--theme-muted);
+  --lab-line: #415649;
+}
+[data-theme="dark"] .lab-experiment {
+  color-scheme: light;
+  --lab-paper: #faf9f3;
+  --lab-ink: #162824;
+  --lab-green: #386451;
+  --lab-muted: #53634f;
+  --lab-line: #dde0d4;
+  color: var(--lab-ink);
+}
+[data-theme="dark"] .lab-experiment :is(a, button, input, select, textarea):focus-visible {
+  outline-color: #244735;
+}
+/* The detailed preview represents an A4 document and keeps its print palette. */
+.design-lab .dr-report {
+  color-scheme: light;
+  --lab-paper: #faf9f3;
+  --lab-ink: #162824;
+  --lab-green: #386451;
+  --lab-muted: #53634f;
+  --lab-line: #dde0d4;
+}
+[data-theme="dark"] :is(.lab-floating-note, .lab-rail, .lab-help-note, .lab-library, .lab-library-card, .lab-findings > article, .lab-report-bars > div > i) {
+  background: var(--surface-soft);
+}
+[data-theme="dark"] .lab-findings > article:last-child {
+  background: var(--surface-warm);
+}
+[data-theme="dark"] .lab-library-card,
+[data-theme="dark"] .lab-chapter {
+  border-color: var(--surface-border);
+}
+[data-theme="dark"] .lab-library-art {
+  background: #edf0e2;
+  --lab-green: #386451;
+  --lab-ink: #162824;
+}
+[data-theme="dark"] .lab-thumb-type {
+  --lab-green: #386451;
+}
+[data-theme="dark"] .lab-floating-note b {
+  color: var(--lab-ink);
+}
+[data-theme="dark"] .design-lab :is(.lab-button, .lab-chapter-dots > button.current) {
+  background: var(--theme-action);
+  border-color: var(--theme-action);
+  color: var(--theme-on-action) !important;
+}
+[data-theme="dark"] .design-lab .lab-button:hover {
+  background: var(--theme-action-hover);
+}
+[data-theme="dark"] .lab-chapter-dots > button:not(.current) {
+  background: var(--surface);
+  color: var(--theme-muted);
+}
+[data-theme="dark"] .lab-report-paid {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+}
+[data-theme="dark"] .lab-document-art {
+  color: #386451;
+}
+[data-theme="dark"] .lab-report-paid > small {
+  color: var(--theme-muted);
+}
+.lab-top > .dea-theme-toggle {
+  margin-left: auto;
+}
+.design-lab .lab-header-actions > .dea-theme-toggle {
+  color: var(--theme-ink);
+}
+
+@media print {
+  .dea-theme-toggle {
+    display: none !important;
+  }
+}
