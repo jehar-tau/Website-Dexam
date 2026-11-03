@@ -135,6 +135,17 @@ body {
 [data-theme="dark"] .academy .dark-band p {
   color: var(--theme-muted) !important;
 }
+[data-theme="dark"] .dea-analytics-consent {
+  --ink: var(--theme-ink);
+  --cream: var(--surface);
+  --green-dark: var(--theme-emphasis);
+  --line: var(--surface-border);
+}
+[data-theme="dark"] .dea-analytics-consent__actions button {
+  background: var(--theme-action);
+  border-color: var(--theme-action);
+  color: var(--theme-on-action);
+}
 [data-theme="dark"] .dea-classroom-proof__gallery figcaption {
   color: #f4f3e8;
 }

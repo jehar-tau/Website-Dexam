@@ -16,7 +16,7 @@ Use only owner-approved source photos and verified names. Do not invent credenti
 
 The owner confirmed the seated portraits should remain and identified oversized heads as the cause of the shortened appearance. The active second seated versions use a targeted built-in image edit to reduce head size, aiming for approximately 15–18%, while retaining the face, expression, skin colour, seated pose, body, clothing and seat. No CSS stretch or image-wide scaling is used. Framing and card dimensions remain the same. The original seated images are retained for comparison in the task workspace; unused image options remain outside website assets.
 
-Masters are `<mentor-id>-seated-v2.png`, with exact prompts in `generation-prompts-seated-v2.md` in the task workspace's portrait output directory. Website assets are encoded with `cwebp -q 88 -alpha_q 100 -m 6`. These remain local preview changes pending owner review.
+Masters are `<mentor-id>-seated-v2.png`, with exact prompts in `generation-prompts-seated-v2.md` in the task workspace's portrait output directory. Website assets are encoded with `cwebp -q 88 -alpha_q 100 -m 6`. The owner authorized publication on 4 November 2026; see [release validation](releases/2026-11-04-dark-mode-mentors.md).
 
 Verification for this image-only revision: all four 1024 × 1536 WebP assets retain transparent alpha; the production build, site checks, eight assessment model tests and 16 existing mentor/visual-layout browser checks passed. Both gallery rows were visually reviewed at normal desktop width, and a seated card was reviewed at 390px. The viewport override was reset. Existing credentials, controls, card styling and assessment behaviour were not changed.
 

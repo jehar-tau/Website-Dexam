@@ -55,6 +55,8 @@ After this update, the production build, site checks and eight assessment model 
 
 On 3 November, the owner requested smaller heads while retaining all four seated poses. The four image references now use the second seated assets, with no layout or interaction changes. The build, site checks, eight assessment model tests and 16 targeted mentor/visual-layout browser checks passed again; both desktop gallery rows and a 390px card were visually reviewed. The earlier 292-check run remains historical evidence for the broader implementation, rather than a repeated full-suite claim for this image-only revision.
 
+The owner authorized publication on 4 November. Integration with the newer main-branch analytics changes exposed low-contrast consent copy in dark mode. The consent panel now uses the dark semantic surface, text, link and action colours, with a focused phone theme-switching regression check. The combined release passed all 295 browser checks, 17 site unit checks and 11 assessment/analytics unit checks, plus build, content checks and dependency audit (zero reported vulnerabilities). See [release validation](../../docs/releases/2026-11-04-dark-mode-mentors.md).
+
 ## Reference
 
 - [WCAG 2.2 — Resize Text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html)

@@ -140,3 +140,22 @@ test("paper-request dialog and expanded discipline sources remain readable in da
     expect(results.violations.map(v => ({ id: v.id, targets: v.nodes.map(n => n.target) }))).toEqual([]);
   }
 });
+
+test("fresh analytics preferences remain readable when switching themes on a phone", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  const preferences = page.getByRole("region", { name: "Analytics preferences" });
+  await expect(preferences).toBeVisible();
+  for (const theme of ["light", "dark"]) {
+    if (theme === "dark") await toggle(page).click();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
+    const results = await new AxeBuilder({ page })
+      .include(".dea-analytics-consent")
+      .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
+      .analyze();
+    expect(results.violations.map(v => ({ id: v.id, targets: v.nodes.map(n => n.target) }))).toEqual([]);
+  }
+  await preferences.getByRole("button", { name: "Reject optional analytics", exact: true }).click();
+  await expect(preferences).not.toBeVisible();
+});
