@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { publicPaths } from "../src/site/routes.js";
 
 const files = {
   tasks: new URL("../growth/TASKS.csv", import.meta.url),
   search: new URL("../growth/SEARCH_VISIBILITY_BASELINE.csv", import.meta.url),
+  keywords: new URL("../growth/KEYWORD_MAP.csv", import.meta.url),
   ai: new URL("../growth/AI_SEARCH_PROMPTS.csv", import.meta.url),
   baseline: new URL("../growth/COMPETITIVE_BASELINE.md", import.meta.url),
   progress: new URL("../growth/PROGRESS.md", import.meta.url),
@@ -79,6 +81,20 @@ const searchHeaders = [
   "first_8_web_domains",
   "notes",
 ];
+const keywordHeaders = [
+  "keyword",
+  "intent",
+  "exam",
+  "geo",
+  "target_url",
+  "existing_url",
+  "source",
+  "volume_if_verified",
+  "difficulty_if_verified",
+  "priority",
+  "owner",
+  "status",
+];
 const aiHeaders = [
   "prompt_id",
   "prompt",
@@ -96,11 +112,12 @@ const aiHeaders = [
   "notes",
 ];
 
-const [taskText, searchText, aiText, baselineText, progressText] = await Promise.all(
+const [taskText, searchText, keywordText, aiText, baselineText, progressText] = await Promise.all(
   Object.values(files).map((url) => readFile(url, "utf8")),
 );
 const tasks = parseCsv(taskText, taskHeaders, "task ledger");
 const search = parseCsv(searchText, searchHeaders, "search baseline");
+const keywords = parseCsv(keywordText, keywordHeaders, "keyword map");
 const ai = parseCsv(aiText, aiHeaders, "AI prompt baseline");
 
 assert.ok(tasks.some(({ id }) => id === "T05"), "T05 is tracked");
@@ -112,6 +129,24 @@ for (const row of search) {
   assert.ok(["yes", "no", "n/a"].includes(row.dexam_local_pack), `Local result state: ${row.query}`);
   assert.ok(["yes", "no"].includes(row.dexam_first_8_web), `Web result state: ${row.query}`);
   assert.ok(row.first_8_web_domains.includes("."), `Observed result domains: ${row.query}`);
+}
+
+assert.ok(keywords.length >= 14, "Keyword map includes the dated initial query sample");
+assert.equal(
+  new Set(keywords.map(({ keyword }) => keyword)).size,
+  keywords.length,
+  "Keyword map entries are unique",
+);
+const publicPathSet = new Set(publicPaths);
+for (const row of keywords) {
+  assert.ok(row.intent, `Keyword intent: ${row.keyword}`);
+  assert.ok(row.source, `Keyword evidence source: ${row.keyword}`);
+  assert.ok(["P0", "P1", "P2"].includes(row.priority), `Keyword priority: ${row.keyword}`);
+  assert.ok(
+    publicPathSet.has(new URL(row.target_url).pathname.replace(/\/$/, "") || "/"),
+    `Keyword target is a current public route: ${row.keyword}`,
+  );
+  assert.equal(row.existing_url, row.target_url, `No speculative new URL: ${row.keyword}`);
 }
 
 assert.ok(ai.length >= 12 && ai.length <= 20, "AI prompt suite stays between 12 and 20 prompts");
