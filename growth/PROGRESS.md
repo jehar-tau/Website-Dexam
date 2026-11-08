@@ -159,3 +159,15 @@
 **Production verification:** On `https://designexam.com`, the tag was absent before a choice and remained absent after rejecting analytics. After an adult opt-in, the page loaded the GA4 script and sent a `page_view` request for `G-ZC3W71HWLF` (HTTP 204, analytics consent granted). GA4 Realtime then showed one active user, one homepage view and the `page_view` event. No counselling form was submitted during the test. The production conversion path is covered by the browser suite with only allow-listed exam, programme and target-year parameters.
 
 **Next:** Connect Search Console access for the verified Google account. The owner still needs to define valid/qualified lead and follow-up outcomes before T04 funnel reporting can be completed.
+
+### 2026-11-04 — T02/T03: Search Console access verified; initial intent map started
+
+**Observed:** The owner-authorized `designexam.com` Domain property is accessible under the signed-in verified-owner account. Its sitemap was read successfully and reports 37 discovered pages. The Web performance report currently shows only initial low-volume data; the sitewide Pages report is still processing. The optional generative-AI report is present in Search Console but has only an initial impression and does not support trend conclusions.
+
+**Measurement blocker:** Attempted the GA4–Search Console product link twice, selecting the verified domain property and the existing DesignExam Website stream. Google returned “Internal error. Please try again later” both times. The GA4 links table still reports no link. This is an observed Google UI failure; access permissions are present and no integration was created.
+
+**Action:** Added the first 14-query map from the existing dated manual search sample and mapped it to current canonical pages. Verified volumes and difficulty remain blank. Search Console query-level values and report details are recorded only in the ignored `growth/private/SEARCH_CONSOLE_2026-11-04.md`; no private metrics were copied to the dashboard or the tracked public ledger.
+
+**Status:** T02 remains in progress pending completion of the broader baseline, mature indexing data and retry of the failed Google product link. T03 remains in progress: the initial 14-query map is not the planned 30–50-query coverage, and the low-volume Search Console sample is not enough to prioritize demand. T04 still needs the owner's qualification and follow-up definitions.
+
+**Next:** Validate the map against live canonical routes and repository contracts; recheck the Search Console Pages report when processing completes; continue high-intent local-page and original resource audits without inferring search volume.

@@ -1,0 +1,15 @@
+keyword,intent,exam,geo,target_url,existing_url,source,volume_if_verified,difficulty_if_verified,priority,owner,status
+"design entrance coaching Pune",local_commercial,all,Pune,https://designexam.com/design-coaching-pune/,https://designexam.com/design-coaching-pune/,growth/SEARCH_VISIBILITY_BASELINE.csv,,,P0,Codex,mapped
+"NID coaching Pune",local_commercial,NID,Pune,https://designexam.com/design-coaching-pune/,https://designexam.com/design-coaching-pune/,growth/SEARCH_VISIBILITY_BASELINE.csv,,,P0,Codex,mapped
+"UCEED coaching Pune",local_commercial,UCEED,Pune,https://designexam.com/design-coaching-pune/,https://designexam.com/design-coaching-pune/,growth/SEARCH_VISIBILITY_BASELINE.csv,,,P0,Codex,mapped
+"design coaching Hadapsar",hyperlocal_commercial,all,Hadapsar,https://designexam.com/design-coaching-pune/,https://designexam.com/design-coaching-pune/,growth/SEARCH_VISIBILITY_BASELINE.csv,,,P1,Codex,review_location_copy
+"design coaching Amanora Pune",hyperlocal_commercial,all,Amanora Park Town Pune,https://designexam.com/design-coaching-pune/,https://designexam.com/design-coaching-pune/,growth/SEARCH_VISIBILITY_BASELINE.csv,,,P0,Codex,mapped
+"NIFT entrance coaching Pune",local_commercial,NIFT,Pune,https://designexam.com/design-coaching-pune/,https://designexam.com/design-coaching-pune/,growth/SEARCH_VISIBILITY_BASELINE.csv,,,P0,Codex,mapped
+"NID DAT previous year papers",resource_navigational,NID,India,https://designexam.com/papers/nid/,https://designexam.com/papers/nid/,growth/SEARCH_VISIBILITY_BASELINE.csv,,,P1,Codex,mapped
+"UCEED previous year papers solutions",resource_navigational,UCEED,India,https://designexam.com/papers/uceed/,https://designexam.com/papers/uceed/,growth/SEARCH_VISIBILITY_BASELINE.csv,,,P1,Codex,mapped
+"NID DAT mock test",practice_transactional,NID,India,https://designexam.com/mock-tests/,https://designexam.com/mock-tests/,growth/SEARCH_VISIBILITY_BASELINE.csv,,,P1,Codex,review_offer_scope
+"UCEED mock test",practice_transactional,UCEED,India,https://designexam.com/mock-tests/,https://designexam.com/mock-tests/,growth/SEARCH_VISIBILITY_BASELINE.csv,,,P1,Codex,review_offer_scope
+"CEED previous year papers",resource_navigational,CEED,India,https://designexam.com/papers/ceed/,https://designexam.com/papers/ceed/,growth/SEARCH_VISIBILITY_BASELINE.csv,,,P1,Codex,mapped
+"NATA coaching Pune",local_commercial,NATA,Pune,https://designexam.com/design-coaching-pune/,https://designexam.com/design-coaching-pune/,growth/SEARCH_VISIBILITY_BASELINE.csv,,,P0,Codex,mapped
+"all India NID mock test series",practice_transactional,NID,India,https://designexam.com/mock-tests/,https://designexam.com/mock-tests/,growth/SEARCH_VISIBILITY_BASELINE.csv,,,P1,Codex,review_offer_scope
+"design portfolio guidance Pune",portfolio_commercial,portfolio,Pune,https://designexam.com/courses/,https://designexam.com/courses/,growth/SEARCH_VISIBILITY_BASELINE.csv,,,P2,Codex,review_audience_scope
