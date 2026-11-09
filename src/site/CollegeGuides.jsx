@@ -485,6 +485,12 @@ export function ArchitectureColleges({ pune = false }) {
               architecture uses JEE Advanced plus AAT; the NIT/SPA route uses
               JEE Main Paper 2A and the applicable counselling process.
             </p>
+            <p>
+              If you’re applying through JEE Main, choose Paper 2A for B.Arch.
+              It covers mathematics, aptitude and drawing. Paper 2B is for
+              B.Planning. Check the NTA bulletin for dates and instructions.
+            </p>
+            <OfficialSource id="jeeMain" />
             <OfficialSource id="coa" />
             <OfficialSource id="aat" />
             <OfficialSource id="josaa" />
