@@ -171,3 +171,7 @@
 **Status:** T02 remains in progress pending completion of the broader baseline, mature indexing data and retry of the failed Google product link. T03 remains in progress: the initial 14-query map is not the planned 30–50-query coverage, and the low-volume Search Console sample is not enough to prioritize demand. T04 still needs the owner's qualification and follow-up definitions.
 
 **Next:** Validate the map against live canonical routes and repository contracts; recheck the Search Console Pages report when processing completes; continue high-intent local-page and original resource audits without inferring search volume.
+
+### 2026-11-09 — Weekly website maintenance
+
+Production route, asset, robots, sitemap, redirect and dependency checks passed. Reviewed the first week of Search Console Web data; it is too sparse for page prioritisation. Updated the two architecture guides to explain JEE Main Papers 2A and 2B and link to the official NTA registration and bulletin. See [maintenance record](maintenance/2026-11-09.md) for sources and scope.

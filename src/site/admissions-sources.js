@@ -131,6 +131,10 @@ export const admissionsSources = {
     name: "NATA 2026 brochure · current verified edition",
     url: "https://coa.gov.in/showfile.php?lang=1&level=1&lid=1503&sublinkid=1624",
   },
+  jeeMain: {
+    name: "NTA · JEE Main registration and information bulletin",
+    url: "https://jeemain.nta.nic.in/",
+  },
   josaa: {
     name: "JoSAA · admission and counselling",
     url: "https://josaa.nic.in/josaa/",
