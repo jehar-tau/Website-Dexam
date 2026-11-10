@@ -950,6 +950,58 @@ export function About() {
           <ArrowLink to="/contact">Plan a studio visit</ArrowLink>
         </div>
       </section>
+      <section className="dea-location-proof">
+        <div className="dea-wrap">
+          <div className="dea-location-proof__intro">
+            <Eyebrow>VISIT OUR PUNE STUDIO</Eyebrow>
+            <h2>
+              Find the place
+              <br />
+              <em>where we practise.</em>
+            </h2>
+            <p>
+              See the DEXAM entrance and the building signage at Amanora Park
+              Town, Pune. Get in touch to plan a studio visit.
+            </p>
+            <ArrowLink to="/contact">Plan a studio visit</ArrowLink>
+          </div>
+          <div className="dea-location-proof__gallery">
+            <figure>
+              <img
+                src="/assets/studio/dexam-entrance-retouched.webp"
+                width="1086"
+                height="1448"
+                loading="lazy"
+                decoding="async"
+                alt="DEXAM entrance door and academy sign at the Pune studio"
+              />
+              <figcaption>Studio entrance · Pune</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="/assets/studio/dexam-building-signage.webp"
+                width="2400"
+                height="1800"
+                loading="lazy"
+                decoding="async"
+                alt="DEXAM design entrance preparation sign on the building exterior"
+              />
+              <figcaption>Building signage · Amanora Park Town</figcaption>
+            </figure>
+            <figure className="dea-location-proof__wide">
+              <img
+                src="/assets/studio/dexam-building-exterior.webp"
+                width="2400"
+                height="1800"
+                loading="lazy"
+                decoding="async"
+                alt="The building exterior with DEXAM signage in Pune"
+              />
+              <figcaption>Building exterior · Pune</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
       <section className="dea-classroom-proof">
         <div className="dea-wrap">
           <div className="dea-classroom-proof__intro">
