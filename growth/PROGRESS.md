@@ -175,3 +175,13 @@
 ### 2026-11-09 — Weekly website maintenance
 
 Production route, asset, robots, sitemap, redirect and dependency checks passed. Reviewed the first week of Search Console Web data; it is too sparse for page prioritisation. Updated the two architecture guides to explain JEE Main Papers 2A and 2B and link to the official NTA registration and bulletin. See [maintenance record](maintenance/2026-11-09.md) for sources and scope.
+
+### 2026-11-14 — T31: Make the existing studio directions link explicit
+
+**Observed:** The live contact-page component already links the published studio address to the existing Google Maps search URL. The Google Business Profile still needs owner confirmation of its configured hours, service areas and exact marker; no map pin or profile change was made.
+
+**Action:** Clarified the contact-page link as “Get directions on Google Maps” and added a browser regression check for its destination, new-tab behavior and relationship to the published studio address.
+
+**Verification:** Production build, static site/content checks, 19 assessment tests and all 296 Playwright browser tests passed. This change is prepared for review and has not been deployed.
+
+**Next:** Review the focused pull request. Before changing the Business Profile, confirm that its listed daily hours and service area are accurate and that its marker points to the institute entrance.

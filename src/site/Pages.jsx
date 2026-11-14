@@ -1535,7 +1535,7 @@ export function Contact() {
               <dd>
                 {site.address}
                 <a href={site.maps} target="_blank" rel="noreferrer">
-                  Open directions <Icon name="arrow" size={15} />
+                  Get directions on Google Maps <Icon name="arrow" size={15} />
                 </a>
               </dd>
             </div>
