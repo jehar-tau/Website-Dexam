@@ -96,6 +96,18 @@ test("programme choices carry through to the enquiry without publishing fees", a
   }
 });
 
+test("contact page clearly labels its Google Maps directions link", async ({ page }) => {
+  await page.goto("/contact/");
+  const directions = page.getByRole("link", { name: /Get directions on Google Maps/ });
+  await expect(directions).toBeVisible();
+  await expect(directions).toHaveAttribute(
+    "href",
+    "https://www.google.com/maps/search/?api=1&query=Design+Exam+Academy+Amanora+Pune",
+  );
+  await expect(directions).toHaveAttribute("target", "_blank");
+  await expect(directions).toHaveAttribute("rel", "noreferrer");
+});
+
 for (const width of [1440, 390]) {
   test(`curriculum opens by keyboard and preserves self-study labels at ${width}px`, async ({
     page,
