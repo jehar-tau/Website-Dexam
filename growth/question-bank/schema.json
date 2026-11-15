@@ -5,7 +5,7 @@
   "description": "Editorial record for a question or answer. Publication requires verified provenance, rights and faculty review.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["exam", "year", "topic", "difficulty", "question_type", "source_class", "license_status", "publish_state"],
+  "required": ["exam", "year", "topic", "difficulty", "question_type", "source_class", "source_url", "license_status", "publish_state"],
   "properties": {
     "exam": { "type": "string", "minLength": 1 },
     "year": { "type": ["integer", "null"], "minimum": 2000, "maximum": 2100 },
@@ -39,7 +39,7 @@
   "allOf": [
     {
       "if": { "properties": { "publish_state": { "enum": ["approved", "published"] } }, "required": ["publish_state"] },
-      "then": { "required": ["question", "answer", "explanation", "source_url", "reviewed_by", "reviewed_at"] }
+      "then": { "required": ["question", "answer", "explanation", "reviewed_by", "reviewed_at"] }
     }
   ]
 }

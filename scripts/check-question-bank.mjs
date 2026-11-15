@@ -33,7 +33,7 @@ export function validateQuestion(item) {
   if (['approved', 'published'].includes(item.publish_state)) {
     for (const key of ['question', 'answer', 'explanation', 'reviewed_by']) if (typeof item[key] !== 'string' || !item[key].trim()) errors.push(`${key} is required before approval/publication`);
     if (!/^\d{4}-\d{2}-\d{2}$/.test(item.reviewed_at ?? '') || Number.isNaN(Date.parse(`${item.reviewed_at}T00:00:00Z`))) errors.push('reviewed_at must be an ISO date');
-    if (!item.source_url) errors.push('source_url is required before approval/publication');
+    if (!Object.hasOwn(item, 'source_url')) errors.push('source_url field is required before approval/publication (use null for original material without an external source)');
     if (!['original', 'licensed'].includes(item.license_status)) errors.push('rights must be original or licensed before approval/publication');
     if (['official', 'memory-based'].includes(item.source_class) && !item.source_url) errors.push(`${item.source_class} items require a source URL`);
     if (item.source_class === 'memory-based' && item.answer_uncertain !== true) errors.push('memory-based answers must be explicitly marked uncertain');
