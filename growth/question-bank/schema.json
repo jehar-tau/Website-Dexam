@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://designexam.com/schemas/question-bank-item.schema.json",
+  "title": "DEXAM Question Bank Item",
+  "description": "Editorial record for a question or answer. Publication requires verified provenance, rights and faculty review.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["exam", "year", "topic", "difficulty", "question_type", "source_class", "license_status", "publish_state"],
+  "properties": {
+    "exam": { "type": "string", "minLength": 1 },
+    "year": { "type": ["integer", "null"], "minimum": 2000, "maximum": 2100 },
+    "topic": { "type": "string", "minLength": 1 },
+    "difficulty": { "enum": ["easy", "medium", "hard", "unknown"] },
+    "question_type": { "type": "string", "minLength": 1 },
+    "source_class": { "enum": ["official", "original", "memory-based", "unknown"] },
+    "source_url": { "type": ["string", "null"], "format": "uri" },
+    "license_status": { "enum": ["pending", "original", "licensed", "not-cleared"] },
+    "question": { "type": ["string", "null"] },
+    "answer": { "type": ["string", "null"] },
+    "explanation": { "type": ["string", "null"] },
+    "answer_uncertain": { "type": ["boolean", "null"] },
+    "reviewed_by": { "type": ["string", "null"] },
+    "reviewed_at": { "type": ["string", "null"], "format": "date" },
+    "media_alt": { "type": ["string", "null"] },
+    "media_assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "rights"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "rights": { "enum": ["original", "licensed"] }
+        }
+      }
+    },
+    "publish_state": { "enum": ["draft", "review", "approved", "published", "withdrawn"] }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "publish_state": { "enum": ["approved", "published"] } }, "required": ["publish_state"] },
+      "then": { "required": ["question", "answer", "explanation", "source_url", "reviewed_by", "reviewed_at"] }
+    }
+  ]
+}

@@ -28,6 +28,16 @@
 
 ## Next three tasks
 
+### 2026-11-15 — T15: Question-bank editorial workflow prepared
+
+**Action:** Added a strict JSON record schema, a fail-closed validator, synthetic tests and editor guidance for question-bank records. Approval/publication requires a named faculty reviewer, review date, explanation, source and cleared original/licensed rights. Memory-based answer records must explicitly mark uncertainty; media records require accessible alternative text. Unknown fields are rejected to prevent accidental personal data from entering the content store.
+
+**Verification:** The records directory is empty; no exam questions or answers were created. The validator tests use synthetic fixtures only. This workflow does not expose content through a public route and does not alter the website's published content.
+
+**Status:** T15 is in progress. Rights to republish past-paper questions/figures and faculty approval for actual answers are still required. No content is ready to publish.
+
+**Next:** Run the focused validator tests and full website checks, then request code review for the tooling. Prepare actual items only after source rights and faculty review are established.
+
 1. Complete T00 local build verification and checkpoint documentation.
 2. Prepare the T01 Pages restoration change/release for owner approval without deploying it.
 3. Start T02's private baseline folder and missing-data register; import owner-provided Search Console, GA4, GBP, Instagram and ads exports without altering originals.
