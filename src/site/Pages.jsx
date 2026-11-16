@@ -30,6 +30,7 @@ import { CampusPathways } from "./CampusPathways.jsx";
 import {
   campaignAttribution,
   emitEnquirySuccess,
+  emptyEnquiry,
   enquiryMeasurement,
   enquiryOptions,
   initialEnquiry,
@@ -1464,9 +1465,13 @@ function SelectField({ name, label, value, onChange, options, error }) {
 
 export function Contact() {
   const [params] = useSearchParams(),
-    [form, setForm] = useState(() => initialEnquiry(params)),
+    [enquiry, setForm] = useState(null),
     [errors, setErrors] = useState({}),
     [status, setStatus] = useState("idle");
+  const form = enquiry ?? emptyEnquiry;
+  useEffect(() => {
+    setForm((current) => current ?? initialEnquiry(params));
+  }, [params]);
   const programme = programmes.find((p) => p.id === form.programme);
   const submit = async (ev) => {
     ev.preventDefault();
@@ -1495,7 +1500,10 @@ export function Contact() {
   const set = (key) => (ev) => {
     const value =
       ev.target.type === "checkbox" ? ev.target.checked : ev.target.value;
-    setForm((current) => ({ ...current, [key]: value }));
+    setForm((current) => ({
+      ...(current ?? initialEnquiry(params)),
+      [key]: value,
+    }));
     setErrors((current) => ({ ...current, [key]: undefined }));
     if (status === "error") setStatus("idle");
   };

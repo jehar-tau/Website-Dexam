@@ -13,21 +13,25 @@ const LeadContext = createContext(null);
 export const useLead = () => useContext(LeadContext);
 
 const STORAGE_KEY = "dexam-lead-v1";
+const emptyAccess = { leadCaptured: false, unlockedKeys: {} };
 
 function loadStored() {
   try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    return {
+      leadCaptured: !!stored?.leadCaptured,
+      unlockedKeys: stored?.unlockedKeys || {},
+    };
   } catch {
-    return {};
+    return emptyAccess;
   }
 }
 
 const emptyFields = { name: "", phone: "", location: "" };
 
 export function LeadProvider({ children }) {
-  const stored = loadStored();
-  const [leadCaptured, setLeadCaptured] = useState(!!stored.leadCaptured);
-  const [unlockedKeys, setUnlockedKeys] = useState(stored.unlockedKeys || {});
+  const [access, setAccess] = useState(null);
+  const { leadCaptured, unlockedKeys } = access ?? emptyAccess;
   const [modalPaper, setModalPaper] = useState(null); // { examId, paper } | null; paper is null for the bare "get papers" form
   const [formDone, setFormDone] = useState(false);
   const [downloaded, setDownloaded] = useState(false);
@@ -37,11 +41,17 @@ export function LeadProvider({ children }) {
   const [submissionError, setSubmissionError] = useState("");
 
   useEffect(() => {
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify({ leadCaptured, unlockedKeys }),
-    );
-  }, [leadCaptured, unlockedKeys]);
+    setAccess(loadStored());
+  }, []);
+
+  useEffect(() => {
+    if (access === null) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(access));
+    } catch {
+      // The current page can still offer the download without browser storage.
+    }
+  }, [access]);
 
   const isUnlocked = (paperId) =>
     !!unlockedKeys[paperId] || (config.unlockAll && leadCaptured);
@@ -101,9 +111,14 @@ export function LeadProvider({ children }) {
       });
       if (!result.configured) throw new Error("Not configured");
       setFormDone(true);
-      setLeadCaptured(true);
-      if (modalPaper?.paper)
-        setUnlockedKeys((k) => ({ ...k, [modalPaper.paper.id]: true }));
+      const paper = modalPaper?.paper;
+      setAccess((current) => {
+        const unlockedKeys = (current ?? emptyAccess).unlockedKeys;
+        return {
+          leadCaptured: true,
+          unlockedKeys: paper ? { ...unlockedKeys, [paper.id]: true } : unlockedKeys,
+        };
+      });
     } catch {
       setSubmissionError(
         "We couldn’t send your request. Please retry, or contact us on WhatsApp. Your details are still here.",

@@ -344,6 +344,8 @@ test("autofilled contact details alone cannot create a counselling lead", async 
 });
 
 test("paid campaign context is preserved without contact data in analytics", async ({ page }) => {
+  const errors = [];
+  page.on("pageerror", (error) => errors.push(error.message));
   let payload;
   await page.addInitScript(() => {
     window.dataLayer = [];
@@ -361,6 +363,7 @@ test("paid campaign context is preserved without contact data in analytics", asy
   await expect(page.getByLabel("Who is completing this form?")).toHaveValue("parent");
   await expect(page.getByLabel("Primary exam interest")).toHaveValue("uceed");
   await expect(page.getByLabel("What are you considering?")).toHaveValue("end-to-end");
+  expect(errors).toEqual([]);
   await completeCounsellingForm(page, {
     role: "parent",
     exam: "uceed",
@@ -384,6 +387,23 @@ test("paid campaign context is preserved without contact data in analytics", asy
   expect(measured.phone).toBeUndefined();
   expect(measured.guidance).toBeUndefined();
   expect(await page.evaluate(() => window.dataLayer)).toEqual([]);
+});
+
+test("saved paper access and privacy choice survive direct entry without hydration errors", async ({ page }) => {
+  const errors = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.addInitScript(() => {
+    localStorage.setItem("dexam-analytics-consent-v1", "rejected");
+    localStorage.setItem("dexam-lead-v1", JSON.stringify({
+      leadCaptured: true,
+      unlockedKeys: {},
+    }));
+  });
+  await page.goto("/papers/uceed/");
+  await expect(page.getByRole("button", { name: "Download" }).first()).toBeVisible();
+  await expect(page.getByRole("button", { name: "Reject optional analytics" })).toHaveCount(0);
+  await expect(page.locator('script[data-dexam-ga]')).toHaveCount(0);
+  expect(errors).toEqual([]);
 });
 
 test("Google Analytics loads only after an explicit analytics choice", async ({ page }) => {

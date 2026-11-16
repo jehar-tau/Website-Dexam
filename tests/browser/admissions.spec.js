@@ -98,11 +98,20 @@ test("score filter preserves conditions and historical intake labels", async ({
   page,
 }) => {
   await page.goto("/design-colleges/uceed-nid/");
-  await expect(page.locator(".dea-score-grid article")).toHaveCount(8);
+  await expect(page.locator(".dea-score-grid article")).toHaveCount(9);
   await page.getByRole("button", { name: "NID DAT", exact: true }).click();
-  await expect(page.locator(".dea-score-grid article")).toHaveCount(6);
+  await expect(page.locator(".dea-score-grid article")).toHaveCount(7);
   await expect(page.locator(".dea-score-grid")).not.toContainText("MITAOE");
   await expect(page.locator(".dea-score-grid")).toContainText("drawing test");
+  await expect(page.locator(".dea-score-grid")).toContainText(
+    "DAT Mains scores for select seats",
+  );
+  const bits = page
+    .locator(".dea-score-grid article")
+    .filter({ hasText: "BITS Design School" });
+  await expect(bits).toContainText("NID DAT Prelims");
+  await page.getByRole("button", { name: "UCEED", exact: true }).click();
+  await expect(bits).toBeVisible();
   await page.locator(".dea-guide-reference summary").click();
   await expect(page.locator(".dea-guide-reference")).toContainText(
     "UCEED 2026",
