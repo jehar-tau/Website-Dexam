@@ -17,10 +17,13 @@ function readConsent() {
 }
 
 export default function AnalyticsConsent() {
-  const [consent, setConsent] = useState(readConsent);
-  const [open, setOpen] = useState(() => readConsent() === null);
+  const [consent, setConsent] = useState();
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    const savedConsent = readConsent();
+    setConsent(savedConsent);
+    setOpen(savedConsent === null);
     const showPreferences = () => setOpen(true);
     window.addEventListener("dexam:open-privacy-settings", showPreferences);
     return () =>
@@ -28,8 +31,9 @@ export default function AnalyticsConsent() {
   }, []);
 
   useEffect(() => {
+    if (consent === undefined) return;
     if (consent === "accepted") enableAnalytics();
-    if (consent !== "accepted") revokeAnalytics();
+    else revokeAnalytics();
   }, [consent]);
 
   useEffect(() => {

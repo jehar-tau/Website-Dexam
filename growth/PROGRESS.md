@@ -178,4 +178,4 @@ Production route, asset, robots, sitemap, redirect and dependency checks passed.
 
 ### 2026-11-16 — Weekly website maintenance
 
-Verified the 2027 BITS Design School score routes and clarified which NID DAT result CEPT uses for select seats. Production baseline smoke checks and the dependency audit passed. Search Console volume remains too low for page prioritisation. See the [maintenance record](maintenance/2026-11-16.md) for sources and scope.
+Verified the 2027 BITS Design School score routes and clarified which NID DAT result CEPT uses for select seats. Fixed hydration errors for prefilled enquiries and returning visitors with saved browser choices. The dependency audit passed. Search Console volume remains too low for page prioritisation. See the [maintenance record](maintenance/2026-11-16.md) for sources and scope.
