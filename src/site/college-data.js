@@ -122,7 +122,7 @@ export const designColleges = [
     "Ahmedabad, Gujarat",
     "Private",
     "Five-year B.Des (Hons.)",
-    "UCEED 2027 or NID DAT 2027",
+    "UCEED 2027 or NID DAT 2027 Mains for select seats",
     "cept",
     "Product, communication and multidisciplinary pathways; the university application is separate.",
   ),
@@ -245,8 +245,16 @@ export const scoreAcceptingColleges = [
     location: "Ahmedabad",
     exams: ["UCEED", "NID DAT"],
     cycle: "2027",
-    source: "cept",
-    note: "A valid score in either exam meets the entrance-test requirement for the five-year B.Des (Hons.). The CEPT application schedule is separate.",
+    source: "nid",
+    note: "CEPT accepts UCEED 2027 for its five-year B.Des (Hons.). For the NID route, CEPT accepts DAT Mains scores for select seats. Apply separately to CEPT.",
+  },
+  {
+    name: "BITS Design School",
+    location: "Thane district, Mumbai region",
+    exams: ["UCEED", "NID DAT"],
+    cycle: "2027",
+    source: "bitsAdmissions",
+    note: "BITS accepts UCEED or NID DAT Prelims scores for B.Des (Hons.). Apply directly to BITS before the score-upload window. Shortlisted applicants have a portfolio interview.",
   },
   {
     name: "MIT-WPU",
@@ -306,7 +314,6 @@ export const scoreAcceptingColleges = [
   },
 ];
 export const previousResultSharing = [
-  "BITS Design School",
   "Unitedworld Institute of Design",
   "Institute of Design, Nirma University",
   "MIT ID Indore – Avantika University",
@@ -497,7 +504,7 @@ export const degreeRoutes = [
     duration: "5 years",
     entry: "After an eligible school / diploma qualification",
     award: "B.Des (Hons.)",
-    text: "A longer undergraduate route with product, communication or multidisciplinary pathways. It is a bachelor’s award; the 2027 entrance requirement accepts UCEED or NID DAT.",
+    text: "A bachelor’s degree with product, communication or multidisciplinary pathways. CEPT accepts UCEED 2027 and uses NID DAT 2027 Mains scores for select seats.",
     source: "ceptDegree",
   },
 ];

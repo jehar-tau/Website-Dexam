@@ -195,6 +195,10 @@ export const admissionsSources = {
     name: "CEPT · B.Des (Hons.) 2027 admission notice",
     url: "https://cept.ac.in/news/2026/cept-university-bdes-admissions-2027-uceed-and-nid-dat-scores-accepted",
   },
+  bitsAdmissions: {
+    name: "BITS Design School · 2027 admissions and timeline",
+    url: "https://www.bitsdesign.edu.in/admissions/",
+  },
   ceptDegree: {
     name: "CEPT · five-year B.Des (Hons.)",
     url: "https://cept.ac.in/programs/bachelors-in-design",

@@ -175,3 +175,7 @@
 ### 2026-11-09 — Weekly website maintenance
 
 Production route, asset, robots, sitemap, redirect and dependency checks passed. Reviewed the first week of Search Console Web data; it is too sparse for page prioritisation. Updated the two architecture guides to explain JEE Main Papers 2A and 2B and link to the official NTA registration and bulletin. See [maintenance record](maintenance/2026-11-09.md) for sources and scope.
+
+### 2026-11-16 — Weekly website maintenance
+
+Verified the 2027 BITS Design School score routes and clarified which NID DAT result CEPT uses for select seats. Production baseline smoke checks and the dependency audit passed. Search Console volume remains too low for page prioritisation. See the [maintenance record](maintenance/2026-11-16.md) for sources and scope.
