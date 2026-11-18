@@ -284,11 +284,5 @@ export const guideCalendar = [
   { exam: 'CEED', stage: 'Result declared', time: 'Mar 2027' },
 ]
 
-export const testimonials = [
-  { result: 'Placeholder — NID Ahmedabad', quote: 'Add a real student quote here about how paper practice and mentor reviews changed their preparation.', name: 'Student name, batch year' },
-  { result: 'Placeholder — IIT Bombay B.Des', quote: 'Add a real student quote here about UCEED strategy and mock tests.', name: 'Student name, batch year' },
-  { result: 'Placeholder — NIFT Mumbai', quote: 'Add a real student quote here about CAT/GAT balance and the situation test.', name: 'Student name, batch year' },
-]
-
 export const howToUse = ['Solve with a timer', 'Review your drawing', 'Identify weak topics', 'Practice similar questions', 'Get mentor feedback']
   .map((text, i) => ({ num: '0' + (i + 1), text }))
