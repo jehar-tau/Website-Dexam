@@ -8,10 +8,10 @@ export default function ExamsInfo() {
       <div className="eyebrow">Exam guide · 2027 admission cycle</div>
       <h1 className="h-page">Know your exam.</h1>
       <p className="lede lede--lg" style={{ marginBottom: 8, maxWidth: 660 }}>
-        Each exam tests different things and opens different doors. Here's what matters for each, with the latest expected schedule for exams conducted in 2027.
+        Each exam tests different things and opens different doors. Here's what matters for each, with confirmed 2027 dates where official notices are available.
       </p>
       <p style={{ margin: '0 0 32px', fontSize: 12.5, color: 'var(--gray)', maxWidth: 660 }}>
-        Dates are the expected 2027-cycle schedule based on official notifications and last year's calendar (as of July 2026) — always confirm the final dates on each exam's official website.
+        Official-source check: 17 November 2026. Dates can change; follow the linked exam authority for amendments. Where the 2027 schedule is not published, we say so instead of estimating.
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
         {examData.map((ex) => (
@@ -21,6 +21,7 @@ export default function ExamsInfo() {
               <span className="pill-tag">{ex.tag}</span>
             </div>
             <p style={{ margin: '0 0 18px', fontSize: 14.5, lineHeight: 1.6, color: 'var(--muted)', maxWidth: 760 }}>{ex.intro}</p>
+            <p style={{ margin: '0 0 14px', fontSize: 12.5, lineHeight: 1.55 }}><a href={ex.sourceUrl} target="_blank" rel="noreferrer">Check the official {ex.name} notice ↗</a></p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(230px,1fr))', gap: 12, marginBottom: 18 }}>
               {[
                 ['2027 key dates', ex.cycle2027],

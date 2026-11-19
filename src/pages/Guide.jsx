@@ -113,19 +113,19 @@ export default function Guide() {
         <div className="eyebrow">Planning · 2027 admission cycle</div>
         <h2 className="h-block">When do these exams happen in 2027?</h2>
         <p style={{ margin: '0 0 20px', fontSize: 14.5, lineHeight: 1.6, color: 'var(--muted)', maxWidth: 680 }}>
-          Design and architecture exams for 2027 admission run between December 2026 and June 2027, with application forms opening as early as September 2026. Serious preparation should start before the entrance season — don't wait for board exams to finish.
+          This 2027 planning view uses official dates checked on 17 November 2026. Dates not yet published are marked clearly; exam authorities may issue amendments, so verify the linked notice before acting.
         </p>
         <div className="card" style={{ overflow: 'hidden' }}>
           {guideCalendar.map((g, i) => (
             <div key={i} style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 20px', padding: '14px 20px', borderBottom: '1px solid var(--line-soft)', alignItems: 'center' }}>
               <span style={{ flex: 'none', width: 88, fontFamily: "'Zilla Slab',serif", fontWeight: 700, fontSize: 15 }}>{g.exam}</span>
-              <span style={{ flex: '1 1 200px', minWidth: 170, fontSize: 13.5, color: 'var(--slate)' }}>{g.stage}</span>
+              <span style={{ flex: '1 1 200px', minWidth: 170, fontSize: 13.5, color: 'var(--slate)' }}><a href={g.sourceUrl} target="_blank" rel="noreferrer">{g.stage} ↗</a></span>
               <span style={{ flex: 'none', fontSize: 12.5, fontWeight: 700, color: 'var(--orange)' }}>{g.time}</span>
             </div>
           ))}
         </div>
         <p style={{ margin: '14px 0 0', fontSize: 12.5, color: 'var(--gray)' }}>
-          Dates above are the expected 2027-cycle schedule based on official notifications and last year's calendar (as of July 2026) — always confirm the final dates on each exam's official website.
+          Official pages checked 17 November 2026. A “not announced” entry means that date was not present on the linked official page at the time of review.
         </p>
       </div>
 
