@@ -14,6 +14,7 @@ test('NID dates distinguish published dates from the unannounced Mains schedule'
   assert.match(byId.nid.cycle2027, /30 Nov 2026/);
   assert.match(byId.nid.cycle2027, /20 Dec 2026/);
   assert.match(byId.nid.cycle2027, /Mains dates are to be announced/);
+  assert.ok(guideCalendar.some((item) => item.exam === 'NID DAT' && item.stage === 'DAT Prelims result scheduled' && item.time === '16 Mar 2027'));
 });
 
 test('UCEED and CEED show closed registration and their official result dates', () => {

@@ -277,6 +277,7 @@ export const guidePattern = [
 export const guideCalendar = [
   { exam: 'NID DAT', stage: 'Application deadline (NID 2027–28 page)', time: '30 Nov 2026', sourceUrl: 'https://admissions.nid.edu/NIDA2027/Default.aspx' },
   { exam: 'NID DAT', stage: 'DAT Prelims', time: '20 Dec 2026', sourceUrl: 'https://admissions.nid.edu/NIDA2027/Default.aspx' },
+  { exam: 'NID DAT', stage: 'DAT Prelims result scheduled', time: '16 Mar 2027', sourceUrl: 'https://admissions.nid.edu/NIDA2027/Default.aspx' },
   { exam: 'NID DAT', stage: 'DAT Mains schedule', time: 'To be announced', sourceUrl: 'https://admissions.nid.edu/NIDA2027/Default.aspx' },
   { exam: 'UCEED', stage: 'Registration closed (late-fee deadline)', time: '10 Nov 2026 · 5 pm', sourceUrl: 'https://www.uceed.iitb.ac.in/2027/' },
   { exam: 'UCEED', stage: 'Exam (Part A + B)', time: '17 Jan 2027', sourceUrl: 'https://www.uceed.iitb.ac.in/2027/' },
