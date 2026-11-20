@@ -184,7 +184,7 @@ Verified the 2027 BITS Design School score routes and clarified which NID DAT re
 
 **Action:** Updated the counselling form's campaign-attribution helper to omit free-form `utm_term` values and discard email- or phone-like values before they can be sent to the enquiry sheet. Analytics continues to receive only the existing allow-listed campaign labels plus exam, programme and target year; personal form fields remain excluded.
 
-**Verification:** Added a regression test covering an email-like source, phone-like campaign label, space normalization and omitted search term. Production build and `npm run check:site` passed (37 direct routes; 18 site tests). No live enquiry, Google/Meta campaign, budget, account or production configuration was changed. The fix is on a separate feature branch and is not deployed; T04 remains in progress pending owner-defined qualification outcomes and follow-up responsibility.
+**Verification:** Added a regression test covering an email-like source, phone-like campaign label, space normalization and omitted search term. Production build and `npm run check:site` passed (37 direct routes; 18 site tests); after rebasing PR #36 onto `main`, all 297 browser tests passed locally. No live enquiry, Google/Meta campaign, budget, account or production configuration was changed. PR #36 is open and not deployed; T04 remains in progress pending owner-defined qualification outcomes and follow-up responsibility.
 
 ### 2026-11-21 — T27: Exam terminology confirmed
 
