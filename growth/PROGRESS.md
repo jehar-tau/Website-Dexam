@@ -179,3 +179,15 @@ Production route, asset, robots, sitemap, redirect and dependency checks passed.
 ### 2026-11-16 — Weekly website maintenance
 
 Verified the 2027 BITS Design School score routes and clarified which NID DAT result CEPT uses for select seats. Fixed hydration errors for prefilled enquiries and returning visitors with saved browser choices. The dependency audit passed. Search Console volume remains too low for page prioritisation. See the [maintenance record](maintenance/2026-11-16.md) for sources and scope.
+
+### 2026-11-21 — T04: Campaign attribution privacy hardening prepared
+
+**Action:** Updated the counselling form's campaign-attribution helper to omit free-form `utm_term` values and discard email- or phone-like values before they can be sent to the enquiry sheet. Analytics continues to receive only the existing allow-listed campaign labels plus exam, programme and target year; personal form fields remain excluded.
+
+**Verification:** Added a regression test covering an email-like source, phone-like campaign label, space normalization and omitted search term. Production build and `npm run check:site` passed (37 direct routes; 18 site tests); after rebasing PR #36 onto `main`, all 297 browser tests passed locally. No live enquiry, Google/Meta campaign, budget, account or production configuration was changed. PR #36 is open and not deployed; T04 remains in progress pending owner-defined qualification outcomes and follow-up responsibility.
+
+### 2026-11-21 — T27: Exam terminology confirmed
+
+**Owner input:** The owner confirmed that “CEAT” means CEED, supplied `designexam.com` as the website destination, confirmed Pune classroom and India-wide online enquiries can be served, and set owner follow-up hours at 10:00–19:00 IST daily. CEED and UCEED remain distinct exams.
+
+**Remaining decisions:** The first pilot exam and offer, exact landing-page path, and pilot spend cap remain unconfirmed. No ad was created or activated and no budget was changed.

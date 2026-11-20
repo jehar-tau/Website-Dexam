@@ -122,3 +122,14 @@ test("analytics enquiry labels reject email and phone-like campaign values", () 
     utmContent: "faculty-video",
   });
 });
+
+test("sheet attribution omits free-form terms and PII-like campaign labels", () => {
+  assert.deepEqual(
+    campaignAttribution(
+      params(
+        "utm_source=parent%40example.com&utm_medium=paid-social&utm_campaign=call-9876543210&utm_content=studio+proof&utm_term=student+name+and+query",
+      ),
+    ),
+    { utmMedium: "paid-social", utmContent: "studioproof" },
+  );
+});

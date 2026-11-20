@@ -110,15 +110,20 @@ const attributionKeys = [
   ["utm_medium", "utmMedium"],
   ["utm_campaign", "utmCampaign"],
   ["utm_content", "utmContent"],
-  ["utm_term", "utmTerm"],
 ];
+
+function safeAttributionLabel(value) {
+  const raw = (value || "").trim();
+  if (!raw || /@/.test(raw) || /\+?\d[\d\s().-]{8,}\d/.test(raw)) return "";
+  return raw.slice(0, 160).replace(/[^a-zA-Z0-9._-]/g, "");
+}
 
 export function campaignAttribution(searchParams) {
   return Object.fromEntries(
     attributionKeys
       .map(([queryKey, outputKey]) => [
         outputKey,
-        (searchParams.get(queryKey) || "").trim().slice(0, 160),
+        safeAttributionLabel(searchParams.get(queryKey)),
       ])
       .filter(([, value]) => value),
   );
