@@ -188,6 +188,6 @@ Verified the 2027 BITS Design School score routes and clarified which NID DAT re
 
 ### 2026-11-21 — T27: Exam terminology confirmed
 
-**Owner input:** The owner confirmed that “CEAT” means CEED and supplied `designexam.com` as the website destination. The task ledger and paid-acquisition decisions now use CEED and no longer treat the exam-name ambiguity as a blocker.
+**Owner input:** The owner confirmed that “CEAT” means CEED, supplied `designexam.com` as the website destination, confirmed Pune classroom and India-wide online enquiries can be served, and set owner follow-up hours at 10:00–19:00 IST daily. CEED and UCEED remain distinct exams.
 
-**Remaining decisions:** The first pilot exam and offer, exact landing-page path, service geography and delivery mode, and lead follow-up owner/hours remain unconfirmed. No ad was created or activated and no budget was changed.
+**Remaining decisions:** The first pilot exam and offer, exact landing-page path, and pilot spend cap remain unconfirmed. No ad was created or activated and no budget was changed.

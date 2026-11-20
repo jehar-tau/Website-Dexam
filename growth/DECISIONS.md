@@ -34,7 +34,7 @@ Use `WebSite` and the existing `EducationalOrganization` facts on the homepage, 
 
 Google Ads and Meta Ads are explicit completion workstreams in the March 2027 plan. Preserve the paused historical campaigns as evidence and build replacement campaigns paused after landing pages, conversion tracking, qualification and follow-up operations are ready. Run the first pilots sequentially by default—Google high-intent Search before Meta—to keep the learning budget controlled.
 
-The audience objective is genuine NID, UCEED, CEED, NIFT and NATA preparation intent among students and parents, but no platform-perfect audience is promised. Use exact/phrase search intent, geographic presence, separated student/parent journeys, target exam/year, service mode, transparent programme pricing, valid contact, consent and counselling readiness. Do not include or exclude people using perceived income, neighbourhood, social class or related proxies. Scale only from CPQL and downstream counselling/enrolment evidence, never raw CPL alone.
+The audience objective is genuine NID, UCEED, CEED, NIFT and NATA preparation intent among students and parents, but no platform-perfect audience is promised. Use exact/phrase search intent, geographic presence, separated student/parent journeys, target exam/year, service mode, clear programme fit and inclusions, valid contact, consent and counselling readiness. Public fee amounts stay off the ads and landing pages; fees and enrolment terms are discussed in person. Do not include or exclude people using perceived income, neighbourhood, social class or related proxies. Scale only from CPQL and downstream counselling/enrolment evidence, never raw CPL alone.
 
 ## 1 November 2026 — Programme and admissions publication
 
@@ -44,4 +44,4 @@ The owner approved publishing the website changes, curriculum and source-backed 
 
 ## 21 November 2026 — Paid acquisition terminology and destination
 
-The owner confirmed that the earlier “CEAT” reference means CEED. Use CEED consistently in paid-search planning and campaign copy; do not treat CEAT as a separate exam. The owner supplied `designexam.com` as the website destination. This does not yet select a landing-page path, first exam/product offer, service geography or delivery mode, lead follow-up owner/hours, or pilot spend cap.
+The owner confirmed that the earlier “CEAT” reference means CEED. Keep CEED distinct from UCEED where both are relevant; do not treat CEAT as a separate exam. The owner supplied `designexam.com` as the website destination. The owner confirmed Pune classroom and India-wide online enquiries can be served, with owner follow-up daily from 10:00–19:00 IST. The landing-page path and first exam/product offer remain undecided. A pilot spend cap is a later owner approval before activation.
