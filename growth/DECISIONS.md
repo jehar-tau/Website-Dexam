@@ -41,3 +41,7 @@ The audience objective is genuine NID, UCEED, CEED, NIFT and NATA preparation in
 The owner superseded the older public two-price offer: publish three choices (end-to-end preparation; studio test and interview prep including portfolio; standalone test series). Four-year, two-year, one-year and 30-day formats sit inside end-to-end preparation. Remove public fee amounts everywhere, including counselling forms, and discuss fees in person. Preserve qualified enquiry validation, attribution, consent and confirmed-delivery behaviour; old one-year/two-year campaign links now select end-to-end preparation.
 
 The owner approved publishing the website changes, curriculum and source-backed discipline, degree-duration and college guides. Programme source editions and selection criteria are recorded in `src/site/ADMISSIONS_RESEARCH.md`. The detailed A4 learner report source is retained behind a development-only gate; paid report delivery still requires secure payment verification and entitlement. The DexAM app remains subject to its separate Claude review hold.
+
+## 21 November 2026 — Paid acquisition terminology and destination
+
+The owner confirmed that the earlier “CEAT” reference means CEED. Use CEED consistently in paid-search planning and campaign copy; do not treat CEAT as a separate exam. The owner supplied `designexam.com` as the website destination. This does not yet select a landing-page path, first exam/product offer, service geography or delivery mode, lead follow-up owner/hours, or pilot spend cap.
