@@ -428,6 +428,17 @@ export function ExamGuide() {
           <ArrowLink to="/contact">Discuss your exam path</ArrowLink>
         </div>
       </PageHero>
+      <section className="dea-wrap dea-note-panel" aria-labelledby="exam-dates-heading">
+        <Icon name="spark" size={25} />
+        <div>
+          <h2 id="exam-dates-heading">2027 admission dates.</h2>
+          <p>{exam.dateNote}</p>
+          <p>Official sources checked 23 November 2026. Dates may change; verify the authority’s latest notice before applying.</p>
+          <a href={exam.dateSource} target="_blank" rel="noreferrer" className="dea-source-link">
+            Read the official date notice
+          </a>
+        </div>
+      </section>
       <section className="dea-wrap dea-exam-route-summary">
         <h2>Programmes, durations & your next step.</h2>
         <div className="dea-exam-route-grid">

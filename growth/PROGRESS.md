@@ -179,3 +179,7 @@ Production route, asset, robots, sitemap, redirect and dependency checks passed.
 ### 2026-11-16 — Weekly website maintenance
 
 Verified the 2027 BITS Design School score routes and clarified which NID DAT result CEPT uses for select seats. Fixed hydration errors for prefilled enquiries and returning visitors with saved browser choices. The dependency audit passed. Search Console volume remains too low for page prioritisation. See the [maintenance record](maintenance/2026-11-16.md) for sources and scope.
+
+### 2026-11-23 — Weekly website maintenance
+
+Verified official NID, UCEED, CEED, NIFTEE and NATA notices and added concise date notes to the five active exam guides, including the 24 November NIFTEE regular-fee application deadline. Live routes, assets, discovery files and canonical redirects passed; all 296 browser checks and the dependency audit passed. Recent Search Console evidence remains too limited for CTR rewrites or decline claims. See the [maintenance record](maintenance/2026-11-23.md) for source links, privacy review and release scope.

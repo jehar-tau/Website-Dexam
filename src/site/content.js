@@ -60,6 +60,8 @@ export const programmes = [
 export const exams = [
   {
     id: "nid",
+    dateNote: "Applications close at 11:59 pm IST on 30 November 2026. DAT Prelims is on 20 December 2026. DAT Mains dates are to be announced. Check the current handbook for your programme.",
+    dateSource: "https://admissions.nid.edu/NIDA2027/download/BDES_IntegratedPathway_AdmissionsHandbook2027_28.pdf",
     name: "NID DAT",
     subtitle: "Think beyond the obvious.",
     degree: "Integrated / postgraduate design",
@@ -87,6 +89,8 @@ export const exams = [
   },
   {
     id: "uceed",
+    dateNote: "Registration closed on 10 November 2026 at 5 pm after the late-fee extension. UCEED 2027 is on 17 January 2027; results are scheduled for 6 March 2027.",
+    dateSource: "https://www.uceed.iitb.ac.in/2027/important-dates.html",
     name: "UCEED",
     subtitle: "See the logic in the visual.",
     degree: "Undergraduate design",
@@ -109,6 +113,8 @@ export const exams = [
   },
   {
     id: "nift",
+    dateNote: "NTA’s 14 November notice extends NIFTEE 2027 applications without late fee to 24 November 2026, applications with late fee to 29 November, and corrections to 30 November–2 December. This notice does not state an exam date; check NTA for further updates.",
+    dateSource: "https://nta.ac.in/Download/Notice/Notice_20261114165715.pdf",
     name: "NIFT",
     subtitle: "Turn a point of view into form.",
     degree: "Fashion & design",
@@ -131,6 +137,8 @@ export const exams = [
   },
   {
     id: "nata",
+    dateNote: "The official schedule page still lists 2026 dates as of this review. A 2027 application and examination schedule is not published there; do not use the 2026 sessions as a 2027 calendar.",
+    dateSource: "https://www.nata.in/schedule.html",
     name: "NATA",
     subtitle: "Imagine the space around you.",
     degree: "Architecture",
@@ -158,6 +166,8 @@ export const exams = [
   },
   {
     id: "ceed",
+    dateNote: "Registration closed on 10 November 2026 at 5 pm after the late-fee extension. CEED 2027 is on 17 January 2027; results are scheduled for 3 March 2027.",
+    dateSource: "https://www.ceed.iitb.ac.in/2027/",
     name: "CEED",
     subtitle: "Bring your thinking into focus.",
     degree: "Postgraduate design",
