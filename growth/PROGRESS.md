@@ -179,3 +179,8 @@ Production route, asset, robots, sitemap, redirect and dependency checks passed.
 ### 2026-11-16 — Weekly website maintenance
 
 Verified the 2027 BITS Design School score routes and clarified which NID DAT result CEPT uses for select seats. Fixed hydration errors for prefilled enquiries and returning visitors with saved browser choices. The dependency audit passed. Search Console volume remains too low for page prioritisation. See the [maintenance record](maintenance/2026-11-16.md) for sources and scope.
+### 2026-11-17 — T18: Official exam-date review
+
+Checked official NID, IIT Bombay UCEED/CEED, NTA NIFTEE and NATA pages for current 2027 date notices. The dated audit is in [growth/maintenance/2026-11-17.md](maintenance/2026-11-17.md). Updated the public exam overview and planning-calendar draft to use verified NID and NIFTEE extensions, current UCEED/CEED dates and results, and explicit “not announced” states for NID Mains, the NIFTEE exam schedule and NATA 2027. Direct official-source links and a 17 November review date are included.
+
+This is a prepared code change, not a live website update. Eligibility, fee and pattern claims were not reviewed in this date-only pass. T18 remains in progress until PR review and deployment are verified; continue the Friday source check.
