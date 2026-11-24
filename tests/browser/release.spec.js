@@ -287,6 +287,23 @@ test("consented classroom proof images load without exposing names", async ({ pa
   }
 });
 
+test("studio location photos load cleanly on mobile without student details", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/about/");
+  const section = page.locator(".dea-location-proof");
+  await section.scrollIntoViewIfNeeded();
+  const images = section.locator("img");
+  await expect(images).toHaveCount(3);
+  for (const img of await images.all()) {
+    await expect(img).toHaveJSProperty("complete", true);
+    expect(await img.evaluate(el => el.naturalWidth)).toBeGreaterThan(1000);
+    await expect(img).toHaveAttribute("alt", /.+/);
+    await expect(img).toHaveAttribute("src", /\.webp$/);
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  expect(await section.evaluate(el => el.getBoundingClientRect().right <= innerWidth)).toBe(true);
+});
+
 test("failed counselling delivery preserves details and offers retry", async ({ page }) => {
   let calls = 0;
   await page.route("https://script.google.com/**", (route) => {
