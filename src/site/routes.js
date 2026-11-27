@@ -123,6 +123,12 @@ export const routeMetadata = Object.fromEntries(
     ...articles.map((a) => [`/resources/${a.slug}`, a.title, a.summary]),
   ].map(([path, title, description]) => [path, { path, title, description }]),
 );
+routeMetadata["/exams/nata"] = {
+  path: "/exams/nata",
+  title: "NATA exam 2027: preparation guide & official updates",
+  description:
+    "Prepare for the NATA architecture aptitude exam with spatial ability, scale and visualisation practice. Try a sample exercise and check the official 2027 schedule.",
+};
 export const publicPaths = [...Object.keys(routeMetadata), "/quiz"];
 export function canonicalFor(path = "/") {
   const normalized = path.replace(/\/+$/, "") || "/";
