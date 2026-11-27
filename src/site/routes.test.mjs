@@ -3,6 +3,7 @@ import test from "node:test";
 import {
   breadcrumbsFor,
   canonicalFor,
+  metadataFor,
   publicPaths,
   structuredDataFor,
 } from "./routes.js";
@@ -16,6 +17,17 @@ test("homepage identifies the site and educational organization", () => {
   );
   assert.equal(data["@graph"][0].name, "DEXAM");
   assert.equal(data["@graph"][1].address.addressLocality, "Pune");
+});
+
+test("NATA search metadata matches the guide and its official date notice", () => {
+  const metadata = metadataFor("/exams/nata/");
+  assert.equal(
+    metadata.title,
+    "NATA exam 2027: preparation guide & official updates",
+  );
+  assert.match(metadata.description, /architecture aptitude exam/i);
+  assert.match(metadata.description, /spatial ability, scale and visualisation/i);
+  assert.match(metadata.description, /official 2027 schedule/i);
 });
 
 test("nested routes describe their real information hierarchy", () => {
